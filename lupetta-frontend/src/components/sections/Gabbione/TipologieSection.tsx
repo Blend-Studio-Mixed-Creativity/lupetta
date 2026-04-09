@@ -7,11 +7,13 @@ const GABBIONI = [
 export default function TipologieSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-24">
-      <div className="text-center mb-14 animate-slide-up">
-        <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Tipologie</span>
-        <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-          Tipologie di Gabbioni <span className="montserrat-italic text-[#006473]">Disponibili</span>
-        </h2>
+      <div className="flex justify-center mb-14 animate-slide-up">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-12 py-8 text-center">
+          <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Tipologie</span>
+          <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
+            Tipologie di Gabbioni <span className="montserrat-italic text-[#006473]">Disponibili</span>
+          </h2>
+        </div>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {GABBIONI.map((gab, i) => (

@@ -1,3 +1,5 @@
+import RevealSection from '../../RevealSection';
+
 const PRODOTTI = [
   {
     icon: '🥛',
@@ -24,7 +26,7 @@ export default function ProdottiSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-24">
       <div className="grid md:grid-cols-3 gap-8">
         {PRODOTTI.map((prod, i) => (
-          <div key={i} className={`bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden card-hover animate-slide-up animate-stagger-${i + 1}`}>
+          <RevealSection key={i} className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden card-hover" animation="sr-reveal-scale" delay={`sr-delay-${(i + 1) * 2}`}>
             <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-8 text-center">
               <span className="text-5xl block mb-3">{prod.icon}</span>
               <h3 className="text-2xl text-slate-900">{prod.title}</h3>
@@ -39,7 +41,7 @@ export default function ProdottiSection() {
                 ))}
               </ul>
             </div>
-          </div>
+          </RevealSection>
         ))}
       </div>
     </section>

@@ -1,21 +1,23 @@
+import heroImg from '../assets/images/latte-per-vitelli-lupetta.webp';
+
 export default function Consumabile() {
   return (
     <div className="bg-slate-50 min-h-screen overflow-hidden">
 
       {/* ═══ HERO ═══ */}
-      <section className="relative bg-gradient-to-br from-orange-950 via-amber-950 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_-20%,rgba(245,158,11,0.25),transparent)] pointer-events-none" />
+      <section className="relative text-white overflow-hidden" style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-[#006473]/80" />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-36 text-center relative z-10">
-          <span className="inline-block py-2 px-5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
+          <span className="inline-block py-2 px-5 rounded-full bg-[#62bc46]/10 border border-[#62bc46]/30 text-white text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
             Consumabile
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-8 animate-slide-up montserrat-italic">
             Approfondimento sulla<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-300">Linea Latte</span>
+            <span className="text-[#62bc46]">Linea Latte</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.
           </p>
         </div>
@@ -54,7 +56,7 @@ export default function Consumabile() {
                 <ul className="space-y-2">
                   {prod.specs.map((s, j) => (
                     <li key={j} className="flex items-center gap-2 text-sm text-slate-600">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" /> {s}
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#006473]" /> {s}
                     </li>
                   ))}
                 </ul>
@@ -69,9 +71,9 @@ export default function Consumabile() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-slide-left">
-              <span className="text-amber-600 font-bold text-sm tracking-widest uppercase">Composizione</span>
+              <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Composizione</span>
               <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-                Valori Nutrizionali e <span className="montserrat-italic text-amber-600">Composizione</span>
+                Valori Nutrizionali e <span className="montserrat-italic text-[#006473]">Composizione</span>
               </h2>
               <p className="text-lg text-slate-500 leading-relaxed mb-6">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
@@ -81,7 +83,7 @@ export default function Consumabile() {
               </p>
             </div>
             <div className="animate-slide-right">
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 border border-amber-100">
+              <div className="bg-white rounded-3xl p-8 border border-slate-100">
                 <h3 className="text-xl text-slate-900 mb-6">Tabella Nutrizionale</h3>
                 <div className="space-y-4">
                   {[
@@ -94,10 +96,10 @@ export default function Consumabile() {
                     <div key={i}>
                       <div className="flex justify-between text-sm mb-1">
                         <span className="text-slate-600">{row.label}</span>
-                        <span className="font-bold text-amber-700">{row.value}</span>
+                        <span className="font-bold text-[#006473]">{row.value}</span>
                       </div>
                       <div className="h-2 bg-white rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-amber-400 to-orange-400 rounded-full" style={{ width: row.width }} />
+                        <div className="h-full bg-[#006473] rounded-full" style={{ width: row.width }} />
                       </div>
                     </div>
                   ))}
@@ -111,9 +113,9 @@ export default function Consumabile() {
       {/* ═══ PREPARAZIONE E DOSAGGIO ═══ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center mb-14 animate-slide-up">
-          <span className="text-amber-600 font-bold text-sm tracking-widest uppercase">Dosaggio</span>
+          <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Dosaggio</span>
           <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-            Preparazione e <span className="montserrat-italic text-amber-600">Dosaggio Consigliato</span>
+            Preparazione e <span className="montserrat-italic text-[#006473]">Dosaggio Consigliato</span>
           </h2>
         </div>
 
@@ -125,7 +127,7 @@ export default function Consumabile() {
             { step: "04", title: "Somministrazione Amet", desc: "Pellentesque habitant morbi tristique." },
           ].map((item, i) => (
             <div key={i} className={`relative p-8 rounded-2xl border border-slate-100 bg-white hover:border-amber-200 hover:shadow-lg transition-all animate-slide-up animate-stagger-${i + 1} group`}>
-              <span className="text-5xl font-extrabold text-amber-100 group-hover:text-amber-200 transition-colors absolute top-4 right-6 montserrat-heading">{item.step}</span>
+              <span className="text-5xl font-extrabold text-[#006473]/30 group-hover:text-[#006473]/50 transition-colors absolute top-4 right-6 montserrat-heading">{item.step}</span>
               <div className="relative z-10 mt-6">
                 <h3 className="text-lg text-slate-900 mb-2">{item.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
@@ -139,9 +141,9 @@ export default function Consumabile() {
       <section className="bg-white border-y border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center mb-14 animate-slide-up">
-            <span className="text-amber-600 font-bold text-sm tracking-widest uppercase">Conservazione</span>
+            <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Conservazione</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-              Stoccaggio e <span className="montserrat-italic text-amber-600">Conservazione</span>
+              Stoccaggio e <span className="montserrat-italic text-[#006473]">Conservazione</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">

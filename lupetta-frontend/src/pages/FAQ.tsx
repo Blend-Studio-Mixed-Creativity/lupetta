@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import heroImg from '../assets/images/header-pagine.jpg';
 
 const faqs = [
   {
@@ -82,19 +83,19 @@ export default function FAQ() {
     <div className="bg-slate-50 min-h-screen overflow-hidden">
 
       {/* ═══ HERO ═══ */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-violet-950 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(139,92,246,0.2),transparent)] pointer-events-none" />
+      <section className="relative text-white overflow-hidden" style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-[#006473]/80" />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-36 text-center relative z-10">
-          <span className="inline-block py-2 px-5 rounded-full bg-violet-500/10 border border-violet-400/30 text-violet-300 text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
+          <span className="inline-block py-2 px-5 rounded-full bg-[#62bc46]/10 border border-[#62bc46]/40 text-[#62bc46] text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
             FAQ
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-8 animate-slide-up montserrat-italic">
-            Domande<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300">Frequenti</span>
+            Domande frequenti<br />
+            <span className="text-[#62bc46]">sull&apos;allattamento automatizzato e Lupetta</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus.
           </p>
         </div>
@@ -106,7 +107,7 @@ export default function FAQ() {
           {faqs.map((section, si) => (
             <div key={si} className={`animate-slide-up animate-stagger-${Math.min(si + 1, 6)}`}>
               <h2 className="text-2xl text-slate-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 bg-violet-100 text-violet-600 rounded-lg flex items-center justify-center text-sm font-bold montserrat-heading">{si + 1}</span>
+                <span className="w-8 h-8 bg-[#62bc46] text-white rounded-lg flex items-center justify-center text-sm font-bold montserrat-heading">{si + 1}</span>
                 {section.category}
               </h2>
               <div className="space-y-3">
@@ -142,15 +143,15 @@ export default function FAQ() {
       </section>
 
       {/* ═══ CONTATTO ═══ */}
-      <section className="bg-gradient-to-r from-violet-600 to-purple-600 py-20">
+      <section className="bg-[#006473] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white animate-scale-in">
           <h2 className="text-3xl md:text-4xl tracking-tight mb-6">
             Lorem Ipsum <span className="montserrat-italic">Non Trovato?</span>
           </h2>
-          <p className="text-violet-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est mauris placerat.
           </p>
-          <button className="px-8 py-4 bg-white text-violet-700 font-bold rounded-2xl hover:bg-violet-50 transition-all shadow-xl text-lg">
+          <button className="px-8 py-4 bg-[#62bc46] text-white font-bold rounded-2xl hover:bg-[#52a83d] transition-all shadow-xl text-lg">
             Lorem Contactus &rarr;
           </button>
         </div>

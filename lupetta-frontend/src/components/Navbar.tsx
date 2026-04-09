@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import logoImg from '../assets/images/logolupettaverdebianco.png';
 
 interface NavItem {
   label: string;
@@ -46,10 +47,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-green-700 text-2xl font-extrabold tracking-tight group-hover:text-green-600 transition-colors">
-              🐄 Lupetta
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img src={logoImg} alt="Lupetta" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -74,7 +73,8 @@ export default function Navbar() {
                     </svg>
                   </NavLink>
                   {dropdownOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-md shadow-lg py-1 z-50">
+                    <div className="absolute top-full left-0 w-52 z-50 pt-1">
+                    <div className="bg-white rounded-md shadow-lg py-1">
                       {item.children.map((child) => (
                         <NavLink
                           key={child.to}
@@ -86,6 +86,7 @@ export default function Navbar() {
                           {child.label}
                         </NavLink>
                       ))}
+                    </div>
                     </div>
                   )}
                 </div>

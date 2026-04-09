@@ -1,21 +1,23 @@
+import heroImg from '../assets/images/allevamento-lupetta.jpg';
+
 export default function Monitoraggio() {
   return (
     <div className="bg-slate-50 min-h-screen overflow-hidden">
 
       {/* ═══ HERO ═══ */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_60%_-20%,rgba(6,182,212,0.25),transparent)] pointer-events-none" />
+      <section className="relative text-white overflow-hidden" style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-[#006473]/80" />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-36 text-center relative z-10">
-          <span className="inline-block py-2 px-5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
+          <span className="inline-block py-2 px-5 rounded-full bg-[#62bc46]/10 border border-[#62bc46]/30 text-white text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
             Monitoraggio
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-8 animate-slide-up montserrat-italic">
-            Sistema di Alimentazione<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">Remota via Portale Web</span>
+            Sistema di alimentazione remota<br />
+            <span className="text-[#62bc46]">via portale web Lupetta</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.
           </p>
         </div>
@@ -43,9 +45,9 @@ export default function Monitoraggio() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slide-left">
-            <span className="text-cyan-600 font-bold text-sm tracking-widest uppercase">Profili</span>
+            <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Profili</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-              Creazione e Gestione<br /><span className="montserrat-italic text-cyan-600">Profili nel Portale</span>
+              Creazione e Gestione<br /><span className="montserrat-italic text-[#006473]">Profili</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.
@@ -63,7 +65,7 @@ export default function Monitoraggio() {
             </div>
           </div>
           <div className="animate-slide-right">
-            <div className="bg-gradient-to-br from-cyan-50 to-teal-50 rounded-3xl p-8 border border-cyan-100">
+            <div className="bg-white rounded-3xl p-8 border border-slate-100">
               <div className="space-y-4">
                 {["Lorem Ipsum #001", "Dolor Sit #002", "Amet Consectetur #003"].map((profile, i) => (
                   <div key={i} className="bg-white p-5 rounded-xl shadow-sm flex items-center justify-between">
@@ -84,9 +86,9 @@ export default function Monitoraggio() {
       <section className="bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center mb-14 animate-slide-up">
-            <span className="text-cyan-600 font-bold text-sm tracking-widest uppercase">Programmazione</span>
+            <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Programmazione</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-              Programmazione Oraria e <span className="montserrat-italic text-cyan-600">Quantità di Somministrazione</span>
+              Programmazione della <span className="montserrat-italic text-[#006473]">Somministrazione</span>
             </h2>
           </div>
 
@@ -96,7 +98,7 @@ export default function Monitoraggio() {
               { icon: "📈", title: "Gestione Quantità e Incrementi", desc: "Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est mauris placerat eleifend." },
               { icon: "🎯", title: "Limiti Massimi Personalizzabili", desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." },
             ].map((item, i) => (
-              <div key={i} className={`p-8 rounded-2xl border border-slate-100 hover:border-cyan-200 hover:shadow-lg transition-all card-hover animate-slide-up animate-stagger-${i + 1}`}>
+              <div key={i} className={`p-8 rounded-2xl border border-slate-100 hover:border-[#006473]/20 hover:shadow-lg transition-all card-hover animate-slide-up animate-stagger-${i + 1}`}>
                 <span className="text-4xl mb-4 block">{item.icon}</span>
                 <h3 className="text-xl text-slate-900 mb-3">{item.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
@@ -110,9 +112,9 @@ export default function Monitoraggio() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 animate-slide-left">
-            <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl" />
-              <h3 className="text-xl mb-6 text-cyan-400">Dashboard Live</h3>
+            <div className="bg-[#006473] rounded-3xl p-8 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#62bc46]/10 rounded-full blur-3xl" />
+              <h3 className="text-xl mb-6 text-[#62bc46]">Dashboard Live</h3>
               <div className="space-y-6 relative z-10">
                 {[
                   { label: "Lorem Consumptio", value: "4.2 L", pct: "84%" },
@@ -121,11 +123,11 @@ export default function Monitoraggio() {
                 ].map((row, i) => (
                   <div key={i}>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-slate-400">{row.label}</span>
-                      <span className="text-cyan-400 font-bold">{row.value}</span>
+                      <span className="text-white">{row.label}</span>
+                      <span className="text-[#62bc46] font-bold">{row.value}</span>
                     </div>
-                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-cyan-500 to-teal-400 rounded-full" style={{ width: row.pct }} />
+                    <div className="h-2 bg-slate-600 rounded-full overflow-hidden">
+                      <div className="h-full bg-[#62bc46] rounded-full" style={{ width: row.pct }} />
                     </div>
                   </div>
                 ))}
@@ -133,9 +135,9 @@ export default function Monitoraggio() {
             </div>
           </div>
           <div className="order-1 lg:order-2 animate-slide-right">
-            <span className="text-cyan-600 font-bold text-sm tracking-widest uppercase">Real-Time</span>
+            <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Real-Time</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-              Monitoraggio in Tempo Reale e <span className="montserrat-italic text-cyan-600">Reportistica Digitale</span>
+              Monitoraggio in Tempo Reale della <span className="montserrat-italic text-[#006473]">Somministrazione</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.
@@ -155,15 +157,15 @@ export default function Monitoraggio() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="bg-gradient-to-r from-cyan-600 to-teal-600 py-20">
+      <section className="bg-[#006473] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white animate-scale-in">
           <h2 className="text-3xl md:text-4xl tracking-tight mb-6">
             Lorem Ipsum <span className="montserrat-italic">Dolor Sit?</span>
           </h2>
-          <p className="text-cyan-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum.
           </p>
-          <button className="px-8 py-4 bg-white text-cyan-700 font-bold rounded-2xl hover:bg-cyan-50 transition-all shadow-xl text-lg">
+          <button className="px-8 py-4 bg-[#62bc46] text-white font-bold rounded-2xl hover:bg-[#52a83d] transition-all shadow-xl text-lg">
             Lorem Ipsum &rarr;
           </button>
         </div>

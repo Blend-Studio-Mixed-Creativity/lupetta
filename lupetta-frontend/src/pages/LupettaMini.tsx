@@ -1,22 +1,24 @@
+import heroImg from '../assets/images/lupetta-img.png';
+
 export default function LupettaMini() {
   return (
     <div className="bg-slate-50 min-h-screen overflow-hidden">
 
       {/* ═══ HERO ═══ */}
-      <section className="relative bg-gradient-to-br from-green-900 via-emerald-900 to-green-950 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_70%_-10%,rgba(34,197,94,0.3),transparent)] pointer-events-none" />
+      <section className="relative text-white overflow-hidden" style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center top' }}>
+        <div className="absolute inset-0 bg-[#006473]/82" />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-36 relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block py-2 px-5 rounded-full bg-green-500/10 border border-green-400/30 text-green-300 text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
+            <span className="inline-block py-2 px-5 rounded-full bg-[#62bc46]/10 border border-[#62bc46]/40 text-[#62bc46] text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
               MINI Wi-Fi
             </span>
             <h1 className="text-5xl md:text-6xl tracking-tight leading-[1.05] mb-8 animate-slide-up montserrat-italic">
-              Specifiche Tecniche<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-300">Versione MINI</span>
+              Specifiche Tecniche della<br />
+              <span className="text-[#62bc46]">Versione MINI WiFi di Lupetta</span>
             </h1>
-            <p className="text-lg text-slate-300 leading-relaxed animate-slide-up animate-stagger-2">
+            <p className="text-lg text-white/80 leading-relaxed animate-slide-up animate-stagger-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
             </p>
           </div>
@@ -27,9 +29,9 @@ export default function LupettaMini() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slide-left">
-            <span className="text-green-600 font-bold text-sm tracking-widest uppercase">Sezione 1</span>
+            <span className="text-[#62bc46] font-bold text-sm tracking-widest uppercase">Sezione 1</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-              Dimensionamento e <span className="montserrat-italic text-green-600">Capacità di Contenimento</span>
+              Dimensionamento e <span className="montserrat-italic text-[#62bc46]">Capacità di Contenimento</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
@@ -63,9 +65,9 @@ export default function LupettaMini() {
       <section className="bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center mb-14 animate-slide-up">
-            <span className="text-green-600 font-bold text-sm tracking-widest uppercase">Sezione 2</span>
+            <span className="text-[#62bc46] font-bold text-sm tracking-widest uppercase">Sezione 2</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-              Materiali e Design per <span className="montserrat-italic text-green-600">Resistenza e Igiene</span>
+              Materiali e Design <span className="montserrat-italic text-[#62bc46]">Costruttivo</span>
             </h2>
           </div>
 
@@ -77,7 +79,7 @@ export default function LupettaMini() {
             ].map((item, i) => (
               <div key={i} className={`p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-all card-hover animate-slide-up animate-stagger-${i + 1}`}>
                 <span className="text-4xl mb-4 block">{item.icon}</span>
-                <span className="text-xs font-bold text-green-600 tracking-widest uppercase">{item.subtitle}</span>
+                <span className="text-xs font-bold text-[#62bc46] tracking-widest uppercase">{item.subtitle}</span>
                 <h3 className="text-xl text-slate-900 mt-1 mb-3">{item.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
@@ -90,8 +92,8 @@ export default function LupettaMini() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 animate-slide-left">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-10 border border-green-100 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-green-200/30 rounded-full blur-3xl" />
+            <div className="bg-white rounded-3xl p-10 border border-slate-100 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#62bc46]/20 rounded-full blur-3xl" />
               <div className="space-y-5 relative z-10">
                 {[
                   { icon: "📶", label: "Lorem Wi-Fi" },
@@ -108,9 +110,9 @@ export default function LupettaMini() {
             </div>
           </div>
           <div className="order-1 lg:order-2 animate-slide-right">
-            <span className="text-green-600 font-bold text-sm tracking-widest uppercase">Sezione 3</span>
+            <span className="text-[#62bc46] font-bold text-sm tracking-widest uppercase">Sezione 3</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-              Integrazione con Sistemi di <span className="montserrat-italic text-green-600">Controllo Remoto</span>
+              Integrazione con Sistemi di <span className="montserrat-italic text-[#62bc46]">Controllo Remoto Web</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -123,12 +125,12 @@ export default function LupettaMini() {
       </section>
 
       {/* ═══ USO IDEALE ═══ */}
-      <section className="bg-green-900 text-white py-24 relative overflow-hidden">
+      <section className="bg-[#006473] text-white py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(34,197,94,0.15),transparent)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14 animate-slide-up">
             <h2 className="text-3xl md:text-4xl tracking-tight">
-              Lorem Ipsum <span className="montserrat-italic text-green-400">Dolor Sit</span>
+              Lorem Ipsum <span className="montserrat-italic text-white">Dolor Sit</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -138,7 +140,7 @@ export default function LupettaMini() {
               { title: "Dolor Initialis", desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis." },
             ].map((use, i) => (
               <div key={i} className={`glass-dark p-8 rounded-2xl animate-slide-up animate-stagger-${i + 1}`}>
-                <h3 className="text-xl mb-3 text-green-300">{use.title}</h3>
+                <h3 className="text-xl mb-3 text-white">{use.title}</h3>
                 <p className="text-slate-300 text-sm leading-relaxed">{use.desc}</p>
               </div>
             ))}

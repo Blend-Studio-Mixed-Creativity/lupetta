@@ -10,6 +10,9 @@ import Consumabile from './pages/Consumabile';
 import Benefici from './pages/Benefici';
 import CaseHistory from './pages/CaseHistory';
 import FAQ from './pages/FAQ';
+import Mission from './pages/Mission';
+import Risorse from './pages/Risorse';
+import Approfondimenti from './pages/Approfondimenti';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,9 @@ const router = createBrowserRouter([
       { path: 'benefici', element: <Benefici /> },
       { path: 'case-history', element: <CaseHistory /> },
       { path: 'faq', element: <FAQ /> },
+      { path: 'mission', element: <Mission /> },
+      { path: 'risorse', element: <Risorse /> },
+      { path: 'approfondimenti', element: <Approfondimenti /> },
     ],
   },
 ]);

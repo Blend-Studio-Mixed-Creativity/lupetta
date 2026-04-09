@@ -25,21 +25,29 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'FAQ', to: '/faq' },
 ];
 
-const activeLinkClass = 'text-green-300 font-semibold';
-const linkClass = 'text-white hover:text-green-300 transition-colors duration-200 text-sm font-medium';
+const activeLinkClass = 'text-green-700 bg-green-50 rounded-lg px-3 py-1.5 font-semibold transition-colors duration-200';
+const linkClass = 'text-slate-500 hover:text-green-700 hover:bg-slate-50 transition-colors duration-200 text-[15px] font-medium px-3 py-1.5 rounded-lg';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-green-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <div className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Menu Strip */}
+      <div className="bg-slate-900 text-white py-1 px-4 text-xs flex justify-end gap-6 sm:px-6 lg:px-8">
+        <Link to="/mission" className="hover:text-green-400 transition-colors">Mission</Link>
+        <Link to="/risorse" className="hover:text-green-400 transition-colors">Risorse</Link>
+        <Link to="/approfondimenti" className="hover:text-green-400 transition-colors">Approfondimenti</Link>
+      </div>
+
+      <nav className="bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/60 transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-white text-xl font-bold tracking-tight">
+          <Link to="/" className="flex items-center gap-2 group">
+            <span className="text-green-700 text-2xl font-extrabold tracking-tight group-hover:text-green-600 transition-colors">
               🐄 Lupetta
             </span>
           </Link>
@@ -96,7 +104,7 @@ export default function Navbar() {
             )}
             <Link
               to="/contatti"
-              className="ml-2 px-4 py-2 bg-white text-green-800 rounded-md text-sm font-semibold hover:bg-green-100 transition-colors duration-200"
+              className="ml-2 px-5 py-2.5 bg-green-600 text-white rounded-xl text-[15px] font-semibold hover:bg-green-700 shadow-sm shadow-green-600/20 transition-all duration-300"
             >
               Contattaci
             </Link>
@@ -104,7 +112,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            className="lg:hidden text-slate-500 hover:bg-slate-50 p-2 rounded-lg focus:outline-none transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Apri menu"
           >
@@ -119,18 +127,19 @@ export default function Navbar() {
             )}
           </button>
         </div>
-      </div>
+        </div>
+      </nav>
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-green-900 px-4 pb-4 space-y-1">
+        <div className="lg:hidden bg-white px-4 pb-4 space-y-1 shadow-lg border-t border-slate-100">
           {NAV_ITEMS.map((item) => (
             <div key={item.to}>
               <NavLink
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `block py-2 text-sm font-medium border-b border-green-700 ${isActive ? 'text-green-300 font-semibold' : 'text-white hover:text-green-300'}`
+                  `block py-3 text-[15px] font-medium border-b border-slate-100 ${isActive ? 'text-green-700 font-bold' : 'text-slate-600 hover:text-green-700 hover:bg-slate-50'}`
                 }
                 onClick={() => setMobileOpen(false)}
               >
@@ -141,7 +150,7 @@ export default function Navbar() {
                   key={child.to}
                   to={child.to}
                   className={({ isActive }) =>
-                    `block py-2 pl-4 text-sm border-b border-green-700 ${isActive ? 'text-green-300 font-semibold' : 'text-green-200 hover:text-white'}`
+                    `block py-3 pl-4 text-sm border-b border-slate-100 ${isActive ? 'text-green-700 font-bold' : 'text-slate-500 hover:text-green-700 hover:bg-slate-50'}`
                   }
                   onClick={() => setMobileOpen(false)}
                 >
@@ -159,6 +168,6 @@ export default function Navbar() {
           </Link>
         </div>
       )}
-    </nav>
+    </div>
   );
 }

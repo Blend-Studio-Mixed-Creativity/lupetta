@@ -2,32 +2,142 @@ import { Link } from 'react-router-dom';
 
 export default function ComeFunziona() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-20 text-center">
-      <h1 className="text-4xl font-bold text-green-800 mb-6">
-        Caratteristiche tecniche e varianti di Lupetta: MINI e MAXI Tech
-      </h1>
-      <p className="text-lg text-gray-600 leading-relaxed mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant
-        morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-      </p>
-      <p className="text-gray-500 leading-relaxed mb-10">
-        Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
-        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Link
-          to="/come-funziona/mini"
-          className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition-colors"
-        >
-          Lupetta Mini Wi-Fi →
-        </Link>
-        <Link
-          to="/come-funziona/maxi"
-          className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition-colors"
-        >
-          Lupetta Maxi Tech →
-        </Link>
-      </div>
-    </section>
+    <div className="bg-slate-50 min-h-screen overflow-hidden">
+
+      {/* ═══ HERO ═══ */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(99,102,241,0.2),transparent)] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-36 text-center relative z-10">
+          <span className="inline-block py-2 px-5 rounded-full bg-indigo-500/10 border border-indigo-400/30 text-indigo-300 text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
+            Lorem Ipsum
+          </span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-8 animate-slide-up montserrat-italic">
+            Caratteristiche Tecniche<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">e Varianti</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══ CONFRONTO PRODOTTI ═══ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 pb-28">
+        <div className="grid md:grid-cols-2 gap-8">
+
+          {/* MINI */}
+          <Link to="/come-funziona/mini" className="group">
+            <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden card-hover animate-slide-left">
+              <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-8 text-white">
+                <span className="text-sm font-bold tracking-widest uppercase opacity-80">Versione</span>
+                <h2 className="text-4xl mt-2 montserrat-italic">MINI Wi-Fi</h2>
+              </div>
+              <div className="p-8">
+                <p className="text-slate-500 leading-relaxed mb-6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet ante.
+                </p>
+                <ul className="space-y-3 text-slate-600 mb-8">
+                  <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-green-500" /> Lorem ipsum dolor sit amet</li>
+                  <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-green-500" /> Consectetur adipiscing elit</li>
+                  <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-green-500" /> Pellentesque habitant morbi</li>
+                </ul>
+                <span className="text-green-600 font-bold group-hover:underline">Lorem ipsum &rarr;</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* MAXI */}
+          <Link to="/come-funziona/maxi" className="group">
+            <div className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden card-hover animate-slide-right">
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-white">
+                <span className="text-sm font-bold tracking-widest uppercase opacity-80">Versione</span>
+                <h2 className="text-4xl mt-2 montserrat-italic">MAXI Tech</h2>
+              </div>
+              <div className="p-8">
+                <p className="text-slate-500 leading-relaxed mb-6">
+                  Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet.
+                </p>
+                <ul className="space-y-3 text-slate-600 mb-8">
+                  <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-blue-500" /> Donec eu libero sit amet</li>
+                  <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-blue-500" /> Aenean ultricies mi vitae</li>
+                  <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-blue-500" /> Mauris placerat eleifend</li>
+                </ul>
+                <span className="text-blue-600 font-bold group-hover:underline">Lorem ipsum &rarr;</span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* ═══ TABELLA COMPARATIVA ═══ */}
+      <section className="bg-white border-y border-slate-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center mb-14 animate-slide-up">
+            <span className="text-indigo-600 font-bold text-sm tracking-widest uppercase">Comparatio</span>
+            <h2 className="text-4xl md:text-5xl text-slate-900 tracking-tight mt-3">
+              Lorem <span className="montserrat-italic text-indigo-600">vs</span> Ipsum
+            </h2>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-slate-200 animate-scale-in">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-slate-50">
+                  <th className="px-6 py-4 text-sm font-bold text-slate-500 uppercase tracking-wider">Caratteristica</th>
+                  <th className="px-6 py-4 text-sm font-bold text-green-600 uppercase tracking-wider text-center">MINI</th>
+                  <th className="px-6 py-4 text-sm font-bold text-blue-600 uppercase tracking-wider text-center">MAXI</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {[
+                  ["Lorem Ipsum Dolor", "✓", "✓"],
+                  ["Consectetur Adipiscing", "—", "✓"],
+                  ["Pellentesque Habitant", "✓", "✓"],
+                  ["Vestibulum Tortor", "—", "✓"],
+                  ["Donec Eu Libero", "✓", "✓"],
+                  ["Aenean Ultricies", "—", "✓"],
+                ].map(([feature, mini, maxi], i) => (
+                  <tr key={i} className="hover:bg-slate-50/50 transition-colors">
+                    <td className="px-6 py-4 text-slate-700 font-medium">{feature}</td>
+                    <td className="px-6 py-4 text-center text-lg">{mini}</td>
+                    <td className="px-6 py-4 text-center text-lg">{maxi}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ TECNOLOGIA ═══ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+        <div className="text-center mb-16 animate-slide-up">
+          <span className="text-indigo-600 font-bold text-sm tracking-widest uppercase">Technologia</span>
+          <h2 className="text-4xl md:text-5xl text-slate-900 tracking-tight mt-3">
+            Lorem Ipsum <span className="montserrat-italic text-indigo-600">Dolor</span>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { icon: "⚙️", title: "Lorem Hardware", desc: "Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero." },
+            { icon: "🌐", title: "Ipsum Software", desc: "Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien." },
+            { icon: "🔒", title: "Dolor Securitas", desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." },
+            { icon: "📊", title: "Amet Analytics", desc: "Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est mauris placerat." },
+            { icon: "🔋", title: "Consectetur Energia", desc: "Quisque sit amet est et sapien ullamcorper pharetra vestibulum erat wisi condimentum sed." },
+            { icon: "🛡️", title: "Adipiscing Protectio", desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique." },
+          ].map((tech, i) => (
+            <div key={i} className={`p-8 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-lg transition-all animate-slide-up animate-stagger-${(i % 3) + 1} group bg-white`}>
+              <span className="text-3xl mb-4 block group-hover:scale-110 transition-transform">{tech.icon}</span>
+              <h3 className="text-xl text-slate-900 mb-2">{tech.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{tech.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
+

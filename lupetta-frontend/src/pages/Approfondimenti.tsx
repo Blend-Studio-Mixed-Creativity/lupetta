@@ -1,0 +1,26 @@
+export default function Approfondimenti() {
+  return (
+    <div className="min-h-screen bg-slate-50 pt-32 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-12 tracking-tight text-center">
+          Approfondimenti
+        </h1>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            'Integrazione di Lupetta con Sistemi Aziendali di Farm Management e IoT Agricolo',
+            'Compatibilità con Software Gestionali per Allevamenti Intensivi',
+            'Esportazione Dati da Lupetta e Importazione nel Gestionale',
+            'Automazioni per Allarmi e Interventi Programmati',
+            'Connessione e Interoperabilità con Sensori Ambientali e di Benessere Animale',
+            'Sensori di Temperatura, Umidità e Movimento Vitello',
+            'Utilizzo dei Dati per Analisi Predittive e Ottimizzazione Risorse'
+          ].map((title, i) => (
+            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+              <h2 className="text-xl font-bold text-slate-800">{title}</h2>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

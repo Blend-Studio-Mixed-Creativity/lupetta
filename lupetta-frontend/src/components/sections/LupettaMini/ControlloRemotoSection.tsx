@@ -7,10 +7,10 @@ const FEATURES = [
 
 export default function ControlloRemotoSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="order-2 lg:order-1 animate-slide-left">
-          <div className="bg-white rounded-3xl p-10 border border-slate-100 relative overflow-hidden">
+          <div className="bg-white rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 border border-slate-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#62bc46]/20 rounded-full blur-3xl" />
             <div className="space-y-5 relative z-10">
               {FEATURES.map((feat, i) => (
@@ -38,3 +38,10 @@ export default function ControlloRemotoSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

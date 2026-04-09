@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/LupettaMini/HeroSection';
+import HeroSection from '../components/sections/LupettaMini/HeroSection';
 import DimensioniSection from '../components/sections/LupettaMini/DimensioniSection';
 import MaterialiSection from '../components/sections/LupettaMini/MaterialiSection';
 import ControlloRemotoSection from '../components/sections/LupettaMini/ControlloRemotoSection';
@@ -15,3 +15,5 @@ export default function LupettaMini() {
     </div>
   );
 }
+
+

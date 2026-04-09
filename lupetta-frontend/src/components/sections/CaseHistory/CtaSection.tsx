@@ -3,8 +3,8 @@ import RevealSection from '../../RevealSection';
 
 export default function CtaSection() {
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28 text-center">
-      <RevealSection className="bg-gradient-to-br from-[#006473] to-[#00546b] rounded-3xl p-12 md:p-16 text-white relative overflow-hidden" animation="sr-reveal-scale">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-28 text-center">
+      <RevealSection className="bg-gradient-to-br from-[#006473] to-[#00546b] rounded-3xl p-6 sm:p-8 md:p-6 sm:p-8 md:p-12 lg:p-16 text-white relative overflow-hidden" animation="sr-reveal-scale">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
         <div className="absolute inset-0 sr-shimmer pointer-events-none opacity-20" />
         <div className="relative z-10">
@@ -22,3 +22,10 @@ export default function CtaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

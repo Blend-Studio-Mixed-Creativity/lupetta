@@ -2,8 +2,8 @@ import RevealSection from '../../RevealSection';
 
 export default function ComparativaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <RevealSection className="text-center mb-14">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+      <RevealSection className="text-center mb-8 sm:mb-10 lg:mb-14">
         <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Comparativa</span>
         <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
           Analisi Comparativa Lupetta <span className="montserrat-italic text-[#006473]">vs Altre Allattatrici</span>
@@ -44,3 +44,10 @@ export default function ComparativaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

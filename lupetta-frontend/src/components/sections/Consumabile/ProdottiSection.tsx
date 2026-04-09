@@ -23,7 +23,7 @@ const PRODOTTI = [
 
 export default function ProdottiSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-24">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-12 sm:pb-16 lg:pb-12 sm:pb-16 lg:pb-24">
       <div className="grid md:grid-cols-3 gap-8">
         {PRODOTTI.map((prod, i) => (
           <RevealSection key={i} className="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden card-hover" animation="sr-reveal-scale" delay={`sr-delay-${(i + 1) * 2}`}>
@@ -47,3 +47,10 @@ export default function ProdottiSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

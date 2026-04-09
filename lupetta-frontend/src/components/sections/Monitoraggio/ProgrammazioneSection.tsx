@@ -7,8 +7,8 @@ const ITEMS = [
 export default function ProgrammazioneSection() {
   return (
     <section className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center mb-14 animate-slide-up">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Programmazione</span>
           <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
             Programmazione della <span className="montserrat-italic text-[#006473]">Somministrazione</span>
@@ -27,3 +27,10 @@ export default function ProgrammazioneSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

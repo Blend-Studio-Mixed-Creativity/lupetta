@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const STEPS = [
   { step: '01', title: 'Installatio', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum.' },
@@ -7,7 +7,7 @@ const STEPS = [
   { step: '04', title: 'Optimizatio', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam feugiat vitae ultricies eget.' },
 ];
 
-/* ── Animated counter ── */
+/* -- Animated counter -- */
 function AnimatedNumber({ target, visible, onComplete }: {
   target: string; visible: boolean; onComplete?: () => void;
 }) {
@@ -46,13 +46,13 @@ function AnimatedNumber({ target, visible, onComplete }: {
   );
 }
 
-/* ── Side progress track ── */
+/* -- Side progress track -- */
 function ProgressTrack({ visibleCount, sectionVisible }: {
   visibleCount: number; sectionVisible: boolean;
 }) {
   return (
     <div
-      className="fixed right-6 xl:right-10 top-1/2 -translate-y-1/2 z-50 flex-col items-end gap-4"
+      className="fixed right-4 sm:right-6 xl:right-10 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-4"
       style={{
         display: 'flex',
         opacity: sectionVisible && visibleCount > 0 ? 1 : 0,
@@ -96,7 +96,7 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
   );
 }
 
-/* ── Step Row ── */
+/* -- Step Row -- */
 function StepRow({ step, title, desc, index, onVisible }: {
   step: string; title: string; desc: string; index: number; onVisible?: () => void;
 }) {
@@ -120,7 +120,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
   return (
     <div
       ref={ref}
-      className="min-h-screen flex items-center px-8 md:px-16 lg:px-28 xl:px-40 relative overflow-hidden"
+      className="min-h-[80vh] md:min-h-screen flex items-center px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 py-12 sm:py-16 md:py-0 relative overflow-hidden"
       style={{ background: index % 2 === 0 ? '#ffffff' : '#f8fafc' }}
     >
       {/* Background radial glow */}
@@ -164,9 +164,9 @@ function StepRow({ step, title, desc, index, onVisible }: {
       />
 
       <div
-        className={`w-full flex items-center gap-16 lg:gap-28 relative z-10 ${isEven ? '' : 'flex-row-reverse'}`}
+        className={`w-full flex flex-col md:flex-row items-center gap-6 sm:gap-8 lg:gap-16 xl:gap-28 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
       >
-        {/* ── Giant number ── */}
+        {/* -- Giant number -- */}
         <div className="flex-shrink-0 relative select-none">
           {/* Shimmer sweep overlay */}
           <div
@@ -187,7 +187,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           <span
             className="font-extrabold montserrat-heading block"
             style={{
-              fontSize: 'clamp(10rem, 28vw, 22rem)',
+              fontSize: 'clamp(5rem, 22vw, 22rem)',
               lineHeight: 0.85,
               color: visible ? '#62bc46' : 'transparent',
               WebkitTextStroke: visible ? '0px transparent' : '2px #62bc46',
@@ -215,7 +215,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </span>
         </div>
 
-        {/* ── Text panel — clip-path curtain wipe ── */}
+        {/* -- Text panel � clip-path curtain wipe -- */}
         <div
           className="flex-1 min-w-0"
           style={{
@@ -227,7 +227,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
             transition: 'clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.2s',
           }}
         >
-          {/* Step label — letter-spacing morph */}
+          {/* Step label � letter-spacing morph */}
           <span
             className="text-[#006473]/40 font-bold text-sm uppercase block mb-4"
             style={{
@@ -239,8 +239,8 @@ function StepRow({ step, title, desc, index, onVisible }: {
             Passo {step}
           </span>
 
-          {/* Title — word stagger with rotation */}
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#006473] montserrat-heading leading-tight mb-6 overflow-hidden">
+          {/* Title � word stagger with rotation */}
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#006473] montserrat-heading leading-tight mb-4 sm:mb-6 overflow-hidden">
             {words.map((word, wi) => (
               <span
                 key={wi}
@@ -258,9 +258,9 @@ function StepRow({ step, title, desc, index, onVisible }: {
             ))}
           </h3>
 
-          {/* Description — blur-in */}
+          {/* Description � blur-in */}
           <p
-            className="text-slate-500 text-lg md:text-xl leading-relaxed max-w-xl"
+            className="text-slate-500 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? 'translateY(0)' : 'translateY(24px)',
@@ -291,7 +291,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
   );
 }
 
-/* ── Main export ── */
+/* -- Main export -- */
 export default function ComeFunzionaSteps() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
@@ -363,3 +363,9 @@ export default function ComeFunzionaSteps() {
     </section>
   );
 }
+
+
+
+
+
+

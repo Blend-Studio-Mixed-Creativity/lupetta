@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/LupettaMaxi/HeroSection';
+import HeroSection from '../components/sections/LupettaMaxi/HeroSection';
 import CapacitaSection from '../components/sections/LupettaMaxi/CapacitaSection';
 import MonitoraggioSection from '../components/sections/LupettaMaxi/MonitoraggioSection';
 import CompatibilitaSection from '../components/sections/LupettaMaxi/CompatibilitaSection';
@@ -15,3 +15,5 @@ export default function LupettaMaxi() {
     </div>
   );
 }
+
+

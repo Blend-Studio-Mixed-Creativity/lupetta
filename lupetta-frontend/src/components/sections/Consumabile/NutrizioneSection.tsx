@@ -1,11 +1,11 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const NUTRIENTI = [
   { label: 'Lorem Proteine',       value: 26,  display: '26%',  barPct: 85  },
   { label: 'Ipsum Grassi',         value: 18,  display: '18%',  barPct: 60  },
   { label: 'Dolor Fibre',          value: 0.5, display: '0.5%', barPct: 15  },
   { label: 'Amet Ceneri',          value: 7,   display: '7%',   barPct: 25  },
-  { label: 'Consectetur Umidità',  value: 3.5, display: '3.5%', barPct: 12  },
+  { label: 'Consectetur Umidit�',  value: 3.5, display: '3.5%', barPct: 12  },
 ];
 
 function AnimatedValue({ target, display, visible, delay = 0 }: {
@@ -215,7 +215,7 @@ function LeftPanel() {
 
 export default function NutrizioneSection() {
   return (
-    <section className="bg-white border-y border-slate-100 py-28 overflow-hidden">
+    <section className="bg-white border-y border-slate-100 py-12 sm:py-16 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           <LeftPanel />
@@ -225,3 +225,9 @@ export default function NutrizioneSection() {
     </section>
   );
 }
+
+
+
+
+
+

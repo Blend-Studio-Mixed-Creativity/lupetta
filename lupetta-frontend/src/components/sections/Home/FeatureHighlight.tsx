@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 const METRICS = [
   { label: 'Lorem Ipsum', value: 98.5, color: '#62bc46', accent: '#4da835' },
@@ -13,7 +13,7 @@ const FEATURES = [
   'Donec eu libero sit amet quam egestas semper',
 ];
 
-/* ── Animated percentage counter ── */
+/* -- Animated percentage counter -- */
 function AnimatedValue({ target, visible, delay = 0 }: { target: number; visible: boolean; delay?: number }) {
   const [display, setDisplay] = useState(0);
   const started = useRef(false);
@@ -42,7 +42,7 @@ function AnimatedValue({ target, visible, delay = 0 }: { target: number; visible
   return <>{display.toFixed(1)}%</>;
 }
 
-/* ── Single mega bar ── */
+/* -- Single mega bar -- */
 function MegaBar({ label, value, color, accent, index, visible }: {
   label: string; value: number; color: string; accent: string;
   index: number; visible: boolean;
@@ -132,7 +132,7 @@ function MegaBar({ label, value, color, accent, index, visible }: {
   );
 }
 
-/* ── Main component ── */
+/* -- Main component -- */
 export default function FeatureHighlight() {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
@@ -154,11 +154,11 @@ export default function FeatureHighlight() {
   }, [observe]);
 
   return (
-    <section ref={ref} className="py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20">
+    <section ref={ref} className="py-12 sm:py-16 lg:py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
 
-        {/* ── Top: text + features ── */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
+        {/* -- Top: text + features -- */}
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start mb-10 sm:mb-16 lg:mb-24">
           {/* Left text */}
           <div>
             <span
@@ -172,7 +172,7 @@ export default function FeatureHighlight() {
               Lorem Feature
             </span>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight mb-6 overflow-hidden"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight mb-4 sm:mb-6 overflow-hidden"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(40px)',
@@ -185,7 +185,7 @@ export default function FeatureHighlight() {
               Elit
             </h2>
             <p
-              className="text-lg text-slate-500 leading-relaxed"
+              className="text-base sm:text-lg text-slate-500 leading-relaxed"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
@@ -208,14 +208,14 @@ export default function FeatureHighlight() {
                   transition: `opacity 0.6s ease ${0.4 + i * 0.08}s, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.4 + i * 0.08}s`,
                 }}
               >
-                <span className="mt-0.5 flex-shrink-0 w-6 h-6 bg-[#62bc46]/20 text-[#62bc46] rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                <span className="mt-0.5 flex-shrink-0 w-6 h-6 bg-[#62bc46]/20 text-[#62bc46] rounded-full flex items-center justify-center text-xs font-bold">?</span>
                 <span className="text-slate-600 text-lg">{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* ── Bottom: mega bars ── */}
+        {/* -- Bottom: mega bars -- */}
         <div className="space-y-10">
           {/* Section divider */}
           <div
@@ -235,3 +235,9 @@ export default function FeatureHighlight() {
     </section>
   );
 }
+
+
+
+
+
+

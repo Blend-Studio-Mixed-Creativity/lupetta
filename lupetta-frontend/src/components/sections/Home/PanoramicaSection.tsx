@@ -8,8 +8,8 @@ const CARDS = [
 
 export default function PanoramicaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-      <RevealSection className="text-center mb-16" animation="sr-reveal-up">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-28">
+      <RevealSection className="text-center mb-8 sm:mb-12 lg:mb-16" animation="sr-reveal-up">
         <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Panoramica</span>
         <h2 className="text-4xl md:text-5xl text-[#006473] tracking-tight mt-3 mb-6">
           Lorem Ipsum <span className="montserrat-italic text-[#62bc46]">Dolor Sit</span>
@@ -33,3 +33,10 @@ export default function PanoramicaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

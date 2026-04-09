@@ -7,8 +7,8 @@ const MODULI = [
 
 export default function CompatibilitaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="order-2 lg:order-1 animate-slide-left">
           <div className="grid grid-cols-2 gap-4">
             {MODULI.map((mod, i) => (
@@ -35,3 +35,10 @@ export default function CompatibilitaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

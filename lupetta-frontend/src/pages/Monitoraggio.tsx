@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/Monitoraggio/HeroSection';
+import HeroSection from '../components/sections/Monitoraggio/HeroSection';
 import DashboardOverview from '../components/sections/Monitoraggio/DashboardOverview';
 import ProfiliSection from '../components/sections/Monitoraggio/ProfiliSection';
 import ProgrammazioneSection from '../components/sections/Monitoraggio/ProgrammazioneSection';
@@ -17,3 +17,5 @@ export default function Monitoraggio() {
     </div>
   );
 }
+
+

@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/Benefici/HeroSection';
+import HeroSection from '../components/sections/Benefici/HeroSection';
 import NutrizioneSection from '../components/sections/Benefici/NutrizioneSection';
 import VantaggiTecnologiaSection from '../components/sections/Benefici/VantaggiTecnologiaSection';
 import ManutenzioneSection from '../components/sections/Benefici/ManutenzioneSection';
@@ -13,3 +13,5 @@ export default function Benefici() {
     </div>
   );
 }
+
+

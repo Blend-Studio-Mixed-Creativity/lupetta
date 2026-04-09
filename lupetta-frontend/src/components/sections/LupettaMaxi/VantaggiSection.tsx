@@ -7,10 +7,10 @@ const VANTAGGI = [
 
 export default function VantaggiSection() {
   return (
-    <section className="bg-[#006473] text-white py-24 relative overflow-hidden">
+    <section className="bg-[#006473] text-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(99,102,241,0.15),transparent)] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-14 animate-slide-up">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
           <h2 className="text-3xl md:text-4xl tracking-tight">
             Lorem <span className="montserrat-italic text-[#62bc46]">Ipsum Dolor</span> Sit Amet
           </h2>
@@ -30,3 +30,10 @@ export default function VantaggiSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

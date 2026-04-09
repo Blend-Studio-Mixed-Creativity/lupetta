@@ -7,7 +7,7 @@ export default function AccordionSection() {
   const toggle = (id: string) => setOpenIndex(openIndex === id ? null : id);
 
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-28">
+    <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-12 sm:pb-16 lg:pb-12 sm:pb-16 lg:pb-28">
       <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/80 border border-slate-100 px-8 sm:px-10 lg:px-14 py-12 space-y-12">
         {FAQ_DATA.map((section, si) => (
           <div key={si} className={`animate-slide-up animate-stagger-${Math.min(si + 1, 6)}`}>
@@ -48,3 +48,10 @@ export default function AccordionSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

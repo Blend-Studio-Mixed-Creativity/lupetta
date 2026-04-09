@@ -2,7 +2,7 @@ import RevealSection from '../../RevealSection';
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-[#006473] text-white py-28 relative overflow-hidden">
+    <section className="bg-[#006473] text-white py-12 sm:py-16 lg:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(98,188,70,0.1),transparent_50%)] pointer-events-none" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <RevealSection animation="sr-reveal-up">
@@ -24,3 +24,10 @@ export default function TestimonialSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

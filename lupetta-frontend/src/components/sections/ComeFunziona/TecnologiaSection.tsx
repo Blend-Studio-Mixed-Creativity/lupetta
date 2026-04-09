@@ -15,8 +15,8 @@ const TECH_ITEMS: TechItem[] = [
 
 export default function TecnologiaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-      <div className="text-center mb-16 animate-slide-up">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-28">
+      <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-slide-up">
         <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Technologia</span>
         <h2 className="text-4xl md:text-5xl text-slate-900 tracking-tight mt-3">
           Lorem Ipsum <span className="montserrat-italic text-[#006473]">Dolor</span>
@@ -38,3 +38,10 @@ export default function TecnologiaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

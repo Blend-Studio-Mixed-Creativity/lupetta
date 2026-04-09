@@ -1,12 +1,12 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const METRICS = [
   { label: "Lorem Crescita Media", before: "0.8 kg/d", after: "1.2 kg/d", pct: "+50%", barPct: 75, positive: true },
-  { label: "Ipsum Mortalità",      before: "8%",       after: "2%",       pct: "-75%", barPct: 88, positive: false },
+  { label: "Ipsum Mortalit�",      before: "8%",       after: "2%",       pct: "-75%", barPct: 88, positive: false },
   { label: "Dolor Costo Manodopera", before: "100%",   after: "60%",      pct: "-40%", barPct: 60, positive: false },
 ];
 
-/* ── animated counter (decimals) ── */
+/* -- animated counter (decimals) -- */
 function AnimatedPct({ target, visible, delay = 0 }: { target: string; visible: boolean; delay?: number }) {
   const [display, setDisplay] = useState('0');
   const started = useRef(false);
@@ -33,7 +33,7 @@ function AnimatedPct({ target, visible, delay = 0 }: { target: string; visible: 
   return <>{display}</>;
 }
 
-/* ── single bar card ── */
+/* -- single bar card -- */
 function MetricRow({
   label, before, after, pct, barPct, positive, index, visible,
 }: {
@@ -136,7 +136,7 @@ function MetricRow({
   );
 }
 
-/* ── MetricsPanel ── */
+/* -- MetricsPanel -- */
 function MetricsPanel() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -161,7 +161,7 @@ function MetricsPanel() {
   );
 }
 
-/* ── Left text ── */
+/* -- Left text -- */
 function LeftPanel() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -237,7 +237,7 @@ function LeftPanel() {
 
 export default function RisultatiSection() {
   return (
-    <section className="bg-white border-y border-slate-100 py-28 overflow-hidden">
+    <section className="bg-white border-y border-slate-100 py-12 sm:py-16 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           <LeftPanel />
@@ -247,3 +247,9 @@ export default function RisultatiSection() {
     </section>
   );
 }
+
+
+
+
+
+

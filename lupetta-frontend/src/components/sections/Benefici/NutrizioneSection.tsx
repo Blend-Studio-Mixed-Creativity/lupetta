@@ -11,8 +11,8 @@ const BENEFITS = [
 
 export default function NutrizioneSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-24">
-      <RevealSection className="flex justify-center mb-14">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-12 sm:pb-16 lg:pb-12 sm:pb-16 lg:pb-24">
+      <RevealSection className="flex justify-center mb-8 sm:mb-10 lg:mb-14">
         <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-12 py-8 text-center">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Nutrizione</span>
           <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
@@ -33,3 +33,10 @@ export default function NutrizioneSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

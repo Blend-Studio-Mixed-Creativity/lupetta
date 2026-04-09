@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/Gabbione/HeroSection';
+import HeroSection from '../components/sections/Gabbione/HeroSection';
 import TipologieSection from '../components/sections/Gabbione/TipologieSection';
 import MontaggioSection from '../components/sections/Gabbione/MontaggioSection';
 import NormativeSection from '../components/sections/Gabbione/NormativeSection';
@@ -15,3 +15,5 @@ export default function Gabbione() {
     </div>
   );
 }
+
+

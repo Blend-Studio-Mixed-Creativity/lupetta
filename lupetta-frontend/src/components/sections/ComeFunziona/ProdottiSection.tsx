@@ -64,7 +64,7 @@ const PRODOTTI = [
 
 export default function ProdottiSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 pb-28">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 pb-12 sm:pb-16 lg:pb-12 sm:pb-16 lg:pb-28">
       <div className="grid md:grid-cols-2 gap-8">
         {PRODOTTI.map((p) => (
           <ProductCard key={p.to} {...p} />
@@ -73,3 +73,10 @@ export default function ProdottiSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

@@ -2,11 +2,11 @@ import RevealSection from '../../RevealSection';
 
 export default function TecnologieSection() {
   return (
-    <section className="bg-[#006473] text-white py-24 relative overflow-hidden">
+    <section className="bg-[#006473] text-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(244,63,94,0.15),transparent)] pointer-events-none" />
       <div className="absolute inset-0 sr-shimmer pointer-events-none opacity-30" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <RevealSection className="text-center mb-14">
+        <RevealSection className="text-center mb-8 sm:mb-10 lg:mb-14">
           <h2 className="text-3xl md:text-4xl tracking-tight">
             Tecnologie e Funzionalità <span className="montserrat-italic text-[#62bc46]">Esclusive Lupetta</span>
           </h2>
@@ -28,3 +28,10 @@ export default function TecnologieSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/Home/HeroSection';
+import HeroSection from '../components/sections/Home/HeroSection';
 import StatsRibbon from '../components/sections/Home/StatsRibbon';
 import PanoramicaSection from '../components/sections/Home/PanoramicaSection';
 import ComeFunzionaSteps from '../components/sections/Home/ComeFunzionaSteps';
@@ -19,3 +19,5 @@ export default function Home() {
     </div>
   );
 }
+
+

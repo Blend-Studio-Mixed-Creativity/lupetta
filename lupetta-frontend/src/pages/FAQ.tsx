@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/FAQ/HeroSection';
+import HeroSection from '../components/sections/FAQ/HeroSection';
 import AccordionSection from '../components/sections/FAQ/AccordionSection';
 import ContattoSection from '../components/sections/FAQ/ContattoSection';
 
@@ -11,3 +11,5 @@ export default function FAQ() {
     </div>
   );
 }
+
+

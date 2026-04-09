@@ -8,8 +8,8 @@ const SPECS = [
 
 export default function CapacitaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="animate-slide-left">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Sezione 1</span>
           <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
@@ -39,3 +39,10 @@ export default function CapacitaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

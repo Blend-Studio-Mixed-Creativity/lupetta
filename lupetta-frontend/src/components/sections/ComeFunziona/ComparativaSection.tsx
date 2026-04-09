@@ -10,8 +10,8 @@ const ROWS: [string, string, string][] = [
 export default function ComparativaSection() {
   return (
     <section className="bg-white border-y border-slate-100">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center mb-14 animate-slide-up">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Comparatio</span>
           <h2 className="text-4xl md:text-5xl text-slate-900 tracking-tight mt-3">
             Lorem <span className="montserrat-italic text-[#006473]">vs</span> Ipsum
@@ -42,3 +42,10 @@ export default function ComparativaSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

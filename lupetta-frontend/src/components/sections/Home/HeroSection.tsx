@@ -8,7 +8,7 @@ export default function HeroSection() {
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0 hero-overlay" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-24 sm:pb-32 md:pb-40 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 lg:pb-24 sm:pb-32 md:pb-40 text-center relative z-10">
         <span className="inline-block py-2 px-5 rounded-full bg-[#62bc46]/10 border border-[#62bc46]/30 text-[#62bc46] text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
           Lorem Ipsum Sit Amet
         </span>
@@ -32,3 +32,10 @@ export default function HeroSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

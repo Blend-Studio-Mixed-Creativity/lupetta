@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/Consumabile/HeroSection';
+import HeroSection from '../components/sections/Consumabile/HeroSection';
 import ProdottiSection from '../components/sections/Consumabile/ProdottiSection';
 import NutrizioneSection from '../components/sections/Consumabile/NutrizioneSection';
 import DosaggioSection from '../components/sections/Consumabile/DosaggioSection';
@@ -15,3 +15,5 @@ export default function Consumabile() {
     </div>
   );
 }
+
+

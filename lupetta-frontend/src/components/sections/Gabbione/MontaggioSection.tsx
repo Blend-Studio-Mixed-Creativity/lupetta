@@ -8,8 +8,8 @@ const STEPS = [
 export default function MontaggioSection() {
   return (
     <section className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           <div className="animate-slide-left">
             <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Installazione</span>
             <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
@@ -28,7 +28,7 @@ export default function MontaggioSection() {
             </p>
           </div>
           <div className="animate-slide-right">
-            <div className="bg-white rounded-3xl p-10 border border-slate-100">
+            <div className="bg-white rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 border border-slate-100">
               <div className="space-y-5">
                 {STEPS.map((s, i) => (
                   <div key={i} className="flex items-center gap-4 bg-white/80 p-4 rounded-xl">
@@ -44,3 +44,10 @@ export default function MontaggioSection() {
     </section>
   );
 }
+
+
+
+
+
+
+

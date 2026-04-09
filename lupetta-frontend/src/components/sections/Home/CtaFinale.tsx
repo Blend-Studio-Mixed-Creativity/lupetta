@@ -3,9 +3,9 @@ import RevealSection from '../../RevealSection';
 
 export default function CtaFinale() {
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28 text-center">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-28 text-center">
       <RevealSection
-        className="bg-[#62bc46] rounded-3xl p-12 md:p-16 text-white relative overflow-hidden"
+        className="bg-[#62bc46] rounded-3xl p-6 sm:p-8 md:p-6 sm:p-8 md:p-12 lg:p-16 text-white relative overflow-hidden"
         animation="sr-reveal-scale"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
@@ -29,3 +29,10 @@ export default function CtaFinale() {
     </section>
   );
 }
+
+
+
+
+
+
+

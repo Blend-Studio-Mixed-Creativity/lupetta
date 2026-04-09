@@ -6,7 +6,7 @@ const BARS = [
 
 export default function RealTimeSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="order-2 lg:order-1 animate-slide-left">
           <div className="bg-[#006473] rounded-3xl p-8 text-white relative overflow-hidden">
@@ -29,7 +29,7 @@ export default function RealTimeSection() {
         </div>
         <div className="order-1 lg:order-2 animate-slide-right">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Real-Time</span>
-          <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
             Monitoraggio in Tempo Reale della <span className="montserrat-italic text-[#006473]">Somministrazione</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">

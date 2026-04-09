@@ -20,7 +20,7 @@ export default function PanoramicaSection() {
       </RevealSection>
       <div className="grid md:grid-cols-3 gap-8">
         {CARDS.map((card, i) => (
-          <RevealSection key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 card-hover group" animation="sr-flip-in" delay={`sr-delay-${(i + 1) * 2}`}>
+          <RevealSection key={i} className="bg-white p-5 sm:p-6 lg:p-8 rounded-3xl shadow-sm border border-slate-100 card-hover group" animation="sr-flip-in" delay={`sr-delay-${(i + 1) * 2}`}>
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
               {card.icon}
             </div>

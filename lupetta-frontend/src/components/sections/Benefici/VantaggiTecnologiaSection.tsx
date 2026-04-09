@@ -14,10 +14,10 @@ const STATS = [
 export default function VantaggiTecnologiaSection() {
   return (
     <section className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
         <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Tecnologia</span>
-          <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
             Vantaggi dell&apos;Alimentazione <span className="montserrat-italic text-[#006473]">a Distanza</span>
           </h2>
         </div>

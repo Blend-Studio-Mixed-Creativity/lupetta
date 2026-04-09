@@ -10,13 +10,13 @@ export default function UsoIdealeSection() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(34,197,94,0.15),transparent)] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
-          <h2 className="text-3xl md:text-4xl tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight">
             Lorem Ipsum <span className="montserrat-italic text-white">Dolor Sit</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {USI.map((use, i) => (
-            <div key={i} className={`glass-dark p-8 rounded-2xl animate-slide-up animate-stagger-${i + 1}`}>
+            <div key={i} className={`glass-dark p-5 sm:p-6 lg:p-8 rounded-2xl animate-slide-up animate-stagger-${i + 1}`}>
               <h3 className="text-xl mb-3 text-white">{use.title}</h3>
               <p className="text-slate-300 text-sm leading-relaxed">{use.desc}</p>
             </div>

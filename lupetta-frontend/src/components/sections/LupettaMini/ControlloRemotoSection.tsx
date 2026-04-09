@@ -7,7 +7,7 @@ const FEATURES = [
 
 export default function ControlloRemotoSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="order-2 lg:order-1 animate-slide-left">
           <div className="bg-white rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 border border-slate-100 relative overflow-hidden">
@@ -24,7 +24,7 @@ export default function ControlloRemotoSection() {
         </div>
         <div className="order-1 lg:order-2 animate-slide-right">
           <span className="text-[#62bc46] font-bold text-sm tracking-widest uppercase">Sezione 3</span>
-          <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
             Integrazione con Sistemi di <span className="montserrat-italic text-[#62bc46]">Controllo Remoto Web</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">

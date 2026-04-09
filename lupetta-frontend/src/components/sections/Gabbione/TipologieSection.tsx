@@ -8,9 +8,9 @@ export default function TipologieSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-12 sm:pb-16 lg:pb-12 sm:pb-16 lg:pb-24">
       <div className="flex justify-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
-        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-12 py-8 text-center">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-6 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-8 text-center">
           <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Tipologie</span>
-          <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
             Tipologie di Gabbioni <span className="montserrat-italic text-[#006473]">Disponibili</span>
           </h2>
         </div>
@@ -18,7 +18,7 @@ export default function TipologieSection() {
       <div className="grid md:grid-cols-3 gap-8">
         {GABBIONI.map((gab, i) => (
           <div key={i} className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden card-hover animate-slide-up animate-stagger-${i + 1}`}>
-            <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 p-8">
+            <div className="bg-gradient-to-r from-purple-500/5 to-pink-500/5 p-5 sm:p-6 lg:p-8">
               <span className="text-4xl block mb-3">{gab.icon}</span>
               <span className="text-xs font-bold text-[#006473] tracking-widest uppercase">{gab.subtitle}</span>
               <h3 className="text-2xl text-slate-900 mt-1">{gab.title}</h3>

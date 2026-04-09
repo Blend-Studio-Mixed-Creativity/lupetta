@@ -215,7 +215,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </span>
         </div>
 
-        {/* -- Text panel � clip-path curtain wipe -- */}
+        {/* -- Text panel - clip-path curtain wipe -- */}
         <div
           className="flex-1 min-w-0"
           style={{
@@ -227,7 +227,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
             transition: 'clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.2s',
           }}
         >
-          {/* Step label � letter-spacing morph */}
+          {/* Step label - letter-spacing morph */}
           <span
             className="text-[#006473]/40 font-bold text-sm uppercase block mb-4"
             style={{
@@ -239,7 +239,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
             Passo {step}
           </span>
 
-          {/* Title � word stagger with rotation */}
+          {/* Title - word stagger with rotation */}
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#006473] montserrat-heading leading-tight mb-4 sm:mb-6 overflow-hidden">
             {words.map((word, wi) => (
               <span
@@ -258,7 +258,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
             ))}
           </h3>
 
-          {/* Description � blur-in */}
+          {/* Description - blur-in */}
           <p
             className="text-slate-500 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl"
             style={{

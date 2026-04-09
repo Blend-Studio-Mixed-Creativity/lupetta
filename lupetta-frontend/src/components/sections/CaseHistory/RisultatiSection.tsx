@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const METRICS = [
   { label: "Lorem Crescita Media", before: "0.8 kg/d", after: "1.2 kg/d", pct: "+50%", barPct: 75, positive: true },
-  { label: "Ipsum Mortalità",      before: "8%",       after: "2%",       pct: "-75%", barPct: 88, positive: false },
+  { label: "Ipsum Mortalita",      before: "8%",       after: "2%",       pct: "-75%", barPct: 88, positive: false },
   { label: "Dolor Costo Manodopera", before: "100%",   after: "60%",      pct: "-40%", barPct: 60, positive: false },
 ];
 
@@ -190,7 +190,7 @@ function LeftPanel() {
         Risultati
       </span>
       <h2
-        className="text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mt-3 mb-6"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mt-3 mb-6"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(36px)',
@@ -239,7 +239,7 @@ export default function RisultatiSection() {
   return (
     <section className="bg-white border-y border-slate-100 py-12 sm:py-16 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20">
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-start">
           <LeftPanel />
           <MetricsPanel />
         </div>

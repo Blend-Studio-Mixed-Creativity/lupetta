@@ -5,7 +5,7 @@ const NUTRIENTI = [
   { label: 'Ipsum Grassi',         value: 18,  display: '18%',  barPct: 60  },
   { label: 'Dolor Fibre',          value: 0.5, display: '0.5%', barPct: 15  },
   { label: 'Amet Ceneri',          value: 7,   display: '7%',   barPct: 25  },
-  { label: 'Consectetur Umidit‡',  value: 3.5, display: '3.5%', barPct: 12  },
+  { label: 'Consectetur Umidit√†',  value: 3.5, display: '3.5%', barPct: 12  },
 ];
 
 function AnimatedValue({ target, display, visible, delay = 0 }: {
@@ -178,7 +178,7 @@ function LeftPanel() {
         Composizione
       </span>
       <h2
-        className="text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mt-3 mb-6"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mt-3 mb-6"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(36px)',
@@ -217,7 +217,7 @@ export default function NutrizioneSection() {
   return (
     <section className="bg-white border-y border-slate-100 py-12 sm:py-16 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20">
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-start">
           <LeftPanel />
           <BarsPanel />
         </div>

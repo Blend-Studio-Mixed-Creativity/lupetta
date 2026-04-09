@@ -8,11 +8,11 @@ const STEPS = [
 export default function MontaggioSection() {
   return (
     <section className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           <div className="animate-slide-left">
             <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Installazione</span>
-            <h2 className="text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
               Montaggio e Configurazione <span className="montserrat-italic text-[#006473]">Strutturale</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">

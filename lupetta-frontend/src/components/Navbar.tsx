@@ -26,8 +26,8 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'FAQ', to: '/faq' },
 ];
 
-const activeLinkClass = 'text-green-700 bg-green-50 rounded-lg px-3 py-1.5 font-semibold transition-colors duration-200';
-const linkClass = 'text-slate-500 hover:text-green-700 hover:bg-slate-50 transition-colors duration-200 text-[15px] font-medium px-3 py-1.5 rounded-lg';
+const activeLinkClass = 'text-white bg-white/20 rounded-lg px-3 py-1.5 font-semibold transition-colors duration-200';
+const linkClass = 'text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200 text-[15px] font-medium px-3 py-1.5 rounded-lg';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,13 +36,13 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       {/* Top Menu Strip */}
-      <div className="bg-slate-900 text-white py-1 px-4 text-xs flex justify-end gap-6 sm:px-6 lg:px-8">
-        <Link to="/mission" className="hover:text-green-400 transition-colors">Mission</Link>
-        <Link to="/risorse" className="hover:text-green-400 transition-colors">Risorse</Link>
-        <Link to="/approfondimenti" className="hover:text-green-400 transition-colors">Approfondimenti</Link>
+      <div className="bg-[#016573] text-white py-1 px-4 text-xs flex justify-end gap-6 sm:px-6 lg:px-8">
+        <Link to="/mission" className="hover:text-white/70 transition-colors">Mission</Link>
+        <Link to="/risorse" className="hover:text-white/70 transition-colors">Risorse</Link>
+        <Link to="/approfondimenti" className="hover:text-white/70 transition-colors">Approfondimenti</Link>
       </div>
 
-      <nav className="bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/60 transition-all duration-300">
+      <nav className="bg-[#016573] text-white shadow-sm border-b border-[#016573]/20 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
@@ -80,7 +80,7 @@ export default function Navbar() {
                           key={child.to}
                           to={child.to}
                           className={({ isActive }) =>
-                            `block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-800 ${isActive ? 'text-green-700 font-semibold bg-green-50' : ''}`
+                            `block px-4 py-2 text-sm text-gray-700 hover:bg-[#016573]/10 hover:text-[#016573] ${isActive ? 'text-[#016573] font-semibold bg-[#016573]/10' : ''}`
                           }
                         >
                           {child.label}
@@ -105,7 +105,7 @@ export default function Navbar() {
             )}
             <Link
               to="/contatti"
-              className="ml-2 px-5 py-2.5 bg-green-600 text-white rounded-xl text-[15px] font-semibold hover:bg-green-700 shadow-sm shadow-green-600/20 transition-all duration-300"
+              className="ml-2 px-5 py-2.5 bg-white text-[#016573] rounded-xl text-[15px] font-semibold hover:bg-slate-100 shadow-sm shadow-white/20 transition-all duration-300"
             >
               Contattaci
             </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden text-slate-500 hover:bg-slate-50 p-2 rounded-lg focus:outline-none transition-colors"
+            className="lg:hidden text-white/80 hover:bg-white/10 p-2 rounded-lg focus:outline-none transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Apri menu"
           >
@@ -133,14 +133,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white px-4 pb-4 space-y-1 shadow-lg border-t border-slate-100">
+        <div className="lg:hidden bg-[#016573] px-4 pb-4 space-y-1 shadow-lg border-t border-[#016573]/20">
           {NAV_ITEMS.map((item) => (
             <div key={item.to}>
               <NavLink
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `block py-3 text-[15px] font-medium border-b border-slate-100 ${isActive ? 'text-green-700 font-bold' : 'text-slate-600 hover:text-green-700 hover:bg-slate-50'}`
+                  `block py-3 text-[15px] font-medium border-b border-[#016573]/20 ${isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'}`
                 }
                 onClick={() => setMobileOpen(false)}
               >
@@ -151,7 +151,7 @@ export default function Navbar() {
                   key={child.to}
                   to={child.to}
                   className={({ isActive }) =>
-                    `block py-3 pl-4 text-sm border-b border-slate-100 ${isActive ? 'text-green-700 font-bold' : 'text-slate-500 hover:text-green-700 hover:bg-slate-50'}`
+                    `block py-3 pl-4 text-sm border-b border-[#016573]/20 ${isActive ? 'text-white font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'}`
                   }
                   onClick={() => setMobileOpen(false)}
                 >
@@ -162,7 +162,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/contatti"
-            className="block mt-2 px-4 py-2 bg-white text-green-800 rounded-md text-sm font-semibold text-center"
+            className="block mt-2 px-4 py-2 bg-white text-[#016573] rounded-md text-sm font-semibold text-center"
             onClick={() => setMobileOpen(false)}
           >
             Contattaci

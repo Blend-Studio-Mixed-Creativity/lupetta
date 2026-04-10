@@ -1,6 +1,16 @@
 ﻿import { useState, useCallback, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logoImg from '../assets/images/logolupettaverdebianco.png';
+import navImg0 from '../assets/images/mucca.webp';
+import navImg1 from '../assets/images/latte-per-vitelli-lupetta.webp';
+import navImg2 from '../assets/images/vitello1-lupetta.jpg';
+import navImg3 from '../assets/images/vitello-lupetta3.webp';
+import navImg4 from '../assets/images/impianto latte.jpg';
+import navImg5 from '../assets/images/vitellino.png';
+import navImg6 from '../assets/images/vitello.jpg';
+import navImg7 from '../assets/images/coselupetta.jpg';
+
+const NAV_IMAGES = [navImg0, navImg1, navImg2, navImg3, navImg4, navImg5, navImg6, navImg7];
 
 interface NavItem {
   label: string;
@@ -26,11 +36,11 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'FAQ', to: '/faq' },
 ];
 
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const location = useLocation();
 
   // Close menu on route change
@@ -77,7 +87,7 @@ export default function Navbar() {
             to="/"
             className={[
               'relative z-[120] transition-all duration-500',
-              isOpen || scrolled ? 'opacity-0 -translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0',
+              isOpen ? 'opacity-0 -translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0',
             ].join(' ')}
           >
             <img
@@ -140,6 +150,18 @@ export default function Navbar() {
         {/* Gradient BG */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#016573] via-[#018a80] to-[#013d47]" />
 
+        {/* ── Hover Image Overlay ── */}
+        {NAV_IMAGES.map((img, i) => (
+          <div
+            key={i}
+            className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+            style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+          >
+            <img src={img} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-[#013d47]/80" />
+          </div>
+        ))}
+
         {/* ── Parallax Orbs ── */}
         <div
           className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-white/[0.04] blur-3xl pointer-events-none transition-transform duration-[1500ms] ease-out"
@@ -176,10 +198,13 @@ export default function Navbar() {
                     to={item.to}
                     end={item.to === '/'}
                     onClick={() => setIsOpen(false)}
+                    onMouseEnter={() => setHoveredIndex(i)}
+                    onMouseLeave={() => setHoveredIndex(null)}
                     className={[
-                      'group flex items-center gap-2 sm:gap-3 lg:gap-5 py-1 lg:py-1.5 transition-all',
+                      'group flex items-center gap-2 sm:gap-3 lg:gap-5 py-1 lg:py-1.5 px-4 rounded-xl transition-all',
                       isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16',
                       'duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]',
+                      'hover:bg-white/10',
                     ].join(' ')}
                     style={{ transitionDelay: isOpen ? (200 + i * 70) + 'ms' : '0ms' }}
                   >
@@ -190,7 +215,7 @@ export default function Navbar() {
                         </span>
                         <span
                           className={[
-                            'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight',
+                            'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
                             isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-slate-300',
                           ].join(' ')}
                         >
@@ -226,7 +251,7 @@ export default function Navbar() {
                               />
                               <span
                                 className={[
-                                  'text-base lg:text-lg font-medium transition-colors duration-300',
+                                  'text-base lg:text-lg font-medium transition-colors duration-300 montserrat-heading',
                                   isActive ? 'text-[#65b32e]' : 'text-white/50 group-hover/sub:text-slate-300',
                                 ].join(' ')}
                               >
@@ -253,7 +278,7 @@ export default function Navbar() {
                 <Link
                   to="/contatti"
                   onClick={() => setIsOpen(false)}
-                  className="px-8 py-3.5 bg-[#62bc46] text-white font-semibold rounded-xl hover:bg-[#52a83d] transition-all duration-300 shadow-lg shadow-[#62bc46]/30 hover:shadow-xl hover:-translate-y-0.5 tracking-wide"
+                  className="px-8 py-3.5 bg-[#62bc46] text-white font-semibold rounded-xl hover:bg-[#52a83d] transition-all duration-300 shadow-lg shadow-[#62bc46]/30 hover:shadow-xl hover:-translate-y-0.5 tracking-wide montserrat-heading"
                 >
                   Contattaci
                 </Link>

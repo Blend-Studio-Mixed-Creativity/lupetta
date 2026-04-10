@@ -1,5 +1,4 @@
-﻿import { useRef, useState } from 'react';
-import { useScrollReveal } from '../../../hooks/useScrollReveal';
+﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const ITEMS = [
   {
@@ -33,107 +32,39 @@ const ITEMS = [
 
 type ItemProps = (typeof ITEMS)[number] & { index: number; parentVisible: boolean };
 
-function MaterialCard({ iconPath, title, subtitle, desc, color, glow, index, parentVisible }: ItemProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState(false);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-    const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    setTilt({ x: -dy * 8, y: dx * 8 });
-  }
-
+function MaterialCard({ iconPath, title, subtitle, desc, index, parentVisible }: ItemProps) {
   return (
     <div
       className={parentVisible ? 'sr-reveal-scale' : 'sr-hidden'}
-      style={{ animationDelay: `${index * 0.12}s` }}
+      style={{ animationDelay: `${index * 0.14}s`, width: '100%', maxWidth: '340px' }}
     >
-      <div
-        ref={ref}
-        onMouseEnter={() => setHovered(true)}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={() => {
-          setHovered(false);
-          setTilt({ x: 0, y: 0 });
-        }}
+      <div 
+        className="w-full h-full rounded-[24px] p-1.5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
         style={{
-          background: 'white',
-          borderRadius: '1.5rem',
-          overflow: 'hidden',
-          border: hovered ? `1.5px solid ${color}44` : '1.5px solid #f1f5f9',
-          boxShadow: hovered
-            ? `0 24px 60px ${glow.replace('0.45', '0.15')}, 0 2px 8px rgba(0,0,0,0.06)`
-            : '0 2px 12px rgba(0,0,0,0.05)',
-          transform: hovered
-            ? `perspective(700px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-8px) scale(1.02)`
-            : 'perspective(700px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)',
-          transition: hovered
-            ? 'box-shadow 0.2s ease, border-color 0.2s ease, transform 0.1s ease'
-            : 'box-shadow 0.5s ease, border-color 0.5s ease, transform 0.55s cubic-bezier(0.16,1,0.3,1)',
-          willChange: 'transform',
-          cursor: 'default',
+          background: 'linear-gradient(144deg, #006071, #65b32e 50%, #00c8a0)',
         }}
       >
-        {/* Header banner */}
-        <div
-          style={{
-            height: 120,
-            background: `linear-gradient(135deg, ${color} 0%, ${color}cc 100%)`,
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
+        <div className="w-full h-[460px] bg-[#0b1a20] rounded-[19px] p-8 sm:p-10 flex flex-col justify-center relative overflow-hidden">
+          {/* Subtle inner hover glow */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_#65b32e_0%,_transparent_70%)] pointer-events-none" />
+          
           <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px)',
-              backgroundSize: '18px 18px',
-            }}
-          />
-          <div
-            style={{ position: 'absolute', top: -16, right: -16, width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.1)' }}
-          />
-          <div
-            style={{ position: 'absolute', bottom: -20, left: -8, width: 96, height: 96, borderRadius: '50%', background: 'rgba(255,255,255,0.06)' }}
-          />
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg
-              width={44}
-              height={44}
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.3}
-              stroke="white"
-              style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' }}
-            >
+            className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mb-6 group-hover:scale-110 group-hover:border-[#65b32e]/50 transition-all duration-500 relative z-10"
+          >
+            <svg className="w-7 h-7 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
             </svg>
           </div>
-        </div>
-
-        {/* Content */}
-        <div style={{ padding: '1.5rem 1.75rem 2rem' }}>
-          <span
-            style={{ fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color }}
-          >
+          <p className="text-xs font-bold text-[#65b32e] tracking-widest uppercase mb-1 relative z-10">
             {subtitle}
-          </span>
-          <h3 className="montserrat-heading text-2xl text-slate-900 mt-2 mb-4">{title}</h3>
-          <p className="text-slate-500 text-base leading-relaxed">{desc}</p>
+          </p>
+          <h3 className="montserrat-heading text-2xl mb-4 text-white relative z-10 transition-colors group-hover:text-green-50">
+            {title}
+          </h3>
+          <p className="text-white/60 text-base leading-relaxed relative z-10">
+            {desc}
+          </p>
         </div>
-
-        {/* Bottom accent line */}
-        <div
-          style={{
-            height: 2,
-            background: `linear-gradient(90deg, transparent, ${color}66, transparent)`,
-          }}
-        />
       </div>
     </div>
   );
@@ -143,9 +74,9 @@ export default function MaterialiSection() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <section className="bg-white border-y border-slate-100">
+    <section className="bg-[#0b1a20]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-        <div ref={ref} className={`text-center mb-12 sm:mb-16 lg:mb-20 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
+        <div ref={ref} className={`text-center mb-16 sm:mb-20 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
           <span
             style={{
               color: '#65b32e',
@@ -157,12 +88,12 @@ export default function MaterialiSection() {
           >
             Sezione 2
           </span>
-          <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4">
+          <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl tracking-tight mt-4 text-white">
             Materiali e Design <span className="montserrat-italic text-accent">Costruttivo</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 lg:gap-12">
           {ITEMS.map((item, i) => (
             <MaterialCard key={i} {...item} index={i} parentVisible={isVisible} />
           ))}

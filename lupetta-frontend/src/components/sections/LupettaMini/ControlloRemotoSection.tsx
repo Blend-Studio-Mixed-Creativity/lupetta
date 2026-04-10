@@ -31,232 +31,228 @@ const FEATURES = [
   },
 ];
 
-function WifiRings() {
-  return (
-    <div
-      className="relative flex items-center justify-center select-none"
-      style={{ width: '100%', height: '100%', minHeight: 320 }}
-    >
-      {/* Outer rings */}
-      {[160, 120, 80].map((size, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full border"
-          style={{
-            width: size * 2,
-            height: size * 2,
-            borderColor: i === 0 ? 'rgba(101,179,46,0.12)' : i === 1 ? 'rgba(101,179,46,0.18)' : 'rgba(101,179,46,0.26)',
-            animation: `pulse-ring ${2.8 + i * 0.6}s ease-out ${i * 0.4}s infinite`,
-          }}
-        />
-      ))}
-
-      {/* Center disc */}
-      <div
-        className="relative z-10 flex items-center justify-center rounded-full"
-        style={{
-          width: 100,
-          height: 100,
-          background: 'linear-gradient(135deg, #65b32e 0%, #4fa028 100%)',
-          boxShadow: '0 0 0 8px rgba(101,179,46,0.15), 0 0 40px rgba(101,179,46,0.4), 0 16px 40px rgba(101,179,46,0.25)',
-          animation: 'subtleFloat 4s ease-in-out infinite',
-        }}
-      >
-        <svg
-          width={44}
-          height={44}
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="white"
-          style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))' }}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
-          />
-        </svg>
-      </div>
-
-      {/* Orbit dot */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          width: 10,
-          height: 10,
-          background: '#65b32e',
-          boxShadow: '0 0 10px rgba(101,179,46,0.8)',
-          top: '50%',
-          left: '50%',
-          transformOrigin: '0 0',
-          animation: 'orbitDot 5s linear infinite',
-          marginTop: -5,
-          marginLeft: -5,
-        }}
-      />
-    </div>
-  );
-}
-
 export default function ControlloRemotoSection() {
-  const { ref: refLeft, isVisible: visLeft } = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
-  const { ref: refRight, isVisible: visRight } = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+  const { ref: refHero, isVisible: visHero } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+  const { ref: refFeatures, isVisible: visFeatures } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <>
       <style>{`
-        @keyframes pulse-ring {
-          0%   { opacity: 0.9; transform: scale(1); }
-          70%  { opacity: 0; transform: scale(1.35); }
-          100% { opacity: 0; transform: scale(1.35); }
+        @keyframes wifiSpin {
+          0%   { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes wifiPulse {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50%       { opacity: 1;   transform: scale(1.06); }
         }
         @keyframes orbitDot {
-          from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
-          to   { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+          from { transform: rotate(0deg) translateX(110px) rotate(0deg); }
+          to   { transform: rotate(360deg) translateX(110px) rotate(-360deg); }
+        }
+        @keyframes orbitDot2 {
+          from { transform: rotate(180deg) translateX(170px) rotate(-180deg); }
+          to   { transform: rotate(540deg) translateX(170px) rotate(-540deg); }
+        }
+        .ctrl-ring {
+          border-radius: 50%;
+          position: absolute;
+          border: 1.5px solid rgba(101,179,46,0.2);
+          animation: wifiSpin linear infinite;
+        }
+        .ctrl-ring-1 { width: 180px; height: 180px; animation-duration: 10s; }
+        .ctrl-ring-2 { width: 280px; height: 280px; animation-duration: 16s; animation-direction: reverse; border-color: rgba(0,96,113,0.2); }
+        .ctrl-ring-3 { width: 400px; height: 400px; animation-duration: 24s; border-color: rgba(0,200,160,0.1); }
+
+        .feat-box {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: 0.5s;
+          z-index: 1;
+          width: 260px;
+          height: 260px;
+        }
+        .feat-box::before {
+          content: ' ';
+          position: absolute;
+          top: 0; left: 50px;
+          width: 50%; height: 100%;
+          border-radius: 8px;
+          background: linear-gradient(315deg, #65b32e, #006071, #00c8a0);
+          transform: skewX(15deg);
+          transition: 0.5s;
+        }
+        .feat-box::after {
+          content: '';
+          position: absolute;
+          top: 0; left: 50px;
+          width: 50%; height: 100%;
+          border-radius: 8px;
+          background: linear-gradient(315deg, #65b32e, #006071, #00c8a0);
+          transform: skewX(15deg);
+          transition: 0.5s;
+          filter: blur(30px);
+        }
+        .feat-box:hover::before,
+        .feat-box:hover::after {
+          transform: skewX(0deg) scaleX(1.3);
+        }
+        .feat-box span {
+          display: block;
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          z-index: 5;
+          pointer-events: none;
+        }
+        .feat-box span::before {
+          content: '';
+          position: absolute;
+          top: -36px; left: 36px;
+          width: 44px; height: 44px;
+          border-radius: 8px;
+          background: rgba(255,255,255,0.08);
+          backdrop-filter: blur(10px);
+          opacity: 1;
+        }
+        .feat-box span::after {
+          content: '';
+          position: absolute;
+          bottom: -36px; right: 36px;
+          width: 44px; height: 44px;
+          border-radius: 8px;
+          background: rgba(255,255,255,0.08);
+          backdrop-filter: blur(10px);
+          opacity: 1;
+        }
+        .feat-content {
+          position: relative;
+          width: 224px;
+          height: 224px;
+          padding: 28px 22px;
+          background: rgba(11, 26, 32, 0.9);
+          backdrop-filter: blur(10px);
+          border-radius: 8px;
+          z-index: 1;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
+          border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @keyframes featReveal {
+          0%   { opacity: 0; transform: translateY(40px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .feat-reveal {
+          animation: featReveal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
       `}</style>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+      <section style={{ background: '#0b1a20' }}>
 
-          {/* LEFT — WiFi visualization panel */}
-          <div ref={refLeft} className={`order-2 lg:order-1 ${visLeft ? 'sr-reveal-left' : 'sr-hidden'}`}>
-            <div
-              className="rounded-3xl overflow-hidden relative"
-              style={{
-                background: 'linear-gradient(145deg, #001a22 0%, #002d38 60%, #003040 100%)',
-                boxShadow: '0 32px 80px rgba(0,96,113,0.35), 0 0 0 1px rgba(101,179,46,0.15)',
-                padding: '2.5rem',
-              }}
-            >
-              {/* Grid overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
+        {/* Hero full screen con WiFi al centro */}
+        <div className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 py-32">
+          {/* Anelli rotanti */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="ctrl-ring ctrl-ring-1" />
+            <div className="ctrl-ring ctrl-ring-2" />
+            <div className="ctrl-ring ctrl-ring-3" />
+            {/* Dot orbitanti */}
+            <div style={{
+              position: 'absolute', width: 10, height: 10, borderRadius: '50%',
+              background: '#65b32e', boxShadow: '0 0 10px rgba(101,179,46,0.9)',
+              top: '50%', left: '50%', marginTop: -5, marginLeft: -5,
+              transformOrigin: '0 0', animation: 'orbitDot 6s linear infinite',
+            }} />
+            <div style={{
+              position: 'absolute', width: 8, height: 8, borderRadius: '50%',
+              background: '#00c8a0', boxShadow: '0 0 10px rgba(0,200,160,0.9)',
+              top: '50%', left: '50%', marginTop: -4, marginLeft: -4,
+              transformOrigin: '0 0', animation: 'orbitDot2 9s linear infinite',
+            }} />
+          </div>
 
-              {/* Top accent */}
-              <div
-                style={{ height: 2, background: 'linear-gradient(90deg, transparent, #65b32e, transparent)', marginBottom: '2rem', borderRadius: 999 }}
-              />
-
-              {/* WiFi rings visualization */}
-              <WifiRings />
-
-              {/* Status chips */}
-              <div className="flex flex-wrap gap-2 justify-center mt-6 relative z-10">
-                {['Online', 'Segnale forte', '— 62 dBm'].map((chip, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      padding: '0.3rem 0.9rem',
-                      borderRadius: 999,
-                      background: i === 0 ? 'rgba(101,179,46,0.15)' : 'rgba(255,255,255,0.06)',
-                      border: `1px solid ${i === 0 ? 'rgba(101,179,46,0.4)' : 'rgba(255,255,255,0.1)'}`,
-                      color: i === 0 ? '#65b32e' : 'rgba(255,255,255,0.5)',
-                      fontSize: '0.72rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.06em',
-                    }}
-                  >
-                    {i === 0 && (
-                      <span
-                        style={{
-                          display: 'inline-block',
-                          width: 6,
-                          height: 6,
-                          borderRadius: '50%',
-                          background: '#65b32e',
-                          boxShadow: '0 0 6px #65b32e',
-                          marginRight: 6,
-                          verticalAlign: 'middle',
-                        }}
-                      />
-                    )}
-                    {chip}
-                  </span>
-                ))}
-              </div>
+          {/* Icona WiFi pulsante */}
+          <div
+            ref={refHero}
+            className={visHero ? 'sr-reveal-scale' : 'sr-hidden'}
+            style={{ position: 'relative', zIndex: 2, marginBottom: '3rem' }}
+          >
+            <div style={{
+              width: 130, height: 130, borderRadius: '50%',
+              background: 'linear-gradient(135deg, #65b32e 0%, #006071 100%)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: '0 0 60px rgba(101,179,46,0.4), 0 0 120px rgba(0,96,113,0.2)',
+              animation: 'wifiPulse 3.5s ease-in-out infinite',
+            }}>
+              <svg width="60" height="60" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
+              </svg>
             </div>
           </div>
 
-          {/* RIGHT — text + feature list */}
-          <div ref={refRight} className={`order-1 lg:order-2 ${visRight ? 'sr-reveal-right' : 'sr-hidden'}`}>
-            <span
-              style={{
-                color: '#65b32e',
-                fontWeight: 800,
-                fontSize: '0.72rem',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-              }}
-            >
+          {/* Titolo */}
+          <div
+            className={`text-center max-w-5xl mx-auto ${visHero ? 'sr-reveal-up' : 'sr-hidden'}`}
+            style={{ position: 'relative', zIndex: 2, animationDelay: '0.15s' }}
+          >
+            <span style={{ color: '#65b32e', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
               Sezione 3
             </span>
-            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4 mb-6">
-              Integrazione con Sistemi di{' '}
-              <span className="montserrat-italic text-accent">Controllo Remoto Web</span>
+            <h2 className="montserrat-heading text-5xl sm:text-7xl md:text-8xl tracking-tight mt-5 mb-8 leading-[1.1] whitespace-nowrap" style={{ color: '#fff' }}>
+              Controllo Remoto <span className="montserrat-italic text-accent">Wi-Fi</span>
             </h2>
-            <p className="text-xl text-slate-500 leading-relaxed mb-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et
-              netus et malesuada fames ac turpis egestas.
+            <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique
+              senectus et netus et malesuada fames ac turpis egestas.
             </p>
+          </div>
+        </div>
 
-            {/* Feature list */}
-            <div className="space-y-4">
-              {FEATURES.map((feat, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 p-4 rounded-2xl transition-colors duration-200 hover:bg-slate-50 group"
-                  style={{ border: '1px solid #f1f5f9' }}
-                >
-                  <div
-                    style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: 14,
-                      background: `${feat.color}12`,
-                      border: `1.5px solid ${feat.color}30`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      transition: 'box-shadow 0.3s ease',
-                    }}
-                    className={`group-hover:shadow-[0_0_16px_${feat.color}44]`}
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke={feat.color}
-                    >
+        {/* Feature cards */}
+        <div
+          ref={refFeatures}
+          className="w-full flex flex-wrap justify-center gap-8 lg:gap-12 px-4 pb-32"
+        >
+          {FEATURES.map((feat, i) => (
+            <div
+              key={i}
+              className={`w-full max-w-[260px] ${visFeatures ? 'feat-reveal opacity-0' : 'opacity-0'}`}
+              style={{ animationDelay: `${i * 0.16}s` }}
+            >
+              <div 
+                className="w-full aspect-[3/4] rounded-[24px] p-1.5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
+                style={{
+                  background: 'linear-gradient(144deg, #006071, #65b32e 50%, #00c8a0)',
+                }}
+              >
+                <div className="w-full h-full bg-[#0b1a20] rounded-[19px] p-6 lg:p-8 flex flex-col justify-center relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
+                  {/* Subtle inner hover glow */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_#65b32e_0%,_transparent_70%)] pointer-events-none" />
+                  
+                  <div style={{
+                    width: 48, height: 48, borderRadius: 12,
+                    background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                  }} className="mb-4 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#65b32e]/50">
+                    <svg className="w-6 h-6 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d={feat.iconPath} />
                     </svg>
                   </div>
-                  <div className="min-w-0">
-                    <span className="montserrat-heading text-slate-900 font-semibold block">{feat.label}</span>
-                    <p className="text-slate-500 text-base leading-relaxed mt-0.5">{feat.desc}</p>
-                  </div>
+                  <p className="montserrat-heading font-semibold mb-2 relative z-10 transition-colors group-hover:text-green-50" style={{ color: '#fff', fontSize: '1rem', lineHeight: 1.3 }}>{feat.label}</p>
+                  <p className="relative z-10" style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', lineHeight: 1.6 }}>{feat.desc}</p>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </>
   );
 }
-
-
-
-
-
 
 

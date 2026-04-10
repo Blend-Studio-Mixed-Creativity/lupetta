@@ -12,11 +12,10 @@ export default function HeroSection() {
           <span className="inline-block py-2 px-5 rounded-full bg-white/10 border border-white/30 text-white text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
             MAXI Tech
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 animate-slide-up montserrat-italic text-balance">
-            Specifiche Tecniche
-            <span className="text-white/80 block">della Versione MAXI Tech di Lupetta</span>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl tracking-tight leading-[1.1] mb-8 animate-slide-up montserrat-italic">
+            Specifiche Tecniche della Versione MAXI Tech di Lupetta
           </h1>
-          <p className="text-lg text-white/80 leading-relaxed animate-slide-up animate-stagger-2">
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed animate-slide-up animate-stagger-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est.
           </p>
         </div>

@@ -29,7 +29,7 @@ export default function UsoIdealeSection() {
   const { ref: refGrid, isVisible: visGrid } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <section className="bg-primary text-white py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <section className="bg-white text-gray-900 py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -66,73 +66,122 @@ export default function UsoIdealeSection() {
           >
             Uso Ideale
           </span>
-          <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl tracking-tight">
+          <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl tracking-tight text-gray-900">
             Scenari di{' '}
-            <span className="montserrat-italic" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            <span className="montserrat-italic" style={{ color: '#65b32e' }}>
               Applicazione
             </span>
           </h2>
           <p
-            className={`text-white/55 text-xl mt-8 max-w-2xl mx-auto leading-relaxed ${visHeader ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}
+            className={`text-gray-600 text-xl mt-8 max-w-2xl mx-auto leading-relaxed ${visHeader ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}
           >
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
           </p>
         </div>
 
         {/* Cards */}
-        <div ref={refGrid} className="grid md:grid-cols-3 gap-6 sm:gap-8">
+        <style>{`
+          @keyframes rotBGimg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          .uiverse-card {
+            width: 340px;
+            height: 420px;
+            background: #07182E;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 2.25rem;
+            overflow: hidden;
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+          }
+          .uiverse-card:hover {
+            transform: rotateX(8deg) rotateY(-8deg) translateZ(30px);
+            box-shadow: 0 30px 60px rgba(101, 179, 46, 0.3), 0 0 40px rgba(0, 200, 160, 0.2);
+          }
+          .uiverse-card::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            background-image: linear-gradient(180deg, rgb(101, 179, 46), rgb(0, 96, 113), rgb(0, 200, 160));
+            height: 150%;
+            animation: rotBGimg 3s linear infinite;
+            transition: all 0.2s linear;
+            top: -25%;
+            left: -25%;
+          }
+          .uiverse-card::after {
+            content: '';
+            position: absolute;
+            background: #07182E;
+            inset: 5px;
+            border-radius: 15px;
+            z-index: 1;
+            transition: all 0.6s ease;
+          }
+          .uiverse-card:hover::after {
+            box-shadow: inset 0 0 40px rgba(101, 179, 46, 0.2);
+          }
+          .uiverse-card-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transform-style: preserve-3d;
+          }
+        `}</style>
+        <div ref={refGrid} className="grid md:grid-cols-3 gap-8 justify-center" style={{ perspective: '1200px' }}>
           {USI.map((use, i) => (
             <div
               key={i}
-              className={visGrid ? 'sr-reveal-scale' : 'sr-hidden'}
+              className={`uiverse-card ${visGrid ? 'sr-reveal-scale' : 'sr-hidden'}`}
               style={{ animationDelay: `${i * 0.13}s` }}
             >
-              <div
-                className="glass-dark rounded-2xl h-full relative overflow-hidden"
-                style={{ padding: '2rem', border: '1px solid rgba(255,255,255,0.1)' }}
-              >
+              <div className="uiverse-card-content">
                 {/* Number watermark */}
-                <span
-                  className="montserrat-heading absolute top-4 right-6 select-none"
-                  style={{ fontSize: '5rem', fontWeight: 900, color: 'rgba(101,179,46,0.1)', lineHeight: 1, letterSpacing: '-0.05em' }}
-                >
-                  {use.num}
-                </span>
+                  <span
+                    className="montserrat-heading select-none mb-4"
+                    style={{
+                      fontSize: '3.5rem',
+                      fontWeight: 900,
+                      color: 'rgba(101, 179, 46, 0.15)',
+                      lineHeight: 1,
+                      letterSpacing: '-0.05em',
+                    }}
+                  >
+                    {use.num}
+                  </span>
 
-                {/* Icon */}
-                <div
-                  style={{
-                    width: 52,
-                    height: 52,
-                    borderRadius: 16,
-                    background: 'linear-gradient(135deg, #65b32e 0%, #4fa028 100%)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '1.5rem',
-                    boxShadow: '0 8px 24px rgba(101,179,46,0.35)',
-                  }}
-                >
-                  <svg width={26} height={26} fill="none" viewBox="0 0 24 24" strokeWidth={1.4} stroke="white">
+                  {/* Icon */}
+                  <div
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      background: 'linear-gradient(135deg, #65b32e 0%, #00c8a0 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '1rem',
+                      boxShadow: '0 0 20px rgba(101, 179, 46, 0.5)',
+                      flexShrink: 0,
+                    }}
+                  >
+                  <svg width={24} height={24} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white">
                     <path strokeLinecap="round" strokeLinejoin="round" d={use.iconPath} />
                   </svg>
                 </div>
 
                 {/* Content */}
-                <h3 className="montserrat-heading text-2xl mb-4 text-white relative z-10">{use.title}</h3>
-                <p className="text-white/55 text-base leading-relaxed relative z-10">{use.desc}</p>
-
-                {/* Bottom accent */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: '1.5rem',
-                    right: '1.5rem',
-                    height: 1,
-                    background: 'linear-gradient(90deg, transparent, rgba(101,179,46,0.4), transparent)',
-                  }}
-                />
+                <h3 className="montserrat-heading text-xl mb-3 text-white">{use.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed flex-1">{use.desc}</p>
               </div>
             </div>
           ))}

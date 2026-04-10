@@ -7,11 +7,16 @@
   --color-accent: #65b32e;
 }
 
-/* Fix Spline Viewer intrinsic height */
+/* Fix Spline Viewer intrinsic height + transparent bg */
 spline-viewer {
   display: block;
   width: 100%;
   height: 100%;
+  background: transparent !important;
+}
+
+spline-viewer canvas {
+  background: transparent !important;
 }
 
 *, *::before, *::after {
@@ -99,6 +104,26 @@ h1, h2, h3, h4, h5, h6,
   0%   { opacity: 0; transform: scale(0.72) translateY(36px); filter: blur(14px); }
   65%  { opacity: 1; transform: scale(1.06) translateY(-6px);  filter: blur(0); }
   100% { opacity: 1; transform: scale(1)    translateY(0);     filter: blur(0); }
+}
+
+@keyframes slideCardDown {
+  from { opacity: 0; transform: translateY(-40px) scale(0.97); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes slideCardUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.97); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes cardFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-16px); }
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes float {

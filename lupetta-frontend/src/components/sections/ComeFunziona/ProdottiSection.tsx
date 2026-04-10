@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
   to: string;
@@ -40,7 +40,7 @@ function ProductCard({ to, accentColor, dotColor, label, title, description, fea
 const PRODOTTI = [
   {
     to: '/come-funziona/mini',
-    accentColor: 'bg-[#62bc46]',
+    accentColor: 'bg-[#65b32e]',
     dotColor: 'bg-green-500',
     label: 'Lorem ipsum',
     title: 'MINI Wi-Fi',
@@ -51,7 +51,7 @@ const PRODOTTI = [
   },
   {
     to: '/come-funziona/maxi',
-    accentColor: 'bg-[#006473]',
+    accentColor: 'bg-[#006071]',
     dotColor: 'bg-blue-500',
     label: 'Lorem ipsum',
     title: 'MAXI Tech',

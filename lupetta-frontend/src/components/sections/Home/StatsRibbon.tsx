@@ -1,4 +1,4 @@
-import { useScrollReveal, useCountUp } from '../../../hooks/useScrollReveal';
+﻿import { useScrollReveal, useCountUp } from '../../../hooks/useScrollReveal';
 
 const STATS = [
   { num: 1200, format: 'it', suffix: '+', label: 'Lorem Ipsum' },
@@ -28,7 +28,7 @@ function StatCard({
         ${isVisible ? `sr-reveal-scale ${delayClass}` : 'sr-hidden'}`}
     >
       <div
-        className={`text-3xl font-extrabold text-[#62bc46] mb-1 montserrat-heading tabular-nums
+        className={`text-3xl font-semibold text-[#65b32e] mb-1 montserrat-heading tabular-nums
           ${isVisible ? 'sr-counter-pop' : ''}`}
         style={{ animationDelay: '0.45s' }}
       >

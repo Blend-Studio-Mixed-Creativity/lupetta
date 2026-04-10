@@ -1,4 +1,4 @@
-const STEPS = [
+﻿const STEPS = [
   { step: '1', label: 'Lorem ipsum preparatio' },
   { step: '2', label: 'Dolor sit montaggio structurale' },
   { step: '3', label: 'Consectetur integrazione sistema' },
@@ -11,9 +11,9 @@ export default function MontaggioSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           <div className="animate-slide-left">
-            <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Installazione</span>
+            <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Installazione</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-              Montaggio e Configurazione <span className="montserrat-italic text-[#006473]">Strutturale</span>
+              Montaggio e Configurazione <span className="montserrat-italic text-[#006071]">Strutturale</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
@@ -32,7 +32,7 @@ export default function MontaggioSection() {
               <div className="space-y-5">
                 {STEPS.map((s, i) => (
                   <div key={i} className="flex items-center gap-4 bg-white/80 p-4 rounded-xl">
-                    <span className="w-10 h-10 bg-[#006473] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">{s.step}</span>
+                    <span className="w-10 h-10 bg-[#006071] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">{s.step}</span>
                     <span className="text-slate-700 font-medium">{s.label}</span>
                   </div>
                 ))}

@@ -1,4 +1,4 @@
-import { useScrollReveal, useCountUp } from '../../../hooks/useScrollReveal';
+﻿import { useScrollReveal, useCountUp } from '../../../hooks/useScrollReveal';
 
 function StatCard({ value, suffix = '', label, delay, idx }: { value: number; suffix?: string; label: string; delay: string; idx: number }) {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.3 });
@@ -9,7 +9,7 @@ function StatCard({ value, suffix = '', label, delay, idx }: { value: number; su
       className={`bg-white p-6 rounded-2xl shadow-lg border border-slate-100 text-center card-hover
         ${isVisible ? `sr-reveal-scale ${delay}` : 'sr-hidden'}`}
     >
-      <div className={`text-3xl font-extrabold text-[#006473] mb-1 montserrat-heading tabular-nums ${isVisible ? 'sr-counter-pop' : ''}`} style={{ animationDelay: `${0.3 + idx * 0.15}s` }}>
+      <div className={`text-3xl font-semibold text-[#006071] mb-1 montserrat-heading tabular-nums ${isVisible ? 'sr-counter-pop' : ''}`} style={{ animationDelay: `${0.3 + idx * 0.15}s` }}>
         {count}{suffix}
       </div>
       <div className="text-sm text-slate-500 font-medium">{label}</div>

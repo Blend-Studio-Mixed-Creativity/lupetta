@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 
 const STEPS = [
   { step: '01', title: 'Installatio', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum.' },
@@ -61,9 +61,9 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
       }}
     >
       {/* Vertical connector */}
-      <div className="absolute right-[7px] inset-y-0 w-px bg-[#006473]/10" />
+      <div className="absolute right-[7px] inset-y-0 w-px bg-[#006071]/10" />
       <div
-        className="absolute right-[7px] top-0 w-px bg-[#62bc46] origin-top"
+        className="absolute right-[7px] top-0 w-px bg-[#65b32e] origin-top"
         style={{
           height: `${(visibleCount / STEPS.length) * 100}%`,
           transition: 'height 0.6s cubic-bezier(0.16,1,0.3,1)',
@@ -74,7 +74,7 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
           <span
             className="text-[10px] font-mono tabular-nums font-bold transition-all duration-500"
             style={{
-              color: i < visibleCount ? '#62bc46' : '#006473',
+              color: i < visibleCount ? '#65b32e' : '#006071',
               opacity: i < visibleCount ? 1 : 0.25,
               transform: i < visibleCount ? 'translateX(0)' : 'translateX(4px)',
             }}
@@ -84,10 +84,10 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
           <div
             className="w-3.5 h-3.5 rounded-full border-2 transition-all duration-500"
             style={{
-              borderColor: '#62bc46',
-              background: i < visibleCount ? '#62bc46' : 'transparent',
+              borderColor: '#65b32e',
+              background: i < visibleCount ? '#65b32e' : 'transparent',
               animation: i === visibleCount - 1 ? 'dotPop 0.5s cubic-bezier(0.16,1,0.3,1)' : 'none',
-              boxShadow: i < visibleCount ? '0 0 10px rgba(98,188,70,0.6)' : 'none',
+              boxShadow: i < visibleCount ? '0 0 10px rgba(101,179,46,0.6)' : 'none',
             }}
           />
         </div>
@@ -129,7 +129,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
         style={{
           width: 'clamp(24rem, 55vw, 62rem)',
           height: 'clamp(24rem, 55vw, 62rem)',
-          background: 'radial-gradient(circle, rgba(98,188,70,0.07) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(101,179,46,0.07) 0%, transparent 70%)',
           [isEven ? 'right' : 'left']: '-15%',
           top: '50%',
           transform: visible ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.3)',
@@ -144,7 +144,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
         style={{
           width: 'clamp(8rem, 18vw, 20rem)',
           height: 'clamp(8rem, 18vw, 20rem)',
-          background: 'radial-gradient(circle, rgba(0,100,115,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(0,96,113,0.05) 0%, transparent 70%)',
           [isEven ? 'left' : 'right']: '5%',
           bottom: '10%',
           transform: visible ? 'scale(1)' : 'scale(0)',
@@ -157,7 +157,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
       <div
         className="absolute bottom-0 left-0 h-px"
         style={{
-          background: 'linear-gradient(to right, transparent, rgba(0,100,115,0.10), transparent)',
+          background: 'linear-gradient(to right, transparent, rgba(0,96,113,0.10), transparent)',
           width: visible ? '100%' : '0%',
           transition: 'width 1.4s cubic-bezier(0.16,1,0.3,1) 0.9s',
         }}
@@ -185,12 +185,12 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </div>
 
           <span
-            className="font-extrabold montserrat-heading block"
+            className="font-semibold montserrat-heading block"
             style={{
               fontSize: 'clamp(5rem, 22vw, 22rem)',
               lineHeight: 0.85,
-              color: visible ? '#62bc46' : 'transparent',
-              WebkitTextStroke: visible ? '0px transparent' : '2px #62bc46',
+              color: visible ? '#65b32e' : 'transparent',
+              WebkitTextStroke: visible ? '0px transparent' : '2px #65b32e',
               opacity: visible ? 1 : 0,
               transform: visible
                 ? 'scale(1) translateY(0px)'
@@ -229,7 +229,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
         >
           {/* Step label - letter-spacing morph */}
           <span
-            className="text-[#006473]/40 font-bold text-sm uppercase block mb-4"
+            className="text-[#006071]/40 font-bold text-sm uppercase block mb-4"
             style={{
               letterSpacing: visible ? '0.32em' : '0.04em',
               opacity: visible ? 1 : 0,
@@ -240,7 +240,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </span>
 
           {/* Title - word stagger with rotation */}
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#006473] montserrat-heading leading-tight mb-4 sm:mb-6 overflow-hidden">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#006071] montserrat-heading leading-tight mb-4 sm:mb-6 overflow-hidden">
             {words.map((word, wi) => (
               <span
                 key={wi}
@@ -276,7 +276,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </p>
 
           {/* Accent line + glow pulse */}
-          <div className="mt-8 h-[3px] rounded-full bg-[#62bc46]"
+          <div className="mt-8 h-[3px] rounded-full bg-[#65b32e]"
             style={{
               width: visible ? '5rem' : '0',
               transition: `width 0.8s cubic-bezier(0.16,1,0.3,1) ${0.8 + words.length * 0.1}s`,
@@ -336,7 +336,7 @@ export default function ComeFunzionaSteps() {
         }}
       >
         <span
-          className="text-[#006473] font-bold text-sm uppercase"
+          className="text-[#006071] font-bold text-sm uppercase"
           style={{
             letterSpacing: headingVisible ? '0.35em' : '0.05em',
             opacity: headingVisible ? 1 : 0,
@@ -345,9 +345,9 @@ export default function ComeFunzionaSteps() {
         >
           Come Funziona
         </span>
-        <h2 className="text-4xl md:text-5xl text-[#006473] tracking-tight mt-3">
+        <h2 className="text-4xl md:text-5xl text-[#006071] tracking-tight mt-3">
           Lorem in{' '}
-          <span className="montserrat-italic text-[#62bc46]">Quattuor Passus</span>
+          <span className="montserrat-italic text-[#65b32e]">Quattuor Passus</span>
         </h2>
       </div>
 

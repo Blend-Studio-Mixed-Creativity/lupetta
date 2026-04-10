@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 
 const NUTRIENTI = [
   { label: 'Lorem Proteine',       value: 26,  display: '26%',  barPct: 85  },
@@ -40,11 +40,11 @@ function NutriBar({ label, value, display, barPct, index, visible }: {
 }) {
   const delay = index * 160;
   const colors = [
-    { color: '#006473', accent: '#018a80' },
-    { color: '#62bc46', accent: '#4da835' },
-    { color: '#006473', accent: '#018a80' },
-    { color: '#62bc46', accent: '#4da835' },
-    { color: '#006473', accent: '#018a80' },
+    { color: '#006071', accent: '#017870' },
+    { color: '#65b32e', accent: '#4fa028' },
+    { color: '#006071', accent: '#017870' },
+    { color: '#65b32e', accent: '#4fa028' },
+    { color: '#006071', accent: '#017870' },
   ];
   const { color, accent } = colors[index % colors.length];
 
@@ -117,7 +117,7 @@ function NutriBar({ label, value, display, barPct, index, visible }: {
       <div
         className="mt-6 h-px"
         style={{
-          background: 'linear-gradient(to right, transparent, rgba(0,100,115,0.08), transparent)',
+          background: 'linear-gradient(to right, transparent, rgba(0,96,113,0.08), transparent)',
           width: visible ? '100%' : '0%',
           transition: `width 1s cubic-bezier(0.16,1,0.3,1) ${delay + 500}ms`,
         }}
@@ -168,7 +168,7 @@ function LeftPanel() {
   return (
     <div ref={ref}>
       <span
-        className="text-[#006473] font-bold text-sm uppercase block mb-4"
+        className="text-[#006071] font-bold text-sm uppercase block mb-4"
         style={{
           letterSpacing: visible ? '0.32em' : '0.05em',
           opacity: visible ? 1 : 0,
@@ -187,7 +187,7 @@ function LeftPanel() {
         }}
       >
         Valori Nutrizionali e{' '}
-        <span className="montserrat-italic text-[#006473]">Composizione</span>
+        <span className="montserrat-italic text-[#006071]">Composizione</span>
       </h2>
       <p
         className="text-lg text-slate-500 leading-relaxed mb-6"

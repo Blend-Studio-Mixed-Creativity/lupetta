@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { FAQ_DATA } from './faqData';
 
 export default function AccordionSection() {
@@ -12,7 +12,7 @@ export default function AccordionSection() {
         {FAQ_DATA.map((section, si) => (
           <div key={si} className={`animate-slide-up animate-stagger-${Math.min(si + 1, 6)}`}>
             <h2 className="text-2xl text-slate-900 mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 bg-[#62bc46] text-white rounded-lg flex items-center justify-center text-sm font-bold montserrat-heading">{si + 1}</span>
+              <span className="w-8 h-8 bg-[#65b32e] text-white rounded-lg flex items-center justify-center text-sm font-bold montserrat-heading">{si + 1}</span>
               {section.category}
             </h2>
             <div className="space-y-3">

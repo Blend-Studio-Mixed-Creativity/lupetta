@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+﻿import { useEffect, useRef, useState, useCallback } from 'react';
 
 const METRICS = [
-  { label: 'Lorem Ipsum', value: 98.5, color: '#62bc46', accent: '#4da835' },
-  { label: 'Dolor Amet',  value: 94.2, color: '#006473', accent: '#018a80' },
-  { label: 'Consectetur', value: 87.8, color: '#62bc46', accent: '#4da835' },
+  { label: 'Lorem Ipsum', value: 98.5, color: '#65b32e', accent: '#4fa028' },
+  { label: 'Dolor Amet',  value: 94.2, color: '#006071', accent: '#017870' },
+  { label: 'Consectetur', value: 87.8, color: '#65b32e', accent: '#4fa028' },
 ];
 
 const FEATURES = [
@@ -162,7 +162,7 @@ export default function FeatureHighlight() {
           {/* Left text */}
           <div>
             <span
-              className="text-[#006473] font-bold text-sm tracking-widest uppercase block mb-4"
+              className="text-[#006071] font-bold text-sm tracking-widest uppercase block mb-4"
               style={{
                 opacity: visible ? 1 : 0,
                 letterSpacing: visible ? '0.32em' : '0.05em',
@@ -181,7 +181,7 @@ export default function FeatureHighlight() {
               }}
             >
               Consectetur{' '}
-              <span className="montserrat-italic text-[#62bc46]">Adipiscing</span>{' '}
+              <span className="montserrat-italic text-[#65b32e]">Adipiscing</span>{' '}
               Elit
             </h2>
             <p
@@ -208,7 +208,7 @@ export default function FeatureHighlight() {
                   transition: `opacity 0.6s ease ${0.4 + i * 0.08}s, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.4 + i * 0.08}s`,
                 }}
               >
-                <span className="mt-0.5 flex-shrink-0 w-6 h-6 bg-[#62bc46]/20 text-[#62bc46] rounded-full flex items-center justify-center text-xs font-bold">?</span>
+                <span className="mt-0.5 flex-shrink-0 w-6 h-6 bg-[#65b32e]/20 text-[#65b32e] rounded-full flex items-center justify-center text-xs font-bold">?</span>
                 <span className="text-slate-600 text-lg">{item}</span>
               </li>
             ))}

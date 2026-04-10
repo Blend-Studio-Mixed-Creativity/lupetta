@@ -1,4 +1,4 @@
-const TASKS = [
+﻿const TASKS = [
   { label: 'Lorem Pulizia', time: 'Quotidiana' },
   { label: 'Ipsum Calibrazione', time: 'Settimanale' },
   { label: 'Dolor Ispezione', time: 'Mensile' },
@@ -18,9 +18,9 @@ export default function ManutenzioneSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="animate-slide-left">
-          <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Manutenzione</span>
+          <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Manutenzione</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-            Configurazione e <span className="montserrat-italic text-[#006473]">Manutenzione</span>
+            Configurazione e <span className="montserrat-italic text-[#006071]">Manutenzione</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
@@ -29,7 +29,7 @@ export default function ManutenzioneSection() {
             {TASKS.map((task, i) => (
               <div key={i} className="bg-white p-4 rounded-xl border border-slate-100">
                 <div className="font-bold text-slate-900 text-sm">{task.label}</div>
-                <div className="text-xs text-[#006473] font-medium">{task.time}</div>
+                <div className="text-xs text-[#006071] font-medium">{task.time}</div>
               </div>
             ))}
           </div>
@@ -37,11 +37,11 @@ export default function ManutenzioneSection() {
 
         <div className="animate-slide-right">
           <div className="bg-slate-900 rounded-3xl p-8 text-white">
-            <h3 className="text-xl text-[#62bc46] mb-6">Checklist Manutenzione</h3>
+            <h3 className="text-xl text-[#65b32e] mb-6">Checklist Manutenzione</h3>
             <div className="space-y-4">
               {CHECKLIST.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-slate-300">
-                  <span className="w-5 h-5 rounded bg-[#62bc46]/20 border border-[#62bc46]/40 flex items-center justify-center text-[#62bc46] text-xs">✓</span>
+                  <span className="w-5 h-5 rounded bg-[#65b32e]/20 border border-[#65b32e]/40 flex items-center justify-center text-[#65b32e] text-xs">✓</span>
                   {item}
                 </div>
               ))}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 
 const METRICS = [
   { label: "Lorem Crescita Media", before: "0.8 kg/d", after: "1.2 kg/d", pct: "+50%", barPct: 75, positive: true },
@@ -41,8 +41,8 @@ function MetricRow({
   barPct: number; positive: boolean; index: number; visible: boolean;
 }) {
   const delay = index * 200;
-  const color = positive ? '#62bc46' : '#006473';
-  const accent = positive ? '#4da835' : '#018a80';
+  const color = positive ? '#65b32e' : '#006071';
+  const accent = positive ? '#4fa028' : '#017870';
 
   return (
     <div
@@ -127,7 +127,7 @@ function MetricRow({
       <div
         className="mt-8 h-px"
         style={{
-          background: 'linear-gradient(to right, transparent, rgba(0,100,115,0.08), transparent)',
+          background: 'linear-gradient(to right, transparent, rgba(0,96,113,0.08), transparent)',
           width: visible ? '100%' : '0%',
           transition: `width 1s cubic-bezier(0.16,1,0.3,1) ${delay + 600}ms`,
         }}
@@ -180,7 +180,7 @@ function LeftPanel() {
   return (
     <div ref={ref}>
       <span
-        className="text-[#006473] font-bold text-sm uppercase block mb-4"
+        className="text-[#006071] font-bold text-sm uppercase block mb-4"
         style={{
           letterSpacing: visible ? '0.32em' : '0.05em',
           opacity: visible ? 1 : 0,
@@ -199,7 +199,7 @@ function LeftPanel() {
         }}
       >
         Incremento Produzione e{' '}
-        <span className="montserrat-italic text-[#006473]">Miglioramento Benessere Animale</span>
+        <span className="montserrat-italic text-[#006071]">Miglioramento Benessere Animale</span>
       </h2>
       <p
         className="text-lg text-slate-500 leading-relaxed mb-8"

@@ -1,4 +1,4 @@
-const MODULI = [
+﻿const MODULI = [
   { label: 'Lorem Modulus A', color: 'blue' },
   { label: 'Ipsum Modulus B', color: 'indigo' },
   { label: 'Dolor Modulus C', color: 'purple' },
@@ -20,9 +20,9 @@ export default function CompatibilitaSection() {
           </div>
         </div>
         <div className="order-1 lg:order-2 animate-slide-right">
-          <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Sezione 3</span>
+          <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Sezione 3</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-            Compatibilità con Gabbioni di <span className="montserrat-italic text-[#006473]">Movimento e Moduli Aggiuntivi</span>
+            Compatibilità con Gabbioni di <span className="montserrat-italic text-[#006071]">Movimento e Moduli Aggiuntivi</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.

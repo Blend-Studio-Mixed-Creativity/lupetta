@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+﻿import { useState, useCallback, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logoImg from '../assets/images/logolupettaverdebianco.png';
 
@@ -143,7 +143,7 @@ export default function Navbar() {
         onMouseMove={onMove}
       >
         {/* Gradient BG */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#016573] via-[#018a80] to-[#013d47]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#016573] via-[#017870] to-[#013d47]" />
 
         {/* ── Parallax Orbs ── */}
         <div
@@ -151,7 +151,7 @@ export default function Navbar() {
           style={{ transform: 'translate(' + tx(40) + ',' + ty(40) + ')' }}
         />
         <div
-          className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#62bc46]/[0.08] blur-3xl pointer-events-none transition-transform duration-[2000ms] ease-out"
+          className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#65b32e]/[0.08] blur-3xl pointer-events-none transition-transform duration-[2000ms] ease-out"
           style={{ transform: 'translate(' + tx(-25) + ',' + ty(-25) + ')' }}
         />
         <div
@@ -196,7 +196,7 @@ export default function Navbar() {
                         <span
                           className={[
                             'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight',
-                            isActive ? 'text-[#62bc46]' : 'text-white group-hover:text-[#62bc46]',
+                            isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-[#65b32e]',
                           ].join(' ')}
                         >
                           {item.label}
@@ -226,13 +226,13 @@ export default function Navbar() {
                               <span
                                 className={[
                                   'w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-300',
-                                  isActive ? 'bg-[#62bc46] scale-125' : 'bg-white/30 group-hover/sub:bg-[#62bc46]',
+                                  isActive ? 'bg-[#65b32e] scale-125' : 'bg-white/30 group-hover/sub:bg-[#65b32e]',
                                 ].join(' ')}
                               />
                               <span
                                 className={[
                                   'text-base lg:text-lg font-medium transition-colors duration-300',
-                                  isActive ? 'text-[#62bc46]' : 'text-white/50 group-hover/sub:text-white',
+                                  isActive ? 'text-[#65b32e]' : 'text-white/50 group-hover/sub:text-white',
                                 ].join(' ')}
                               >
                                 {child.label}
@@ -258,7 +258,7 @@ export default function Navbar() {
                 <Link
                   to="/contatti"
                   onClick={() => setIsOpen(false)}
-                  className="px-8 py-3.5 bg-[#62bc46] text-white font-semibold rounded-xl hover:bg-[#52a83d] transition-all duration-300 shadow-lg shadow-[#62bc46]/30 hover:shadow-xl hover:-translate-y-0.5 tracking-wide"
+                  className="px-8 py-3.5 bg-[#65b32e] text-white font-semibold rounded-xl hover:bg-[#50992a] transition-all duration-300 shadow-lg shadow-[#65b32e]/30 hover:shadow-xl hover:-translate-y-0.5 tracking-wide"
                 >
                   Contattaci
                 </Link>

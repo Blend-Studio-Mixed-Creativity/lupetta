@@ -1,4 +1,4 @@
-const ROWS: [string, string, string][] = [
+﻿const ROWS: [string, string, string][] = [
   ['Lorem Ipsum Dolor', '✓', '✓'],
   ['Consectetur Adipiscing', '—', '✓'],
   ['Pellentesque Habitant', '✓', '✓'],
@@ -12,9 +12,9 @@ export default function ComparativaSection() {
     <section className="bg-white border-y border-slate-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
         <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
-          <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Comparatio</span>
+          <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Comparatio</span>
           <h2 className="text-4xl md:text-5xl text-slate-900 tracking-tight mt-3">
-            Lorem <span className="montserrat-italic text-[#006473]">vs</span> Ipsum
+            Lorem <span className="montserrat-italic text-[#006071]">vs</span> Ipsum
           </h2>
         </div>
 
@@ -23,8 +23,8 @@ export default function ComparativaSection() {
             <thead>
               <tr className="bg-slate-50">
                 <th className="px-6 py-4 text-sm font-bold text-slate-500 uppercase tracking-wider">Caratteristica</th>
-                <th className="px-6 py-4 text-sm font-bold text-[#62bc46] uppercase tracking-wider text-center">MINI</th>
-                <th className="px-6 py-4 text-sm font-bold text-[#006473] uppercase tracking-wider text-center">MAXI</th>
+                <th className="px-6 py-4 text-sm font-bold text-[#65b32e] uppercase tracking-wider text-center">MINI</th>
+                <th className="px-6 py-4 text-sm font-bold text-[#006071] uppercase tracking-wider text-center">MAXI</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">

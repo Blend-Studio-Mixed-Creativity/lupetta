@@ -1,14 +1,14 @@
-import RevealSection from '../../RevealSection';
+﻿import RevealSection from '../../RevealSection';
 
 export default function TecnologieSection() {
   return (
-    <section className="bg-[#006473] text-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+    <section className="bg-[#006071] text-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(244,63,94,0.15),transparent)] pointer-events-none" />
       <div className="absolute inset-0 sr-shimmer pointer-events-none opacity-30" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <RevealSection className="text-center mb-8 sm:mb-10 lg:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight">
-            Tecnologie e Funzionalità <span className="montserrat-italic text-[#62bc46]">Esclusive Lupetta</span>
+            Tecnologie e Funzionalità <span className="montserrat-italic text-[#65b32e]">Esclusive Lupetta</span>
           </h2>
         </RevealSection>
         <div className="grid md:grid-cols-3 gap-8">
@@ -19,7 +19,7 @@ export default function TecnologieSection() {
           ].map((tech, i) => (
             <RevealSection key={i} className="glass-dark p-5 sm:p-6 lg:p-8 rounded-2xl card-hover group" animation="sr-flip-in" delay={`sr-delay-${(i + 1) * 2}`}>
               <span className="text-3xl block mb-4 transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12 sr-subtle-float" style={{ animationDelay: `${i * 0.8}s` }}>{tech.icon}</span>
-              <h3 className="text-xl text-[#62bc46] mb-3">{tech.title}</h3>
+              <h3 className="text-xl text-[#65b32e] mb-3">{tech.title}</h3>
               <p className="text-slate-400 leading-relaxed">{tech.desc}</p>
             </RevealSection>
           ))}

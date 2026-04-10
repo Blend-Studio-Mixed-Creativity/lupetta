@@ -1,4 +1,4 @@
-const USI = [
+﻿const USI = [
   { title: 'Lorem Parvum', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero.' },
   { title: 'Ipsum Domesticus', desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien.' },
   { title: 'Dolor Initialis', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.' },
@@ -6,7 +6,7 @@ const USI = [
 
 export default function UsoIdealeSection() {
   return (
-    <section className="bg-[#006473] text-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+    <section className="bg-[#006071] text-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(34,197,94,0.15),transparent)] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">

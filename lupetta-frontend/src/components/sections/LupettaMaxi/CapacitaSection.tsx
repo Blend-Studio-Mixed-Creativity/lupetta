@@ -1,4 +1,4 @@
-const SPECS = [
+﻿const SPECS = [
   { label: 'Lorem Capacitas', value: '200 L' },
   { label: 'Dolor Autonomia', value: '72h' },
   { label: 'Ipsum Potentia', value: '1.5 kW' },
@@ -11,9 +11,9 @@ export default function CapacitaSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="animate-slide-left">
-          <span className="text-[#006473] font-bold text-sm tracking-widest uppercase">Sezione 1</span>
+          <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Sezione 1</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-            Capacità di Alimentazione e <span className="montserrat-italic text-[#006473]">Durata Operativa</span>
+            Capacità di Alimentazione e <span className="montserrat-italic text-[#006071]">Durata Operativa</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.

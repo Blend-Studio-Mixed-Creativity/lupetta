@@ -1,4 +1,4 @@
-﻿import TiltCard3D from '../../ui/TiltCard3D';
+﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 interface TechItem {
   iconPath: string;
@@ -16,30 +16,75 @@ const TECH_ITEMS: TechItem[] = [
 ];
 
 export default function TecnologiaSection() {
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-      <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-slide-up">
-        <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Technologia</span>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4">
-          Lorem Ipsum <span className="montserrat-italic text-[#006071]">Dolor</span>
-        </h2>
+    <section style={{ background: '#f8fafc', padding: '10rem 0', position: 'relative', overflow: 'hidden' }}>
+      
+      {/* Background Spline Model */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', opacity: 0.45 }}>
+        <div dangerouslySetInnerHTML={{ __html: '<spline-viewer url="https://prod.spline.design/1YxZ7K-Ej56DSFPG/scene.splinecode"></spline-viewer>' }} />
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {TECH_ITEMS.map((tech, i) => (
-          <TiltCard3D
-            key={i}
-            className={`p-8 rounded-2xl border border-slate-100 bg-white animate-slide-up animate-stagger-${(i % 3) + 1} group`}
-          >
-            <div className="w-11 h-11 rounded-xl bg-[#006071]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg className="w-5 h-5 text-[#006071]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d={tech.iconPath} />
-              </svg>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div ref={ref} className={`text-center mb-16 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
+          <span style={{ color: '#006071', fontWeight: 800, fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
+            Technologia
+          </span>
+          <h2 className="montserrat-heading mt-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#0f172a', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            Lorem Ipsum <span className="montserrat-italic" style={{ color: '#006071' }}>Dolor</span>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {TECH_ITEMS.map((tech, i) => (
+            <div
+              key={i}
+              className={`${isVisible ? 'sr-reveal-scale' : 'sr-hidden'} ${'sr-delay-' + ((i % 3) + 1)}`}
+              style={{
+                background: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(20px)',
+                borderRadius: '1.5rem',
+                padding: '2.5rem',
+                border: '1px solid rgba(255,255,255,0.6)',
+                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.05), inset 0 2px 0 rgba(255,255,255,1)',
+                transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                e.currentTarget.style.boxShadow = '0 20px 50px -10px rgba(0,96,113,0.15), inset 0 2px 0 rgba(255,255,255,1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 10px 40px -10px rgba(0,0,0,0.05), inset 0 2px 0 rgba(255,255,255,1)';
+              }}
+            >
+              <div
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: '12px',
+                  background: 'rgba(0,96,113,0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                <svg width={22} height={22} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#006071">
+                  <path strokeLinecap="round" strokeLinejoin="round" d={tech.iconPath} />
+                </svg>
+              </div>
+              <h3 className="montserrat-heading" style={{ fontSize: '1.25rem', color: '#0f172a', marginBottom: '0.75rem' }}>
+                {tech.title}
+              </h3>
+              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                {tech.desc}
+              </p>
             </div>
-            <h3 className="text-xl text-slate-900 mb-2">{tech.title}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">{tech.desc}</p>
-          </TiltCard3D>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -12,6 +12,13 @@ const ANIM_SELECTOR = [
   '.animate-pop-in',
 ].join(', ');
 
+function useScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+}
+
 function useScrollRevealAll() {
   const { pathname } = useLocation();
 
@@ -49,6 +56,7 @@ function useScrollRevealAll() {
 }
 
 export default function MainLayout() {
+  useScrollToTop();
   useScrollRevealAll();
 
   return (

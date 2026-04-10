@@ -12,21 +12,21 @@ export default function HeroSection() {
         <span className="inline-block py-2 px-5 rounded-full bg-white/10 border border-white/30 text-white text-sm font-semibold tracking-widest uppercase mb-8 animate-fade-in">
           Lorem Ipsum
         </span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 animate-slide-up montserrat-italic text-balance">
+        <h1 className="tracking-tight leading-[1.05] mb-8 montserrat-heading animate-slide-up text-balance" style={{ fontSize: 'clamp(2.8rem, 5.5vw, 6rem)' }}>
           Caratteristiche tecniche
-          <span className="text-white/80 block">e varianti di Lupetta: MINI e MAXI Tech</span>
+          <span className="montserrat-italic block mt-2" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            e varianti di Lupetta:
+          </span>
+          <span className="montserrat-italic block mt-2 animate-slide-up animate-stagger-2" style={{ color: 'rgba(255,255,255,0.9)' }}>
+            MINI e MAXI Tech
+          </span>
         </h1>
-        <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-2">
+        <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-3">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
         </p>
       </div>
     </section>
   );
 }
-
-
-
-
-
 
 

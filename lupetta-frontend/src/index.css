@@ -7,6 +7,13 @@
   --color-accent: #65b32e;
 }
 
+/* Fix Spline Viewer intrinsic height */
+spline-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -97,6 +104,11 @@ h1, h2, h3, h4, h5, h6,
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
 }
 
 @keyframes pulse-glow {
@@ -253,7 +265,8 @@ h1, h2, h3, h4, h5, h6,
 .animate-slide-left  { animation: slideInLeft  0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .animate-slide-right { animation: slideInRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.animate-float    { animation: float 4s ease-in-out infinite; }
+.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-float-down { animation: floatDown 2s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-pop-in     { animation: popIn       0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
 

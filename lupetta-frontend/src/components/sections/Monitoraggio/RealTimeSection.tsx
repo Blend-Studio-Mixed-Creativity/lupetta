@@ -25,7 +25,6 @@ function CandleChart({ visible }: { visible: boolean }) {
 
           // Normalize everything relative to CHART_H
           const wickTopPct   = ((100 - col.high) / 100) * CHART_H;
-          const wickBotPct   = ((100 - col.low)  / 100) * CHART_H;
           const bodyTopPct   = ((100 - bodyTop - bodyH) / 100) * CHART_H;
           const bodyHeightPx = (bodyH / 100) * CHART_H;
           const wickHeight   = (range / 100) * CHART_H;
@@ -88,20 +87,20 @@ export default function RealTimeSection() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
-      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
 
         {/* Chart card */}
         <div ref={ref} className={`order-2 lg:order-1 ${isVisible ? 'sr-reveal-left' : 'sr-hidden'}`}>
-          <div className="bg-[#006071] rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
+          <div className="bg-[#006071] rounded-3xl p-7 sm:p-10 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#65b32e]/8 rounded-full blur-3xl pointer-events-none" />
 
             {/* Header */}
             <div className="flex items-center justify-between mb-1 relative z-10">
-              <h3 className="text-lg font-semibold text-[#65b32e]">Consumo Settimanale</h3>
+              <h3 className="text-xl font-semibold text-white">Consumo Settimanale</h3>
               <LiveDot />
             </div>
-            <p className="text-white/40 text-xs mb-6 relative z-10">Litri somministrati per giorno</p>
+            <p className="text-white/40 text-sm mb-8 relative z-10">Litri somministrati per giorno</p>
 
             {/* Y-axis labels + chart */}
             <div className="flex gap-2 relative z-10">
@@ -155,18 +154,18 @@ export default function RealTimeSection() {
         {/* Text */}
         <div className={`order-1 lg:order-2 ${isVisible ? 'sr-reveal-right' : 'sr-hidden'}`}>
           <span className="text-[#006071] font-semibold text-sm tracking-widest uppercase">Real-Time</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8">
             Monitoraggio in Tempo Reale della <span className="montserrat-italic text-[#006071]">Somministrazione</span>
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed mb-6">
+          <p className="text-lg sm:text-xl text-slate-500 leading-relaxed mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.
           </p>
-          <h3 className="text-lg text-slate-800">Visualizzazione Consumi</h3>
-          <p className="text-slate-500 leading-relaxed text-sm mb-4">
+          <h3 className="text-xl text-slate-800">Visualizzazione Consumi</h3>
+          <p className="text-slate-500 leading-relaxed mb-5">
             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend.
           </p>
-          <h3 className="text-lg text-slate-800">Comportamenti Alimentari</h3>
-          <p className="text-slate-500 leading-relaxed text-sm">
+          <h3 className="text-xl text-slate-800">Comportamenti Alimentari</h3>
+          <p className="text-slate-500 leading-relaxed">
             Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam.
           </p>
         </div>

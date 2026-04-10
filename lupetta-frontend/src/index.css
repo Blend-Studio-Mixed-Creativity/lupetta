@@ -26,6 +26,14 @@ body {
   color: rgb(255, 255, 255);
 }
 
+/* Global full-screen sections (min-height 100vh) */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .text-balance {
   text-wrap: balance;
 }
@@ -336,48 +344,6 @@ details summary { cursor: pointer; list-style: none; }
 details summary::-webkit-details-marker { display: none; }
 details[open] summary .faq-chevron { transform: rotate(180deg); }
 .faq-chevron { transition: transform 0.3s ease; }
-
-/* Animation Utilities */
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out;
-}
-
-.animate-slide-left {
-  animation: slideInLeft 0.6s ease-out;
-}
-
-.animate-slide-right {
-  animation: slideInRight 0.6s ease-out;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.6s ease-out;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Stagger animations */
-.animate-stagger-1 {
-  animation-delay: 0.1s;
-}
-
-.animate-stagger-2 {
-  animation-delay: 0.2s;
-}
-
-.animate-stagger-3 {
-  animation-delay: 0.3s;
-}
-
-.animate-stagger-4 {
-  animation-delay: 0.4s;
-}
 
 /* Intersection Observer utility classes */
 .fade-in-on-scroll {

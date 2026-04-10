@@ -26,11 +26,6 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'FAQ', to: '/faq' },
 ];
 
-const SECONDARY_LINKS = [
-  { label: 'Mission', to: '/mission' },
-  { label: 'Risorse', to: '/risorse' },
-  { label: 'Approfondimenti', to: '/approfondimenti' },
-];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -143,7 +138,7 @@ export default function Navbar() {
         onMouseMove={onMove}
       >
         {/* Gradient BG */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#016573] via-[#017870] to-[#013d47]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#016573] via-[#018a80] to-[#013d47]" />
 
         {/* ── Parallax Orbs ── */}
         <div
@@ -151,7 +146,7 @@ export default function Navbar() {
           style={{ transform: 'translate(' + tx(40) + ',' + ty(40) + ')' }}
         />
         <div
-          className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#65b32e]/[0.08] blur-3xl pointer-events-none transition-transform duration-[2000ms] ease-out"
+          className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#62bc46]/[0.08] blur-3xl pointer-events-none transition-transform duration-[2000ms] ease-out"
           style={{ transform: 'translate(' + tx(-25) + ',' + ty(-25) + ')' }}
         />
         <div
@@ -196,7 +191,7 @@ export default function Navbar() {
                         <span
                           className={[
                             'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight',
-                            isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-[#65b32e]',
+                            isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-slate-300',
                           ].join(' ')}
                         >
                           {item.label}
@@ -226,13 +221,13 @@ export default function Navbar() {
                               <span
                                 className={[
                                   'w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-300',
-                                  isActive ? 'bg-[#65b32e] scale-125' : 'bg-white/30 group-hover/sub:bg-[#65b32e]',
+                                  isActive ? 'bg-[#65b32e] scale-125' : 'bg-white/30 group-hover/sub:bg-slate-400',
                                 ].join(' ')}
                               />
                               <span
                                 className={[
                                   'text-base lg:text-lg font-medium transition-colors duration-300',
-                                  isActive ? 'text-[#65b32e]' : 'text-white/50 group-hover/sub:text-white',
+                                  isActive ? 'text-[#65b32e]' : 'text-white/50 group-hover/sub:text-slate-300',
                                 ].join(' ')}
                               >
                                 {child.label}
@@ -258,22 +253,10 @@ export default function Navbar() {
                 <Link
                   to="/contatti"
                   onClick={() => setIsOpen(false)}
-                  className="px-8 py-3.5 bg-[#65b32e] text-white font-semibold rounded-xl hover:bg-[#50992a] transition-all duration-300 shadow-lg shadow-[#65b32e]/30 hover:shadow-xl hover:-translate-y-0.5 tracking-wide"
+                  className="px-8 py-3.5 bg-[#62bc46] text-white font-semibold rounded-xl hover:bg-[#52a83d] transition-all duration-300 shadow-lg shadow-[#62bc46]/30 hover:shadow-xl hover:-translate-y-0.5 tracking-wide"
                 >
                   Contattaci
                 </Link>
-                <div className="flex gap-6">
-                  {SECONDARY_LINKS.map((link) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
-                      onClick={() => setIsOpen(false)}
-                      className="text-white/35 text-sm hover:text-white/80 transition-colors duration-300 tracking-wide"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
               </div>
             </div>
 

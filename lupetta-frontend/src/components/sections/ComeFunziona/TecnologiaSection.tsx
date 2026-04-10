@@ -1,4 +1,6 @@
-﻿interface TechItem {
+﻿import TiltCard3D from '../../ui/TiltCard3D';
+
+interface TechItem {
   iconPath: string;
   title: string;
   desc: string;
@@ -15,19 +17,19 @@ const TECH_ITEMS: TechItem[] = [
 
 export default function TecnologiaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-12 sm:py-16 lg:py-28">
-      <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-slide-up">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+      <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-slide-up">
         <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Technologia</span>
-        <h2 className="text-4xl md:text-5xl text-slate-900 tracking-tight mt-3">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4">
           Lorem Ipsum <span className="montserrat-italic text-[#006071]">Dolor</span>
         </h2>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
         {TECH_ITEMS.map((tech, i) => (
-          <div
+          <TiltCard3D
             key={i}
-            className={`p-8 rounded-2xl border border-slate-100 hover:border-[#006071]/20 hover:shadow-lg transition-all animate-slide-up animate-stagger-${(i % 3) + 1} group bg-white`}
+            className={`p-8 rounded-2xl border border-slate-100 bg-white animate-slide-up animate-stagger-${(i % 3) + 1} group`}
           >
             <div className="w-11 h-11 rounded-xl bg-[#006071]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <svg className="w-5 h-5 text-[#006071]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -36,7 +38,7 @@ export default function TecnologiaSection() {
             </div>
             <h3 className="text-xl text-slate-900 mb-2">{tech.title}</h3>
             <p className="text-slate-500 text-sm leading-relaxed">{tech.desc}</p>
-          </div>
+          </TiltCard3D>
         ))}
       </div>
     </section>

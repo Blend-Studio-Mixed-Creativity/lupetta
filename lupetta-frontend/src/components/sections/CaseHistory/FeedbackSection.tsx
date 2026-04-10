@@ -1,4 +1,5 @@
-﻿import RevealSection from '../../RevealSection';
+﻿import TiltCard3D from '../../ui/TiltCard3D';
+import RevealSection from '../../RevealSection';
 
 export default function FeedbackSection() {
   return (
@@ -31,14 +32,16 @@ export default function FeedbackSection() {
             rating: 4,
           },
         ].map((testimonial, i) => (
-          <RevealSection key={i} className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group" animation="sr-reveal-scale" delay={`sr-delay-${(i + 1) * 2}`}>
+          <TiltCard3D key={i} className="rounded-2xl">
+            <RevealSection className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-100 group" animation="sr-reveal-scale" delay={`sr-delay-${(i + 1) * 2}`}>
             <div className="text-amber-400 text-lg mb-4 transition-transform duration-500 group-hover:scale-110 origin-left">{"★".repeat(testimonial.rating)}{"☆".repeat(5 - testimonial.rating)}</div>
             <blockquote className="text-slate-600 leading-relaxed mb-6 italic">&ldquo;{testimonial.quote}&rdquo;</blockquote>
             <div className="border-t border-slate-100 pt-4">
               <div className="font-bold text-slate-900">{testimonial.name}</div>
               <div className="text-sm text-slate-400">{testimonial.role}</div>
             </div>
-          </RevealSection>
+            </RevealSection>
+          </TiltCard3D>
         ))}
       </div>
     </section>

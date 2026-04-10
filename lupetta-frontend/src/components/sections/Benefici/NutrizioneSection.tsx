@@ -1,4 +1,5 @@
-﻿import RevealSection from '../../RevealSection';
+﻿import TiltCard3D from '../../ui/TiltCard3D';
+import RevealSection from '../../RevealSection';
 
 const BENEFITS = [
   { iconPath: 'M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941', title: 'Incremento del Peso e Sviluppo Muscolare', desc: 'Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.' },
@@ -12,10 +13,10 @@ const BENEFITS = [
 export default function NutrizioneSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-12 sm:pb-16 lg:pb-12 sm:pb-16 lg:pb-24">
-      <RevealSection className="flex justify-center mb-8 sm:mb-10 lg:mb-14">
-        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-6 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-8 text-center">
+      <RevealSection className="flex justify-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-8 sm:px-10 lg:px-14 py-6 sm:py-8 lg:py-10 text-center">
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Nutrizione</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
             Effetti della Nutrizione Programmata sul <span className="montserrat-italic text-[#006071]">Benessere e Crescita</span>
           </h2>
         </div>
@@ -23,7 +24,8 @@ export default function NutrizioneSection() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {BENEFITS.map((benefit, i) => (
-          <RevealSection key={i} className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group" animation="sr-flip-in" delay={`sr-delay-${(i % 3) + 1}`}>
+          <TiltCard3D key={i} className="rounded-2xl">
+            <RevealSection className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-100 group" animation="sr-flip-in" delay={`sr-delay-${(i % 3) + 1}`}>
             <div className="w-11 h-11 rounded-xl bg-[#006071]/10 flex items-center justify-center mb-4 group-hover:scale-125 group-hover:rotate-[10deg] transition-transform duration-500">
               <svg className="w-5 h-5 text-[#006071]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d={benefit.iconPath} />
@@ -31,7 +33,8 @@ export default function NutrizioneSection() {
             </div>
             <h3 className="text-xl text-slate-900 mb-3">{benefit.title}</h3>
             <p className="text-slate-500 text-sm leading-relaxed">{benefit.desc}</p>
-          </RevealSection>
+            </RevealSection>
+          </TiltCard3D>
         ))}
       </div>
     </section>

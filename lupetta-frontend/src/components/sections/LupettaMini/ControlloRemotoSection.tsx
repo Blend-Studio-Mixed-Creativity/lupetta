@@ -7,8 +7,8 @@
 
 export default function ControlloRemotoSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
-      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
         <div className="order-2 lg:order-1 animate-slide-left">
           <div className="bg-white rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 border border-slate-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#65b32e]/20 rounded-full blur-3xl" />
@@ -28,10 +28,10 @@ export default function ControlloRemotoSection() {
         </div>
         <div className="order-1 lg:order-2 animate-slide-right">
           <span className="text-[#65b32e] font-bold text-sm tracking-widest uppercase">Sezione 3</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8">
             Integrazione con Sistemi di <span className="montserrat-italic text-[#65b32e]">Controllo Remoto Web</span>
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed mb-6">
+          <p className="text-lg sm:text-xl text-slate-500 leading-relaxed mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
           </p>
           <p className="text-slate-500 leading-relaxed">

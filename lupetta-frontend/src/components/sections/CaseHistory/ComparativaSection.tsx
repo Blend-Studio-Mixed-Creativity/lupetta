@@ -1,4 +1,5 @@
-﻿import RevealSection from '../../RevealSection';
+﻿import TiltCard3D from '../../ui/TiltCard3D';
+import RevealSection from '../../RevealSection';
 
 export default function ComparativaSection() {
   return (
@@ -13,7 +14,8 @@ export default function ComparativaSection() {
         </p>
       </RevealSection>
 
-      <RevealSection className="overflow-hidden rounded-2xl border border-slate-200 bg-white" animation="sr-reveal-scale">
+      <TiltCard3D className="rounded-2xl" maxAngle={5}>
+        <RevealSection className="overflow-hidden rounded-2xl border border-slate-200 bg-white" animation="sr-reveal-scale">
         <table className="w-full text-left">
           <thead>
             <tr className="bg-slate-50">
@@ -40,7 +42,8 @@ export default function ComparativaSection() {
             ))}
           </tbody>
         </table>
-      </RevealSection>
+        </RevealSection>
+      </TiltCard3D>
     </section>
   );
 }

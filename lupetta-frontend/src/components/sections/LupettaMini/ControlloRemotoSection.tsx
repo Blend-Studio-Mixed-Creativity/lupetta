@@ -60,9 +60,9 @@ export default function ControlloRemotoSection() {
           border: 1.5px solid rgba(101,179,46,0.2);
           animation: wifiSpin linear infinite;
         }
-        .ctrl-ring-1 { width: 180px; height: 180px; animation-duration: 10s; }
-        .ctrl-ring-2 { width: 280px; height: 280px; animation-duration: 16s; animation-direction: reverse; border-color: rgba(0,96,113,0.2); }
-        .ctrl-ring-3 { width: 400px; height: 400px; animation-duration: 24s; border-color: rgba(0,200,160,0.1); }
+        .ctrl-ring-1 { width: 120px; height: 120px; animation-duration: 10s; }
+        .ctrl-ring-2 { width: 200px; height: 200px; animation-duration: 16s; animation-direction: reverse; border-color: rgba(0,96,113,0.2); }
+        .ctrl-ring-3 { width: 300px; height: 300px; animation-duration: 24s; border-color: rgba(0,200,160,0.1); }
 
         .feat-box {
           position: relative;
@@ -155,7 +155,7 @@ export default function ControlloRemotoSection() {
       <section style={{ background: '#0b1a20' }}>
 
         {/* Hero full screen con WiFi al centro */}
-        <div className="w-full min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 py-32">
+        <div className="w-full flex flex-col justify-center items-center relative overflow-hidden px-4 py-10">
           {/* Anelli rotanti */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="ctrl-ring ctrl-ring-1" />
@@ -169,9 +169,9 @@ export default function ControlloRemotoSection() {
               transformOrigin: '0 0', animation: 'orbitDot 6s linear infinite',
             }} />
             <div style={{
-              position: 'absolute', width: 8, height: 8, borderRadius: '50%',
+              position: 'absolute', width: 6, height: 6, borderRadius: '50%',
               background: '#00c8a0', boxShadow: '0 0 10px rgba(0,200,160,0.9)',
-              top: '50%', left: '50%', marginTop: -4, marginLeft: -4,
+              top: '50%', left: '50%', marginTop: -3, marginLeft: -3,
               transformOrigin: '0 0', animation: 'orbitDot2 9s linear infinite',
             }} />
           </div>
@@ -180,16 +180,16 @@ export default function ControlloRemotoSection() {
           <div
             ref={refHero}
             className={visHero ? 'sr-reveal-scale' : 'sr-hidden'}
-            style={{ position: 'relative', zIndex: 2, marginBottom: '3rem' }}
+            style={{ position: 'relative', zIndex: 2, marginBottom: '1.5rem' }}
           >
             <div style={{
-              width: 130, height: 130, borderRadius: '50%',
+              width: 90, height: 90, borderRadius: '50%',
               background: 'linear-gradient(135deg, #65b32e 0%, #006071 100%)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 0 60px rgba(101,179,46,0.4), 0 0 120px rgba(0,96,113,0.2)',
+              boxShadow: '0 0 40px rgba(101,179,46,0.4), 0 0 80px rgba(0,96,113,0.2)',
               animation: 'wifiPulse 3.5s ease-in-out infinite',
             }}>
-              <svg width="60" height="60" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white">
+              <svg width="42" height="42" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
               </svg>
             </div>
@@ -203,10 +203,10 @@ export default function ControlloRemotoSection() {
             <span style={{ color: '#65b32e', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
               Sezione 3
             </span>
-            <h2 className="montserrat-heading text-5xl sm:text-7xl md:text-8xl tracking-tight mt-5 mb-8 leading-[1.1] whitespace-nowrap" style={{ color: '#fff' }}>
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mt-3 mb-4 leading-[1.1] whitespace-nowrap" style={{ color: '#fff' }}>
               Controllo Remoto <span className="montserrat-italic text-accent">Wi-Fi</span>
             </h2>
-            <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique
               senectus et netus et malesuada fames ac turpis egestas.
             </p>
@@ -216,30 +216,30 @@ export default function ControlloRemotoSection() {
         {/* Feature cards */}
         <div
           ref={refFeatures}
-          className="w-full flex flex-wrap justify-center gap-8 lg:gap-12 px-4 pb-32"
+          className="w-full flex flex-wrap justify-center gap-4 lg:gap-6 px-4 pb-10"
         >
           {FEATURES.map((feat, i) => (
             <div
               key={i}
-              className={`w-full max-w-[260px] ${visFeatures ? 'feat-reveal opacity-0' : 'opacity-0'}`}
+              className={`w-full max-w-[200px] ${visFeatures ? 'feat-reveal opacity-0' : 'opacity-0'}`}
               style={{ animationDelay: `${i * 0.16}s` }}
             >
               <div 
-                className="w-full aspect-[3/4] rounded-[24px] p-1.5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
+                className="w-full aspect-[4/5] rounded-[18px] p-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
                 style={{
                   background: 'linear-gradient(144deg, #006071, #65b32e 50%, #00c8a0)',
                 }}
               >
-                <div className="w-full h-full bg-[#0b1a20] rounded-[19px] p-6 lg:p-8 flex flex-col justify-center relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
+                <div className="w-full h-full bg-[#0b1a20] rounded-[14px] p-4 lg:p-5 flex flex-col justify-center relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
                   {/* Subtle inner hover glow */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_#65b32e_0%,_transparent_70%)] pointer-events-none" />
                   
                   <div style={{
-                    width: 48, height: 48, borderRadius: 12,
+                    width: 36, height: 36, borderRadius: 9,
                     background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                  }} className="mb-4 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#65b32e]/50">
-                    <svg className="w-6 h-6 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  }} className="mb-3 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#65b32e]/50">
+                    <svg className="w-5 h-5 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d={feat.iconPath} />
                     </svg>
                   </div>

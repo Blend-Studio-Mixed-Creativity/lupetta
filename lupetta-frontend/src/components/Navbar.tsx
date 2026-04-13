@@ -87,7 +87,7 @@ export default function Navbar() {
             to="/"
             className={[
               'relative z-[120] transition-all duration-500',
-              isOpen ? 'opacity-0 -translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0',
+              isOpen || scrolled ? 'opacity-0 -translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0',
             ].join(' ')}
           >
             <img

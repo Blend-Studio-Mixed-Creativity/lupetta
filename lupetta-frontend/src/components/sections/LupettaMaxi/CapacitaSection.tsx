@@ -65,7 +65,7 @@ export default function CapacitaSection() {
 
       <div className="w-full relative bg-white">
         {/* Full screen intro text */}
-        <section className="relative w-full min-h-[60vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-32 pb-20">
+        <section className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-28 pb-0">
           <div ref={refLeft} className={`w-full text-center max-w-7xl mx-auto ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
               style={{
@@ -78,52 +78,52 @@ export default function CapacitaSection() {
             >
               Capacità e Autonomia
             </span>
-            <h2 className="montserrat-heading text-5xl sm:text-7xl md:text-8xl text-slate-900 tracking-tight mt-6 mb-12 leading-[1.1]">
+            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4 mb-8 leading-[1.1]">
               Capacità di Alimentazione<br />
               <span className="montserrat-italic text-accent">e Durata Operativa</span>
             </h2>
-            <p className="text-2xl sm:text-3xl md:text-4xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-6">
+            <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
             </p>
-            <p className="text-xl sm:text-2xl text-slate-400 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-lg text-slate-400 leading-relaxed max-w-4xl mx-auto">
               Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper.
             </p>
           </div>
         </section>
 
         {/* Full screen card reveal */}
-        <section className="relative z-10 w-full">
+        <section className="relative z-10 w-full" style={{ marginTop: '-5rem' }}>
           <div 
             ref={refRight} 
-            className={`specs-card w-full min-h-screen flex flex-col justify-center py-24 px-4 sm:px-12 lg:px-24 transition-all duration-[1200ms] ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
-            style={{ borderRadius: '0' }}
+            className={`specs-card w-full flex flex-col justify-center py-32 px-4 sm:px-12 lg:px-24 transition-all duration-[1200ms] ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
+            style={{ borderRadius: '0', minHeight: '100vh', paddingTop: '10rem' }}
           >
             <div className="w-full max-w-7xl mx-auto">
               {/* Card header */}
               <div
                 className={visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}
                 style={{
-                  padding: '3.5rem 4rem',
+                  padding: '2rem 2.5rem',
                   borderBottom: '1px solid rgba(255,255,255,0.08)',
                   background: 'linear-gradient(135deg, rgba(101,179,46,0.1) 0%, transparent 100%)',
                   borderRadius: '32px 32px 0 0',
                   animationDelay: '100ms',
                 }}
               >
-                <span className="montserrat-heading text-5xl md:text-5xl lg:text-6xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche Tecniche</span>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.15rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.75rem' }}>
+                <span className="montserrat-heading text-4xl md:text-5xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche Tecniche</span>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.6rem' }}>
                   Versione MAXI Tech
                 </p>
               </div>
 
               {/* Specs list */}
-              <div style={{ padding: '2rem 3rem 4rem', background: 'transparent' }}>
+              <div style={{ padding: '1rem 1.5rem 2.5rem', background: 'transparent' }}>
                 {SPECS.map((spec, i) => (
                   <div
                     key={i}
                     className={`flex items-center gap-8 group ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
                     style={{
-                      padding: '2.5rem 1.5rem',
+                      padding: '1.5rem 1.25rem',
                       borderBottom: i < SPECS.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
                       transition: 'background 0.3s ease',
                       borderRadius: 20,
@@ -134,9 +134,9 @@ export default function CapacitaSection() {
                   >
                     <div
                       style={{
-                        width: 80,
-                        height: 80,
-                        borderRadius: 20,
+                        width: 64,
+                        height: 64,
+                        borderRadius: 16,
                         background: 'rgba(255,255,255,0.12)',
                         border: '1.5px solid rgba(255,255,255,0.22)',
                         display: 'flex',
@@ -145,13 +145,13 @@ export default function CapacitaSection() {
                         flexShrink: 0,
                       }}
                     >
-                      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
                         <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
                       </svg>
                     </div>
                     <div className="flex-1 flex justify-between items-center min-w-0">
-                      <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.35rem', fontWeight: 500 }}>{spec.label}</span>
-                      <span className="montserrat-heading font-bold ml-6 tabular-nums" style={{ color: '#ffffff', fontSize: '2.1rem', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
+                      <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.2rem', fontWeight: 500 }}>{spec.label}</span>
+                      <span className="montserrat-heading font-bold ml-6 tabular-nums" style={{ color: '#ffffff', fontSize: '1.8rem', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
                         {spec.value}
                       </span>
                     </div>

@@ -198,8 +198,8 @@ function LeftPanel() {
           transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s, filter 0.7s ease 0.2s',
         }}
       >
-        Incremento Produzione e{' '}
-        <span className="montserrat-italic text-[#006071]">Miglioramento Benessere Animale</span>
+        Incremento produzione e{' '}
+        <span className="montserrat-italic text-[#006071]">miglioramento benessere animale</span>
       </h2>
       <p
         className="text-lg text-slate-500 leading-relaxed mb-8"
@@ -219,7 +219,7 @@ function LeftPanel() {
           transition: 'opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s',
         }}
       >
-        Risparmi Economici e Ottimizzazioni Operative
+        Risparmi economici e ottimizzazioni operative
       </h3>
       <p
         className="text-slate-500 leading-relaxed text-sm"

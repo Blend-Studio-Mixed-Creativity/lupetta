@@ -45,7 +45,7 @@ export default function TipologieSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Tipologie</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
-            Tipologie di Gabbioni <span className="montserrat-italic" style={{ color: '#006071' }}>Disponibili</span>
+            Tipologie di gabbioni <span className="montserrat-italic" style={{ color: '#006071' }}>disponibili</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Scegli la soluzione più adatta alle tue esigenze tra le nostre tipologie di gabbioni.

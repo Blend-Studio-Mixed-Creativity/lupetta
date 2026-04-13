@@ -34,13 +34,13 @@ export default function ConservazioneSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Conservazione</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4">
-            Stoccaggio e <span className="montserrat-italic" style={{ color: '#65b32e' }}>Conservazione</span>
+            Stoccaggio e <span className="montserrat-italic" style={{ color: '#65b32e' }}>conservazione</span>
           </h2>
         </motion.div>
 
         <GlowingCards enableGlow glowRadius={28} gap="2.5rem" padding="0" backgroundColor="transparent" borderRadius="1rem">
           {ITEMS.map((item, i) => (
-            <GlowingCard key={i} glowColor={item.glowColor} className="p-8 sm:p-10 border-white/10" style={{ background: 'rgba(255,255,255,0.04)' }}>
+            <GlowingCard key={i} glowColor={item.glowColor} className="p-8 sm:p-10 border-white/10 [background:rgba(255,255,255,0.04)]">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={{ background: `${item.glowColor}25`, border: `1px solid ${item.glowColor}40` }}>
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={item.glowColor}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />

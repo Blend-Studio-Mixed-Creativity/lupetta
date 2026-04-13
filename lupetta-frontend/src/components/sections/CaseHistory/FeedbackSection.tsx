@@ -7,7 +7,7 @@ export default function FeedbackSection() {
       <RevealSection className="text-center mb-8 sm:mb-10 lg:mb-14">
         <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Feedback</span>
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-          Feedback Diretti da <span className="montserrat-italic text-[#006071]">Allevatori con Lupetta MINI e MAXI Tech</span>
+          Feedback diretti da <span className="montserrat-italic text-[#006071]">allevatori con Lupetta MINI e MAXI tech</span>
         </h2>
       </RevealSection>
 

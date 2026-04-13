@@ -5,7 +5,6 @@ interface RevealSectionProps {
   className?: string;
   animation?: string;
   delay?: string;
-  as?: React.ElementType;
   threshold?: number;
 }
 
@@ -14,16 +13,15 @@ export default function RevealSection({
   className = '',
   animation = 'sr-reveal-up',
   delay = '',
-  as: Tag = 'div',
   threshold,
 }: RevealSectionProps) {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold });
   return (
-    <Tag
+    <div
       ref={ref}
       className={`${className} ${isVisible ? `${animation} ${delay}` : 'sr-hidden'}`}
     >
       {children}
-    </Tag>
+    </div>
   );
 }

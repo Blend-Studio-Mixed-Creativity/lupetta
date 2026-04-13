@@ -12,7 +12,7 @@ export default function VantaggiSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-slide-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight">
-            Lorem <span className="montserrat-italic text-white/80">Ipsum Dolor</span> Sit Amet
+            Lorem <span className="montserrat-italic text-white/80">ipsum dolor</span> sit amet
           </h2>
           <p className="text-slate-400 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames.

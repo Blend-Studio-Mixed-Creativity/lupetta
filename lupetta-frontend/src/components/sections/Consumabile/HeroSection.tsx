@@ -38,7 +38,7 @@ export default function HeroSection() {
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 montserrat-italic text-balance">
           Approfondimento
-          <span className="text-[#65b32e] block">sulla Linea Latte</span>
+          <span className="text-[#65b32e] block">sulla linea latte</span>
         </h1>
         <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.

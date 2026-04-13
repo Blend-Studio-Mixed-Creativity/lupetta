@@ -13,6 +13,7 @@ import FAQ from './pages/FAQ';
 import Mission from './pages/Mission';
 import Risorse from './pages/Risorse';
 import Approfondimenti from './pages/Approfondimenti';
+import Contatti from './pages/Contatti';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: 'mission', element: <Mission /> },
       { path: 'risorse', element: <Risorse /> },
       { path: 'approfondimenti', element: <Approfondimenti /> },
+      { path: 'contatti', element: <Contatti /> },
     ],
   },
 ]);

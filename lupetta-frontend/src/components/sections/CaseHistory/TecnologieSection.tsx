@@ -8,7 +8,7 @@ export default function TecnologieSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <RevealSection className="text-center mb-8 sm:mb-10 lg:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight">
-            Tecnologie e Funzionalità <span className="montserrat-italic text-[#65b32e]">Esclusive Lupetta</span>
+            Tecnologie e funzionalità <span className="montserrat-italic text-[#65b32e]">esclusive Lupetta</span>
           </h2>
         </RevealSection>
         <div className="grid md:grid-cols-3 gap-8">

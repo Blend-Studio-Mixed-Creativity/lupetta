@@ -40,7 +40,7 @@ export default function ProdottiSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Prodotti</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
-            La Nostra <span className="montserrat-italic" style={{ color: '#006071' }}>Linea Latte</span>
+            La nostra <span className="montserrat-italic" style={{ color: '#006071' }}>linea latte</span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Formulazioni studiate per ogni fase di crescita del vitello.

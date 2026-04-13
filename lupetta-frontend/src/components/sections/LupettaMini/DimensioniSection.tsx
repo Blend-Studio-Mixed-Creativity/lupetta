@@ -99,7 +99,7 @@ export default function DimensioniSection() {
             </span>
             <h2 className="montserrat-heading text-5xl sm:text-7xl md:text-8xl text-slate-900 tracking-tight mt-6 mb-12 leading-[1.1]">
               Compatta fuori,<br />
-              <span className="montserrat-italic text-accent">Spaziosa dentro</span>
+              <span className="montserrat-italic text-accent">spaziosa dentro</span>
             </h2>
             <p className="text-2xl sm:text-3xl md:text-4xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies
@@ -130,7 +130,7 @@ export default function DimensioniSection() {
                   animationDelay: '100ms',
                 }}
               >
-                <span className="montserrat-heading text-5xl md:text-5xl lg:text-6xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche Tecniche</span>
+                <span className="montserrat-heading text-5xl md:text-5xl lg:text-6xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche tecniche</span>
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.15rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.75rem' }}>
                   Versione MINI Wi-Fi
                 </p>

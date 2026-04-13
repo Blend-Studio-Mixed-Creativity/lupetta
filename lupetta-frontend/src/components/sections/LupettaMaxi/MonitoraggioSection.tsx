@@ -153,7 +153,7 @@ export default function MonitoraggioSection() {
         <div className="text-center mb-8 sm:mb-10 lg:mb-14">
           <span className="font-bold text-sm tracking-widest uppercase" style={{ color: '#65b32e' }}>Sezione 2</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight mt-3" style={{ color: '#fff' }}>
-            Tecnologie Avanzate di <span className="montserrat-italic" style={{ color: '#65b32e' }}>Monitoraggio e Sicurezza</span>
+            Tecnologie avanzate di <span className="montserrat-italic" style={{ color: '#65b32e' }}>monitoraggio e sicurezza</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8">

@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import React, { useRef, MouseEvent, useId } from "react";

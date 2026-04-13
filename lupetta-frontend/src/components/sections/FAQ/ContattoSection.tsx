@@ -6,7 +6,7 @@ export default function ContattoSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <RevealSection animation="sr-reveal-scale">
           <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight mb-6">
-            Lorem Ipsum <span className="montserrat-italic">Non Trovato?</span>
+            Lorem ipsum <span className="montserrat-italic">non trovato?</span>
           </h2>
           <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est mauris placerat.

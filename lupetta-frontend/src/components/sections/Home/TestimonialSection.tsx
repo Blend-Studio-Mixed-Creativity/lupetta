@@ -8,7 +8,7 @@ export default function TestimonialSection() {
         <RevealSection animation="sr-reveal-up">
           <span className="text-white/70 font-bold text-sm tracking-widest uppercase">Testimonia</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl text-white tracking-tight mt-4 mb-14">
-            Lorem Ipsum <span className="montserrat-italic text-white/80">Dolor Sit</span>
+            Lorem ipsum <span className="montserrat-italic text-white/80">dolor sit</span>
           </h2>
         </RevealSection>
         <RevealSection animation="sr-reveal-scale" delay="sr-delay-2">

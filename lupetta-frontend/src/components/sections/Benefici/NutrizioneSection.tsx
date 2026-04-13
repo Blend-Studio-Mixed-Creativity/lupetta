@@ -17,7 +17,7 @@ export default function NutrizioneSection() {
         <div className="bg-white rounded-3xl shadow-sm border border-slate-100 px-8 sm:px-10 lg:px-14 py-6 sm:py-8 lg:py-10 text-center">
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Nutrizione</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
-            Effetti della Nutrizione Programmata sul <span className="montserrat-italic text-[#006071]">Benessere e Crescita</span>
+            Effetti della nutrizione programmata sul <span className="montserrat-italic text-[#006071]">benessere e crescita</span>
           </h2>
         </div>
       </RevealSection>

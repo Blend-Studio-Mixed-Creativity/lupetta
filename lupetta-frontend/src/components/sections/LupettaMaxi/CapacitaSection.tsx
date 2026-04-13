@@ -79,8 +79,8 @@ export default function CapacitaSection() {
               Capacità e Autonomia
             </span>
             <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4 mb-8 leading-[1.1]">
-              Capacità di Alimentazione<br />
-              <span className="montserrat-italic text-accent">e Durata Operativa</span>
+              Capacità di alimentazione<br />
+              <span className="montserrat-italic text-accent">e durata operativa</span>
             </h2>
             <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
@@ -110,7 +110,7 @@ export default function CapacitaSection() {
                   animationDelay: '100ms',
                 }}
               >
-                <span className="montserrat-heading text-4xl md:text-5xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche Tecniche</span>
+                <span className="montserrat-heading text-4xl md:text-5xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche tecniche</span>
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.6rem' }}>
                   Versione MAXI Tech
                 </p>

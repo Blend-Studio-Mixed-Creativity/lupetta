@@ -161,7 +161,7 @@ export default function RealTimeSection() {
           >
             <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Real-Time</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-tight">
-              Monitoraggio in Tempo Reale della <span className="montserrat-italic" style={{ color: '#006071' }}>Somministrazione</span>
+              Monitoraggio in tempo reale della <span className="montserrat-italic" style={{ color: '#006071' }}>somministrazione</span>
             </h2>
             <p className="text-lg leading-relaxed mb-10 text-slate-500">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.

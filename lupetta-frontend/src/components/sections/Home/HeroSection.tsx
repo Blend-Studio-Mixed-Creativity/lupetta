@@ -1,25 +1,36 @@
 ﻿import { Link } from 'react-router-dom';
 import heroImg from '../../../assets/images/vitello1-lupetta.jpg';
+import { Spotlight } from '../../ui/spotlight-new';
 
 export default function HeroSection() {
   return (
     <section
-      className="relative isolate overflow-hidden text-white min-h-[90vh] flex items-center justify-center animate-fade-in"
-      style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+      className="relative isolate overflow-hidden text-white min-h-[90vh] flex items-center justify-center"
+      style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      {/* Dynamic Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#006071]/80 via-[#006071]/60 to-[#006071]/95" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#65b32e]/20 via-transparent to-transparent opacity-70" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.92) 0%, rgba(0,60,75,0.80) 100%)' }} />
+
+      {/* Spotlight Aceternity */}
+      <Spotlight
+        gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(185, 100%, 37%, .18) 0, hsla(154, 62%, 44%, .06) 50%, transparent 80%)"
+        gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(185, 100%, 37%, .12) 0, hsla(154, 62%, 44%, .04) 80%, transparent 100%)"
+        gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(154, 62%, 44%, .08) 0, transparent 80%)"
+        translateY={-200} width={700} height={1200} smallWidth={300} duration={8} xOffset={120}
+      />
+
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
       
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 md:py-48 lg:py-56 text-center relative z-10">
-        <span className="inline-block py-2.5 px-6 rounded-full bg-white/10 border border-white/30 text-white text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-8 lg:mb-12 animate-slide-up shadow-2xl backdrop-blur-md">
+        <span className="inline-block py-2.5 px-6 rounded-full bg-[#65b32e]/10 border border-[#65b32e]/30 text-white text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-8 lg:mb-12 shadow-2xl backdrop-blur-md">
           <span className="bg-gradient-to-r from-emerald-300 to-[#65b32e] bg-clip-text text-transparent inline-block animate-pulse">Lupetta</span> Avanzate Soluzioni
         </span>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-extrabold tracking-tighter leading-[1.05] mb-8 animate-slide-up animate-stagger-1 drop-shadow-2xl">
-          <span className="block text-white">Allattatrice Individuale</span>
-          <span className="block mt-2 bg-gradient-to-r from-white via-green-100 to-[#65b32e] bg-clip-text text-transparent pb-3">Per Vitelli</span>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 montserrat-italic text-balance">
+          <span className="block text-white">Allattatrice individuale</span>
+          <span className="block mt-2 bg-gradient-to-r from-white via-green-100 to-[#65b32e] bg-clip-text text-transparent pb-3">per vitelli</span>
         </h1>
-        <p className="text-xl md:text-2xl lg:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-14 animate-slide-up animate-stagger-2 font-light tracking-wide text-balance drop-shadow-lg">
+        <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-14">
           Lore ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 animate-slide-up animate-stagger-3">

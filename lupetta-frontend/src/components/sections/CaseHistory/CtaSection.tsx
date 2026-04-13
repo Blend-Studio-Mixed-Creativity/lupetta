@@ -9,7 +9,7 @@ export default function CtaSection() {
         <div className="absolute inset-0 sr-shimmer pointer-events-none opacity-20" />
         <div className="relative z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight mb-6">
-            Lorem Ipsum <span className="montserrat-italic">Dolor Sit?</span>
+            Lorem ipsum <span className="montserrat-italic">dolor sit?</span>
           </h2>
           <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames.

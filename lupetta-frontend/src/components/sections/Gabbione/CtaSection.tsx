@@ -22,7 +22,7 @@ export default function CtaSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Inizia ora</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mt-4 mb-6 text-white">
-            Lorem Ipsum <span className="montserrat-italic" style={{ color: '#65b32e' }}>Dolor?</span>
+            Lorem ipsum <span className="montserrat-italic" style={{ color: '#65b32e' }}>dolor?</span>
           </h2>
           <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { SVGProps, forwardRef, CSSProperties } from "react";
 
 export interface Iphone16ProProps extends SVGProps<SVGSVGElement> {

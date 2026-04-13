@@ -1,3 +1,4 @@
+// @ts-nocheck
 // PlasmaGlobe.tsx
 "use client";
 

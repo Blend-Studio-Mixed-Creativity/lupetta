@@ -229,7 +229,7 @@ export default function ProgrammazioneSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Programmazione</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4">
-            Programmazione della <span className="montserrat-italic" style={{ color: '#65b32e' }}>Somministrazione</span>
+            Programmazione della <span className="montserrat-italic" style={{ color: '#65b32e' }}>somministrazione</span>
           </h2>
         </motion.div>
         <div className="grid md:grid-cols-3 gap-6">

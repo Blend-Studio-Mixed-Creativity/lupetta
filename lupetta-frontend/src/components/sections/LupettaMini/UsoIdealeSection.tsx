@@ -69,7 +69,7 @@ export default function UsoIdealeSection() {
           <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl tracking-tight text-gray-900">
             Scenari di{' '}
             <span className="montserrat-italic" style={{ color: '#65b32e' }}>
-              Applicazione
+              applicazione
             </span>
           </h2>
           <p

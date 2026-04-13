@@ -24,7 +24,7 @@ export default function DosaggioSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Dosaggio</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
-            Preparazione e <span className="montserrat-italic" style={{ color: '#006071' }}>Dosaggio Consigliato</span>
+            Preparazione e <span className="montserrat-italic" style={{ color: '#006071' }}>dosaggio consigliato</span>
           </h2>
         </motion.div>
 

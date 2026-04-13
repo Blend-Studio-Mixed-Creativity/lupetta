@@ -24,7 +24,7 @@ export default function ProfiliSection() {
           >
             <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Gestione Profili</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-tight">
-              Creazione e Gestione<br /><span className="montserrat-italic" style={{ color: '#006071' }}>Profili Vitello</span>
+              Creazione e gestione<br /><span className="montserrat-italic" style={{ color: '#006071' }}>profili vitello</span>
             </h2>
             <p className="text-lg leading-relaxed mb-8 text-slate-500">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.

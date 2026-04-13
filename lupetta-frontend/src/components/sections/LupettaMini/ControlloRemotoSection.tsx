@@ -204,7 +204,7 @@ export default function ControlloRemotoSection() {
               Sezione 3
             </span>
             <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mt-3 mb-4 leading-[1.1] whitespace-nowrap" style={{ color: '#fff' }}>
-              Controllo Remoto <span className="montserrat-italic text-accent">Wi-Fi</span>
+              Controllo remoto <span className="montserrat-italic text-accent">Wi-Fi</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique

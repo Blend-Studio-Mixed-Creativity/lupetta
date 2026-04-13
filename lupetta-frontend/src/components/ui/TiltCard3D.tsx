@@ -5,7 +5,6 @@ interface TiltCard3DProps {
   className?: string;
   style?: React.CSSProperties;
   maxAngle?: number;
-  as?: React.ElementType;
   onClick?: () => void;
 }
 
@@ -14,13 +13,12 @@ export default function TiltCard3D({
   className = '',
   style: extraStyle,
   maxAngle = 12,
-  as: Tag = 'div',
   onClick,
 }: TiltCard3DProps) {
   const { ref, tiltStyle, glare, onMouseMove, onMouseLeave } = use3DTilt(maxAngle);
 
   return (
-    <Tag
+    <div
       ref={ref}
       className={`relative overflow-hidden ${className}`}
       style={{ ...extraStyle, ...tiltStyle, willChange: 'transform' }}
@@ -38,6 +36,6 @@ export default function TiltCard3D({
         }}
       />
       {children}
-    </Tag>
+    </div>
   );
 }

@@ -20,7 +20,7 @@ export default function CtaSection() {
           Pronto a iniziare?
         </span>
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mb-8 text-white leading-[1.1]">
-          Lorem Ipsum <span className="montserrat-italic" style={{ color: '#ffffff' }}>Dolor Sit?</span>
+          Lorem ipsum <span className="montserrat-italic" style={{ color: '#ffffff' }}>dolor sit?</span>
         </h2>
         <p className="text-white/70 text-lg sm:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
           Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum.

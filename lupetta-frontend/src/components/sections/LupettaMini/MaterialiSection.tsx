@@ -89,7 +89,7 @@ export default function MaterialiSection() {
             Sezione 2
           </span>
           <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl tracking-tight mt-4 text-white">
-            Materiali e Design <span className="montserrat-italic text-accent">Costruttivo</span>
+            Materiali e design <span className="montserrat-italic text-accent">costruttivo</span>
           </h2>
         </div>
 

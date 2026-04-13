@@ -20,7 +20,7 @@ export default function ManutenzioneSection() {
         <div className="animate-slide-left">
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Manutenzione</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-            Configurazione e <span className="montserrat-italic text-[#006071]">Manutenzione</span>
+            Configurazione e <span className="montserrat-italic text-[#006071]">manutenzione</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
@@ -37,7 +37,7 @@ export default function ManutenzioneSection() {
 
         <div className="animate-slide-right">
           <div className="bg-slate-900 rounded-3xl p-8 text-white">
-            <h3 className="text-xl text-[#65b32e] mb-6">Checklist Manutenzione</h3>
+            <h3 className="text-xl text-[#65b32e] mb-6">Checklist manutenzione</h3>
             <div className="space-y-4">
               {CHECKLIST.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-slate-300">

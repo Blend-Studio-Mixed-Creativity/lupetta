@@ -150,7 +150,7 @@ export default function CompatibilitaSection() {
         >
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Sezione 3</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8">
-            Compatibilità con Gabbioni di <span className="montserrat-italic text-[#006071]">Movimento e Moduli Aggiuntivi</span>
+            Compatibilità con gabbioni di <span className="montserrat-italic text-[#006071]">movimento e moduli aggiuntivi</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-500 leading-relaxed mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.

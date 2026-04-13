@@ -18,7 +18,7 @@ export default function VantaggiTecnologiaSection() {
         <div className="text-center mb-8 sm:mb-10 lg:mb-14 animate-slide-up">
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Tecnologia</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3">
-            Vantaggi dell&apos;Alimentazione <span className="montserrat-italic text-[#006071]">a Distanza</span>
+            Vantaggi dell&apos;alimentazione <span className="montserrat-italic text-[#006071]">a distanza</span>
           </h2>
         </div>
 

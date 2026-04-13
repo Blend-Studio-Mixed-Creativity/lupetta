@@ -59,7 +59,7 @@ function NutriBar({ label, value, display, barPct, index, visible }: {
       {/* Label + value */}
       <div className="flex items-end justify-between mb-2">
         <span
-          className="text-slate-800 font-bold text-lg md:text-xl lg:text-2xl"
+          className="text-white font-bold text-lg md:text-xl lg:text-2xl"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(14px)',
@@ -82,7 +82,7 @@ function NutriBar({ label, value, display, barPct, index, visible }: {
       </div>
 
       {/* Bar */}
-      <div className="relative h-6 md:h-7 bg-slate-100 rounded-xl overflow-hidden">
+        <div className="relative h-6 md:h-7 rounded-xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
         <div
           className="absolute inset-y-0 left-0 rounded-xl"
           style={{
@@ -168,8 +168,9 @@ function LeftPanel() {
   return (
     <div ref={ref}>
       <span
-        className="text-[#006071] font-bold text-sm uppercase block mb-4"
+        className="text-xs font-bold tracking-[0.2em] uppercase block mb-4"
         style={{
+          color: '#65b32e',
           letterSpacing: visible ? '0.32em' : '0.05em',
           opacity: visible ? 1 : 0,
           transition: 'letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s, opacity 0.5s ease 0.1s',
@@ -178,7 +179,7 @@ function LeftPanel() {
         Composizione
       </span>
       <h2
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mt-3 mb-6"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white tracking-tight mt-3 mb-6"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(36px)',
@@ -187,11 +188,12 @@ function LeftPanel() {
         }}
       >
         Valori Nutrizionali e{' '}
-        <span className="montserrat-italic text-[#006071]">Composizione</span>
+        <span className="montserrat-italic" style={{ color: '#65b32e' }}>Composizione</span>
       </h2>
       <p
-        className="text-lg text-slate-500 leading-relaxed mb-6"
+        className="text-lg leading-relaxed mb-6"
         style={{
+          color: 'rgba(255,255,255,0.6)',
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s',
@@ -200,8 +202,9 @@ function LeftPanel() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
       </p>
       <p
-        className="text-slate-500 leading-relaxed"
+        className="leading-relaxed"
         style={{
+          color: 'rgba(255,255,255,0.5)',
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(14px)',
           transition: 'opacity 0.6s ease 0.45s, transform 0.6s ease 0.45s',
@@ -215,8 +218,12 @@ function LeftPanel() {
 
 export default function NutrizioneSection() {
   return (
-    <section className="bg-white border-y border-slate-100 py-12 sm:py-16 lg:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20">
+    <section className="relative overflow-hidden py-12 sm:py-16 lg:py-28" style={{ background: '#0d1f26' }}>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #006071 0%, #65b32e 100%)' }} />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 xl:px-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-start">
           <LeftPanel />
           <BarsPanel />

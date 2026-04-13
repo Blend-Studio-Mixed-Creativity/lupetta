@@ -1,4 +1,5 @@
 ﻿import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const ITEMS = [
   {
@@ -66,135 +67,145 @@ function TiltCard({ item, onOpen, index }: { item: Item; onOpen: () => void; ind
   };
 
   return (
-    <div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      onClick={onOpen}
-      style={{ ...style, animationDelay: `${index * 120}ms` }}
-      className="relative flex flex-col rounded-2xl bg-white border border-slate-100 shadow-sm cursor-pointer select-none animate-slide-up group overflow-hidden"
+    <motion.div
+      initial={{ opacity: 0, y: 50, rotateX: 15 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ delay: index * 0.15, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+      viewport={{ once: true, amount: 0.2 }}
+      style={{ perspective: '1000px' }}
     >
-      {/* Glare */}
       <div
-        className="absolute inset-0 rounded-2xl pointer-events-none z-10 overflow-hidden"
-        style={{ opacity: glare.opacity, transition: 'opacity 0.3s ease' }}
+        ref={ref}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        onClick={onOpen}
+        style={{
+          ...style,
+          background: 'rgba(11, 26, 32, 0.85)',
+          backdropFilter: 'blur(16px)',
+          border: '1px solid rgba(255,255,255,0.08)',
+        }}
+        className="relative flex flex-col rounded-2xl cursor-pointer select-none group overflow-hidden h-full"
       >
+        {/* Glare */}
         <div
-          className="absolute inset-0"
-          style={{ background: `radial-gradient(ellipse at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.6) 0%, transparent 60%)` }}
-        />
-      </div>
-
-      {/* Top accent */}
-      <div className="h-1 w-full rounded-t-2xl" style={{ background: `linear-gradient(90deg, ${item.color}, ${item.color}66)` }} />
-
-      <div className="p-8 sm:p-10 flex flex-col flex-1">
-        {/* Icon */}
-        <div
-          className="w-14 h-14 rounded-xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110"
-          style={{ background: `${item.color}15`, transform: 'translateZ(20px)' }}
+          className="absolute inset-0 rounded-2xl pointer-events-none z-10 overflow-hidden"
+          style={{ opacity: glare.opacity, transition: 'opacity 0.3s ease' }}
         >
-          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={item.color}>
-            <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
-          </svg>
+          <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.25) 0%, transparent 60%)` }} />
         </div>
 
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">{item.title}</h3>
-        <p className="text-slate-500 text-base leading-relaxed flex-1">{item.desc}</p>
+        {/* Hover glow */}
+        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{ background: `radial-gradient(ellipse at 50% 0%, ${item.color}15 0%, transparent 60%)` }} />
 
-        {/* CTA hint */}
-        <div className="mt-8 flex items-center gap-2 text-base font-semibold" style={{ color: item.color }}>
-          <span>Scopri di più</span>
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"
+        {/* Top accent */}
+        <div className="h-0.5 w-full rounded-t-2xl" style={{ background: `linear-gradient(90deg, ${item.color}, ${item.color}44, transparent)` }} />
+
+        <div className="p-8 sm:p-10 flex flex-col flex-1 relative z-10">
+          {/* Icon */}
+          <motion.div
+            initial={{ scale: 0, rotate: -30 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            transition={{ delay: index * 0.15 + 0.4, duration: 0.6, type: 'spring', stiffness: 200 }}
+            viewport={{ once: true }}
+            className="w-14 h-14 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
+            style={{ background: `${item.color}20`, border: `1px solid ${item.color}33` }}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={item.color}>
+              <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
+            </svg>
+          </motion.div>
+
+          <h3 className="text-2xl font-semibold text-white mb-4 tracking-tight">{item.title}</h3>
+          <p className="text-base leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{item.desc}</p>
+
+          <div className="mt-8 flex items-center gap-2 text-base font-semibold" style={{ color: item.color }}>
+            <span>Scopri di più</span>
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 /* ─── Fullscreen Modal ─── */
 function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
-      onClick={onClose}
-    >
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-fade-in" />
-
-      {/* Panel */}
-      <div
-        className="relative z-10 w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden animate-scale-in"
-        onClick={e => e.stopPropagation()}
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+        onClick={onClose}
       >
-        {/* Header band */}
-        <div
-          className="relative px-8 py-10 overflow-hidden"
-          style={{ background: `linear-gradient(135deg, ${item.color} 0%, ${item.color}bb 100%)` }}
-        >
-          {/* Grid decoration */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:20px_20px]" />
-          <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white/10" />
-          <div className="absolute -bottom-12 -left-6 w-48 h-48 rounded-full bg-white/5" />
+        {/* Backdrop */}
+        <div className="absolute inset-0 backdrop-blur-md" style={{ background: 'rgba(0,10,15,0.8)' }} />
 
-          <div className="relative flex items-center gap-6">
-            <div className="w-18 h-18 rounded-2xl bg-white/20 flex items-center justify-center" style={{ width: '4.5rem', height: '4.5rem' }}>
-              <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={1.3} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
-              </svg>
+        {/* Panel */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 30 }}
+          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+          className="relative z-10 w-full max-w-2xl rounded-3xl overflow-hidden"
+          style={{ background: 'rgba(11,26,32,0.95)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="relative px-8 py-10 overflow-hidden" style={{ background: `linear-gradient(135deg, ${item.color}22 0%, transparent 100%)`, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+            <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+            <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full blur-3xl opacity-20" style={{ background: item.color }} />
+            <div className="relative flex items-center gap-6">
+              <div className="w-18 h-18 rounded-2xl flex items-center justify-center" style={{ width: '4.5rem', height: '4.5rem', background: `${item.color}25`, border: `1px solid ${item.color}40` }}>
+                <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.3} stroke={item.color}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
+                </svg>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight max-w-sm">{item.title}</h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight max-w-sm">{item.title}</h2>
+            <button onClick={onClose} className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors" style={{ background: 'rgba(255,255,255,0.1)' }}>
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
-          {/* Close */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-          >
-            <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+          {/* Body */}
+          <div className="px-8 sm:px-10 py-8 sm:py-10">
+            <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.6)' }}>{item.detail}</p>
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-5" style={{ color: item.color }}>Caratteristiche</h4>
+            <ul className="space-y-4">
+              {item.features.map((f, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="mt-1 w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: `${item.color}20`, border: `1px solid ${item.color}33` }}>
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke={item.color}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <span className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Body */}
-        <div className="px-8 sm:px-10 py-8 sm:py-10">
-          <p className="text-slate-600 text-lg leading-relaxed mb-10">{item.detail}</p>
-
-          <h4 className="text-sm font-bold tracking-widest uppercase mb-5" style={{ color: item.color }}>
-            Caratteristiche
-          </h4>
-          <ul className="space-y-4">
-            {item.features.map((f, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <div className="mt-1 w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: `${item.color}18` }}>
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke={item.color}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                </div>
-                <span className="text-slate-700 text-base leading-relaxed">{f}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Footer */}
-        <div className="px-8 sm:px-10 pb-8 sm:pb-10">
-          <button
-            onClick={onClose}
-            className="w-full py-3.5 rounded-xl text-lg font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-            style={{ background: `linear-gradient(90deg, ${item.color}, ${item.color}cc)`, boxShadow: `0 8px 24px -6px ${item.color}55` }}
-          >
-            Chiudi
-          </button>
-        </div>
-      </div>
-    </div>
+          {/* Footer */}
+          <div className="px-8 sm:px-10 pb-8 sm:pb-10">
+            <button
+              onClick={onClose}
+              className="w-full py-3.5 rounded-xl text-lg font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              style={{ background: `linear-gradient(90deg, ${item.color}, ${item.color}cc)`, boxShadow: `0 8px 24px -6px ${item.color}44` }}
+            >
+              Chiudi
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
@@ -202,15 +213,26 @@ export default function ProgrammazioneSection() {
   const [open, setOpen] = useState<Item | null>(null);
 
   return (
-    <section className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-slide-up">
-          <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Programmazione</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
-            Programmazione della <span className="montserrat-italic text-[#006071]">Somministrazione</span>
+    <section style={{ background: '#0d1f26' }} className="w-full relative overflow-hidden">
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+      {/* Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #006071 0%, #65b32e 100%)' }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 sm:mb-20"
+        >
+          <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Programmazione</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4">
+            Programmazione della <span className="montserrat-italic" style={{ color: '#65b32e' }}>Somministrazione</span>
           </h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-10">
+        </motion.div>
+        <div className="grid md:grid-cols-3 gap-6">
           {ITEMS.map((item, i) => (
             <TiltCard key={i} item={item} index={i} onOpen={() => setOpen(item)} />
           ))}

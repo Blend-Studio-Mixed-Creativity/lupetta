@@ -1,49 +1,104 @@
-﻿const STEPS = [
-  { step: '1', label: 'Lorem ipsum preparatio' },
-  { step: '2', label: 'Dolor sit montaggio structurale' },
-  { step: '3', label: 'Consectetur integrazione sistema' },
-  { step: '4', label: 'Adipiscing verificatio finalis' },
+﻿import { Timeline } from '../../ui/timeline';
+import type { TimelineEntry } from '../../ui/timeline';
+import { Wrench, Package, Settings, CheckCircle } from 'lucide-react';
+
+const STEPS: TimelineEntry[] = [
+  {
+    title: 'Step 1',
+    content: (
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-sm">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#006071]/20 flex-shrink-0">
+            <Package className="w-5 h-5 text-[#006071]" />
+          </div>
+          <div>
+            <span className="text-xs font-bold tracking-widest uppercase text-[#65b32e]">Preparazione strutturale</span>
+            <h4 className="text-lg font-semibold text-white">Lorem ipsum preparatio</h4>
+          </div>
+        </div>
+        <p className="text-white/60 text-sm leading-relaxed">Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet est.</p>
+      </div>
+    ),
+  },
+  {
+    title: 'Step 2',
+    content: (
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-sm">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#65b32e]/20 flex-shrink-0">
+            <Wrench className="w-5 h-5 text-[#65b32e]" />
+          </div>
+          <div>
+            <span className="text-xs font-bold tracking-widest uppercase text-[#65b32e]">Montaggio principale</span>
+            <h4 className="text-lg font-semibold text-white">Dolor sit montaggio structurale</h4>
+          </div>
+        </div>
+        <p className="text-white/60 text-sm leading-relaxed">Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Pellentesque habitant morbi tristique senectus.</p>
+      </div>
+    ),
+  },
+  {
+    title: 'Step 3',
+    content: (
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-sm">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#006071]/20 flex-shrink-0">
+            <Settings className="w-5 h-5 text-[#006071]" />
+          </div>
+          <div>
+            <span className="text-xs font-bold tracking-widest uppercase text-[#65b32e]">Integrazione</span>
+            <h4 className="text-lg font-semibold text-white">Consectetur integrazione sistema</h4>
+          </div>
+        </div>
+        <p className="text-white/60 text-sm leading-relaxed">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor quam.</p>
+      </div>
+    ),
+  },
+  {
+    title: 'Step 4',
+    content: (
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-sm">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#65b32e]/20 flex-shrink-0">
+            <CheckCircle className="w-5 h-5 text-[#65b32e]" />
+          </div>
+          <div>
+            <span className="text-xs font-bold tracking-widest uppercase text-[#65b32e]">Verifica finale</span>
+            <h4 className="text-lg font-semibold text-white">Adipiscing verificatio finalis</h4>
+          </div>
+        </div>
+        <p className="text-white/60 text-sm leading-relaxed">Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra vestibulum.</p>
+      </div>
+    ),
+  },
 ];
 
 export default function MontaggioSection() {
   return (
-    <section className="bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
-          <div className="animate-slide-left">
-            <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Installazione</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
-              Montaggio e Configurazione <span className="montserrat-italic text-[#006071]">Strutturale</span>
-            </h2>
-            <p className="text-lg text-slate-500 leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
-            </p>
-            <h3 className="text-lg text-slate-800">Stabilità e Sicurezza Strutturale</h3>
-            <p className="text-slate-500 leading-relaxed text-sm mb-6">
-              Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-            </p>
-            <h3 className="text-lg text-slate-800">Procedure di Montaggio</h3>
-            <p className="text-slate-500 leading-relaxed text-sm">
-              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor.
-            </p>
-          </div>
-          <div className="animate-slide-right">
-            <div className="bg-white rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 border border-slate-100">
-              <div className="space-y-5">
-                {STEPS.map((s, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-white/80 p-4 rounded-xl">
-                    <span className="w-10 h-10 bg-[#006071] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">{s.step}</span>
-                    <span className="text-slate-700 font-medium">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+    <section className="dark w-full relative overflow-hidden" style={{ background: '#0d1f26' }}>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+      {/* Central radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #006071 0%, #65b32e 100%)' }} />
+
+      <div className="relative z-10 pt-16 sm:pt-24">
+        {/* Section header */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-10 mb-0">
+          <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#65b32e]">Processo</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4">
+            Montaggio e <span className="montserrat-italic" style={{ color: '#65b32e' }}>Configurazione</span>
+          </h2>
+          <p className="mt-4 text-lg text-white/50 max-w-2xl leading-relaxed">
+            Segui i passaggi per un'installazione strutturale perfetta
+          </p>
         </div>
+
+        <Timeline data={STEPS} />
       </div>
     </section>
   );
 }
+
 
 
 

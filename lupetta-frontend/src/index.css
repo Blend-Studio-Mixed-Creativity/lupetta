@@ -1,10 +1,32 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,300;0,500;0,600;1,300;1,500;1,600&display=swap");
 
-@import "tailwindcss";
-
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
 @theme {
   --color-primary: #006071;
   --color-accent: #65b32e;
+
+  --animate-first: moveVertical 30s ease infinite;
+  --animate-second: moveInCircle 20s reverse infinite;
+  --animate-third: moveInCircle 40s linear infinite;
+  --animate-fourth: moveHorizontal 40s ease infinite;
+  --animate-fifth: moveInCircle 20s ease infinite;
+}
+
+@keyframes moveHorizontal {
+  0%   { transform: translateX(-50%) translateY(-10%); }
+  50%  { transform: translateX(50%)  translateY(10%);  }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+@keyframes moveInCircle {
+  0%   { transform: rotate(0deg);   }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes moveVertical {
+  0%   { transform: translateY(-50%); }
+  50%  { transform: translateY(50%);  }
+  100% { transform: translateY(-50%); }
 }
 
 /* Fix Spline Viewer intrinsic height + transparent bg */

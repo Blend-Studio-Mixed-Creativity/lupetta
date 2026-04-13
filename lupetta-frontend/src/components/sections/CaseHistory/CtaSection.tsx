@@ -8,7 +8,7 @@ export default function CtaSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
         <div className="absolute inset-0 sr-shimmer pointer-events-none opacity-20" />
         <div className="relative z-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6">
             Lorem ipsum <span className="montserrat-italic">dolor sit?</span>
           </h2>
           <p className="text-white text-lg mb-8 max-w-2xl mx-auto">

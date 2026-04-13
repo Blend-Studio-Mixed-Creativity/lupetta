@@ -344,7 +344,7 @@ export default function ComeFunzionaSteps() {
         >
           Come Funziona
         </span>
-        <h2 className="text-4xl md:text-5xl text-[#006071] tracking-tight mt-3">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#006071] tracking-tight mt-3">
           Lorem in{' '}
           <span className="montserrat-italic text-[#65b32e]">Quattuor passus</span>
         </h2>

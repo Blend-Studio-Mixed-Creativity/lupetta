@@ -7,7 +7,7 @@ export default function TestimonialSection() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <RevealSection animation="sr-reveal-up">
           <span className="text-white/70 font-bold text-sm tracking-widest uppercase">Testimonia</span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl text-white tracking-tight mt-4 mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4 mb-14">
             Lorem ipsum <span className="montserrat-italic text-white/80">dolor sit</span>
           </h2>
         </RevealSection>

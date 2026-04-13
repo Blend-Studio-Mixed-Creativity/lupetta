@@ -174,7 +174,7 @@ export default function ContattiMain() {
           {/* ── Left: Info + Socials ── */}
           <div className={`lg:col-span-2 ${isVisible ? 'sr-reveal-left' : 'sr-hidden'}`}>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#006071] mb-3 block">Dove siamo</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
               Siamo a tua <span className="text-[#006071]">disposizione</span>
             </h2>
             <p className="text-slate-500 leading-relaxed mb-10">

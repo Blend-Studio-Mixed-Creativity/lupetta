@@ -10,10 +10,10 @@ export default function CtaFinale() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
         <div className="relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-8">
             Lorem ipsum <span className="montserrat-italic">dolor?</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

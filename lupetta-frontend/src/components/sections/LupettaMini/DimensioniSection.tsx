@@ -97,15 +97,15 @@ export default function DimensioniSection() {
             >
               Dimensioni e Specifiche
             </span>
-            <h2 className="montserrat-heading text-5xl sm:text-7xl md:text-8xl text-slate-900 tracking-tight mt-6 mb-12 leading-[1.1]">
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-[1.1]">
               Compatta fuori,<br />
               <span className="montserrat-italic text-accent">spaziosa dentro</span>
             </h2>
-            <p className="text-2xl sm:text-3xl md:text-4xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-6">
+            <p className="text-lg text-slate-500 leading-relaxed max-w-5xl mx-auto mb-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies
               eget.
             </p>
-            <p className="text-xl sm:text-2xl text-slate-400 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-lg text-slate-400 leading-relaxed max-w-4xl mx-auto">
               Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper.
             </p>
           </div>

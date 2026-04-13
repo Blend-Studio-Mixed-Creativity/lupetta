@@ -68,7 +68,7 @@ export default function TecnologiaSection() {
           <span style={{ color: '#006071', fontWeight: 800, fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
             Technologia
           </span>
-          <h2 className="montserrat-heading" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#0f172a', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ color: '#0f172a', lineHeight: 1.1 }}>
             Lorem ipsum <span className="montserrat-italic" style={{ color: '#006071' }}>dolor</span>
           </h2>
         </div>

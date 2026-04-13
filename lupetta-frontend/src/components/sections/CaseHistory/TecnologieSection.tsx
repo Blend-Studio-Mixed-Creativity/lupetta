@@ -7,7 +7,7 @@ export default function TecnologieSection() {
       <div className="absolute inset-0 sr-shimmer pointer-events-none opacity-30" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <RevealSection className="text-center mb-8 sm:mb-10 lg:mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight">
             Tecnologie e funzionalità <span className="montserrat-italic text-[#65b32e]">esclusive Lupetta</span>
           </h2>
         </RevealSection>

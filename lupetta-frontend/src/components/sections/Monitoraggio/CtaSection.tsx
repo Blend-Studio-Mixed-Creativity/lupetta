@@ -19,10 +19,10 @@ export default function CtaSection() {
         <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase mb-6" style={{ color: '#65b32e' }}>
           Pronto a iniziare?
         </span>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mb-8 text-white leading-[1.1]">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-8 text-white leading-[1.1]">
           Lorem ipsum <span className="montserrat-italic" style={{ color: '#ffffff' }}>dolor sit?</span>
         </h2>
-        <p className="text-white/70 text-lg sm:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-white/70 text-lg mb-12 max-w-3xl mx-auto leading-relaxed">
           Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

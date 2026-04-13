@@ -187,7 +187,7 @@ export default function StatsRibbon() {
       {/* Section label */}
       <div className="text-center mb-8 sm:mb-12 md:mb-16">
         <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">I nostri numeri</span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-900 montserrat-heading mt-3 sm:mt-4 tracking-tight">Risultati che <span className="montserrat-italic text-[#006071]">parlano chiaro</span></h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 montserrat-heading mt-3 sm:mt-4 tracking-tight">Risultati che <span className="montserrat-italic text-[#006071]">parlano chiaro</span></h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         {STATS.map((stat, i) => (

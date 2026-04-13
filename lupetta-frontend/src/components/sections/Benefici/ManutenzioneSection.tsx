@@ -19,7 +19,7 @@ export default function ManutenzioneSection() {
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
         <div className="animate-slide-left">
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">Manutenzione</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-slate-900 tracking-tight mt-3 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-3 mb-6">
             Configurazione e <span className="montserrat-italic text-[#006071]">manutenzione</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed mb-6">

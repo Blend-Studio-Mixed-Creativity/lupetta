@@ -66,14 +66,14 @@ export default function UsoIdealeSection() {
           >
             Uso Ideale
           </span>
-          <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl tracking-tight text-gray-900">
+          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight text-gray-900">
             Scenari di{' '}
             <span className="montserrat-italic" style={{ color: '#65b32e' }}>
               applicazione
             </span>
           </h2>
           <p
-            className={`text-gray-600 text-xl mt-8 max-w-2xl mx-auto leading-relaxed ${visHeader ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}
+            className={`text-gray-600 text-lg mt-8 max-w-2xl mx-auto leading-relaxed ${visHeader ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}
           >
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
           </p>

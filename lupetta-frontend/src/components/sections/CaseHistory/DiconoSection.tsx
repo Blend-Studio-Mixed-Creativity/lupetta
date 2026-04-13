@@ -118,34 +118,56 @@ const ROW_B: Testimonial[] = [
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div
-      className="shrink-0 w-72 sm:w-80 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 mx-3"
-      style={{ boxShadow: '0 2px 20px rgba(0,0,0,0.06)' }}
+      className="shrink-0 w-80 sm:w-96 mx-3 relative group overflow-hidden rounded-3xl whitespace-normal"
     >
-      {/* Stars */}
-      <div className="mb-3">{STARS(t.rating)}</div>
+      {/* Glow sfondo card */}
+      <div
+        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at center, ${t.color}20 0%, transparent 70%)` }}
+      />
 
-      {/* Quote */}
-      <blockquote className="text-slate-600 text-sm leading-relaxed mb-5 italic">
-        &ldquo;{t.quote}&rdquo;
-      </blockquote>
+      <div
+        className="relative bg-white rounded-3xl border overflow-hidden transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_16px_40px_rgb(0,0,0,0.10)]"
+        style={{
+          borderColor: `${t.color}18`,
+          boxShadow: '0 2px 20px rgba(0,0,0,0.05)',
+        }}
+      >
+        {/* Accent top bar */}
+        <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${t.color}, ${t.color}60)` }} />
 
-      {/* Author */}
-      <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-black tracking-widest shrink-0"
-          style={{ background: t.color }}
-        >
-          {t.initials}
-        </div>
-        <div className="min-w-0">
-          <div className="font-bold text-slate-900 text-sm truncate">{t.name}</div>
-          <div className="text-xs text-slate-400 truncate">{t.farm}</div>
-          <span
-            className="inline-block text-[10px] font-bold tracking-widest uppercase mt-0.5 px-1.5 py-0.5 rounded"
-            style={{ background: `${t.color}18`, color: t.color }}
-          >
-            {t.product}
-          </span>
+        <div className="p-6 flex flex-col min-h-[280px]">
+          {/* Stars + badge product */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="text-amber-400 text-sm tracking-tight">
+              {'★'.repeat(t.rating)}{'☆'.repeat(5 - t.rating)}
+            </div>
+            <span
+              className="text-[10px] font-bold uppercase px-2 py-1 rounded-full max-w-[55%] truncate block"
+              style={{ background: `${t.color}12`, color: t.color, border: `1px solid ${t.color}25` }}
+            >
+              {t.product}
+            </span>
+          </div>
+
+          {/* Quote */}
+          <blockquote className="text-slate-600 text-sm leading-relaxed mb-5 italic flex-1">
+            &ldquo;{t.quote}&rdquo;
+          </blockquote>
+
+          {/* Author */}
+          <div className="flex items-center gap-3 border-t pt-4" style={{ borderColor: `${t.color}15` }}>
+            <div
+              className="w-10 h-10 rounded-2xl flex items-center justify-center text-white text-xs font-black tracking-widest shrink-0 shadow-sm"
+              style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}cc)` }}
+            >
+              {t.initials}
+            </div>
+            <div className="min-w-0 flex-1 overflow-hidden">
+              <div className="font-bold text-slate-900 text-sm truncate">{t.name}</div>
+              <div className="text-xs text-slate-400 truncate">{t.farm}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -154,24 +176,30 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
 export default function DiconoSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-slate-50 overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-28 bg-slate-50 overflow-hidden relative">
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#006071]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#65b32e]/5 rounded-full blur-3xl" />
+      </div>
+
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16">
-        <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16 relative z-10">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[#65b32e]/10 border border-[#65b32e]/20 text-xs font-bold tracking-[0.2em] uppercase mb-5" style={{ color: '#65b32e' }}>
           Testimonianze
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-2 font-bold">
           Dicono di noi gli{' '}
-          <span className="montserrat-italic" style={{ color: '#006071' }}>allevatori</span>
+          <span className="montserrat-italic text-transparent bg-clip-text bg-gradient-to-r from-[#006071] to-[#65b32e]">allevatori</span>
         </h2>
-        <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
           Centinaia di aziende agricole in Italia si affidano ogni giorno a Lupetta per nutrire i propri vitelli.
         </p>
       </div>
 
       {/* Scroll rows */}
       <ThreeDScrollTriggerContainer>
-        <ThreeDScrollTriggerRow baseVelocity={3} direction={1} className="mb-4">
+        <ThreeDScrollTriggerRow baseVelocity={3} direction={1} className="mb-6">
           {ROW_A.map((t, i) => (
             <TestimonialCard key={i} t={t} />
           ))}

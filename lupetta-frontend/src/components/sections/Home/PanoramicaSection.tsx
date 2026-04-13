@@ -77,12 +77,12 @@ export default function PanoramicaSection() {
             <span style={{ color: '#65b32e', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: '1rem' }}>
               Panoramica
             </span>
-            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-slate-900 tracking-tight leading-[1.05]">
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-[1.05]">
               Lorem ipsum{' '}
               <span className="montserrat-italic" style={{ color: '#006071' }}>dolor sit</span>
             </h2>
           </div>
-          <p className="text-slate-500 text-base sm:text-lg lg:text-xl leading-relaxed lg:text-right">
+          <p className="text-slate-500 text-lg leading-relaxed lg:text-right">
             Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
           </p>
         </div>

@@ -78,11 +78,11 @@ export default function CapacitaSection() {
             >
               Capacità e Autonomia
             </span>
-            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4 mb-8 leading-[1.1]">
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-[1.1]">
               Capacità di alimentazione<br />
               <span className="montserrat-italic text-accent">e durata operativa</span>
             </h2>
-            <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-4">
+            <p className="text-lg text-slate-500 leading-relaxed max-w-5xl mx-auto mb-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.
             </p>
             <p className="text-lg text-slate-400 leading-relaxed max-w-4xl mx-auto">

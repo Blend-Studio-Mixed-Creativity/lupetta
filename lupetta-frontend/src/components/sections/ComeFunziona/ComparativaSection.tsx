@@ -128,7 +128,7 @@ export default function ComparativaSection() {
           <span style={{ color: '#65b32e', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
             Comparazione
           </span>
-          <h2 className="montserrat-heading" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.02em', color: '#ffffff' }}>
+          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ color: '#ffffff', lineHeight: 1.1 }}>
             MINI <span className="montserrat-italic" style={{ color: '#65b32e' }}>vs</span> MAXI
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '36rem', margin: '1.5rem auto 0' }}>

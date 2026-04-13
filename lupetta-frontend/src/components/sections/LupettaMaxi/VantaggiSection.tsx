@@ -1,8 +1,8 @@
 ﻿const VANTAGGI = [
-  { title: 'Lorem Enterprise Scalabilitas', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam egestas semper aenean.' },
-  { title: 'Ipsum Automaticus Processus', desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien ullamcorper pharetra vestibulum.' },
-  { title: 'Dolor Integratio Completus', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor quam.' },
-  { title: 'Amet Supportus Dedicatus', desc: 'Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit.' },
+  { title: 'Lorem enterprise scalabilitas', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam egestas semper aenean.' },
+  { title: 'Ipsum automaticus processus', desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien ullamcorper pharetra vestibulum.' },
+  { title: 'Dolor integratio completus', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor quam.' },
+  { title: 'Amet supportus dedicatus', desc: 'Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit.' },
 ];
 
 export default function VantaggiSection() {
@@ -18,9 +18,9 @@ export default function VantaggiSection() {
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
           {VANTAGGI.map((adv, i) => (
-            <div key={i} className={`glass-dark p-7 sm:p-8 lg:p-10 rounded-2xl animate-slide-up animate-stagger-${i + 1}`}>
+            <div key={i} className={`glass-dark p-6 sm:p-8 lg:p-10 rounded-2xl animate-slide-up animate-stagger-${i + 1}`}>
               <h3 className="text-2xl mb-4 text-white">{adv.title}</h3>
               <p className="text-slate-400 text-base leading-relaxed">{adv.desc}</p>
             </div>

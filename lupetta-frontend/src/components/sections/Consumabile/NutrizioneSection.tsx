@@ -1,11 +1,11 @@
 ﻿import { useEffect, useRef, useState } from 'react';
 
 const NUTRIENTI = [
-  { label: 'Lorem Proteine',       value: 26,  display: '26%',  barPct: 85  },
-  { label: 'Ipsum Grassi',         value: 18,  display: '18%',  barPct: 60  },
-  { label: 'Dolor Fibre',          value: 0.5, display: '0.5%', barPct: 15  },
-  { label: 'Amet Ceneri',          value: 7,   display: '7%',   barPct: 25  },
-  { label: 'Consectetur Umidità',  value: 3.5, display: '3.5%', barPct: 12  },
+  { label: 'Lorem proteine',       value: 26,  display: '26%',  barPct: 85  },
+  { label: 'Ipsum grassi',         value: 18,  display: '18%',  barPct: 60  },
+  { label: 'Dolor fibre',          value: 0.5, display: '0.5%', barPct: 15  },
+  { label: 'Amet ceneri',          value: 7,   display: '7%',   barPct: 25  },
+  { label: 'Consectetur umidità',  value: 3.5, display: '3.5%', barPct: 12  },
 ];
 
 function AnimatedValue({ target, display, visible, delay = 0 }: {

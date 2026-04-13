@@ -52,9 +52,8 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
 }) {
   return (
     <div
-      className="fixed right-4 sm:right-6 xl:right-10 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-4"
+      className={`fixed right-4 sm:right-6 xl:right-10 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-4`}
       style={{
-        display: 'flex',
         opacity: sectionVisible && visibleCount > 0 ? 1 : 0,
         pointerEvents: 'none',
         transition: 'opacity 0.6s ease',
@@ -120,7 +119,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
   return (
     <div
       ref={ref}
-      className="min-h-[80vh] md:min-h-screen flex items-center px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 py-12 sm:py-16 md:py-0 relative overflow-hidden"
+      className="min-h-[60vh] md:min-h-screen flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-12 sm:py-16 md:py-0 relative overflow-hidden"
       style={{ background: index % 2 === 0 ? '#ffffff' : '#f8fafc' }}
     >
       {/* Background radial glow */}

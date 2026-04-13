@@ -120,7 +120,7 @@ export default function ComparativaSection() {
   }
 
   return (
-    <section style={{ background: 'linear-gradient(160deg, #020d12 0%, #001a22 55%, #020d12 100%)', padding: '10rem 0' }}>
+    <section style={{ background: 'linear-gradient(160deg, #020d12 0%, #001a22 55%, #020d12 100%)', padding: 'clamp(5rem, 10vw, 10rem) 0' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -142,23 +142,24 @@ export default function ComparativaSection() {
           <div className={`${isVisible ? 'sr-reveal-left sr-delay-2' : 'sr-hidden'}`}>
             <div style={{ borderRadius: '1.5rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)', background: 'linear-gradient(145deg, rgba(0,26,34,0.6) 0%, rgba(0,45,56,0.4) 100%)', backdropFilter: 'blur(24px)' }}>
               {/* Table header */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px', padding: '1.5rem 2.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.2)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>Caratteristica</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#65b32e', textAlign: 'center' }}>MINI</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#006071', textAlign: 'center' }}>MAXI</span>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr clamp(60px, 18vw, 120px) clamp(60px, 18vw, 120px)', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.2)' }}>
+                <span className="hidden sm:block" style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>Caratteristica</span>
+                <span className="sm:hidden" style={{ fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>Feature</span>
+                <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#65b32e', textAlign: 'center' }}>MINI</span>
+                <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#006071', textAlign: 'center' }}>MAXI</span>
               </div>
 
               {ROWS.map((row, i) => {
                 const isHovered = hoveredRow === i;
                 return (
                   <div key={i} onMouseEnter={() => setHoveredRow(i)} onMouseLeave={() => setHoveredRow(null)} style={{
-                    display: 'grid', gridTemplateColumns: '1fr 120px 120px', alignItems: 'center', padding: '1.4rem 2.5rem',
+                    display: 'grid', gridTemplateColumns: '1fr clamp(60px, 18vw, 120px) clamp(60px, 18vw, 120px)', alignItems: 'center', padding: 'clamp(1.1rem, 3vw, 1.4rem) clamp(1rem, 4vw, 2.5rem)',
                     borderBottom: i < ROWS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                     background: isHovered ? 'rgba(101,179,46,0.06)' : 'transparent', transition: 'background 0.3s ease', cursor: 'default',
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.6rem, 2vw, 0.85rem)' }}>
                       <div style={{ width: 4, height: 24, borderRadius: 2, background: isHovered ? 'linear-gradient(180deg, #65b32e, #006071)' : 'rgba(255,255,255,0.06)', transition: 'background 0.3s ease', flexShrink: 0 }} />
-                      <span style={{ color: isHovered ? '#ffffff' : 'rgba(255,255,255,0.78)', fontSize: '1.05rem', fontWeight: 500, transition: 'color 0.3s ease' }}>{row.feature}</span>
+                      <span style={{ color: isHovered ? '#ffffff' : 'rgba(255,255,255,0.78)', fontSize: 'clamp(0.85rem, 3vw, 1.05rem)', fontWeight: 500, transition: 'color 0.3s ease', lineHeight: 1.3 }}>{row.feature}</span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>{row.mini ? <Check color="#65b32e" /> : <Cross />}</div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>{row.maxi ? <Check color="#006071" /> : <Cross />}</div>

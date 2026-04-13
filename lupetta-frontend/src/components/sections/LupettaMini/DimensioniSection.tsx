@@ -115,7 +115,7 @@ export default function DimensioniSection() {
         <section className="relative z-10 w-full">
           <div 
             ref={refRight} 
-            className={`specs-card w-full min-h-screen flex flex-col justify-center py-24 px-4 sm:px-12 lg:px-24 transition-all duration-[1200ms] ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
+            className={`specs-card w-full min-h-screen flex flex-col justify-center py-16 sm:py-24 px-4 sm:px-12 lg:px-24 transition-all duration-[1200ms] ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
             style={{ borderRadius: '0' }}
           >
             <div className="w-full max-w-7xl mx-auto">
@@ -123,27 +123,27 @@ export default function DimensioniSection() {
               <div
                 className={visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}
                 style={{
-                  padding: '3.5rem 4rem',
+                  padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 4rem)',
                   borderBottom: '1px solid rgba(255,255,255,0.08)',
                   background: 'linear-gradient(135deg, rgba(101,179,46,0.1) 0%, transparent 100%)',
                   borderRadius: '32px 32px 0 0',
                   animationDelay: '100ms',
                 }}
               >
-                <span className="montserrat-heading text-5xl md:text-5xl lg:text-6xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche tecniche</span>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.15rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.75rem' }}>
+                <span className="montserrat-heading text-3xl sm:text-5xl md:text-5xl lg:text-6xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche tecniche</span>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(0.85rem, 2.5vw, 1.15rem)', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.75rem' }}>
                   Versione MINI Wi-Fi
                 </p>
               </div>
 
               {/* Specs list */}
-              <div style={{ padding: '2rem 3rem 4rem', background: 'transparent' }}>
+              <div style={{ padding: 'clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 3rem) clamp(2rem, 5vw, 4rem)', background: 'transparent' }}>
                 {SPECS.map((spec, i) => (
                   <div
                     key={i}
-                    className={`flex items-center gap-8 group ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
+                    className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 group ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
                     style={{
-                      padding: '2.5rem 1.5rem',
+                      padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem)',
                       borderBottom: i < SPECS.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
                       transition: 'background 0.3s ease',
                       borderRadius: 20,
@@ -152,26 +152,34 @@ export default function DimensioniSection() {
                     onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
                     onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                   >
-                    <div
-                      style={{
-                        width: 80,
-                        height: 80,
-                        borderRadius: 20,
-                        background: 'rgba(255,255,255,0.12)',
-                        border: '1.5px solid rgba(255,255,255,0.22)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
-                        <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
-                      </svg>
+                    <div className="flex items-center gap-4 sm:gap-0 sm:block w-full sm:w-auto">
+                      <div
+                        style={{
+                          width: 'clamp(56px, 10vw, 80px)',
+                          height: 'clamp(56px, 10vw, 80px)',
+                          borderRadius: 20,
+                          background: 'rgba(255,255,255,0.12)',
+                          border: '1.5px solid rgba(255,255,255,0.22)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
+                        </svg>
+                      </div>
+                      
+                      {/* Solo su mobile: label accanto all'icona */}
+                      <span className="sm:hidden font-medium" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem' }}>{spec.label}</span>
                     </div>
-                    <div className="flex-1 flex justify-between items-center min-w-0">
-                      <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.35rem', fontWeight: 500 }}>{spec.label}</span>
-                      <span className="montserrat-heading font-bold ml-6 tabular-nums" style={{ color: '#ffffff', fontSize: '2.1rem', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
+
+                    <div className="flex-1 flex flex-row justify-between items-center w-full min-w-0">
+                      {/* Desktop: label a sinistra */}
+                      <span className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(1rem, 2.5vw, 1.35rem)', fontWeight: 500 }}>{spec.label}</span>
+                      
+                      <span className="montserrat-heading font-bold sm:ml-6 tabular-nums text-right w-full sm:w-auto" style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 4vw, 2.1rem)', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
                         {spec.value}
                       </span>
                     </div>

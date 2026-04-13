@@ -60,12 +60,18 @@ body {
   color: rgb(255, 255, 255);
 }
 
-/* Global full-screen sections (min-height 100vh) */
+/* Global full-screen sections — mobile-first: auto height on small screens, 100vh on md+ */
 section {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  section {
+    min-height: 100vh;
+  }
 }
 
 .text-balance {

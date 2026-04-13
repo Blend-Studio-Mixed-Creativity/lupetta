@@ -109,7 +109,7 @@ export default function RealTimeSection() {
 
               {/* Header */}
               <div className="flex items-center justify-between mb-1 relative z-10">
-                <h3 className="text-xl font-semibold text-slate-800">Consumo Settimanale</h3>
+                <h3 className="text-xl font-semibold text-slate-800">Consumo settimanale</h3>
                 <LiveDot />
               </div>
               <p className="text-sm mb-8 relative z-10 text-slate-400">Litri somministrati per giorno</p>
@@ -168,8 +168,8 @@ export default function RealTimeSection() {
             </p>
             <div className="space-y-6">
               {[
-                { title: 'Visualizzazione Consumi', desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend.' },
-                { title: 'Comportamenti Alimentari', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam.' },
+                { title: 'Visualizzazione consumi', desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend.' },
+                { title: 'Comportamenti alimentari', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam.' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="w-0.5 shrink-0 mt-1 rounded-full" style={{ background: 'linear-gradient(to bottom, #65b32e, #006071)', minHeight: '100%' }} />

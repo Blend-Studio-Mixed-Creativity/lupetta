@@ -2,10 +2,10 @@
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const MODULI = [
-  { label: 'Lorem Modulus A', job: 'Tipologia Gabbione 01', num: '01' },
-  { label: 'Ipsum Modulus B', job: 'Tipologia Gabbione 02', num: '02' },
-  { label: 'Dolor Modulus C', job: 'Tipologia Gabbione 03', num: '03' },
-  { label: 'Amet Modulus D', job: 'Tipologia Gabbione 04', num: '04' },
+  { label: 'Lorem modulus A', job: 'Tipologia Gabbione 01', num: '01' },
+  { label: 'Ipsum modulus B', job: 'Tipologia Gabbione 02', num: '02' },
+  { label: 'Dolor modulus C', job: 'Tipologia Gabbione 03', num: '03' },
+  { label: 'Amet modulus D', job: 'Tipologia Gabbione 04', num: '04' },
 ];
 
 const DELAYS = [0.05, 0.18, 0.31, 0.44];
@@ -138,7 +138,7 @@ export default function CompatibilitaSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
       <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
         <div ref={ref} className="order-2 lg:order-1">
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {MODULI.map((mod, i) => (
               <ModuleCard key={i} mod={mod} i={i} isVisible={isVisible} />
             ))}

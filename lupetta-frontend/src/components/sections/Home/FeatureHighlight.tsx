@@ -1,8 +1,8 @@
 ﻿import { useEffect, useRef, useState, useCallback } from 'react';
 
 const METRICS = [
-  { label: 'Lorem Ipsum', value: 98.5, color: '#65b32e', accent: '#4fa028' },
-  { label: 'Dolor Amet',  value: 94.2, color: '#006071', accent: '#017870' },
+  { label: 'Lorem ipsum', value: 98.5, color: '#65b32e', accent: '#4fa028' },
+  { label: 'Dolor amet',  value: 94.2, color: '#006071', accent: '#017870' },
   { label: 'Consectetur', value: 87.8, color: '#65b32e', accent: '#4fa028' },
 ];
 
@@ -155,7 +155,7 @@ export default function FeatureHighlight() {
 
   return (
     <section ref={ref} className="py-12 sm:py-16 lg:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
 
         {/* -- Top: text + features -- */}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start mb-10 sm:mb-16 lg:mb-24">

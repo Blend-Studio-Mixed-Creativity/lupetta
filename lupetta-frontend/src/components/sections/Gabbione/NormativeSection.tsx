@@ -5,22 +5,22 @@ const NORME = [
   {
     glowColor: '#006071',
     iconPath: 'M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12',
-    title: 'Requisiti di Sicurezza',
-    subtitle: 'Apparecchiature Agricole',
+    title: 'Requisiti di sicurezza',
+    subtitle: 'Apparecchiature agricole',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.',
   },
   {
     glowColor: '#65b32e',
     iconPath: 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z',
-    title: 'Norme Benessere Animale',
+    title: 'Norme benessere animale',
     subtitle: 'Allevamenti',
     desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit.',
   },
   {
     glowColor: '#00c8a0',
     iconPath: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z',
-    title: 'Impatto Ambientale',
-    subtitle: 'Alimentazione Sostenibile',
+    title: 'Impatto ambientale',
+    subtitle: 'Alimentazione sostenibile',
     desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor quam.',
   },
 ];

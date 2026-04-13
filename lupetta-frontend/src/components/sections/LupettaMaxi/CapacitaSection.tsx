@@ -1,11 +1,11 @@
 ﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const SPECS = [
-  { label: 'Lorem Capacitas', value: '200 L', iconPath: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z' },
-  { label: 'Dolor Autonomia', value: '72h', iconPath: 'M12 6v6h4.5m4.5-15a9 9 0 11-18 0 9 9 0 0118 0z' },
-  { label: 'Ipsum Potentia', value: '1.5 kW', iconPath: 'M3.75 13.5l10.5-11.25L12 10l8.5 8.5' },
-  { label: 'Amet Capacitas', value: '6 - 12 lorem', iconPath: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z' },
-  { label: 'Consectetur Pressio', value: '2.5 bar', iconPath: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z' },
+  { label: 'Lorem capacitas', value: '200 L', iconPath: 'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z' },
+  { label: 'Dolor autonomia', value: '72h', iconPath: 'M12 6v6h4.5m4.5-15a9 9 0 11-18 0 9 9 0 0118 0z' },
+  { label: 'Ipsum potentia', value: '1.5 kW', iconPath: 'M3.75 13.5l10.5-11.25L12 10l8.5 8.5' },
+  { label: 'Amet capacitas', value: '6 - 12 lorem', iconPath: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z' },
+  { label: 'Consectetur pressio', value: '2.5 bar', iconPath: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z' },
 ];
 
 export default function CapacitaSection() {
@@ -65,7 +65,7 @@ export default function CapacitaSection() {
 
       <div className="w-full relative bg-white">
         {/* Full screen intro text */}
-        <section className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-28 pb-0">
+        <section className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-28 pb-16 lg:pb-32">
           <div ref={refLeft} className={`w-full text-center max-w-7xl mx-auto ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
               style={{
@@ -92,11 +92,11 @@ export default function CapacitaSection() {
         </section>
 
         {/* Full screen card reveal */}
-        <section className="relative z-10 w-full" style={{ marginTop: '-5rem' }}>
+        <section className="relative z-10 w-full lg:-mt-20" style={{ marginTop: '0' }}>
           <div 
             ref={refRight} 
-            className={`specs-card w-full flex flex-col justify-center py-32 px-4 sm:px-12 lg:px-24 transition-all duration-[1200ms] ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
-            style={{ borderRadius: '0', minHeight: '100vh', paddingTop: '10rem' }}
+            className={`specs-card w-full flex flex-col justify-center py-16 sm:py-24 lg:py-32 px-3 sm:px-8 lg:px-24 transition-all duration-[1200ms] ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
+            style={{ borderRadius: '0', minHeight: 'clamp(80vh, 100vh, 1200px)', paddingTop: 'clamp(6rem, 15vw, 10rem)' }}
           >
             <div className="w-full max-w-7xl mx-auto">
               {/* Card header */}
@@ -117,13 +117,13 @@ export default function CapacitaSection() {
               </div>
 
               {/* Specs list */}
-              <div style={{ padding: '1rem 1.5rem 2.5rem', background: 'transparent' }}>
+              <div style={{ padding: 'clamp(1rem, 4vw, 2.5rem)', background: 'transparent' }}>
                 {SPECS.map((spec, i) => (
                   <div
                     key={i}
-                    className={`flex items-center gap-8 group ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
+                    className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 group ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
                     style={{
-                      padding: '1.5rem 1.25rem',
+                      padding: 'clamp(1rem, 3vw, 1.5rem) clamp(0.75rem, 2vw, 1.25rem)',
                       borderBottom: i < SPECS.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
                       transition: 'background 0.3s ease',
                       borderRadius: 20,
@@ -132,26 +132,30 @@ export default function CapacitaSection() {
                     onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
                     onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                   >
-                    <div
-                      style={{
-                        width: 64,
-                        height: 64,
-                        borderRadius: 16,
-                        background: 'rgba(255,255,255,0.12)',
-                        border: '1.5px solid rgba(255,255,255,0.22)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
-                        <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
-                      </svg>
+                    <div className="flex items-center gap-4 w-full sm:w-auto">
+                      <div
+                        style={{
+                          width: 'clamp(48px, 12vw, 64px)',
+                          height: 'clamp(48px, 12vw, 64px)',
+                          borderRadius: 16,
+                          background: 'rgba(255,255,255,0.12)',
+                          border: '1.5px solid rgba(255,255,255,0.22)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
+                        </svg>
+                      </div>
+                      <span className="sm:hidden block text-left flex-1" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(1rem, 4vw, 1.2rem)', fontWeight: 500, lineHeight: '1.2' }}>{spec.label}</span>
                     </div>
-                    <div className="flex-1 flex justify-between items-center min-w-0">
-                      <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.2rem', fontWeight: 500 }}>{spec.label}</span>
-                      <span className="montserrat-heading font-bold ml-6 tabular-nums" style={{ color: '#ffffff', fontSize: '1.8rem', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
+
+                    <div className="flex-1 flex justify-between items-center sm:items-center w-full min-w-0">
+                      <span className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.2rem', fontWeight: 500 }}>{spec.label}</span>
+                      <span className="montserrat-heading font-bold tabular-nums ml-auto text-right w-full sm:w-auto" style={{ color: '#ffffff', fontSize: 'clamp(1.4rem, 6vw, 1.8rem)', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
                         {spec.value}
                       </span>
                     </div>

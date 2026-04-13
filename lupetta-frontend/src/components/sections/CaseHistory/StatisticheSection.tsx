@@ -22,8 +22,8 @@ export default function StatisticheSection() {
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 pb-16">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { value: 150, suffix: "+", label: "Lorem Installati" },
-          { value: 98, suffix: "%", label: "Ipsum Soddisfatti" },
+          { value: 150, suffix: "+", label: "Lorem installati" },
+          { value: 98, suffix: "%", label: "Ipsum soddisfatti" },
           { value: 35, suffix: "%", label: "Dolor Riduzione" },
           { value: 12, suffix: "", label: "Amet Regioni" },
         ].map((stat, i) => (

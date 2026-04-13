@@ -33,7 +33,7 @@ const CARDS = [
     color: '#006071',
     colorLight: '#00a8c0',
     glow: 'rgba(0,96,113,0.55)',
-    title: 'MAXI Tech',
+    title: 'MAXI tech',
     subtitle: 'Versione avanzata',
     desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet.',
     features: ['Donec eu libero sit amet', 'Aenean ultricies mi vitae', 'Mauris placerat eleifend'],
@@ -68,6 +68,7 @@ export default function ProdottiSection() {
     <section
       style={{
         background: '#ffffff',
+        padding: 'clamp(4rem, 8vw, 8rem) 0',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

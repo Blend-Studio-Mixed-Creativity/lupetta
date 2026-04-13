@@ -7,7 +7,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative text-white overflow-hidden min-h-[100vh] flex items-center"
+      className="relative text-white overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-[100vh] flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center top' }}
     >
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.92) 0%, rgba(0,60,75,0.80) 100%)' }} />

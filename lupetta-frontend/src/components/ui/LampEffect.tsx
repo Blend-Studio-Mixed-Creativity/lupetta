@@ -10,10 +10,10 @@ export function LampContainer({
 }) {
   return (
     <div
-      className={`relative flex flex-col items-center justify-center overflow-hidden w-full z-0 ${className}`}
-      style={{ background: '#0b1a20', minHeight: '120vh' }}
+      className={`relative flex flex-col items-center justify-start lg:justify-center overflow-hidden w-full z-0 min-h-[100vh] lg:min-h-[120vh] pt-28 lg:pt-0 ${className}`}
+      style={{ background: '#0b1a20' }}
     >
-      <div className="relative flex w-full flex-1 items-center justify-center isolate z-0" style={{ transform: 'scaleY(1.25)' }}>
+      <div className="relative flex w-full lg:flex-1 items-center justify-center isolate z-0 mt-8 lg:mt-0" style={{ transform: 'scaleY(1.25)' }}>
         {/* Left conic gradient */}
         <motion.div
           initial={{ opacity: 0.5, width: '15rem' }}
@@ -72,7 +72,7 @@ export function LampContainer({
       </div>
 
       {/* Content */}
-      <div className="relative z-50 flex flex-col items-center px-5" style={{ marginTop: '-8rem', paddingBottom: '6rem' }}>
+      <div className="relative z-50 flex flex-col items-center px-5 w-full mt-4 lg:-mt-32 pb-24">
         {children}
       </div>
     </div>

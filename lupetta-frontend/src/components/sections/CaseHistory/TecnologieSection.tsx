@@ -13,9 +13,9 @@ export default function TecnologieSection() {
         </RevealSection>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { title: "Lorem AI Engine", desc: "Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu." },
-            { title: "Ipsum IoT Connect", desc: "Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et." },
-            { title: "Dolor Smart Analytics", desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis." },
+            { title: "Lorem AI engine", desc: "Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu." },
+            { title: "Ipsum IoT connect", desc: "Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et." },
+            { title: "Dolor smart analytics", desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis." },
           ].map((tech, i) => (
             <RevealSection key={i} className="glass-dark p-5 sm:p-6 lg:p-8 rounded-2xl card-hover group" animation="sr-flip-in" delay={`sr-delay-${(i + 1) * 2}`}>
               <h3 className="text-xl text-[#65b32e] mb-3">{tech.title}</h3>

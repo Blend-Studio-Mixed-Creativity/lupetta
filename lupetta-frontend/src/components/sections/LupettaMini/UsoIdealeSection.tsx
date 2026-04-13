@@ -3,21 +3,21 @@
 const USI = [
   {
     num: '01',
-    title: 'Lorem Parvum',
+    title: 'Lorem parvum',
     desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero.',
     iconPath:
       'M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
   },
   {
     num: '02',
-    title: 'Ipsum Domesticus',
+    title: 'Ipsum domesticus',
     desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien.',
     iconPath:
       'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21',
   },
   {
     num: '03',
-    title: 'Dolor Initialis',
+    title: 'Dolor initialis',
     desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.',
     iconPath:
       'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253',

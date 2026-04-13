@@ -169,7 +169,7 @@ export default function ContattiMain() {
   return (
     <section ref={ref} className="bg-slate-50 py-16 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-12 xl:gap-20 items-start">
+        <div className="grid lg:grid-cols-5 gap-8 md:gap-10 lg:gap-12 xl:gap-20 items-start">
 
           {/* ── Left: Info + Socials ── */}
           <div className={`lg:col-span-2 ${isVisible ? 'sr-reveal-left' : 'sr-hidden'}`}>
@@ -246,7 +246,7 @@ export default function ContattiMain() {
 
           {/* ── Right: Form ── */}
           <div className={`lg:col-span-3 ${isVisible ? 'sr-reveal-right' : 'sr-hidden'}`} style={{ animationDelay: '0.1s' }}>
-            <div className="bg-white rounded-3xl border border-slate-100 shadow-xl p-8 sm:p-10 lg:p-12 relative overflow-hidden">
+            <div className="bg-white rounded-3xl border border-slate-100 shadow-xl p-5 sm:p-8 md:p-10 lg:p-12 relative overflow-hidden">
               {/* Decorative glow */}
               <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#65b32e]/5 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#006071]/5 rounded-full blur-3xl pointer-events-none" />

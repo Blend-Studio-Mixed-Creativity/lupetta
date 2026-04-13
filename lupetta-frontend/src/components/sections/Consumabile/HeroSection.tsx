@@ -4,7 +4,7 @@ import { Spotlight } from '../../ui/spotlight-new';
 export default function HeroSection() {
   return (
     <section
-      className="relative text-white overflow-hidden min-h-[80vh] flex items-center"
+      className="relative text-white overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Dark overlay */}

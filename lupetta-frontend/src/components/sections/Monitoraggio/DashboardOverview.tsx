@@ -4,19 +4,19 @@ import { BackgroundGradientAnimation } from '../../ui/BackgroundGradientAnimatio
 const STATS = [
   {
     iconPath: 'M3 13.5v6a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6-8v14a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-14a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6 4v10a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-10a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75z',
-    value: 'Lorem', label: 'Dashboard Realtime', color: '#006071',
+    value: 'Lorem', label: 'Dashboard realtime', color: '#006071',
   },
   {
     iconPath: 'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0',
-    value: 'Ipsum', label: 'Notifiche Smart', color: '#65b32e',
+    value: 'Ipsum', label: 'Notifiche smart', color: '#65b32e',
   },
   {
     iconPath: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 9h3',
-    value: 'Dolor', label: 'Accesso Mobile', color: '#006071',
+    value: 'Dolor', label: 'Accesso mobile', color: '#006071',
   },
   {
     iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
-    value: 'Amet', label: 'Sicurezza Dati', color: '#65b32e',
+    value: 'Amet', label: 'Sicurezza dati', color: '#65b32e',
   },
 ];
 
@@ -53,7 +53,7 @@ export default function DashboardOverview() {
       </motion.div>
 
       {/* Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
         {STATS.map((stat, i) => (
           <motion.div
             key={i}
@@ -85,7 +85,7 @@ export default function DashboardOverview() {
                 style={{ background: `radial-gradient(ellipse at 50% 0%, ${stat.color}18 0%, transparent 60%)` }}
               />
 
-              <div className="p-7 sm:p-8 text-center relative z-10">
+              <div className="p-5 sm:p-7 md:p-8 text-center relative z-10">
                 {/* Icon */}
                 <motion.div
                   initial={{ scale: 0, rotate: -45 }}

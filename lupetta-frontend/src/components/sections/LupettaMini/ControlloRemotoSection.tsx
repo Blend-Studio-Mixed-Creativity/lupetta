@@ -60,9 +60,15 @@ export default function ControlloRemotoSection() {
           border: 1.5px solid rgba(101,179,46,0.2);
           animation: wifiSpin linear infinite;
         }
-        .ctrl-ring-1 { width: 120px; height: 120px; animation-duration: 10s; }
-        .ctrl-ring-2 { width: 200px; height: 200px; animation-duration: 16s; animation-direction: reverse; border-color: rgba(0,96,113,0.2); }
-        .ctrl-ring-3 { width: 300px; height: 300px; animation-duration: 24s; border-color: rgba(0,200,160,0.1); }
+        .ctrl-ring-1 { width: 80px; height: 80px; animation-duration: 10s; }
+        .ctrl-ring-2 { width: 140px; height: 140px; animation-duration: 16s; animation-direction: reverse; border-color: rgba(0,96,113,0.2); }
+        .ctrl-ring-3 { width: 210px; height: 210px; animation-duration: 24s; border-color: rgba(0,200,160,0.1); }
+
+        @media (min-width: 640px) {
+          .ctrl-ring-1 { width: 120px; height: 120px; }
+          .ctrl-ring-2 { width: 200px; height: 200px; }
+          .ctrl-ring-3 { width: 300px; height: 300px; }
+        }
 
         .feat-box {
           position: relative;
@@ -183,7 +189,7 @@ export default function ControlloRemotoSection() {
             style={{ position: 'relative', zIndex: 2, marginBottom: '1.5rem' }}
           >
             <div style={{
-              width: 90, height: 90, borderRadius: '50%',
+              width: 'clamp(60px, 12vw, 90px)', height: 'clamp(60px, 12vw, 90px)', borderRadius: '50%',
               background: 'linear-gradient(135deg, #65b32e 0%, #006071 100%)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: '0 0 40px rgba(101,179,46,0.4), 0 0 80px rgba(0,96,113,0.2)',
@@ -203,7 +209,7 @@ export default function ControlloRemotoSection() {
             <span style={{ color: '#65b32e', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
               Sezione 3
             </span>
-            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mt-3 mb-4 leading-[1.1] whitespace-nowrap" style={{ color: '#fff' }}>
+            <h2 className="montserrat-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight mt-3 mb-4 leading-[1.1]" style={{ color: '#fff' }}>
               Controllo remoto <span className="montserrat-italic text-accent">Wi-Fi</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -216,35 +222,35 @@ export default function ControlloRemotoSection() {
         {/* Feature cards */}
         <div
           ref={refFeatures}
-          className="w-full flex flex-wrap justify-center gap-4 lg:gap-6 px-4 pb-10"
+          className="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-8 px-4 sm:px-6 lg:px-8 pb-16"
         >
           {FEATURES.map((feat, i) => (
             <div
               key={i}
-              className={`w-full max-w-[200px] ${visFeatures ? 'feat-reveal opacity-0' : 'opacity-0'}`}
+              className={`w-full ${visFeatures ? 'feat-reveal opacity-0' : 'opacity-0'}`}
               style={{ animationDelay: `${i * 0.16}s` }}
             >
               <div 
-                className="w-full aspect-[4/5] rounded-[18px] p-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
+                className="w-full h-full rounded-[22px] p-[1.5px] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
                 style={{
-                  background: 'linear-gradient(144deg, #006071, #65b32e 50%, #00c8a0)',
+                  background: 'linear-gradient(144deg, rgba(0,96,113,0.8), rgba(101,179,46,0.8) 50%, rgba(0,200,160,0.8))',
                 }}
               >
-                <div className="w-full h-full bg-[#0b1a20] rounded-[14px] p-4 lg:p-5 flex flex-col justify-center relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
+                <div className="w-full h-full bg-[#0b1a20] rounded-[20px] p-6 sm:p-8 flex flex-col items-start justify-start relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
                   {/* Subtle inner hover glow */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_#65b32e_0%,_transparent_70%)] pointer-events-none" />
                   
                   <div style={{
-                    width: 36, height: 36, borderRadius: 9,
+                    width: 48, height: 48, borderRadius: 12,
                     background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                  }} className="mb-3 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#65b32e]/50">
-                    <svg className="w-5 h-5 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  }} className="mb-5 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#65b32e]/50">
+                    <svg className="w-6 h-6 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d={feat.iconPath} />
                     </svg>
                   </div>
-                  <p className="montserrat-heading font-semibold mb-2 relative z-10 transition-colors group-hover:text-green-50" style={{ color: '#fff', fontSize: '1rem', lineHeight: 1.3 }}>{feat.label}</p>
-                  <p className="relative z-10" style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', lineHeight: 1.6 }}>{feat.desc}</p>
+                  <h3 className="montserrat-heading font-semibold mb-3 relative z-10 transition-colors group-hover:text-[#8fd44e]" style={{ color: '#fff', fontSize: '1.25rem', lineHeight: 1.3 }}>{feat.label}</h3>
+                  <p className="relative z-10" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.6 }}>{feat.desc}</p>
                 </div>
               </div>
             </div>

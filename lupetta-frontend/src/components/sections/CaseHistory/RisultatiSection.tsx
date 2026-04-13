@@ -1,9 +1,9 @@
 ﻿import { useEffect, useRef, useState } from 'react';
 
 const METRICS = [
-  { label: "Lorem Crescita Media", before: "0.8 kg/d", after: "1.2 kg/d", pct: "+50%", barPct: 75, positive: true },
-  { label: "Ipsum Mortalita",      before: "8%",       after: "2%",       pct: "-75%", barPct: 88, positive: false },
-  { label: "Dolor Costo Manodopera", before: "100%",   after: "60%",      pct: "-40%", barPct: 60, positive: false },
+  { label: "Lorem crescita media", before: "0.8 kg/d", after: "1.2 kg/d", pct: "+50%", barPct: 75, positive: true },
+  { label: "Ipsum mortalita",      before: "8%",       after: "2%",       pct: "-75%", barPct: 88, positive: false },
+  { label: "Dolor costo manodopera", before: "100%",   after: "60%",      pct: "-40%", barPct: 60, positive: false },
 ];
 
 /* -- animated counter (decimals) -- */

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 const ITEMS = [
   {
     iconPath: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
-    title: 'Impostazione Frequenza',
+    title: 'Impostazione frequenza',
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.',
     detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
     features: ['Intervalli personalizzabili per ogni profilo', 'Programmazione a cadenza oraria o giornaliera', 'Sincronizzazione automatica cloud', 'Notifiche push in caso di scostamento'],
@@ -12,7 +12,7 @@ const ITEMS = [
   },
   {
     iconPath: 'M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941',
-    title: 'Gestione Quantità e Incrementi',
+    title: 'Gestione quantità e incrementi',
     desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est mauris placerat eleifend.',
     detail: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.',
     features: ['Incrementi graduali programmabili', 'Soglie minime e massime configurabili', 'Storico consumi per analisi trend', 'Adattamento automatico in base al peso'],
@@ -20,7 +20,7 @@ const ITEMS = [
   },
   {
     iconPath: 'M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75',
-    title: 'Limiti Massimi Personalizzabili',
+    title: 'Limiti massimi personalizzabili',
     desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
     detail: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est.',
     features: ['Parametri impostabili per fascia di età', 'Alert automatici al raggiungimento soglia', 'Blocco erogazione su superamento limite', 'Report periodici di conformità'],

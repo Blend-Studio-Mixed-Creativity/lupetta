@@ -1,7 +1,6 @@
-// @ts-nocheck
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 /**
  * Valid blur sizes supported by Tailwind CSS.
@@ -70,20 +69,19 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     p = newp;
   }
 
-  vec3 col = vec3(
-    0.5 * sin(3.0 * p.x) + 0.5,
-    0.5 * sin(3.0 * p.y) + 0.5,
-    sin(p.x + p.y)
-  );
+  vec3 col1 = vec3(0.0, 0.376, 0.443);   // #006071 teal
+  vec3 col2 = vec3(0.396, 0.702, 0.180); // #65b32e green
+
+  float mixVal = 0.5 * sin(p.x * 1.8 + time * 0.6) * cos(p.y * 1.8 - time * 0.4) + 0.5;
+  vec3 col = mix(col1, col2, mixVal);
+
+  // Blend with white to make it airy — 40% color, 60% white
+  vec3 bgWhite = vec3(0.97, 0.99, 0.99);
+  col = mix(bgWhite, col, 0.4);
+
   col *= brightness;
 
-  float vigAmt = 5.0;
-  float vignette = (1. - vigAmt * (uv.y - 0.5) * (uv.y - 0.5)) * (1. - vigAmt * (uv.x - 0.5) * (uv.x - 0.5));
-  float extrusion = (col.x + col.y + col.z) / 4.0;
-  extrusion *= 1.5;
-  extrusion *= vignette;
-
-  fragColor = vec4(col, extrusion);
+  fragColor = vec4(col, 1.0);
 }
 
 void main() {
@@ -91,12 +89,12 @@ void main() {
 }
 `;
 
-
 function GradientBackground({
   backdropBlurAmount = "none",
   className = "",
-}: HellBackgroundProps): JSX.Element {
+}: HellBackgroundProps): React.ReactElement {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [stamp] = useState(Date.now()); // Force remount on edit
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -154,6 +152,7 @@ function GradientBackground({
     const iTimeLocation = gl.getUniformLocation(program, "iTime");
 
     let startTime = Date.now();
+    let animationFrameId: number;
 
     const render = () => {
       const width = canvas.clientWidth;
@@ -167,22 +166,30 @@ function GradientBackground({
       gl.uniform1f(iTimeLocation, currentTime);
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);
-      requestAnimationFrame(render);
+      animationFrameId = requestAnimationFrame(render);
     };
 
     render();
+
+    // CLEANUP TO FIX VITE HMR ISSUES AND GHOST CANVAS
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      gl.deleteProgram(program);
+    };
   }, []);
 
   const finalBlurClass = blurClassMap[backdropBlurAmount as BlurSize] || blurClassMap["sm"];
 
 return (
-  <div className={`w-full max-w-screen h-full overflow-hidden bg-black dark:bg-black ${className}`}>
+  <div className={`relative w-full h-full overflow-hidden ${className}`}>
     <canvas
+      key={stamp}
       ref={canvasRef}
-      className="absolute inset-0 w-full max-w-screen h-full overflow-hidden"
-      style={{ display: "block" }}
+      style={{ display: "block", width: "100%", height: "100%" }}
     />
-    <div className={`absolute inset-0 ${finalBlurClass}`} />
+    {backdropBlurAmount && backdropBlurAmount !== "none" && (
+      <div className={`absolute inset-0 ${finalBlurClass}`} />
+    )}
   </div>
 );
 

@@ -81,12 +81,12 @@ export default function Navbar() {
             : 'bg-transparent',
         ].join(' ')}
       >
-        <div className="flex items-center justify-between px-6 lg:px-12 h-20">
+        <div className="flex items-center justify-between pl-0 pr-1 sm:px-6 lg:px-12 h-20">
           {/* Logo — visible only in hero zone, fades out on scroll & menu open */}
           <Link
             to="/"
             className={[
-              'relative z-[120] transition-all duration-500',
+              'relative z-[120] transition-all duration-500 -ml-10 sm:ml-0',
               isOpen || scrolled ? 'opacity-0 -translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0',
             ].join(' ')}
           >
@@ -215,7 +215,7 @@ export default function Navbar() {
                         </span>
                         <span
                           className={[
-                            'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
+                            'text-xl sm:text-2xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
                             isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-slate-300',
                           ].join(' ')}
                         >

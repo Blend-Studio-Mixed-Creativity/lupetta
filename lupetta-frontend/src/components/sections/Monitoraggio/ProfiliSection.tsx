@@ -32,8 +32,8 @@ export default function ProfiliSection() {
 
             <div className="space-y-6">
               {[
-                { title: 'Inserimento Dati e Condizioni', desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet est.' },
-                { title: 'Aggiornamenti Stato di Crescita', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam.' },
+                { title: 'Inserimento dati e condizioni', desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet est.' },
+                { title: 'Aggiornamenti stato di crescita', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam.' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="w-0.5 rounded-full shrink-0 mt-1" style={{ background: 'linear-gradient(to bottom, #65b32e, #006071)', minHeight: '100%' }} />

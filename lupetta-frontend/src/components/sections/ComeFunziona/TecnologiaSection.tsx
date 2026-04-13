@@ -10,12 +10,12 @@ interface TechItem {
 }
 
 const TECH_ITEMS: TechItem[] = [
-  { iconPath: 'M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z', title: 'Lorem Hardware', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam egestas semper.', color: '#65b32e', glow: 'rgba(101,179,46,0.55)' },
-  { iconPath: 'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418', title: 'Ipsum Software', desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien ullamcorper pharetra.', color: '#006071', glow: 'rgba(0,96,113,0.55)' },
-  { iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z', title: 'Dolor Securitas', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor.', color: '#65b32e', glow: 'rgba(101,179,46,0.55)' },
-  { iconPath: 'M3 13.5v6a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6-8v14a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-14a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6 4v10a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-10a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75z', title: 'Amet Analytics', desc: 'Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est mauris placerat eleifend leo.', color: '#006071', glow: 'rgba(0,96,113,0.55)' },
-  { iconPath: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z', title: 'Consectetur Energia', desc: 'Quisque sit amet est et sapien ullamcorper pharetra vestibulum erat wisi condimentum sed aenean.', color: '#65b32e', glow: 'rgba(101,179,46,0.55)' },
-  { iconPath: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', title: 'Adipiscing Protectio', desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus.', color: '#006071', glow: 'rgba(0,96,113,0.55)' },
+  { iconPath: 'M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z', title: 'Lorem hardware', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante donec eu libero sit amet quam egestas semper.', color: '#65b32e', glow: 'rgba(101,179,46,0.55)' },
+  { iconPath: 'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418', title: 'Ipsum software', desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien ullamcorper pharetra.', color: '#006071', glow: 'rgba(0,96,113,0.55)' },
+  { iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z', title: 'Dolor securitas', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor.', color: '#65b32e', glow: 'rgba(101,179,46,0.55)' },
+  { iconPath: 'M3 13.5v6a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6-8v14a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-14a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6 4v10a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-10a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75z', title: 'Amet analytics', desc: 'Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est mauris placerat eleifend leo.', color: '#006071', glow: 'rgba(0,96,113,0.55)' },
+  { iconPath: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z', title: 'Consectetur energia', desc: 'Quisque sit amet est et sapien ullamcorper pharetra vestibulum erat wisi condimentum sed aenean.', color: '#65b32e', glow: 'rgba(101,179,46,0.55)' },
+  { iconPath: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', title: 'Adipiscing protectio', desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus.', color: '#006071', glow: 'rgba(0,96,113,0.55)' },
 ];
 
 const total = TECH_ITEMS.length;
@@ -78,6 +78,7 @@ export default function TecnologiaSection() {
 
           {/* LEFT — active card detail */}
           <div
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
             style={{
               animation: animState === 'in'
                 ? 'cardFadeIn 0.45s cubic-bezier(0.16,1,0.3,1) both'
@@ -88,7 +89,7 @@ export default function TecnologiaSection() {
               NO.{String(active + 1).padStart(2, '0')} — {active + 1}/{total}
             </span>
 
-            <div style={{ width: 68, height: 68, borderRadius: 20, background: `${tech.color}18`, border: `1.5px solid ${tech.color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', boxShadow: `0 8px 32px ${tech.glow}` }}>
+            <div className="mx-auto lg:mx-0" style={{ width: 68, height: 68, borderRadius: 20, background: `${tech.color}18`, border: `1.5px solid ${tech.color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', boxShadow: `0 8px 32px ${tech.glow}` }}>
               <svg width={32} height={32} fill="none" viewBox="0 0 24 24" strokeWidth={1.4} stroke={tech.color}>
                 <path strokeLinecap="round" strokeLinejoin="round" d={tech.iconPath} />
               </svg>
@@ -98,7 +99,7 @@ export default function TecnologiaSection() {
               {tech.title}
             </h3>
 
-            <div style={{ height: 1, background: `linear-gradient(90deg, ${tech.color}55, transparent)`, marginBottom: '1.5rem' }} />
+            <div className="w-24 lg:w-full max-w-sm" style={{ height: 2, background: `linear-gradient(90deg, ${tech.color}66, transparent)`, marginBottom: '1.5rem' }} />
 
             <p style={{ color: '#64748b', fontSize: '1.08rem', lineHeight: 1.8, marginBottom: '3rem' }}>
               {tech.desc}
@@ -107,7 +108,12 @@ export default function TecnologiaSection() {
             {/* Navigation */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <button onClick={prev} disabled={active === 0} style={{ width: 48, height: 48, borderRadius: '50%', background: active === 0 ? '#e2e8f0' : `${tech.color}18`, border: `1.5px solid ${active === 0 ? '#e2e8f0' : tech.color + '44'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: active === 0 ? 'not-allowed' : 'pointer', opacity: active === 0 ? 0.3 : 1, transition: 'all 0.25s', color: tech.color }}>
-                <svg width={18} height={18} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+                <svg width={18} height={18} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
+                  {/* Left (Mobile) */}
+                  <path strokeLinecap="round" strokeLinejoin="round" className="lg:hidden" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  {/* Up (Desktop) */}
+                  <path strokeLinecap="round" strokeLinejoin="round" className="hidden lg:block" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
               </button>
 
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
@@ -117,13 +123,18 @@ export default function TecnologiaSection() {
               </div>
 
               <button onClick={next} disabled={active === total - 1} style={{ width: 48, height: 48, borderRadius: '50%', background: active === total - 1 ? '#e2e8f0' : `${tech.color}18`, border: `1.5px solid ${active === total - 1 ? '#e2e8f0' : tech.color + '44'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: active === total - 1 ? 'not-allowed' : 'pointer', opacity: active === total - 1 ? 0.3 : 1, transition: 'all 0.25s', color: tech.color }}>
-                <svg width={18} height={18} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                <svg width={18} height={18} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
+                  {/* Right (Mobile) */}
+                  <path strokeLinecap="round" strokeLinejoin="round" className="lg:hidden" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  {/* Down (Desktop) */}
+                  <path strokeLinecap="round" strokeLinejoin="round" className="hidden lg:block" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
               </button>
             </div>
           </div>
 
           {/* RIGHT — 3D vertical carousel */}
-          <div className="select-none" style={{ height: 'clamp(320px, 36vw, 440px)', position: 'relative', perspective: '1000px', overflow: 'hidden', borderRadius: '2rem' }}>
+          <div className="select-none hidden lg:block" style={{ height: 'clamp(320px, 36vw, 440px)', position: 'relative', perspective: '1000px', overflow: 'hidden', borderRadius: '2rem' }}>
             {TECH_ITEMS.map((card, i) => {
               const pos = i - active;
               const clamped = Math.max(-1, Math.min(1, pos));

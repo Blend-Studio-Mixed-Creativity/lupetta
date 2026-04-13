@@ -3,10 +3,10 @@ import { motion } from 'motion/react';
 import { LampContainer } from '../../ui/LampEffect';
 
 const ITEMS = [
-  { iconPath: 'M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z', title: 'Lorem Sensorem', desc: 'Vestibulum tortor quam feugiat vitae ultricies.', color: '#006071' },
-  { iconPath: 'M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z', title: 'Ipsum Visio', desc: 'Donec eu libero sit amet quam egestas semper.', color: '#65b32e' },
-  { iconPath: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z', title: 'Dolor Temperatura', desc: 'Aenean ultricies mi vitae est mauris placerat.', color: '#006071' },
-  { iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z', title: 'Amet Securitas', desc: 'Pellentesque habitant morbi tristique senectus.', color: '#65b32e' },
+  { iconPath: 'M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z', title: 'Lorem sensorem', desc: 'Vestibulum tortor quam feugiat vitae ultricies.', color: '#006071' },
+  { iconPath: 'M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z', title: 'Ipsum visio', desc: 'Donec eu libero sit amet quam egestas semper.', color: '#65b32e' },
+  { iconPath: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z', title: 'Dolor temperatura', desc: 'Aenean ultricies mi vitae est mauris placerat.', color: '#006071' },
+  { iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z', title: 'Amet securitas', desc: 'Pellentesque habitant morbi tristique senectus.', color: '#65b32e' },
 ];
 
 type TiltCardProps = (typeof ITEMS)[number] & { index: number };
@@ -48,18 +48,18 @@ function TiltCard({ iconPath, title, desc, color, index }: TiltCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, rotateX: 35, rotateY: index % 2 === 0 ? -15 : 15, y: 80, scale: 0.85 }}
-      whileInView={{ opacity: 1, rotateX: 0, rotateY: 0, y: 0, scale: 1 }}
-      transition={{ delay: index * 0.15, duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.15, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
       viewport={{ once: true, amount: 0.2 }}
-      style={{ perspective: '1200px' }}
+      className="w-full max-w-[340px] mx-auto sm:max-w-none"
     >
       <div
         ref={ref}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
         style={{ ...cardStyle, background: 'rgba(11, 26, 32, 0.85)', backdropFilter: 'blur(16px)' }}
-        className="relative flex flex-col rounded-2xl shadow-lg cursor-default border border-white/10 overflow-hidden"
+        className="relative flex flex-col rounded-2xl shadow-lg cursor-default border border-white/10 overflow-hidden w-full"
       >
         {/* Animated border glow */}
         <div
@@ -156,7 +156,7 @@ export default function MonitoraggioSection() {
             Tecnologie avanzate di <span className="montserrat-italic" style={{ color: '#65b32e' }}>monitoraggio e sicurezza</span>
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-8 px-2 sm:px-0">
           {ITEMS.map((item, i) => (
             <TiltCard key={i} {...item} index={i} />
           ))}

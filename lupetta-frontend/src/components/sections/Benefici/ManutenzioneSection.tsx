@@ -1,8 +1,8 @@
 ﻿const TASKS = [
-  { label: 'Lorem Pulizia', time: 'Quotidiana' },
-  { label: 'Ipsum Calibrazione', time: 'Settimanale' },
-  { label: 'Dolor Ispezione', time: 'Mensile' },
-  { label: 'Amet Revisione', time: 'Semestrale' },
+  { label: 'Lorem pulizia', time: 'Quotidiana' },
+  { label: 'Ipsum calibrazione', time: 'Settimanale' },
+  { label: 'Dolor ispezione', time: 'Mensile' },
+  { label: 'Amet revisione', time: 'Semestrale' },
 ];
 
 const CHECKLIST = [

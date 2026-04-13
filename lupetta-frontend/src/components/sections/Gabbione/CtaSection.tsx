@@ -4,7 +4,7 @@ import { BorderBeam } from '../../lightswind/border-beam';
 
 export default function CtaSection() {
   return (
-    <section className="relative overflow-hidden" style={{ background: '#0b1a20', minHeight: '380px' }}>
+    <section className="relative overflow-hidden" style={{ background: '#0b1a20', minHeight: 'clamp(280px, 40vh, 380px)' }}>
       {/* Fall beam overlay */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <FallBeamBackground lineCount={25} beamColorClass="green-400" className="h-full w-full absolute top-0 left-0" />

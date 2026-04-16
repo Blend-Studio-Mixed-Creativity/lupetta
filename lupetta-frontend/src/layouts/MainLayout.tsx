@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -60,6 +60,7 @@ export default function MainLayout() {
   useScrollRevealAll();
 
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -70,10 +71,10 @@ export default function MainLayout() {
       <Footer />
 
       {/* FAB — Percorso guidato FAQ */}
-      <Link
-        to={pathname === '/faq' ? '#percorso-interattivo' : '/faq#percorso-interattivo'}
+      <button
+        onClick={() => navigate(pathname === '/faq' ? '/faq?openGame=1' : '/faq?openGame=1')}
         title="Percorso guidato FAQ"
-        className="group fixed bottom-6 right-6 z-50 flex items-center gap-0 overflow-hidden rounded-full shadow-xl transition-all duration-300 hover:gap-2 hover:pr-5 hover:shadow-2xl"
+        className="group fixed bottom-6 right-6 z-50 flex items-center gap-0 overflow-hidden rounded-full shadow-xl transition-all duration-300 hover:gap-2 hover:pr-5 hover:shadow-2xl cursor-pointer"
         style={{ background: 'linear-gradient(135deg, #006071, #00c8a0)' }}
       >
         <span className="flex h-14 w-14 shrink-0 items-center justify-center">
@@ -84,7 +85,7 @@ export default function MainLayout() {
         <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold text-white transition-all duration-300 group-hover:max-w-xs">
           Percorso guidato
         </span>
-      </Link>
+      </button>
     </div>
   );
 }

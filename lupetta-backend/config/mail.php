@@ -127,4 +127,15 @@ return [
 
     'admin_address' => env('MAIL_ADMIN_ADDRESS'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | CC Address
+    |--------------------------------------------------------------------------
+    |
+    | Optional CC address added to all internal notification emails.
+    |
+    */
+
+    'cc_address' => env('MAIL_CC'),
+
 ];

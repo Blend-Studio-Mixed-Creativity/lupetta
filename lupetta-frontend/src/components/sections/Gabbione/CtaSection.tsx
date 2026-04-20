@@ -20,7 +20,7 @@ export default function CtaSection() {
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
           viewport={{ once: true }}
         >
-          <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Inizia ora</span>
+          <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#ffffff' }}>Inizia ora</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mt-4 mb-6 text-white">
             Lorem ipsum <span className="montserrat-italic" style={{ color: '#65b32e' }}>dolor?</span>
           </h2>

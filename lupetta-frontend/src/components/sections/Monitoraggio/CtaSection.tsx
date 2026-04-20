@@ -16,7 +16,7 @@ export default function CtaSection() {
       className="flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-5xl mx-auto">
-        <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase mb-6" style={{ color: '#65b32e' }}>
+        <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase mb-6" style={{ color: '#ffffff' }}>
           Pronto a iniziare?
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-8 text-white leading-[1.1]">

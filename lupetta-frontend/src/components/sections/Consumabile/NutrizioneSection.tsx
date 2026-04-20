@@ -170,7 +170,7 @@ function LeftPanel() {
       <span
         className="text-xs font-bold tracking-[0.2em] uppercase block mb-4"
         style={{
-          color: '#65b32e',
+          color: '#ffffff',
           letterSpacing: visible ? '0.32em' : '0.05em',
           opacity: visible ? 1 : 0,
           transition: 'letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s, opacity 0.5s ease 0.1s',

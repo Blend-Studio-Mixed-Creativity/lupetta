@@ -32,7 +32,7 @@ export default function ConservazioneSection() {
           viewport={{ once: true }}
           className="text-center mb-16 sm:mb-20"
         >
-          <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Conservazione</span>
+          <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#ffffff' }}>Conservazione</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4">
             Stoccaggio e <span className="montserrat-italic" style={{ color: '#65b32e' }}>conservazione</span>
           </h2>

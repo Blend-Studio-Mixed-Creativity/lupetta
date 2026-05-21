@@ -10,7 +10,7 @@ export function LampContainer({
 }) {
   return (
     <div
-      className={`relative flex flex-col items-center justify-start lg:justify-center overflow-hidden w-full z-0 min-h-[100vh] lg:min-h-[120vh] pt-28 lg:pt-0 ${className}`}
+      className={`relative flex flex-col items-center justify-start lg:justify-center overflow-x-hidden w-full z-0 min-h-[100vh] lg:min-h-[120vh] pt-28 lg:pt-0 ${className}`}
       style={{ background: '#0b1a20' }}
     >
       <div className="relative flex w-full lg:flex-1 items-center justify-center isolate z-0 mt-8 lg:mt-0" style={{ transform: 'scaleY(1.25)' }}>

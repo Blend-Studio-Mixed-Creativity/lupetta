@@ -1,4 +1,4 @@
-﻿import RevealSection from '../../RevealSection';
+﻿// import RevealSection from '../../RevealSection';
 import { motion } from 'motion/react';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 

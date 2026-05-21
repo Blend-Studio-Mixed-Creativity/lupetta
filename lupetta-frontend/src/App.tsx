@@ -15,9 +15,10 @@ import Risorse from './pages/Risorse';
 import Approfondimenti from './pages/Approfondimenti';
 import Contatti from './pages/Contatti';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       { path: 'contatti', element: <Contatti /> },
     ],
   },
-]);
+], { basename: import.meta.env.BASE_URL });
 
 function App() {
   return <RouterProvider router={router} />;

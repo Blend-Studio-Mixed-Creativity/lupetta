@@ -3,11 +3,11 @@ import {
   ThreeDScrollTriggerRow,
 } from '../../lightswind/3d-scroll-trigger';
 
-const STARS = (n: number) => (
-  <span className="text-amber-400 text-sm tracking-tight">
-    {'★'.repeat(n)}{'☆'.repeat(5 - n)}
-  </span>
-);
+// const STARS = (n: number) => (
+//   <span className="text-amber-400 text-sm tracking-tight">
+//     {'★'.repeat(n)}{'☆'.repeat(5 - n)}
+//   </span>
+// );
 
 interface Testimonial {
   name: string;

@@ -9,8 +9,9 @@ import navImg4 from '../assets/images/impianto latte.jpg';
 import navImg5 from '../assets/images/vitellino.png';
 import navImg6 from '../assets/images/vitello.jpg';
 import navImg7 from '../assets/images/coselupetta.jpg';
+import navImg8 from '../assets/images/allevamento-lupetta.jpg';
 
-const NAV_IMAGES = [navImg0, navImg1, navImg2, navImg3, navImg4, navImg5, navImg6, navImg7];
+const NAV_IMAGES = [navImg0, navImg1, navImg2, navImg3, navImg4, navImg5, navImg6, navImg7, navImg8];
 
 interface NavItem {
   label: string;
@@ -20,6 +21,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Home', to: '/' },
+  { label: 'Azienda', to: '/azienda' },
   {
     label: 'Come Funziona',
     to: '/come-funziona',

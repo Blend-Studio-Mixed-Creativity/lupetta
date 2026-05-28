@@ -1,10 +1,16 @@
 ﻿import { useEffect, useRef, useState } from 'react';
 
 const STEPS = [
-  { step: '01', title: 'Installatio', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum.' },
-  { step: '02', title: 'Configuratio', desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit amet est et sapien ullamcorper.' },
-  { step: '03', title: 'Monitorium', desc: 'Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi condimentum sed commodo vitae ornare sit amet ante donec eu libero.' },
-  { step: '04', title: 'Optimizatio', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam feugiat vitae ultricies eget.' },
+  { step: '01', title: 'Un solo carico di latte giornaliero', desc: 'L’operatore carica il latte una volta al giorno, mentre Lupetta lo mantiene disponibile per la distribuzione programmata durante la giornata.' },
+  { step: '02', title: 'Animali controllati e segnalati in caso di ritardo', desc: 'Il sistema monitora il comportamento alimentare degli animali e segnala eventuali ritardi o anomalie rispetto al piano impostato.' },
+  { step: '03', title: 'Gestione alimentare automatizzata di gruppi di animali da 4 a 8 vitelli', desc: 'Lupetta Maxi Tech permette di alimentare piccoli gruppi, mantenendo il controllo individuale su ogni vitello.' },
+  { step: '04', title: 'Smart-Tag adesivo usa e getta', desc: 'Ogni animale può essere identificato tramite Smart-Tag, così da associare correttamente pasti, dati e parametri di ingestione.' },
+  { step: '05', title: 'Sensoristica di precisione per la misurazione dell’ingestione', desc: 'I sensori rilevano i dati di consumo e aiutano l’allevatore a verificare con maggiore precisione l’andamento alimentare.' },
+  { step: '06', title: 'App Lupetta dedicata con registro dei parametri di ingestione', desc: 'L’app consente di consultare i dati raccolti, controllare lo storico e avere una visione aggiornata dell’alimentazione degli animali.' },
+
+
+
+
 ];
 
 /* -- Animated counter -- */
@@ -119,7 +125,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
   return (
     <div
       ref={ref}
-      className="min-h-[60vh] md:min-h-screen flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-12 sm:py-16 md:py-0 relative overflow-hidden"
+      className="min-h-[40vh] md:min-h-[70vh] flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-8 sm:py-10 md:py-14 relative overflow-hidden"
       style={{ background: index % 2 === 0 ? '#ffffff' : '#f8fafc' }}
     >
       {/* Background radial glow */}
@@ -163,7 +169,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
       />
 
       <div
-        className={`w-full flex flex-col md:flex-row items-center gap-6 sm:gap-8 lg:gap-16 xl:gap-28 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
+        className={`w-full flex flex-col md:flex-row items-center gap-5 sm:gap-6 lg:gap-10 xl:gap-16 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
       >
         {/* -- Giant number -- */}
         <div className="flex-shrink-0 relative select-none">
@@ -186,7 +192,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           <span
             className="font-semibold montserrat-heading block"
             style={{
-              fontSize: 'clamp(5rem, 22vw, 22rem)',
+              fontSize: 'clamp(4rem, 16vw, 15rem)',
               lineHeight: 0.85,
               color: visible ? '#65b32e' : 'transparent',
               WebkitTextStroke: visible ? '0px transparent' : '2px #65b32e',
@@ -228,7 +234,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
         >
           {/* Step label - letter-spacing morph */}
           <span
-            className="text-[#006071]/40 font-bold text-sm uppercase block mb-4"
+            className="text-[#006071]/40 font-bold text-sm uppercase block mb-3"
             style={{
               letterSpacing: visible ? '0.32em' : '0.04em',
               opacity: visible ? 1 : 0,
@@ -239,7 +245,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </span>
 
           {/* Title - word stagger with rotation */}
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#006071] montserrat-heading leading-tight mb-4 sm:mb-6 overflow-hidden">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#006071] montserrat-heading leading-tight mb-3 sm:mb-4 overflow-hidden">
             {words.map((word, wi) => (
               <span
                 key={wi}
@@ -275,7 +281,7 @@ function StepRow({ step, title, desc, index, onVisible }: {
           </p>
 
           {/* Accent line + glow pulse */}
-          <div className="mt-8 h-[3px] rounded-full bg-[#65b32e]"
+          <div className="mt-5 h-[3px] rounded-full bg-[#65b32e]"
             style={{
               width: visible ? '5rem' : '0',
               transition: `width 0.8s cubic-bezier(0.16,1,0.3,1) ${0.8 + words.length * 0.1}s`,
@@ -327,7 +333,7 @@ export default function ComeFunzionaSteps() {
       {/* Heading */}
       <div
         ref={headingRef}
-        className="bg-white border-b border-slate-100 py-20 text-center overflow-hidden"
+        className="bg-white border-b border-slate-100 py-12 sm:py-14 text-center overflow-hidden"
         style={{
           opacity: headingVisible ? 1 : 0,
           transform: headingVisible ? 'translateY(0)' : 'translateY(28px)',
@@ -342,11 +348,11 @@ export default function ComeFunzionaSteps() {
             transition: 'letter-spacing 1s cubic-bezier(0.16,1,0.3,1) 0.2s, opacity 0.5s ease 0.2s',
           }}
         >
-          Come Funziona
+          I vantaggi di Lupetta
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#006071] tracking-tight mt-3">
-          Lorem in{' '}
-          <span className="montserrat-italic text-[#65b32e]">Quattuor passus</span>
+          Meno stress per l’animale, <br/>
+          <span className="montserrat-italic text-[#65b32e]">nutrimento sempre sotto controllo</span>
         </h2>
       </div>
 

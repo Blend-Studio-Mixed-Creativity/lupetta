@@ -11,6 +11,7 @@ import Benefici from './pages/Benefici';
 import CaseHistory from './pages/CaseHistory';
 import FAQ from './pages/FAQ';
 import Mission from './pages/Mission';
+import Azienda from './pages/Azienda';
 import Risorse from './pages/Risorse';
 import Approfondimenti from './pages/Approfondimenti';
 import Contatti from './pages/Contatti';
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       { path: 'case-history', element: <CaseHistory /> },
       { path: 'faq', element: <FAQ /> },
       { path: 'mission', element: <Mission /> },
+      { path: 'azienda', element: <Azienda /> },
       { path: 'risorse', element: <Risorse /> },
       { path: 'approfondimenti', element: <Approfondimenti /> },
       { path: 'contatti', element: <Contatti /> },

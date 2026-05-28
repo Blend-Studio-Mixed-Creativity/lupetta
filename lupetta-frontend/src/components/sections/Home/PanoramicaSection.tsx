@@ -35,7 +35,7 @@ const CARDS = [
     num: '03',
     iconPath:
       'M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z',
-    title: 'monitoraggio costante dei parametri (temperatura, livello del latte, stato macchina)',
+    title: 'Monitoraggio costante dei parametri (temperatura, livello del latte, stato macchina)',
     tag: 'Approccio',
     desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor.',
     subdesc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat.',

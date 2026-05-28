@@ -1,10 +1,5 @@
-﻿import { motion } from 'motion/react';
-
-const PROFILES = [
-  { name: 'Lorem Ipsum #001', weight: '45 kg', feeds: '6x/giorno', status: 'Attivo', pct: 78 },
-  { name: 'Dolor Sit #002', weight: '38 kg', feeds: '5x/giorno', status: 'Attivo', pct: 62 },
-  { name: 'Amet Consectetur #003', weight: '52 kg', feeds: '7x/giorno', status: 'Attivo', pct: 91 },
-];
+import { motion } from 'motion/react';
+import dashboardImg from '../../../assets/images/app-dashboard-screenshot.png';
 
 export default function ProfiliSection() {
   return (
@@ -22,18 +17,18 @@ export default function ProfiliSection() {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true }}
           >
-            <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Gestione Profili</span>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>App Lupetta</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-tight">
-              Creazione e gestione<br /><span className="montserrat-italic" style={{ color: '#006071' }}>profili vitello</span>
+              Unica interfaccia, <br /><span className="montserrat-italic" style={{ color: '#006071' }}>tutti i dati che servono</span>
             </h2>
             <p className="text-lg leading-relaxed mb-8 text-slate-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.
+              L’app Lupetta permette all’allevatore di avere sempre sotto controllo lo stato delle macchine installate in stalla, anche a distanza. Da un’unica interfaccia è possibile visualizzare i valori in tempo reale, verificare il corretto funzionamento di ogni Lupetta, monitorare i parametri principali e intervenire con maggiore tempestività quando qualcosa richiede attenzione. In questo modo la gestione quotidiana diventa più semplice, ordinata e continua, contribuendo a garantire agli animali condizioni di alimentazione più regolari, salute e benessere.
             </p>
 
             <div className="space-y-6">
               {[
-                { title: 'Inserimento dati e condizioni', desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet est.' },
-                { title: 'Aggiornamenti stato di crescita', desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam.' },
+                { title: 'Valori in tempo reale', desc: 'Monitora istante per istante il corretto funzionamento, la temperatura dell’acqua e il livello del latte.' },
+                { title: 'Interventi tempestivi', desc: 'Ricevi notifiche e alert immediati in caso di valori sospetti o anomalie per agire subito.' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="w-0.5 rounded-full shrink-0 mt-1" style={{ background: 'linear-gradient(to bottom, #65b32e, #006071)', minHeight: '100%' }} />
@@ -46,79 +41,20 @@ export default function ProfiliSection() {
             </div>
           </motion.div>
 
-          {/* Right: analytics panel */}
+          {/* Right: dashboard screenshot */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true }}
+            className="flex justify-center"
           >
-            <div className="rounded-3xl overflow-hidden" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
-              {/* Panel header */}
-              <div className="px-6 py-5 flex items-center justify-between" style={{ borderBottom: '1px solid #e2e8f0' }}>
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-                  <span className="text-sm font-semibold text-slate-800">Profili Attivi</span>
-                </div>
-                <span className="text-xs px-3 py-1 rounded-full font-medium" style={{ background: 'rgba(101,179,46,0.15)', color: '#65b32e' }}>
-                  {PROFILES.length} online
-                </span>
-              </div>
-
-              {/* Profile rows */}
-              <div className="p-4 space-y-3">
-                {PROFILES.map((p, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.12, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="rounded-2xl p-5 group hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 cursor-default"
-                    style={{ background: '#fff', border: '1px solid #e2e8f0' }}
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <div className="font-semibold text-slate-800 text-sm">{p.name}</div>
-                        <div className="text-xs mt-0.5 text-slate-400">{p.weight} · {p.feeds}</div>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#65b32e]" />
-                        <span className="text-xs" style={{ color: '#65b32e' }}>{p.status}</span>
-                      </div>
-                    </div>
-                    {/* Progress bar */}
-                    <div className="h-1.5 rounded-full overflow-hidden bg-slate-100">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${p.pct}%` }}
-                        transition={{ delay: i * 0.12 + 0.3, duration: 0.9, ease: 'easeOut' }}
-                        viewport={{ once: true }}
-                        className="h-full rounded-full"
-                        style={{ background: 'linear-gradient(90deg, #006071, #65b32e)' }}
-                      />
-                    </div>
-                    <div className="flex justify-between mt-1.5">
-                      <span className="text-[10px] text-slate-400">Consumo giornaliero</span>
-                      <span className="text-[10px] font-medium" style={{ color: '#65b32e' }}>{p.pct}%</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Footer stat */}
-              <div className="grid grid-cols-3 gap-px" style={{ background: '#e2e8f0', borderTop: '1px solid #e2e8f0' }}>
-                {[
-                  { label: 'Media peso', value: '45 kg' },
-                  { label: 'Pasti oggi', value: '18' },
-                  { label: 'Efficienza', value: '77%' },
-                ].map((s, i) => (
-                  <div key={i} className="py-4 text-center bg-slate-50">
-                    <div className="text-lg font-bold text-slate-800">{s.value}</div>
-                    <div className="text-[10px] mt-0.5 text-slate-400">{s.label}</div>
-                  </div>
-                ))}
-              </div>
+            <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white p-3 hover:shadow-[0_30px_60px_-15px_rgba(0,96,113,0.3)] transition-all duration-500 max-w-2xl w-full">
+              <img
+                src={dashboardImg}
+                alt="App Lupetta Dashboard"
+                className="w-full h-auto rounded-2xl object-cover"
+              />
             </div>
           </motion.div>
         </div>
@@ -126,10 +62,3 @@ export default function ProfiliSection() {
     </section>
   );
 }
-
-
-
-
-
-
-

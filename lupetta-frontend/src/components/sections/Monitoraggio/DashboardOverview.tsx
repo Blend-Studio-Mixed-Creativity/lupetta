@@ -3,20 +3,20 @@ import { BackgroundGradientAnimation } from '../../ui/BackgroundGradientAnimatio
 
 const STATS = [
   {
-    iconPath: 'M3 13.5v6a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6-8v14a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-14a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6 4v10a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-10a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75z',
-    value: 'Lorem', label: 'Dashboard realtime', color: '#006071',
+    iconPath: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+    value: 'Erogazione pasti', label: 'Ogni Lupetta mostra quanti pasti ha erogato e se è in funzione.', color: '#65b32e',
   },
   {
     iconPath: 'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0',
-    value: 'Ipsum', label: 'Notifiche smart', color: '#65b32e',
+    value: 'Temperatura del liquido', label: 'Un colore rosso avverte se la temperatura dell’acqua è troppo alta', color: '#ef4444',
   },
   {
-    iconPath: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 9h3',
-    value: 'Dolor', label: 'Accesso mobile', color: '#006071',
+    iconPath: 'M12 21a9.004 9.004 0 008.716-6.747c.224-.827.054-1.724-.465-2.422l-7.051-9.402a1.5 1.5 0 00-2.4 0l-7.051 9.402c-.519.698-.689 1.595-.465 2.422A9.004 9.004 0 0012 21z',
+    value: 'Livello del Latte', label: 'Misurazione in tempo reale con alert in caso di valori sospetti', color: '#006071',
   },
   {
-    iconPath: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
-    value: 'Amet', label: 'Sicurezza dati', color: '#65b32e',
+    iconPath: 'M3 13.5v6a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6-8v14a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-14a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6 4v10a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-10a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75z',
+    value: 'Storico dati', label: 'Grafico intuitivo per vedere andamenti e valori nutrizionali', color: '#65b32e',
   },
 ];
 

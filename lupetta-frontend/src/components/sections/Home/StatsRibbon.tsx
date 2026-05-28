@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { useCountUp } from '../../../hooks/useScrollReveal';
 
@@ -184,7 +184,7 @@ export default function StatsRibbon() {
           }}
         >
           <span style={{ marginRight: '0.5rem' }} aria-hidden>📊</span>
-          Dati ottenuti incrociando report statistici dell'app e feedback di oltre 200 allevamenti in Italia
+          Dati ottenuti incrociando report statistici dell'app<br className="hidden md:inline" /> e feedback di oltre 200 allevamenti in Italia
         </motion.div>
       </div>
     </section>

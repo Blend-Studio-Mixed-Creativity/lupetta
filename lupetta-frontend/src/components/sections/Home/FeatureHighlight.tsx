@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 const FEATURES = [
   'Piano di alimentazione personalizzato',
@@ -91,7 +91,7 @@ export default function FeatureHighlight() {
         >
           {/* Lead paragraph */}
           <p className="text-xl sm:text-2xl md:text-3xl text-slate-800 leading-relaxed font-medium">
-            Il progetto <span className="text-[#006071] font-semibold">Lupetta</span> nasce per la ricerca di una metodologia di somministrazione innovativa che garantisca il{' '}
+            Il progetto <span className="text-[#006071] font-semibold">Lupetta</span> nasce per la ricerca di una metodologia di somministrazione innovativa<br className="hidden md:inline" /> che garantisca il{' '}
             <span className="text-[#65b32e] font-semibold">benessere</span> e un{' '}
             <span className="text-[#65b32e] font-semibold">costante accrescimento</span> del vitello.
           </p>
@@ -105,12 +105,12 @@ export default function FeatureHighlight() {
             />
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
               La tecnologia <span className="font-semibold text-[#006071]">Smart di Lupetta</span>,{' '}
-              <span className="font-semibold text-slate-800">brevettata e unica nel campo zootecnico</span>, permette di impostare un piano di alimentazione che, in base al comportamento alimentare del vitello, si adatta in modo automatico durante tutte le fasi critiche dello svezzamento.
+              <span className="font-semibold text-slate-800">brevettata e unica nel campo zootecnico</span>,<br className="hidden md:inline" /> permette di impostare un piano di alimentazione che, in base al comportamento alimentare del vitello,<br className="hidden md:inline" /> si adatta in modo automatico durante tutte le fasi critiche dello svezzamento.
             </p>
           </div>
 
           <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-            Lupetta guida l&rsquo;operatore sulla <span className="font-semibold text-slate-800">ideale curva alimentare</span> dell&rsquo;animale: questo{' '}
+            Lupetta guida l&rsquo;operatore sulla <span className="font-semibold text-slate-800">ideale curva alimentare</span> dell&rsquo;animale:<br className="hidden md:inline" /> questo{' '}
             <span className="font-semibold text-[#65b32e]">sistema adattativo</span> riduce gli sprechi e garantisce efficacia ed efficienza di somministrazione durante tutto l&rsquo;arco della giornata.
           </p>
         </div>
@@ -210,7 +210,7 @@ export default function FeatureHighlight() {
         >
           <span className="font-semibold text-slate-800">Ritardi ai pasti</span>,{' '}
           <span className="font-semibold text-slate-800">velocità di suzione</span> e{' '}
-          <span className="font-semibold text-slate-800">avanzi giornalieri</span> sono i principali fattori che il dispositivo analizza per personalizzare il piano alimentare.
+          <span className="font-semibold text-slate-800">avanzi giornalieri</span><br className="hidden md:inline" /> sono i principali fattori che il dispositivo analizza per personalizzare il piano alimentare.
         </p>
 
         {/* Features check list */}

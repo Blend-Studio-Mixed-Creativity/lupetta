@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
@@ -122,7 +122,7 @@ export default function PanoramicaSection() {
             </h2>
           </div>
           <p className="text-slate-500 text-lg leading-relaxed lg:text-right">
-            Pensata per adattarsi a diverse gestioni di allevamento, Lupetta è disponibile in più configurazioni, dalla versione  per singola gabbia  fino ai sistemi  per la gestione di gruppi in box.
+            Pensata per adattarsi a diverse gestioni di allevamento, Lupetta è disponibile in più configurazioni,<br className="hidden lg:inline" /> dalla versione per singola gabbia fino ai sistemi per la gestione di gruppi in box.
           </p>
         </div>
 
@@ -171,7 +171,7 @@ export default function PanoramicaSection() {
                   whileHover={isCenter ? { y: -6 } : undefined}
                   transition={spring}
                   style={{
-                    background: `linear-gradient(150deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.82) 100%), ${card.bgMesh}`,
+                    background: `${card.bgMesh}, linear-gradient(150deg, #ffffff 0%, #f8fafc 100%)`,
                     border: `1px solid rgba(255,255,255,0.9)`,
                     boxShadow: isCenter
                       ? `0 50px 100px -20px ${card.glow}, 0 30px 60px -30px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,1)`
@@ -499,7 +499,7 @@ export default function PanoramicaSection() {
             <motion.div
               className="relative w-full rounded-3xl p-8 shadow-2xl flex flex-col items-center text-center overflow-hidden"
               style={{
-                background: `linear-gradient(150deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 100%), ${c.bgMesh}`,
+                background: `${c.bgMesh}, linear-gradient(150deg, #ffffff 0%, #f8fafc 100%)`,
                 border: `1px solid ${c.color}33`,
                 boxShadow: `0 30px 80px ${c.glow}`,
               }}

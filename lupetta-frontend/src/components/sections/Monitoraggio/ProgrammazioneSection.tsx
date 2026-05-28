@@ -1,29 +1,29 @@
-﻿import { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const ITEMS = [
   {
     iconPath: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
-    title: 'Impostazione frequenza',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget.',
-    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
-    features: ['Intervalli personalizzabili per ogni profilo', 'Programmazione a cadenza oraria o giornaliera', 'Sincronizzazione automatica cloud', 'Notifiche push in caso di scostamento'],
+    title: 'Impostazione della frequenza',
+    desc: 'Lupetta consente di programmare la frequenza di somministrazione del latte durante la giornata, distribuendo i pasti in modo più regolare e vicino alle esigenze naturali del vitello. L’allevatore può così evitare somministrazioni troppo concentrate e garantire una gestione alimentare più continua, ordinata e controllata.',
+    detail: 'Programmare la somministrazione in più pasti distribuiti equamente nell’arco delle 24 ore riduce lo stress digestivo dell’animale. Lupetta gestisce la pianificazione in modo completamente autonomo, erogando il latte solo quando il vitello è effettivamente autorizzato a riceverlo secondo il piano impostato.',
+    features: ['Frequenza dei pasti bilanciata', 'Intervalli regolari automatici', 'Prevenzione di somministrazioni eccessive', 'Rispetto dei ritmi biologici del vitello'],
     color: '#006071',
   },
   {
     iconPath: 'M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941',
     title: 'Gestione quantità e incrementi',
-    desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est mauris placerat eleifend.',
-    detail: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.',
-    features: ['Incrementi graduali programmabili', 'Soglie minime e massime configurabili', 'Storico consumi per analisi trend', 'Adattamento automatico in base al peso'],
+    desc: 'Il sistema permette di definire le quantità di latte da somministrare e di gestire eventuali incrementi progressivi nel tempo, accompagnando il vitello nelle diverse fasi di crescita. In questo modo il piano alimentare può essere adattato in modo più preciso all’età, allo sviluppo e alle necessità dell’animale.',
+    detail: 'La crescita del vitello richiede un incremento graduale dei nutrienti. Lupetta permette di impostare curve di accrescimento personalizzate che aumentano automaticamente la razione giornaliera o la concentrazione di latte in polvere giorno dopo giorno, senza richiedere interventi manuali quotidiani.',
+    features: ['Curve di crescita automatiche', 'Incremento progressivo del latte', 'Fasi di svezzamento impostabili', 'Adattamento automatico della dieta'],
     color: '#65b32e',
   },
   {
     iconPath: 'M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75',
     title: 'Limiti massimi personalizzabili',
-    desc: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-    detail: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper aenean ultricies mi vitae est.',
-    features: ['Parametri impostabili per fascia di età', 'Alert automatici al raggiungimento soglia', 'Blocco erogazione su superamento limite', 'Report periodici di conformità'],
+    desc: 'Lupetta consente di impostare limiti massimi di somministrazione personalizzabili, così da mantenere il controllo sulla quantità di latte erogata a ogni animale. Questa funzione aiuta l’allevatore a gestire l’alimentazione con maggiore sicurezza, evitando eccessi e mantenendo un piano coerente con gli obiettivi di crescita.',
+    detail: 'Per tutelare la salute digestiva dei vitelli ed evitare indigestioni, Lupetta consente di definire una soglia massima invalicabile di assunzione per singolo pasto e per l’intera giornata. Se un animale tenta di superare il limite, il sistema blocca l’erogazione ed invia una segnalazione all’allevatore.',
+    features: ['Soglia massima per pasto e giorno', 'Controllo volumetrico di sicurezza', 'Prevenzione delle indigestioni', 'Alert per tentato sforamento del limite'],
     color: '#006071',
   },
 ];

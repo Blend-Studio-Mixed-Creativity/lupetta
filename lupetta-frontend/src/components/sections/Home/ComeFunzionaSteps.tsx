@@ -1,16 +1,36 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const STEPS = [
-  { step: '01', title: 'Un solo carico di latte giornaliero', desc: 'L’operatore carica il latte una volta al giorno, mentre Lupetta lo mantiene disponibile per la distribuzione programmata durante la giornata.' },
-  { step: '02', title: 'Animali controllati e segnalati in caso di ritardo', desc: 'Il sistema monitora il comportamento alimentare degli animali e segnala eventuali ritardi o anomalie rispetto al piano impostato.' },
-  { step: '03', title: 'Gestione alimentare automatizzata di gruppi di animali da 4 a 8 vitelli', desc: 'Lupetta Maxi Tech permette di alimentare piccoli gruppi, mantenendo il controllo individuale su ogni vitello.' },
-  { step: '04', title: 'Smart-Tag adesivo usa e getta', desc: 'Ogni animale può essere identificato tramite Smart-Tag, così da associare correttamente pasti, dati e parametri di ingestione.' },
-  { step: '05', title: 'Sensoristica di precisione per la misurazione dell’ingestione', desc: 'I sensori rilevano i dati di consumo e aiutano l’allevatore a verificare con maggiore precisione l’andamento alimentare.' },
-  { step: '06', title: 'App Lupetta dedicata con registro dei parametri di ingestione', desc: 'L’app consente di consultare i dati raccolti, controllare lo storico e avere una visione aggiornata dell’alimentazione degli animali.' },
-
-
-
-
+  {
+    step: '01',
+    titleLines: ['Un solo carico', 'di latte giornaliero'],
+    desc: 'L’operatore carica il latte una volta al giorno, mentre Lupetta lo mantiene disponibile per la distribuzione programmata durante la giornata.'
+  },
+  {
+    step: '02',
+    titleLines: ['Animali controllati', 'e segnalati in caso di ritardo'],
+    desc: 'Il sistema monitora il comportamento alimentare degli animali e segnala eventuali ritardi o anomalie rispetto al piano impostato.'
+  },
+  {
+    step: '03',
+    titleLines: ['Gestione alimentare automatizzata', 'di gruppi da 4 a 8 vitelli'],
+    desc: 'Lupetta Maxi Tech permette di alimentare piccoli gruppi, mantenendo il controllo individuale su ogni vitello.'
+  },
+  {
+    step: '04',
+    titleLines: ['Smart-Tag adesivo', 'usa e getta'],
+    desc: 'Ogni animale può essere identificato tramite Smart-Tag, così da associare correttamente pasti, dati e parametri di ingestione.'
+  },
+  {
+    step: '05',
+    titleLines: ['Sensoristica di precisione', 'per la misurazione dell’ingestione'],
+    desc: 'I sensori rilevano i dati di consumo e aiutano l’allevatore a verificare con maggiore precisione l’andamento alimentare.'
+  },
+  {
+    step: '06',
+    titleLines: ['App Lupetta dedicata', 'con registro dei parametri di ingestione'],
+    desc: 'L’app consente di consultare i dati raccolti, controllare lo storico e avere una visione aggiornata dell’alimentazione degli animali.'
+  },
 ];
 
 /* -- Animated counter -- */
@@ -102,14 +122,15 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
 }
 
 /* -- Step Row -- */
-function StepRow({ step, title, desc, index, onVisible }: {
-  step: string; title: string; desc: string; index: number; onVisible?: () => void;
+function StepRow({ step, titleLines, desc, index, onVisible }: {
+  step: string; titleLines: string[]; desc: string; index: number; onVisible?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [countDone, setCountDone] = useState(false);
   const isEven = index % 2 === 0;
-  const words = title.split(' ');
+
+  const totalWords = titleLines.reduce((acc, line) => acc + line.split(' ').length, 0);
 
   useEffect(() => {
     const el = ref.current;
@@ -246,19 +267,27 @@ function StepRow({ step, title, desc, index, onVisible }: {
 
           {/* Title - word stagger with rotation */}
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#006071] montserrat-heading leading-tight mb-3 sm:mb-4 overflow-hidden">
-            {words.map((word, wi) => (
-              <span
-                key={wi}
-                className="inline-block mr-[0.25em]"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible
-                    ? 'translateY(0) rotate(0deg)'
-                    : 'translateY(72px) rotate(5deg)',
-                  transition: `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + wi * 0.1}s, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + wi * 0.1}s`,
-                }}
-              >
-                {word}
+            {titleLines.map((line, li) => (
+              <span key={li} className="block">
+                {line.split(' ').map((word, wi) => {
+                  const prevLinesWords = titleLines.slice(0, li).reduce((acc, l) => acc + l.split(' ').length, 0);
+                  const absoluteIndex = prevLinesWords + wi;
+                  return (
+                    <span
+                      key={wi}
+                      className="inline-block mr-[0.25em]"
+                      style={{
+                        opacity: visible ? 1 : 0,
+                        transform: visible
+                          ? 'translateY(0) rotate(0deg)'
+                          : 'translateY(72px) rotate(5deg)',
+                        transition: `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + absoluteIndex * 0.08}s, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + absoluteIndex * 0.08}s`,
+                      }}
+                    >
+                      {word}
+                    </span>
+                  );
+                })}
               </span>
             ))}
           </h3>
@@ -271,9 +300,9 @@ function StepRow({ step, title, desc, index, onVisible }: {
               transform: visible ? 'translateY(0)' : 'translateY(24px)',
               filter: visible ? 'blur(0)' : 'blur(5px)',
               transition: [
-                `opacity 0.75s ease ${0.6 + words.length * 0.1}s`,
-                `transform 0.75s ease ${0.6 + words.length * 0.1}s`,
-                `filter 0.75s ease ${0.6 + words.length * 0.1}s`,
+                `opacity 0.75s ease ${0.6 + totalWords * 0.08}s`,
+                `transform 0.75s ease ${0.6 + totalWords * 0.08}s`,
+                `filter 0.75s ease ${0.6 + totalWords * 0.08}s`,
               ].join(', '),
             }}
           >
@@ -284,9 +313,9 @@ function StepRow({ step, title, desc, index, onVisible }: {
           <div className="mt-5 h-[3px] rounded-full bg-[#65b32e]"
             style={{
               width: visible ? '5rem' : '0',
-              transition: `width 0.8s cubic-bezier(0.16,1,0.3,1) ${0.8 + words.length * 0.1}s`,
+              transition: `width 0.8s cubic-bezier(0.16,1,0.3,1) ${0.8 + totalWords * 0.08}s`,
               animation: countDone ? 'glowPulseGreen 2s ease-in-out 3' : 'none',
-              animationDelay: `${1 + words.length * 0.1}s`,
+              animationDelay: `${1 + totalWords * 0.08}s`,
             }}
           />
 

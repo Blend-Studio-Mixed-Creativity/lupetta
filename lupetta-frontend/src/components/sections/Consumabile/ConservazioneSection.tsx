@@ -6,13 +6,13 @@ const ITEMS = [
     glowColor: '#006071',
     iconPath: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z',
     title: 'Temperatura di conservazione',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.',
+    desc: 'Conserva il prodotto in luogo fresco e asciutto, a temperatura compresa tra 5°C e 25°C, lontano da fonti dirette di calore e dalla luce solare per preservare valori nutrizionali e qualità organolettiche.',
   },
   {
     glowColor: '#65b32e',
     iconPath: 'M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z',
     title: 'Condizioni di stoccaggio',
-    desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet.',
+    desc: 'Mantieni il sacco ben richiuso dopo ogni utilizzo per evitare il contatto con umidità e impurità. Rispetta sempre la data di scadenza riportata in confezione e movimenta lo stock secondo logica FIFO.',
   },
 ];
 

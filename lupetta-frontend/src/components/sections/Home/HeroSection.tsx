@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import heroImg from '../../../assets/images/vitello1-lupetta.jpg';
 import { Spotlight } from '../../ui/spotlight-new';
 
@@ -27,10 +27,13 @@ export default function HeroSection() {
           <span className="bg-gradient-to-r from-emerald-300 to-[#65b32e] bg-clip-text text-transparent inline-block animate-pulse">Tecnologia</span> al servizio della tua stalla
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 montserrat-italic text-balance text-left">
-          <span className="block text-white">Con Lupetta migliori crescita, salute e performance dei tuoi animali.</span>
+          <span className="block text-white">
+            Con Lupetta migliori crescita,<br />
+            salute e performance dei tuoi animali.
+          </span>
         </h1>
         <p className="text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed mb-14 text-left">
-          Lupetta è l’allattatrice automatica progettata per garantire il massimo benessere dei vitelli e semplificare la gestione quotidiana in azienda agricola.
+          Lupetta è l’allattatrice automatica progettata per garantire il massimo benessere dei vitelli<br className="hidden md:inline" /> e semplificare la gestione quotidiana in azienda agricola.
         </p>
         <div className="flex flex-col sm:flex-row justify-start items-start gap-4 sm:gap-6 animate-slide-up animate-stagger-3">
           <Link

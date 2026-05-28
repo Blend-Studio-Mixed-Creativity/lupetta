@@ -2,10 +2,10 @@
 import { GlowingCards, GlowingCard } from '../../lightswind/glowing-cards';
 
 const STEPS = [
-  { step: '01', title: 'Temperatura lorem', desc: 'Vestibulum tortor quam feugiat vitae ultricies eget tempor sit amet ante.', glowColor: '#006071' },
-  { step: '02', title: 'Diluizione ipsum', desc: 'Donec eu libero sit amet quam egestas semper aenean ultricies vitae.', glowColor: '#65b32e' },
-  { step: '03', title: 'Miscelazione dolor', desc: 'Aenean ultricies mi vitae est mauris placerat eleifend leo quisque sit.', glowColor: '#006071' },
-  { step: '04', title: 'Somministrazione amet', desc: 'Pellentesque habitant morbi tristique senectus et netus malesuada fames.', glowColor: '#65b32e' },
+  { step: '01', title: 'Temperatura corretta', desc: 'Sciogli la polvere in acqua a circa 45-50 °C per favorire una dispersione omogenea e mantenere intatte le proprietà nutrizionali.', glowColor: '#006071' },
+  { step: '02', title: 'Diluizione consigliata', desc: 'Rispetta la concentrazione indicata sulla confezione (in genere 130-150 g per litro) per garantire l’apporto energetico corretto al vitello.', glowColor: '#65b32e' },
+  { step: '03', title: 'Miscelazione omogenea', desc: 'Mescola fino a ottenere una soluzione liscia, senza grumi, per assicurare la stessa qualità in ogni pasto.', glowColor: '#006071' },
+  { step: '04', title: 'Somministrazione', desc: 'Servi alla temperatura del corpo (38-40 °C), in più pasti distribuiti nella giornata per favorire una digestione regolare.', glowColor: '#65b32e' },
 ];
 
 export default function DosaggioSection() {

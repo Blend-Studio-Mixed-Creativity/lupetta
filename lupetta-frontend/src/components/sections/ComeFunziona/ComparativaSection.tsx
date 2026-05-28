@@ -1,13 +1,21 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const ROWS: { feature: string; mini: boolean; maxi: boolean }[] = [
-  { feature: 'Lorem Ipsum Dolor', mini: true, maxi: true },
-  { feature: 'Consectetur Adipiscing', mini: false, maxi: true },
-  { feature: 'Pellentesque Habitant', mini: true, maxi: true },
-  { feature: 'Vestibulum Tortor', mini: false, maxi: true },
-  { feature: 'Donec Eu Libero', mini: true, maxi: true },
-  { feature: 'Aenean Ultricies', mini: false, maxi: true },
+  { feature: 'Piano alimentare personalizzato', mini: true, maxi: true },
+  { feature: 'Piano di svezzamento per singolo animale', mini: false, maxi: true },
+  { feature: 'Identificazione animale tramite Smart-Tag / RFID', mini: false, maxi: true },
+  { feature: 'Monitoraggio dei parametri macchina', mini: true, maxi: true },
+  { feature: 'Monitoraggio dell’ingestione del singolo animale', mini: false, maxi: true },
+  { feature: 'Registro dei dati alimentari', mini: true, maxi: true },
+  { feature: 'Segnalazione di anomalie macchina', mini: true, maxi: true },
+  { feature: 'Segnalazione di ritardi o anomalie alimentari dell’animale', mini: false, maxi: true },
+  { feature: 'Controllo remoto tramite Wi-Fi / app', mini: true, maxi: true },
+  { feature: 'Notifiche su telefono, tablet o PC', mini: true, maxi: true },
+  { feature: 'Sistema pensato per gabbia singola', mini: true, maxi: false },
+  { feature: 'Sistema pensato per piccoli gruppi', mini: false, maxi: true },
+  { feature: 'Utilizzo con app Lupetta dedicata', mini: true, maxi: true },
+  { feature: 'Supporto alla diagnosi precoce tramite dati alimentari', mini: false, maxi: true },
 ];
 
 const MINI_COUNT = ROWS.filter((r) => r.mini).length;
@@ -132,7 +140,7 @@ export default function ComparativaSection() {
             MINI <span className="montserrat-italic" style={{ color: '#65b32e' }}>vs</span> MAXI
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '36rem', margin: '1.5rem auto 0' }}>
-            Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
+            Confronta le caratteristiche e le funzionalità di Lupetta Mini Wi-Fi e Lupetta Maxi Tech per trovare la soluzione ideale per il tuo allevamento.
           </p>
         </div>
 

@@ -6,8 +6,8 @@ const INFO = [
   {
     iconPath: 'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z',
     label: 'Telefono',
-    value: '+39 0123 456789',
-    link: 'tel:+390123456789',
+    value: '+39 0372 434728',
+    link: 'tel:+390372434728',
     color: '#006071',
   },
   {
@@ -20,14 +20,22 @@ const INFO = [
   {
     iconPath: 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z',
     label: 'Indirizzo',
-    value: 'Via Lorem, 12 — 00100 Roma (RM)',
-    link: 'https://maps.google.com',
+    value: 'Via Marcantonio Ingegneri, 4 — 26100 Cremona (CR)',
+    link: 'https://www.google.com/maps/search/?api=1&query=Tredi+Italia+S.r.l.+Via+Marcantonio+Ingegneri+4+26100+Cremona',
     color: '#006071',
   },
   {
     iconPath: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
     label: 'Orari',
-    value: 'Lun–Ven: 08:30–17:30',
+    value: (
+      <>
+        Lun–Ven: 09:00–13:00, 15:00–19:30
+        <br />
+        Sab: 09:00–13:00, 15:30–19:30
+        <br />
+        Dom: Chiuso
+      </>
+    ),
     link: null,
     color: '#65b32e',
   },
@@ -337,36 +345,17 @@ export default function ContattiMain() {
           </div>
         </div>
 
-        {/* ── Mappa placeholder ── */}
-        <div className={`mt-16 sm:mt-24 rounded-3xl overflow-hidden h-80 sm:h-96 relative ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`} style={{ animationDelay: '0.2s' }}>
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-4"
-            style={{ background: 'linear-gradient(135deg, #006071 0%, #004a58 50%, #003540 100%)' }}
-          >
-            <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center">
-              <svg className="w-9 h-9 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-              </svg>
-            </div>
-            <p className="text-white font-semibold text-lg">Via Lorem, 12 — 00100 Roma (RM)</p>
-            <a
-              href="https://maps.google.com"
-              target="_blank"
-              rel="noreferrer"
-              className="px-6 py-2.5 bg-[#65b32e] text-white rounded-xl font-semibold text-sm hover:bg-[#4fa028] transition-colors"
-            >
-              Apri in Google Maps
-            </a>
-            {/* Decorative grid lines */}
-            <div className="absolute inset-0 pointer-events-none opacity-10">
-              {[10, 20, 30, 40, 50, 60, 70, 80, 90].map(p => (
-                <div key={`v${p}`} className="absolute top-0 h-full w-px bg-white" style={{ left: `${p}%` }} />
-              ))}
-              {[20, 40, 60, 80].map(p => (
-                <div key={`h${p}`} className="absolute left-0 w-full h-px bg-white" style={{ top: `${p}%` }} />
-              ))}
-            </div>
-          </div>
+        {/* ── Mappa Google Maps ── */}
+        <div className={`mt-16 sm:mt-24 rounded-3xl overflow-hidden h-80 sm:h-96 relative border border-slate-200/50 shadow-lg ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`} style={{ animationDelay: '0.2s' }}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90134.99134345553!2d9.783594355438934!3d45.09150165077877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4780fe3dddbdc361%3A0x54168df7f2319bb3!2sTredi%20Italia%20S.R.L.!5e0!3m2!1sit!2sit!4v1779963624595!5m2!1sit!2sit"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
@@ -19,11 +19,15 @@ const CARDS = [
     color: '#65b32e',
     colorLight: '#8fd44e',
     glow: 'rgba(101,179,46,0.55)',
-    title: 'MINI Wi-Fi',
+    title: 'MINI WI-FI',
     subtitle: 'Versione compatta',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet ante.',
-    features: ['Lorem ipsum dolor sit amet', 'Consectetur adipiscing elit', 'Pellentesque habitant morbi'],
-    ctaLabel: 'Lorem ipsum',
+    desc: 'Gestione individuale del vitello in gabbia singola',
+    features: [
+      'Elevata durabilità nel tempo',
+      'Facilità di pulizia',
+      'Massima igiene nella gestione del latte',
+    ],
+    ctaLabel: 'Scopri di più',
     iconPath:
       'M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z',
   },
@@ -33,11 +37,15 @@ const CARDS = [
     color: '#006071',
     colorLight: '#00a8c0',
     glow: 'rgba(0,96,113,0.55)',
-    title: 'MAXI tech',
+    title: 'MAXI TECH',
     subtitle: 'Versione avanzata',
-    desc: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo quisque sit amet.',
-    features: ['Donec eu libero sit amet', 'Aenean ultricies mi vitae', 'Mauris placerat eleifend'],
-    ctaLabel: 'Lorem ipsum',
+    desc: 'Pensata per la gestione di piccoli gruppi di animali con controllo individuale.',
+    features: [
+      'Per gruppi da 4 a 8 vitelli',
+      'Distribuzione del latte per più animali dalla stessa allattatrice',
+      'Gestione personalizzata del piano di svezzamento per singolo animale',
+    ],
+    ctaLabel: 'Scopri di più',
     iconPath:
       'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21',
   },
@@ -99,9 +107,9 @@ export default function ProdottiSection() {
               letterSpacing: '-0.02em',
             }}
           >
-            Scegli la versione{' '}
+            Scegli il modello {' '}
             <span className="montserrat-italic" style={{ color: '#65b32e' }}>
-              giusta per te
+              che si addice alla tua stalla
             </span>
           </h2>
         </div>

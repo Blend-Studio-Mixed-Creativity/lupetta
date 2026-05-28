@@ -1,4 +1,4 @@
-﻿import heroImg from '../../../assets/images/coselupetta.jpg';
+﻿import heroImg from '../../../assets/images/come-funziona-hero.webp';
 import { Spotlight } from '../../ui/spotlight-new';
 
 export default function HeroSection() {
@@ -16,7 +16,7 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-36 text-center relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-36 text-left relative z-10 w-full">
         <span className="inline-block py-2 px-5 rounded-full bg-[#65b32e]/10 border border-[#65b32e]/30 text-white text-sm font-semibold tracking-widest uppercase mb-8">
           Come Funziona
         </span>
@@ -29,8 +29,8 @@ export default function HeroSection() {
             MINI e MAXI tech
           </span>
         </h1>
-        <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-stagger-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        <p className="text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed animate-slide-up animate-stagger-3">
+         La gamma Lupetta è progettata per rispondere alle diverse esigenze degli allevatori. L’allattatrice per vitelli è disponibile nel modello Mini Wi-Fi e Maxi Tech.
         </p>
       </div>
     </section>

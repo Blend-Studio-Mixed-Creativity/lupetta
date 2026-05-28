@@ -69,7 +69,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mt-2 text-white/40 text-xs">
-                Via del Commercio, 2 — 26026 Pizzighettone (CR)
+                Via Marcantonio Ingegneri, 4 — 26100 Cremona (CR)
               </li>
             </ul>
           </div>

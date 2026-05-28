@@ -3,30 +3,37 @@
 const FEATURES = [
   {
     iconPath:
-      'M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z',
-    label: 'Connessione Wi-Fi integrata',
-    desc: 'Standard 802.11n/ac, portata fino a 100 m in campo aperto.',
+      'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
+    label: 'Temperatura del latte',
+    desc: 'Il sistema consente di verificare che il latte venga mantenuto alla temperatura impostata, così da garantire una somministrazione più costante e adatta alle esigenze del vitello.',
     color: '#65b32e',
-  },
-  {
-    iconPath:
-      'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 9h3',
-    label: 'App mobile iOS & Android',
-    desc: 'Monitoraggio in tempo reale da smartphone o tablet.',
-    color: '#006071',
   },
   {
     iconPath:
       'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z',
-    label: 'Dashboard cloud centralizzata',
-    desc: 'Storico dati e reportistica accessibile ovunque via browser.',
+    label: 'Livello del latte',
+    desc: 'L’allevatore può controllare il livello del latte disponibile nella macchina, riducendo il rischio di interruzioni nell’alimentazione durante la giornata.',
+    color: '#006071',
+  },
+  {
+    iconPath:
+      'M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z',
+    label: 'Numero e distribuzione dei pasti',
+    desc: 'È possibile monitorare quanti pasti vengono erogati e come sono distribuiti nell’arco della giornata, per seguire con maggiore precisione la regolarità alimentare del vitello.',
     color: '#65b32e',
   },
   {
     iconPath:
-      'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0',
-    label: 'Notifiche e alert automatici',
-    desc: 'Push notification su anomalie, livelli critici o guasti.',
+      'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z',
+    label: 'Giorni di vita del vitello',
+    desc: 'Il sistema permette di associare la gestione alimentare alla fase di crescita dell’animale, aiutando l’allevatore a seguire il vitello in modo più ordinato nel tempo.',
+    color: '#006071',
+  },
+  {
+    iconPath:
+      'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z',
+    label: 'Eventuali anomalie o errori della macchina',
+    desc: 'La macchina segnala eventuali anomalie di funzionamento, permettendo all’operatore di intervenire più rapidamente e mantenere continuità nella gestione quotidiana.',
     color: '#006071',
   },
 ];
@@ -210,11 +217,12 @@ export default function ControlloRemotoSection() {
               Sezione 3
             </span>
             <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mt-3 mb-4 leading-[1.1]" style={{ color: '#fff' }}>
-              Controllo remoto <span className="montserrat-italic text-accent">Wi-Fi</span>
+              Integrazione con Sistemi di <span className="montserrat-italic text-accent">Controllo Remoto Web</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique
-              senectus et netus et malesuada fames ac turpis egestas.
+              Grazie alla scheda Wi-Fi integrata, la Lupetta Mini consente il controllo remoto tramite portale dedicato.
+              È possibile monitorare diversi dati importanti: questo permette una gestione precisa e tempestiva, anche a distanza.
+              Nel dettaglio, da remoto vengono monitorati:
             </p>
           </div>
         </div>
@@ -222,7 +230,7 @@ export default function ControlloRemotoSection() {
         {/* Feature cards */}
         <div
           ref={refFeatures}
-          className="w-full max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-8 px-4 sm:px-6 lg:px-8 pb-16"
+          className="w-full max-w-screen-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 px-4 sm:px-6 lg:px-8 pb-16"
         >
           {FEATURES.map((feat, i) => (
             <div
@@ -236,21 +244,21 @@ export default function ControlloRemotoSection() {
                   background: 'linear-gradient(144deg, rgba(0,96,113,0.8), rgba(101,179,46,0.8) 50%, rgba(0,200,160,0.8))',
                 }}
               >
-                <div className="w-full h-full bg-[#0b1a20] rounded-[20px] p-6 sm:p-8 flex flex-col items-start justify-start relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
+                <div className="w-full h-full min-h-92 bg-[#0b1a20] rounded-[20px] p-6 sm:p-7 flex flex-col items-start justify-start relative overflow-hidden group-hover:bg-[#0d222a] transition-colors">
                   {/* Subtle inner hover glow */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,_#65b32e_0%,_transparent_70%)] pointer-events-none" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,#65b32e_0%,transparent_70%)] pointer-events-none" />
                   
                   <div style={{
                     width: 48, height: 48, borderRadius: 12,
                     background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                  }} className="mb-5 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#65b32e]/50">
-                    <svg className="w-6 h-6 text-white group-hover:text-[#65b32e] transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  }} className="mb-5 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:border-accent/50">
+                    <svg className="w-6 h-6 text-white group-hover:text-accent transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d={feat.iconPath} />
                     </svg>
                   </div>
-                  <h3 className="montserrat-heading font-semibold mb-3 relative z-10 transition-colors group-hover:text-[#8fd44e]" style={{ color: '#fff', fontSize: '1.25rem', lineHeight: 1.3 }}>{feat.label}</h3>
-                  <p className="relative z-10" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.6 }}>{feat.desc}</p>
+                  <h3 className="montserrat-heading font-semibold mb-3 relative z-10 transition-colors group-hover:text-[#8fd44e]" style={{ color: '#fff', fontSize: '1.18rem', lineHeight: 1.25 }}>{feat.label}</h3>
+                  <p className="relative z-10" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.92rem', lineHeight: 1.55 }}>{feat.desc}</p>
                 </div>
               </div>
             </div>

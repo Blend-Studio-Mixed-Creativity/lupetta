@@ -34,7 +34,6 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Gabbione', to: '/gabbione' },
   { label: 'Consumabile', to: '/consumabile' },
   { label: 'Benefici', to: '/benefici' },
-  { label: 'Case History', to: '/case-history' },
   { label: 'FAQ', to: '/faq' },
 ];
 

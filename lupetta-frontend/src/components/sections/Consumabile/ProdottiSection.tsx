@@ -1,5 +1,6 @@
 ﻿import { motion } from 'motion/react';
 import { GlowingCards, GlowingCard } from '../../lightswind/glowing-cards';
+import sacchiImg from '../../../assets/images/TREDI.png';
 
 const PRODOTTI = [
   {
@@ -28,21 +29,37 @@ export default function ProdottiSection() {
       <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-          viewport={{ once: true }}
-          className="max-w-3xl mb-14 sm:mb-20"
-        >
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">I prodotti</span>
-          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-tight">
-            La nostra <span className="montserrat-italic text-primary">linea latte</span>
-          </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
-            Una formula di latti speciali sperimentati con Lupetta per raggiungere il massimo dei risultati. Due formulazioni complementari per accompagnare il vitello dalla nascita allo svezzamento.
-          </p>
-        </motion.div>
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center mb-14 sm:mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+            viewport={{ once: true }}
+            className="max-w-2xl"
+          >
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">I prodotti</span>
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-tight">
+              La nostra <span className="montserrat-italic text-primary">linea latte</span>
+            </h2>
+            <p className="text-lg text-slate-500 leading-relaxed">
+              Una formula di latti speciali sperimentati con Lupetta per raggiungere il massimo dei risultati. Due formulazioni complementari per accompagnare il vitello dalla nascita allo svezzamento.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
+            className="relative w-full h-72 sm:h-96 lg:h-112"
+          >
+            <img
+              src={sacchiImg}
+              alt="Sacchi Tredì Italia — Latte MR Gold e MR Platinum"
+              className="w-full h-full object-contain mix-blend-multiply drop-shadow-2xl"
+            />
+          </motion.div>
+        </div>
 
         <GlowingCards enableGlow glowRadius={28} glowOpacity={0.85} gap="2rem" padding="0" backgroundColor="transparent" borderRadius="1.5rem">
           {PRODOTTI.map((prod, i) => (

@@ -29,7 +29,6 @@ export default function Footer() {
                 { label: 'Monitoraggio', to: '/monitoraggio' },
                 { label: 'Gabbione', to: '/gabbione' },
                 { label: 'Benefici', to: '/benefici' },
-                { label: 'Case History', to: '/case-history' },
                 { label: 'FAQ', to: '/faq' },
               ].map((item) => (
                 <li key={item.to}>

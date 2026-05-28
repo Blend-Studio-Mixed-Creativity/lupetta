@@ -8,7 +8,6 @@ import Monitoraggio from './pages/Monitoraggio';
 import Gabbione from './pages/Gabbione';
 import Consumabile from './pages/Consumabile';
 import Benefici from './pages/Benefici';
-import CaseHistory from './pages/CaseHistory';
 import FAQ from './pages/FAQ';
 import Mission from './pages/Mission';
 import Azienda from './pages/Azienda';
@@ -30,7 +29,6 @@ const router = createBrowserRouter(
       { path: 'gabbione', element: <Gabbione /> },
       { path: 'consumabile', element: <Consumabile /> },
       { path: 'benefici', element: <Benefici /> },
-      { path: 'case-history', element: <CaseHistory /> },
       { path: 'faq', element: <FAQ /> },
       { path: 'mission', element: <Mission /> },
       { path: 'azienda', element: <Azienda /> },

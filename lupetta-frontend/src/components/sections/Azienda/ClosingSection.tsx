@@ -36,12 +36,12 @@ export default function ClosingSection() {
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(105deg, rgba(0,61,74,0.94) 0%, rgba(0,96,113,0.82) 46%, rgba(0,0,0,0.45) 100%)' }}
+        style={{ background: 'linear-gradient(105deg, rgba(0,48,58,0.97) 0%, rgba(0,72,86,0.92) 46%, rgba(0,0,0,0.72) 100%)' }}
       />
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.34) 100%)' }}
+        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.55) 100%)' }}
       />
 
       <div className="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 text-white">

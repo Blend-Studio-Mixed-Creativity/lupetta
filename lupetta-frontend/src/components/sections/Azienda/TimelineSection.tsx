@@ -14,13 +14,13 @@ type Milestone = {
 const MILESTONES: Milestone[] = [
   {
     year: '2016',
-    title: 'Lupetta Individual',
+    title: 'Lupetta Individuale',
     desc: 'Nasce il primo allattatore Lupetta dedicato al singolo vitello: la base di una nuova metodologia di somministrazione, frutto di anni di ricerca sul comportamento alimentare dell\u2019animale.',
     img: img2016,
   },
   {
     year: '2021',
-    title: 'Lupetta Monitoring WebApp',
+    title: 'Lupetta Monitoraggio WebApp',
     desc: "Arriva la piattaforma di monitoraggio: l'allevatore controlla l'intero processo di svezzamento da smartphone e desktop, con dati raccolti in tempo reale.",
     img: img2021,
   },
@@ -32,7 +32,7 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: '2026',
-    title: 'Lupetta Calves House',
+    title: 'Lupetta Casa Vitelli',
     desc: "L'ambiente completo per il vitello: ricovero, alimentazione e monitoraggio integrati in un unico sistema modulare e scalabile.",
     img: img2026,
   },
@@ -212,7 +212,7 @@ export default function TimelineSection() {
   return (
     <section
       ref={ref}
-      className="relative py-24 sm:py-32 lg:py-40 bg-slate-50 overflow-hidden"
+      className="relative pt-2 sm:pt-3 lg:pt-4 pb-24 sm:pb-32 lg:pb-40 bg-slate-50 overflow-hidden"
     >
       {/* Decorative bg */}
       <div
@@ -229,7 +229,7 @@ export default function TimelineSection() {
       <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
 
         {/* Header */}
-        <div className="text-center mb-20 sm:mb-28">
+        <div className="text-center mb-12 sm:mb-16">
           <span className="text-[#006071] font-bold text-sm tracking-[0.32em] uppercase block mb-4">
             Tecnologia
           </span>

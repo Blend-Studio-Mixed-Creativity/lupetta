@@ -19,10 +19,15 @@ class ContactLeadNotification extends Mailable
     public function envelope(): Envelope
     {
         $cc = config('mail.cc_address');
+        $replyName = trim(($this->lead->nome ?? '') . ' ' . ($this->lead->cognome ?? ''));
+        $replyAddress = new Address($this->lead->email, $replyName !== '' ? $replyName : null);
 
         return new Envelope(
             subject: 'Nuovo messaggio dal form di contatto',
             cc: $cc ? [new Address($cc)] : [],
+            replyTo: [$replyAddress],
+            tags: ['contact-lead'],
+            metadata: ['lead_id' => (string) $this->lead->id],
         );
     }
 

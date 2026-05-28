@@ -12,7 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Header di sicurezza di base sulle risposte HTTP.
+        $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+
+        // Fidati dei proxy quando l'app gira dietro load balancer / reverse proxy.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

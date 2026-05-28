@@ -1,4 +1,4 @@
-﻿import heroImg from '../../../assets/images/vitello.jpg';
+﻿import heroImg from '../../../assets/images/shooting-slider/shooting-10.webp';
 import { Spotlight } from '../../ui/spotlight-new';
 
 export default function HeroSection() {

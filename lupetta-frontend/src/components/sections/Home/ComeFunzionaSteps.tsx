@@ -362,7 +362,7 @@ export default function ComeFunzionaSteps() {
       {/* Heading */}
       <div
         ref={headingRef}
-        className="bg-white border-b border-slate-100 py-12 sm:py-14 text-center overflow-hidden"
+        className="bg-white border-b border-slate-100 py-32 sm:py-40 lg:py-52 text-center overflow-hidden"
         style={{
           opacity: headingVisible ? 1 : 0,
           transform: headingVisible ? 'translateY(0)' : 'translateY(28px)',

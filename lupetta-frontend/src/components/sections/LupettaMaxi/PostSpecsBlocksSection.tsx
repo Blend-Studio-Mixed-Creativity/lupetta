@@ -53,7 +53,7 @@ const BLOCKS: ContentBlock[] = [
 
 function ImageBox({ image, imageAlt }: Pick<ContentBlock, 'image' | 'imageAlt'>) {
   return (
-    <div className="relative min-h-96 lg:min-h-155">
+    <div className="relative h-72 sm:h-80 lg:h-96">
       <img
         src={image}
         alt={imageAlt}
@@ -78,15 +78,15 @@ function TextBody({ block, variant, isVisible }: { block: ContentBlock; variant:
 
   if (variant === 'feature') {
     return (
-      <div className="space-y-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {block.paragraphs.map((paragraph, paragraphIndex) => (
           <div
             key={paragraph}
-            className={`post-specs-card group relative overflow-hidden rounded-2xl bg-white/90 backdrop-blur-sm pl-6 pr-5 py-5 sm:pl-7 sm:pr-6 sm:py-6 shadow-sm border border-slate-200/80 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-accent/40 ${isVisible ? 'post-specs-card--in' : 'post-specs-card--out'}`}
-            style={{ transitionDelay: isVisible ? `${paragraphIndex * 110}ms` : '0ms' }}
+            className={`post-specs-card group relative overflow-hidden rounded-2xl bg-white/90 backdrop-blur-sm pl-6 pr-5 py-5 shadow-sm border border-slate-200/80 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-accent/40 ${isVisible ? 'post-specs-card--in' : 'post-specs-card--out'}`}
+            style={{ transitionDelay: isVisible ? `${paragraphIndex * 90}ms` : '0ms' }}
           >
             <span className="absolute left-0 top-4 bottom-4 w-1 rounded-r-full bg-linear-to-b from-accent via-accent/60 to-primary/40 group-hover:from-primary group-hover:to-accent transition-colors duration-500" />
-            <p className={`${paragraphIndex === 0 ? 'text-slate-700 font-medium' : 'text-slate-500'} text-lg md:text-xl leading-relaxed`}>
+            <p className={`${paragraphIndex === 0 ? 'text-slate-700 font-medium' : 'text-slate-500'} text-sm md:text-base leading-relaxed`}>
               {paragraph}
             </p>
           </div>
@@ -96,17 +96,17 @@ function TextBody({ block, variant, isVisible }: { block: ContentBlock; variant:
   }
 
   return (
-    <div className="space-y-4">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {block.paragraphs.map((paragraph, paragraphIndex) => (
         <div
           key={paragraph}
-          className={`group post-specs-card relative rounded-2xl border bg-white/90 backdrop-blur-sm px-5 py-4 sm:pl-16 sm:pr-6 sm:py-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-accent/40 ${paragraphIndex === 0 ? 'border-accent/40 shadow-lg' : 'border-slate-200'} ${isVisible ? 'post-specs-card--in' : 'post-specs-card--out'}`}
-          style={{ transitionDelay: isVisible ? `${paragraphIndex * 110}ms` : '0ms' }}
+          className={`group post-specs-card relative rounded-2xl border bg-white/90 backdrop-blur-sm pl-14 pr-5 py-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-accent/40 ${paragraphIndex === 0 ? 'border-accent/40 shadow-lg' : 'border-slate-200'} ${isVisible ? 'post-specs-card--in' : 'post-specs-card--out'}`}
+          style={{ transitionDelay: isVisible ? `${paragraphIndex * 90}ms` : '0ms' }}
         >
-          <span className="hidden sm:flex absolute left-4 top-5 h-10 w-10 items-center justify-center rounded-full bg-primary text-white text-sm font-bold shadow-lg post-specs-badge">
+          <span className="flex absolute left-3 top-4 h-8 w-8 items-center justify-center rounded-full bg-primary text-white text-xs font-bold shadow-lg post-specs-badge">
             {String(paragraphIndex + 1).padStart(2, '0')}
           </span>
-          <p className={`${paragraphIndex === 0 ? 'text-slate-700' : 'text-slate-500'} text-lg md:text-xl leading-relaxed`}>
+          <p className={`${paragraphIndex === 0 ? 'text-slate-700' : 'text-slate-500'} text-sm md:text-base leading-relaxed`}>
             {paragraph}
           </p>
         </div>
@@ -117,7 +117,7 @@ function TextBody({ block, variant, isVisible }: { block: ContentBlock; variant:
 
 function FeatureBullets({ bullets, isVisible }: { bullets: string[]; isVisible: boolean }) {
   return (
-    <div className="grid sm:grid-cols-2 gap-3 mt-8">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
       {bullets.map((bullet, bulletIndex) => (
         <div
           key={bullet}
@@ -147,7 +147,7 @@ function AlternatingBlock({ block, index }: { block: ContentBlock; index: number
       : 'bg-linear-to-br from-primary/5 via-white to-accent/5';
 
   return (
-    <section className={`relative overflow-hidden ${sectionBg} py-16 sm:py-20 lg:py-28`}>
+    <section className={`relative overflow-visible ${sectionBg} py-12 sm:py-16 lg:py-20`}>
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/15 to-transparent" />
       {index === 1 && (
         <>
@@ -155,18 +155,25 @@ function AlternatingBlock({ block, index }: { block: ContentBlock; index: number
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
         </>
       )}
-      <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <div className={`${block.reverse ? 'lg:order-2' : ''} ${isVisible ? textAnimation : 'sr-hidden'}`}>
-          <span className="text-accent font-bold text-sm tracking-[0.18em] uppercase">{block.eyebrow}</span>
-          <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight mt-4 mb-7 leading-[1.06]">
-            {block.title}<br />
-            <span className="montserrat-italic text-primary">{block.accent}</span>
-          </h2>
+      <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top row: title + image */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10 sm:mb-12 lg:mb-14">
+          <div className={`${block.reverse ? 'lg:order-2' : ''} ${isVisible ? textAnimation : 'sr-hidden'}`}>
+            <span className="text-accent font-bold text-sm tracking-[0.18em] uppercase">{block.eyebrow}</span>
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-3 leading-[1.06]">
+              {block.title}<br />
+              <span className="montserrat-italic text-primary">{block.accent}</span>
+            </h2>
+          </div>
+          <div className={`${block.reverse ? 'lg:order-1' : ''} ${isVisible ? imageAnimation : 'sr-hidden'}`} style={{ animationDelay: '0.12s' }}>
+            <ImageBox image={block.image} imageAlt={block.imageAlt} />
+          </div>
+        </div>
+
+        {/* Cards full-width */}
+        <div className={`${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
           <TextBody block={block} variant={variant} isVisible={isVisible} />
           {block.bullets && <FeatureBullets bullets={block.bullets} isVisible={isVisible} />}
-        </div>
-        <div className={`${block.reverse ? 'lg:order-1' : ''} ${isVisible ? imageAnimation : 'sr-hidden'}`} style={{ animationDelay: '0.12s' }}>
-          <ImageBox image={block.image} imageAlt={block.imageAlt} />
         </div>
       </div>
     </section>

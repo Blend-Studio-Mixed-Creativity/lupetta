@@ -8,7 +8,7 @@ import { TREE_NODES } from './interactiveFaqData';
    Tipi
 ───────────────────────────────────────────── */
 type Phase = 'boot' | 'register' | 'tree' | 'result';
-interface FormState { nome: string; cognome: string; email: string }
+interface FormState { nome: string; cognome: string; email: string; website: string }
 
 const slideVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0, filter: 'blur(4px)' }),
@@ -246,23 +246,32 @@ function BootPhase({ onDone }: { onDone: () => void }) {
    Fase 1: Registrazione
 ───────────────────────────────────────────── */
 function GameRegisterPhase({ onSuccess }: { onSuccess: (nome: string) => void }) {
-  const [form, setForm] = useState<FormState>({ nome: '', cognome: '', email: '' });
+  const [form, setForm] = useState<FormState>({ nome: '', cognome: '', email: '', website: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  // Timestamp anti-bot: catturato una volta al mount.
+  const ts = useMemo(() => Date.now(), []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     setError('');
     setLoading(true);
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL ?? ''}/api/faq-leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, _ts: ts }),
       });
+      if (res.status === 429) {
+        setError('Troppi tentativi. Riprova tra qualche minuto.');
+        return;
+      }
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        setError((data as { message?: string })?.message ?? 'Qualcosa e andato storto. Riprova.');
+        const msg = (data as { message?: string; errors?: Record<string, string[]> });
+        const firstFieldError = msg.errors ? Object.values(msg.errors)[0]?.[0] : undefined;
+        setError(firstFieldError ?? msg.message ?? 'Qualcosa e andato storto. Riprova.');
         return;
       }
       onSuccess(form.nome);
@@ -326,6 +335,21 @@ function GameRegisterPhase({ onSuccess }: { onSuccess: (nome: string) => void })
           <input type="email" required autoComplete="email"
             value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             placeholder="mario.rossi@azienda.it" className={inputCls} />
+        </div>
+
+        {/* Honeypot anti-bot: invisibile agli utenti reali. */}
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}>
+          <label>
+            Lascia vuoto questo campo
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.website}
+              onChange={(e) => setForm((f) => ({ ...f, website: e.target.value }))}
+            />
+          </label>
         </div>
 
         {error && (

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import TiltCard3D from '../../ui/TiltCard3D';
 
@@ -160,18 +160,46 @@ function TextareaField({
 export default function ContattiMain() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
 
-  const [fields, setFields] = useState({ nome: '', cognome: '', email: '', telefono: '', messaggio: '' });
+  const [fields, setFields] = useState({ nome: '', cognome: '', email: '', telefono: '', messaggio: '', website: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  // Timestamp creato al mount del form: usato dal backend come check anti-bot.
+  const ts = useMemo(() => Date.now(), []);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setFields(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
+    setError(null);
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); }, 1400);
+    try {
+      const apiBase = (import.meta.env.VITE_API_URL ?? '') as string;
+      const res = await fetch(`${apiBase}/api/contact-leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...fields, _ts: ts }),
+      });
+      if (res.status === 429) {
+        setError('Troppi invii. Riprova tra qualche minuto.');
+        return;
+      }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const msg = (data as { message?: string; errors?: Record<string, string[]> });
+        const firstFieldError = msg.errors ? Object.values(msg.errors)[0]?.[0] : undefined;
+        setError(firstFieldError ?? msg.message ?? 'Invio non riuscito. Riprova.');
+        return;
+      }
+      setSent(true);
+    } catch {
+      setError('Impossibile contattare il server. Riprova più tardi.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -273,7 +301,7 @@ export default function ContattiMain() {
                   <p className="text-slate-500 max-w-sm">Ti risponderemo al più presto. Grazie per averci contattato.</p>
                   <button
                     className="mt-2 px-6 py-2.5 rounded-xl border-2 border-[#006071] text-[#006071] font-semibold text-sm hover:bg-[#006071] hover:text-white transition-all duration-300"
-                    onClick={() => { setSent(false); setFields({ nome: '', cognome: '', email: '', telefono: '', messaggio: '' }); }}
+                    onClick={() => { setSent(false); setError(null); setFields({ nome: '', cognome: '', email: '', telefono: '', messaggio: '', website: '' }); }}
                   >
                     Invia un altro messaggio
                   </button>
@@ -302,6 +330,27 @@ export default function ContattiMain() {
                   <div className="mb-8">
                     <TextareaField label="Il tuo messaggio" name="messaggio" required value={fields.messaggio} onChange={onChange} />
                   </div>
+
+                  {/* Honeypot: invisibile agli utenti, riempito solo dai bot. */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}>
+                    <label>
+                      Lascia vuoto questo campo
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={fields.website}
+                        onChange={onChange}
+                      />
+                    </label>
+                  </div>
+
+                  {error && (
+                    <div role="alert" className="mb-5 text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      {error}
+                    </div>
+                  )}
 
                   <button
                     type="submit"

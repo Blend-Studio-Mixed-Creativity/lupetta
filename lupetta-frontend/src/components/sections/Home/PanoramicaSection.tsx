@@ -62,15 +62,15 @@ export default function PanoramicaSection() {
   const c = CARDS[active];
 
   function cardTransform(pos: number) {
-    // pos: -1, 0, 1 (clamped)
+    // pos: -1, 0, 1 (clamped). Only the centered card is visible; siblings are fully hidden.
     const center = pos === 0;
     return {
       x: `${pos * 58}%`,
       scale: center ? 1 : 0.82,
       rotateY: pos * -22,
       z: center ? 0 : -180,
-      opacity: center ? 1 : 0.4,
-      zIndex: center ? 10 : 5,
+      opacity: center ? 1 : 0,
+      zIndex: center ? 10 : 0,
     };
   }
 

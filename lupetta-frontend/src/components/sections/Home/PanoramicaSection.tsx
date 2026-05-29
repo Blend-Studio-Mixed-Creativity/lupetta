@@ -122,7 +122,9 @@ export default function PanoramicaSection() {
             </h2>
           </div>
           <p className="text-slate-500 text-lg leading-relaxed lg:text-right">
-            Pensata per adattarsi a diverse gestioni di allevamento, Lupetta è disponibile in più configurazioni,<br className="hidden lg:inline" /> dalla versione per singola gabbia fino ai sistemi per la gestione di gruppi in box.
+            Pensata per adattarsi a diverse gestioni di allevamento, Lupetta<br className="hidden sm:inline" />
+            è disponibile in più configurazioni, dalla versione per singola<br className="hidden sm:inline" />
+            gabbia fino ai sistemi per la gestione di gruppi in box.
           </p>
         </div>
 

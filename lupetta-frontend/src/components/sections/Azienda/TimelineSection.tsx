@@ -32,7 +32,7 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: '2026',
-    title: 'Lupetta Casa Vitelli',
+    title: 'Lupetta Smart Home',
     desc: "L'ambiente completo per il vitello: ricovero, alimentazione e monitoraggio integrati in un unico sistema modulare e scalabile.",
     img: img2026,
   },
@@ -181,18 +181,7 @@ function MilestoneRow({
           {m.year}
         </div>
 
-        {/* Tag step */}
-        <div
-          className={`inline-flex items-center gap-2 mb-4 ${isLeft ? '' : 'lg:flex-row-reverse'}`}
-        >
-          <span
-            className="w-10 h-[2px] rounded-full"
-            style={{ background: 'linear-gradient(90deg, #65b32e, #006071)' }}
-          />
-          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#006071]">
-            Step {String(i + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-          </span>
-        </div>
+
 
         <h3 className="montserrat-heading text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">
           {m.title}
@@ -212,7 +201,8 @@ export default function TimelineSection() {
   return (
     <section
       ref={ref}
-      className="relative pt-2 sm:pt-3 lg:pt-4 pb-24 sm:pb-32 lg:pb-40 bg-slate-50 overflow-hidden"
+      className="relative pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 bg-slate-50 overflow-hidden"
+      style={{ minHeight: 'auto' }}
     >
       {/* Decorative bg */}
       <div
@@ -285,25 +275,26 @@ export default function TimelineSection() {
 
         {/* Footer: indicatore di percorso completato */}
         <div className="mt-16 sm:mt-24 text-center">
-          <div
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-100 shadow-sm"
-            style={{
-              opacity: progress > 0.85 ? 1 : 0.4,
-              transition: 'opacity 0.5s ease',
+          <button
+            onClick={() => {
+              const el = document.getElementById('basis-section');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
             }}
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-100 shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <span
               className="w-2.5 h-2.5 rounded-full"
               style={{
                 background: 'linear-gradient(135deg, #65b32e, #006071)',
-                boxShadow: progress > 0.85 ? '0 0 0 6px rgba(101,179,46,0.18)' : 'none',
-                transition: 'box-shadow 0.5s ease',
+                boxShadow: '0 0 0 6px rgba(101,179,46,0.18)',
               }}
             />
             <span className="text-sm font-bold tracking-widest uppercase text-[#006071]">
               {progress > 0.85 ? 'Il viaggio continua...' : 'Scorri per scoprire'}
             </span>
-          </div>
+          </button>
         </div>
       </div>
     </section>

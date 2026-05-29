@@ -1,4 +1,4 @@
-﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const FEATURES = [
   {
@@ -213,10 +213,7 @@ export default function ControlloRemotoSection() {
             className={`text-center max-w-5xl mx-auto ${visHero ? 'sr-reveal-up' : 'sr-hidden'}`}
             style={{ position: 'relative', zIndex: 2, animationDelay: '0.15s' }}
           >
-            <span style={{ color: '#65b32e', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-              Sezione 3
-            </span>
-            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mt-3 mb-4 leading-[1.1]" style={{ color: '#fff' }}>
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4 leading-[1.1]" style={{ color: '#fff' }}>
               Integrazione con Sistemi di <span className="montserrat-italic text-accent">Controllo Remoto Web</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>

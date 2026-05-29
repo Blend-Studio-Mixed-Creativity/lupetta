@@ -1,4 +1,4 @@
-﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const ITEMS = [
   {
@@ -77,18 +77,7 @@ export default function MaterialiSection() {
     <section className="bg-[#0b1a20]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
         <div ref={ref} className={`text-center mb-10 sm:mb-16 md:mb-20 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
-          <span
-            style={{
-              color: '#65b32e',
-              fontWeight: 800,
-              fontSize: '0.72rem',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-            }}
-          >
-            Sezione 2
-          </span>
-          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mt-4 text-white">
+          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight text-white">
             Materiali e Design per <span className="montserrat-italic text-accent">Resistenza e Igiene</span>
           </h2>
         </div>

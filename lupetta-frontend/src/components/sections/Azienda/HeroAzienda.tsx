@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
-import heroBg from '../../../assets/images/allevamento-lupetta.jpg';
+import heroBg from '../../../assets/images/shooting-slider/shooting-26.webp';
 
 export default function HeroAzienda() {
   const { ref, isVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });

@@ -1,4 +1,4 @@
-﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 const SPECS = [
   {
@@ -84,7 +84,7 @@ export default function DimensioniSection() {
 
       <div className="w-full relative bg-white">
         {/* Full screen intro text */}
-        <section className="relative w-full min-h-[38vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 py-12 sm:py-14 lg:py-16">
+        <section className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-4 sm:pt-6 lg:pt-8 pb-0">
           <div ref={refLeft} className={`w-full text-center max-w-7xl mx-auto ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
               style={{
@@ -97,10 +97,10 @@ export default function DimensioniSection() {
             >
               Dimensioni e Specifiche
             </span>
-            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight mt-3 mb-5 leading-[1.05]">
+            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight mt-1 mb-3 leading-[1.05]">
               Compatta ed efficiente<br />
             </h2>
-            <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-3">
+            <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-0">
               La Lupetta Mini è progettata  per la gestione di vitelli in gabbia singola. È ideale per seguire il vitello dai primi giorni di vita fino a circa 90 giorni, garantendo una distribuzione costante e programmata del latte durante tutta la giornata..
             </p>
             
@@ -111,7 +111,7 @@ export default function DimensioniSection() {
         <section className="relative z-10 w-full">
           <div 
             ref={refRight} 
-            className={`specs-card w-full min-h-screen flex flex-col justify-center py-16 sm:py-24 px-4 sm:px-12 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
+            className={`specs-card w-full py-4 sm:py-6 lg:py-8 flex flex-col justify-center px-4 sm:px-12 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
             style={{ borderRadius: '0' }}
           >
             <div className="w-full max-w-7xl mx-auto">

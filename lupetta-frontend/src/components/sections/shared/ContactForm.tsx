@@ -1,0 +1,386 @@
+import { useMemo, useRef, useState } from 'react';
+import RevealSection from '../../RevealSection';
+
+/**
+ * Dark-themed contact form, shared across all pages.
+ *
+ * Layout: rounded teal/green gradient panel with copy on the left and
+ * a dark form on the right. Posts to `${VITE_API_URL}/api/contact-leads`
+ * with honeypot + `_ts` anti-bot fields.
+ */
+
+interface ContactFormProps {
+  eyebrow?: string;
+  title?: React.ReactNode;
+  description?: string;
+  bullets?: string[];
+  /** Render without the outer rounded panel / RevealSection. */
+  bare?: boolean;
+  className?: string;
+}
+
+function DarkInput({
+  label,
+  type = 'text',
+  name,
+  required,
+  value,
+  onChange,
+}: {
+  label: string;
+  type?: string;
+  name: string;
+  required?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}) {
+  const [focus, setFocus] = useState(false);
+  const filled = value.length > 0;
+  return (
+    <div className="relative">
+      <input
+        type={type}
+        name={name}
+        required={required}
+        value={value}
+        autoComplete="off"
+        onChange={onChange}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
+        className="w-full px-5 pt-6 pb-3 rounded-xl border-2 text-base outline-none transition-all duration-300"
+        style={{
+          background: 'rgba(255,255,255,0.08)',
+          color: '#ffffff',
+          borderColor: focus ? '#65b32e' : 'rgba(255,255,255,0.18)',
+        }}
+      />
+      <label
+        className="absolute left-5 pointer-events-none transition-all duration-300 font-medium"
+        style={{
+          top: focus || filled ? '0.4rem' : '50%',
+          transform: focus || filled ? 'translateY(0) scale(0.78)' : 'translateY(-50%)',
+          transformOrigin: 'left',
+          fontSize: focus || filled ? '0.7rem' : '0.95rem',
+          color: focus ? '#a5d97a' : 'rgba(255,255,255,0.55)',
+          letterSpacing: focus || filled ? '0.05em' : 0,
+        }}
+      >
+        {label}{required ? ' *' : ''}
+      </label>
+      <div
+        className="absolute bottom-0 left-5 right-5 h-0.5 rounded-full transition-all duration-500"
+        style={{
+          background: 'linear-gradient(90deg, #006071, #65b32e)',
+          transform: focus ? 'scaleX(1)' : 'scaleX(0)',
+          transformOrigin: 'left',
+        }}
+      />
+    </div>
+  );
+}
+
+function DarkTextarea({
+  label,
+  name,
+  required,
+  value,
+  onChange,
+}: {
+  label: string;
+  name: string;
+  required?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}) {
+  const [focus, setFocus] = useState(false);
+  const filled = value.length > 0;
+  return (
+    <div className="relative">
+      <textarea
+        name={name}
+        required={required}
+        rows={4}
+        value={value}
+        onChange={onChange}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
+        className="w-full px-5 pt-6 pb-3 rounded-xl border-2 text-base outline-none resize-none transition-all duration-300"
+        style={{
+          background: 'rgba(255,255,255,0.08)',
+          color: '#ffffff',
+          borderColor: focus ? '#65b32e' : 'rgba(255,255,255,0.18)',
+        }}
+      />
+      <label
+        className="absolute left-5 pointer-events-none transition-all duration-300 font-medium"
+        style={{
+          top: focus || filled ? '0.4rem' : '1.3rem',
+          fontSize: focus || filled ? '0.7rem' : '0.95rem',
+          color: focus ? '#a5d97a' : 'rgba(255,255,255,0.55)',
+          letterSpacing: focus || filled ? '0.05em' : 0,
+        }}
+      >
+        {label}{required ? ' *' : ''}
+      </label>
+      <div
+        className="absolute bottom-0 left-5 right-5 h-0.5 rounded-full transition-all duration-500"
+        style={{
+          background: 'linear-gradient(90deg, #006071, #65b32e)',
+          transform: focus ? 'scaleX(1)' : 'scaleX(0)',
+          transformOrigin: 'left',
+        }}
+      />
+    </div>
+  );
+}
+
+const DEFAULT_BULLETS = [
+  'Risposta entro 24 ore lavorative',
+  'Consulenza dedicata e personalizzata',
+  'Nessun impegno richiesto',
+];
+
+export default function ContactForm({
+  eyebrow = 'Contattaci',
+  title,
+  description = 'Raccontaci la tua realtà: il team Lupetta ti supporterà nella scelta della soluzione più adatta alla tua struttura.',
+  bullets = DEFAULT_BULLETS,
+  bare = false,
+  className = '',
+}: ContactFormProps) {
+  const [fields, setFields] = useState({
+    nome: '',
+    cognome: '',
+    email: '',
+    telefono: '',
+    messaggio: '',
+    website: '',
+  });
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  // Timestamp creato al mount del form: usato dal backend come check anti-bot.
+  const ts = useMemo(() => Date.now(), []);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setFields(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loading) return;
+    setError(null);
+    setLoading(true);
+    try {
+      const apiBase = (import.meta.env.VITE_API_URL ?? '') as string;
+      const res = await fetch(`${apiBase}/api/contact-leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...fields, _ts: ts }),
+      });
+      if (res.status === 429) {
+        setError('Troppi invii. Riprova tra qualche minuto.');
+        return;
+      }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const msg = (data as { message?: string; errors?: Record<string, string[]> });
+        const firstFieldError = msg.errors ? Object.values(msg.errors)[0]?.[0] : undefined;
+        setError(firstFieldError ?? msg.message ?? 'Invio non riuscito. Riprova.');
+        return;
+      }
+      setSent(true);
+    } catch {
+      setError('Impossibile contattare il server. Riprova più tardi.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formBlock = sent ? (
+    <div className="flex flex-col items-center justify-center py-16 text-center gap-5 bg-white/5 rounded-2xl border border-white/10 px-6">
+      <div
+        className="w-20 h-20 rounded-full flex items-center justify-center"
+        style={{ background: 'linear-gradient(135deg, #65b32e, #4fa028)' }}
+      >
+        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h3 className="text-2xl font-bold text-white">Messaggio inviato!</h3>
+      <p className="text-white/70 max-w-sm">Ti risponderemo al più presto. Grazie per averci contattato.</p>
+      <button
+        type="button"
+        className="mt-2 px-6 py-2.5 rounded-xl border-2 border-white/40 text-white font-semibold text-sm hover:bg-white hover:text-[#006071] transition-all duration-300"
+        onClick={() => {
+          setSent(false);
+          setError(null);
+          setFields({ nome: '', cognome: '', email: '', telefono: '', messaggio: '', website: '' });
+        }}
+      >
+        Invia un altro messaggio
+      </button>
+    </div>
+  ) : (
+    <form ref={formRef} onSubmit={handleSubmit}>
+      <div className="grid sm:grid-cols-2 gap-4 mb-4">
+        <DarkInput label="Nome" name="nome" required value={fields.nome} onChange={onChange} />
+        <DarkInput label="Cognome" name="cognome" required value={fields.cognome} onChange={onChange} />
+      </div>
+      <div className="grid sm:grid-cols-2 gap-4 mb-4">
+        <DarkInput label="Email" type="email" name="email" required value={fields.email} onChange={onChange} />
+        <DarkInput label="Telefono" type="tel" name="telefono" value={fields.telefono} onChange={onChange} />
+      </div>
+      <div className="mb-6">
+        <DarkTextarea label="Il tuo messaggio" name="messaggio" required value={fields.messaggio} onChange={onChange} />
+      </div>
+
+      {/* Honeypot: invisibile agli utenti, riempito solo dai bot. */}
+      <div
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}
+      >
+        <label>
+          Lascia vuoto questo campo
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={fields.website}
+            onChange={onChange}
+          />
+        </label>
+      </div>
+
+      {error && (
+        <div
+          role="alert"
+          className="mb-5 text-sm text-red-200 bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3"
+        >
+          {error}
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full py-4 rounded-xl font-bold text-white text-lg relative overflow-hidden transition-all duration-500 hover:-translate-y-0.5 disabled:opacity-70 group"
+        style={{
+          background: loading
+            ? '#94a3b8'
+            : 'linear-gradient(90deg, #65b32e 0%, #4fa028 100%)',
+          boxShadow: loading ? 'none' : '0 14px 32px -8px rgba(101,179,46,0.55)',
+        }}
+      >
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_20%,rgba(255,255,255,0.25)_50%,transparent_80%)] translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700" />
+        <span className="relative z-10 flex items-center justify-center gap-3">
+          {loading ? (
+            <>
+              <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
+              </svg>
+              Invio in corso…
+            </>
+          ) : (
+            <>
+              Invia il messaggio
+              <svg
+                className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </>
+          )}
+        </span>
+      </button>
+
+      <p className="text-center text-xs text-white/55 mt-4">
+        I tuoi dati sono al sicuro. Non li condivideremo mai con terze parti.
+      </p>
+    </form>
+  );
+
+  const innerGrid = (
+    <div className="relative grid lg:grid-cols-2 gap-10 lg:gap-16 p-6 sm:p-10 md:p-14 lg:p-20">
+      {/* Left: copy */}
+      <div className="flex flex-col justify-center">
+        {eyebrow && (
+          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#a5d97a] mb-4 block">
+            {eyebrow}
+          </span>
+        )}
+        {title && (
+          <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6 leading-tight text-balance text-white">
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p className="text-lg text-white/75 leading-relaxed mb-8 max-w-lg">{description}</p>
+        )}
+
+        {bullets.length > 0 && (
+          <ul className="space-y-3">
+            {bullets.map((item, i) => (
+              <li key={i} className="flex items-center gap-3 text-white/85">
+                <span
+                  className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #65b32e, #4fa028)',
+                    boxShadow: '0 6px 16px -4px rgba(101,179,46,0.5)',
+                  }}
+                >
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <span className="text-base">{item}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Right: form */}
+      <div>{formBlock}</div>
+    </div>
+  );
+
+  if (bare) {
+    return <div className={`text-white ${className}`}>{innerGrid}</div>;
+  }
+
+  return (
+    <RevealSection
+      className={`relative rounded-3xl overflow-hidden text-white ${className}`}
+      animation="sr-reveal-scale"
+    >
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(135deg, #006071 0%, #004a58 55%, #003540 100%)' }}
+      />
+      {/* Decorative orbs */}
+      <div
+        aria-hidden
+        className="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(101,179,46,0.35) 0%, transparent 70%)' }}
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-40 -left-40 w-[32rem] h-[32rem] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(0,168,192,0.25) 0%, transparent 70%)' }}
+      />
+
+      {innerGrid}
+    </RevealSection>
+  );
+}

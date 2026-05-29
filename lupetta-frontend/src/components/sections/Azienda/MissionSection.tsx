@@ -4,7 +4,11 @@ export default function MissionSection() {
   const { ref, isVisible } = useScrollReveal<HTMLElement>({ threshold: 0.2 });
 
   return (
-    <section ref={ref} className="pt-10 sm:pt-14 lg:pt-16 pb-2 sm:pb-3 lg:pb-4 bg-white">
+    <section
+      ref={ref}
+      className="pt-20 sm:pt-24 lg:pt-28 pb-20 sm:pb-24 lg:pb-28 bg-white"
+      style={{ minHeight: 'auto' }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span
           className="text-[#006071] font-bold text-sm tracking-widest uppercase block mb-5"

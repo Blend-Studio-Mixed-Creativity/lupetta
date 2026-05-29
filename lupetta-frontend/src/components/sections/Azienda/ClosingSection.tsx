@@ -25,7 +25,8 @@ export default function ClosingSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[78vh] py-20 sm:py-24 lg:py-32 overflow-hidden flex items-center bg-[#003d4a]"
+      className="relative py-12 sm:py-16 lg:py-20 overflow-hidden flex items-center bg-[#003d4a]"
+      style={{ minHeight: 'auto' }}
     >
       <img
         src={closingBg}
@@ -68,7 +69,7 @@ export default function ClosingSection() {
               }}
             >
               La natura insegna. <br />
-              <span className="montserrat-italic text-[#a5d97a]">Lupetta</span> lo trasforma in tecnologia.
+              <span className="montserrat-italic text-[#a5d97a]">Lupetta</span> la trasforma in tecnologia.
             </h2>
             <p
               className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl mt-7"

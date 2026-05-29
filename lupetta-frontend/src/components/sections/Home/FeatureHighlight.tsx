@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const FEATURES = [
-  'Piano di alimentazione personalizzato',
+  <>Piano di alimentazione<br />personalizzato</>,
   'Funzionamento adattivo in base alla crescita dell\u2019animale',
   'Meno sprechi grazie al controllo dei parametri in tempo reale',
 ];
@@ -51,17 +51,6 @@ export default function FeatureHighlight() {
     <section ref={ref} className="py-12 sm:py-16 lg:py-28 overflow-hidden">
       <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 text-center">
 
-        {/* Eyebrow */}
-        <span
-          className="text-[#006071] font-bold text-sm tracking-widest uppercase block mb-4"
-          style={{
-            opacity: visible ? 1 : 0,
-            letterSpacing: visible ? '0.32em' : '0.05em',
-            transition: 'opacity 0.6s ease 0.1s, letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s',
-          }}
-        >
-          Lorem Feature
-        </span>
 
         {/* Title */}
         <h2
@@ -74,7 +63,7 @@ export default function FeatureHighlight() {
               'opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s, filter 0.7s ease 0.2s',
           }}
         >
-          Sistema <br />
+          Brevetto <br />
           <span className="montserrat-italic text-[#65b32e] inline-block leading-[1.4] py-2">
             Smart Feeding System®
           </span>
@@ -82,7 +71,7 @@ export default function FeatureHighlight() {
 
         {/* Text block */}
         <div
-          className="space-y-6 max-w-5xl mx-auto"
+          className="space-y-8 max-w-5xl mx-auto"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(20px)',
@@ -91,27 +80,23 @@ export default function FeatureHighlight() {
         >
           {/* Lead paragraph */}
           <p className="text-xl sm:text-2xl md:text-3xl text-slate-800 leading-relaxed font-medium">
-            Il progetto <span className="text-[#006071] font-semibold">Lupetta</span> nasce per la ricerca di una metodologia di somministrazione innovativa<br className="hidden md:inline" /> che garantisca il{' '}
-            <span className="text-[#65b32e] font-semibold">benessere</span> e un{' '}
-            <span className="text-[#65b32e] font-semibold">costante accrescimento</span> del vitello.
+            Il progetto <span className="text-[#006071] font-semibold">Lupetta</span> nasce per la ricerca di una metodologia di somministrazione innovativa che garantisca il <span className="text-[#65b32e] font-semibold">benessere</span> e un <span className="text-[#65b32e] font-semibold">costante accrescimento</span> del vitello.
           </p>
 
           {/* Quote-style highlight (centered, no left border) */}
           <div className="relative py-2">
             <span
               aria-hidden
-              className="block mx-auto w-12 h-[3px] rounded-full mb-4"
+              className="block mx-auto w-16 h-[3px] rounded-full mb-6"
               style={{ background: 'linear-gradient(90deg, #65b32e, #006071)' }}
             />
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-              La tecnologia <span className="font-semibold text-[#006071]">Smart di Lupetta</span>,{' '}
-              <span className="font-semibold text-slate-800">brevettata e unica nel campo zootecnico</span>,<br className="hidden md:inline" /> permette di impostare un piano di alimentazione che, in base al comportamento alimentare del vitello,<br className="hidden md:inline" /> si adatta in modo automatico durante tutte le fasi critiche dello svezzamento.
+              La tecnologia <span className="font-semibold text-[#006071]">Smart di Lupetta</span>, <span className="font-semibold text-slate-800">brevettata e unica nel campo zootecnico</span>, permette di impostare un piano di alimentazione che, in base al comportamento alimentare del vitello, si adatta in modo automatico durante tutte le fasi critiche dello svezzamento.
             </p>
           </div>
 
           <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-            Lupetta guida l&rsquo;operatore sulla <span className="font-semibold text-slate-800">ideale curva alimentare</span> dell&rsquo;animale:<br className="hidden md:inline" /> questo{' '}
-            <span className="font-semibold text-[#65b32e]">sistema adattativo</span> riduce gli sprechi e garantisce efficacia ed efficienza di somministrazione durante tutto l&rsquo;arco della giornata.
+            Lupetta guida l&rsquo;operatore sulla <span className="font-semibold text-slate-800">ideale curva alimentare</span> dell&rsquo;animale: questo <span className="font-semibold text-[#65b32e]">sistema adattativo</span> riduce gli sprechi e garantisce efficacia ed efficienza di somministrazione durante tutto l&rsquo;arco della giornata.
           </p>
         </div>
 

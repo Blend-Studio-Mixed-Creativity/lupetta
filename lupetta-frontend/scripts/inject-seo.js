@@ -10,15 +10,15 @@ const distHtmlPath = path.resolve(__dirname, '../dist/index.html');
 
 // Configurazione dei metadata SEO
 const seoConfig = {
-  title: 'Lupetta - Agenzia Creativa',
-  description: 'Lupetta è un\'agenzia creativa che innova il tuo brand. Scopri i nostri servizi, case history e approfondimenti per il tuo business.',
-  keywords: 'lupetta, agenzia creativa, marketing, web design, brand identity',
+  title: 'Lupetta® - Allattatrice Automatica per Vitelli',
+  description: 'Lupetta è l\'allattatrice automatica brevettata progettata per garantire il benessere dei vitelli e semplificare la gestione quotidiana dell\'allevamento.',
+  keywords: 'allattatrice vitelli, allattatrice automatica, allattatrice automatica vitelli, allattamento vitelli, attrezzature zootecniche, benessere vitelli, gestione stalla, lupetta',
   author: 'Blend Studio',
-  ogTitle: 'Lupetta - Agenzia Creativa',
-  ogDescription: 'Lupetta è un\'agenzia creativa che innova il tuo brand. Scopri i nostri servizi e case history.',
-  ogImage: 'https://blend-studio-mixed-creativity.github.io/lupetta/og-image.jpg',
-  ogUrl: 'https://blend-studio-mixed-creativity.github.io/lupetta/',
-  themeColor: '#ffffff'
+  ogTitle: 'Lupetta® - Allattatrice Automatica per Vitelli',
+  ogDescription: 'Garantisci il massimo benessere dei vitelli e semplifica la gestione quotidiana in stalla con l\'allattatrice automatica brevettata Lupetta.',
+  ogImage: 'https://giustefoodtruck.com/catering/assets/images/vitello1-lupetta.jpg',
+  ogUrl: 'https://giustefoodtruck.com/catering/',
+  themeColor: '#006071'
 };
 
 // Generazione dei tag HTML da iniettare

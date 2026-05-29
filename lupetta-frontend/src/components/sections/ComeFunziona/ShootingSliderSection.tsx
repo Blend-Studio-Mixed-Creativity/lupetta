@@ -141,12 +141,12 @@ export default function ShootingSliderSection() {
           display: flex;
           gap: clamp(0.85rem, 1.7vw, 1.35rem);
           width: max-content;
-          animation: shooting-marquee 54s linear infinite;
+          animation: shooting-marquee 140s linear infinite;
           will-change: transform;
         }
 
         .shooting-marquee:nth-of-type(2) .shooting-marquee-track {
-          animation-duration: 62s;
+          animation-duration: 160s;
         }
 
         .shooting-marquee-item {

@@ -3,6 +3,7 @@ import MissionSection from '../components/sections/Azienda/MissionSection';
 import TimelineSection from '../components/sections/Azienda/TimelineSection';
 import BasisSection from '../components/sections/Azienda/BasisSection';
 import ClosingSection from '../components/sections/Azienda/ClosingSection';
+import ContactSection from '../components/sections/Azienda/ContactSection';
 
 export default function Azienda() {
   return (
@@ -12,6 +13,7 @@ export default function Azienda() {
       <TimelineSection />
       <BasisSection />
       <ClosingSection />
+      <ContactSection />
     </div>
   );
 }

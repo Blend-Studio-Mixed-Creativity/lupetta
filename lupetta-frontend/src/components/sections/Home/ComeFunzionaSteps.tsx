@@ -146,8 +146,8 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
   return (
     <div
       ref={ref}
-      className="min-h-[40vh] md:min-h-[70vh] flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-8 sm:py-10 md:py-14 relative overflow-hidden"
-      style={{ background: index % 2 === 0 ? '#ffffff' : '#f8fafc' }}
+      className="min-h-[40vh] md:min-h-[70vh] flex items-center px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-8 sm:py-10 md:py-14 relative overflow-hidden"
+      style={{ background: index % 2 === 0 ? '#f8fafc' : '#ffffff' }}
     >
       {/* Background radial glow */}
       <div
@@ -243,7 +243,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
 
         {/* -- Text panel - clip-path curtain wipe -- */}
         <div
-          className="flex-1 min-w-0"
+          className="max-w-xl w-full"
           style={{
             clipPath: visible
               ? 'inset(0 0% 0 0)'
@@ -253,41 +253,23 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
             transition: 'clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.2s',
           }}
         >
-          {/* Step label - letter-spacing morph */}
-          <span
-            className="text-[#006071]/40 font-bold text-sm uppercase block mb-3"
-            style={{
-              letterSpacing: visible ? '0.32em' : '0.04em',
-              opacity: visible ? 1 : 0,
-              transition: 'letter-spacing 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s, opacity 0.5s ease 0.45s',
-            }}
-          >
-            Passo {step}
-          </span>
+
 
           {/* Title - word stagger with rotation */}
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#006071] montserrat-heading leading-tight mb-3 sm:mb-4 overflow-hidden">
-            {titleLines.map((line, li) => (
-              <span key={li} className="block">
-                {line.split(' ').map((word, wi) => {
-                  const prevLinesWords = titleLines.slice(0, li).reduce((acc, l) => acc + l.split(' ').length, 0);
-                  const absoluteIndex = prevLinesWords + wi;
-                  return (
-                    <span
-                      key={wi}
-                      className="inline-block mr-[0.25em]"
-                      style={{
-                        opacity: visible ? 1 : 0,
-                        transform: visible
-                          ? 'translateY(0) rotate(0deg)'
-                          : 'translateY(72px) rotate(5deg)',
-                        transition: `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + absoluteIndex * 0.08}s, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + absoluteIndex * 0.08}s`,
-                      }}
-                    >
-                      {word}
-                    </span>
-                  );
-                })}
+            {titleLines.join(' ').split(' ').map((word, wi) => (
+              <span
+                key={wi}
+                className="inline-block mr-[0.25em]"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible
+                    ? 'translateY(0) rotate(0deg)'
+                    : 'translateY(72px) rotate(5deg)',
+                  transition: `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + wi * 0.08}s, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + wi * 0.08}s`,
+                }}
+              >
+                {word}
               </span>
             ))}
           </h3>

@@ -2,13 +2,13 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logoImg from '../assets/images/logolupettaverdebianco.png';
 import navImg0 from '../assets/images/mucca.webp';
-import navImg1 from '../assets/images/latte-per-vitelli-lupetta.webp';
-import navImg2 from '../assets/images/vitello1-lupetta.jpg';
+import navImg1 from '../assets/images/shooting-slider/shooting-13.webp';
+import navImg2 from '../assets/images/shooting-slider/shooting-09.webp';
 import navImg3 from '../assets/images/vitello-lupetta3.webp';
 import navImg4 from '../assets/images/impianto latte.jpg';
-import navImg5 from '../assets/images/vitellino.png';
-import navImg6 from '../assets/images/vitello.jpg';
-import navImg7 from '../assets/images/coselupetta.jpg';
+import navImg5 from '../assets/images/shooting-slider/shooting-25.webp';
+import navImg6 from '../assets/images/shooting-slider/shooting-26.webp';
+import navImg7 from '../assets/images/shooting-slider/shooting-07.webp';
 import navImg8 from '../assets/images/allevamento-lupetta.jpg';
 
 const NAV_IMAGES = [navImg0, navImg1, navImg2, navImg3, navImg4, navImg5, navImg6, navImg7, navImg8];

@@ -1,16 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import imgMini from '../../../assets/images/lupetta-mini-hero.webp';
+import imgMaxi from '../../../assets/images/lupetta-maxi-render-capacita.webp';
 
-interface Tilt {
-  x: number;
-  y: number;
-  gx: number;
-  gy: number;
-  active: boolean;
-}
 
-const INIT: Tilt = { x: 0, y: 0, gx: 50, gy: 50, active: false };
 
 const CARDS = [
   {
@@ -28,8 +22,7 @@ const CARDS = [
       'Massima igiene nella gestione del latte',
     ],
     ctaLabel: 'Scopri di più',
-    iconPath:
-      'M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.566 14.587-5.566 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z',
+    image: imgMini,
   },
   {
     num: '02',
@@ -46,30 +39,20 @@ const CARDS = [
       'Gestione personalizzata del piano di svezzamento per singolo animale',
     ],
     ctaLabel: 'Scopri di più',
-    iconPath:
-      'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21',
+    image: imgMaxi,
   },
 ];
 
 export default function ProdottiSection() {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.12 });
-  const [tilts, setTilts] = useState<Tilt[]>([INIT, INIT]);
+  const [hoveredStates, setHoveredStates] = useState<boolean[]>([false, false]);
 
-  function handleMove(e: React.MouseEvent<HTMLDivElement>, idx: number) {
-    const r = e.currentTarget.getBoundingClientRect();
-    const nx = (e.clientX - r.left) / r.width;
-    const ny = (e.clientY - r.top) / r.height;
-    setTilts((prev) =>
-      prev.map((t, i) =>
-        i === idx
-          ? { x: (nx - 0.5) * 22, y: -(ny - 0.5) * 16, gx: nx * 100, gy: ny * 100, active: true }
-          : t,
-      ),
-    );
+  function handleEnter(idx: number) {
+    setHoveredStates((prev) => prev.map((h, i) => (i === idx ? true : h)));
   }
 
   function handleLeave(idx: number) {
-    setTilts((prev) => prev.map((t, i) => (i === idx ? { ...INIT } : t)));
+    setHoveredStates((prev) => prev.map((h, i) => (i === idx ? false : h)));
   }
 
   return (
@@ -79,7 +62,7 @@ export default function ProdottiSection() {
         padding: 'clamp(4rem, 8vw, 8rem) 0',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section header */}
         <div
@@ -107,9 +90,9 @@ export default function ProdottiSection() {
               letterSpacing: '-0.02em',
             }}
           >
-            Scegli il modello {' '}
+            Scegli il modello <br />
             <span className="montserrat-italic" style={{ color: '#65b32e' }}>
-              che si addice alla tua stalla
+              ideale per la tua struttura
             </span>
           </h2>
         </div>
@@ -117,49 +100,35 @@ export default function ProdottiSection() {
         {/* Cards */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {CARDS.map((card, idx) => {
-            const tilt = tilts[idx];
+            const isHovered = hoveredStates[idx];
             return (
               <div
                 key={card.num}
                 className={`${isVisible ? (idx === 0 ? 'sr-reveal-left' : 'sr-reveal-right') : 'sr-hidden'} ${idx === 1 ? 'sr-delay-2' : ''}`}
-                style={{ perspective: '1200px' }}
-                onMouseMove={(e) => handleMove(e, idx)}
+                style={{ display: 'flex', flexDirection: 'column' }}
+                onMouseEnter={() => handleEnter(idx)}
                 onMouseLeave={() => handleLeave(idx)}
               >
-                <Link to={card.to} style={{ display: 'block', textDecoration: 'none' }}>
+                <Link to={card.to} style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, textDecoration: 'none', height: '100%' }}>
                   <div
                     style={{
                       background:
                         'linear-gradient(145deg, #001a22 0%, #002d38 55%, #003040 100%)',
-                      border: `1.5px solid ${tilt.active ? card.color + '55' : 'rgba(255,255,255,0.07)'}`,
+                      border: `1.5px solid ${isHovered ? card.color + '55' : 'rgba(255,255,255,0.07)'}`,
                       borderRadius: '2rem',
                       overflow: 'hidden',
                       position: 'relative',
-                      transform: tilt.active
-                        ? `perspective(1200px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg) scale(1.025) translateZ(12px)`
-                        : 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)',
-                      boxShadow: tilt.active
+                      transform: isHovered ? 'scale(1.025)' : 'scale(1)',
+                      boxShadow: isHovered
                         ? `0 40px 90px ${card.glow}, 0 0 0 1px ${card.color}22, inset 0 1px 0 rgba(255,255,255,0.06)`
                         : '0 8px 40px rgba(0,0,0,0.55)',
-                      transition: tilt.active
-                        ? 'border-color 0.25s ease, box-shadow 0.35s ease, transform 0.08s ease'
-                        : 'border-color 0.5s ease, box-shadow 0.55s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1)',
+                      transition: 'border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      flexGrow: 1,
+                      height: '100%',
                     }}
                   >
-                    {/* Glare */}
-                    {tilt.active && (
-                      <div
-                        style={{
-                          position: 'absolute',
-                          inset: 0,
-                          zIndex: 20,
-                          borderRadius: '2rem',
-                          pointerEvents: 'none',
-                          background: `radial-gradient(circle at ${tilt.gx}% ${tilt.gy}%, rgba(255,255,255,0.11) 0%, transparent 58%)`,
-                        }}
-                      />
-                    )}
-
                     {/* Top color accent bar */}
                     <div
                       style={{
@@ -199,58 +168,42 @@ export default function ProdottiSection() {
                     </div>
 
                     {/* Body */}
-                    <div style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3.5vw, 3rem) clamp(2rem, 4vw, 3rem)' }}>
-
-                      {/* Number watermark + icon */}
+                    <div style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3.5vw, 3rem) clamp(2rem, 4vw, 3rem)', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                      
+                      {/* Product Photo */}
                       <div
                         style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          justifyContent: 'space-between',
+                          width: '100%',
+                          height: '300px',
+                          borderRadius: '1.25rem',
+                          overflow: 'hidden',
+                          position: 'relative',
                           marginBottom: '2rem',
+                          border: '1.5px solid rgba(255,255,255,0.08)',
+                          background: 'rgba(0,0,0,0.2)',
+                          boxShadow: 'inset 0 0 20px rgba(0,0,0,0.4)',
                         }}
                       >
-                        <span
-                          className="montserrat-heading"
+                        <img
+                          src={card.image}
+                          alt={card.title}
                           style={{
-                            fontSize: '7rem',
-                            fontWeight: 900,
-                            lineHeight: 0.85,
-                            color: `${card.color}18`,
-                            letterSpacing: '-0.06em',
-                            textShadow: `0 0 40px ${card.glow}`,
-                            userSelect: 'none',
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
                           }}
-                        >
-                          {card.num}
-                        </span>
+                        />
+                        {/* Overlay gradient to blend with the card background */}
                         <div
                           style={{
-                            width: 72,
-                            height: 72,
-                            borderRadius: 20,
-                            background: `linear-gradient(135deg, ${card.color}33, ${card.color}11)`,
-                            border: `1.5px solid ${card.color}44`,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            boxShadow: tilt.active
-                              ? `0 10px 36px ${card.glow}`
-                              : `0 4px 18px ${card.glow}55`,
-                            transition: 'box-shadow 0.4s ease',
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to top, rgba(0,26,34,0.6) 0%, transparent 40%)',
+                            pointerEvents: 'none',
                           }}
-                        >
-                          <svg
-                            width={32}
-                            height={32}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.4}
-                            stroke={card.color}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d={card.iconPath} />
-                          </svg>
-                        </div>
+                        />
                       </div>
 
                       {/* Subtitle tag */}
@@ -343,6 +296,7 @@ export default function ProdottiSection() {
                           gap: '0.85rem',
                           paddingTop: '1.25rem',
                           borderTop: '1px solid rgba(255,255,255,0.06)',
+                          marginTop: 'auto',
                         }}
                       >
                         <span
@@ -365,7 +319,7 @@ export default function ProdottiSection() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            boxShadow: tilt.active ? `0 0 18px ${card.glow}` : 'none',
+                            boxShadow: isHovered ? `0 0 18px ${card.glow}` : 'none',
                             transition: 'box-shadow 0.35s ease',
                           }}
                         >

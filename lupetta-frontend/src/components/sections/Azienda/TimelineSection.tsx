@@ -224,7 +224,7 @@ export default function TimelineSection() {
             Tecnologia
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight text-balance">
-            La storia della <span className="montserrat-italic text-[#65b32e]">nostra tecnologia</span>
+            La storia della <span className="montserrat-italic text-accent">nostra tecnologia</span>
           </h2>
           <p className="text-slate-500 text-lg mt-5 max-w-2xl mx-auto">
             Dieci anni di evoluzione raccontati passo dopo passo.

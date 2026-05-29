@@ -50,7 +50,7 @@ export default function BasisSection() {
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mb-8 leading-tight text-balance">
               Nelle prime fasi di vita, ogni animale ha bisogno di pasti{' '}
-              <span className="montserrat-italic text-[#65b32e]">frequenti e moderati</span>.
+              <span className="montserrat-italic text-accent">frequenti e moderati</span>.
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
               Da questa semplice osservazione del comportamento naturale del vitello nasce Lupetta: un sistema pensato per riprodurre, con la precisione della tecnologia, quello che la natura fa da sempre.

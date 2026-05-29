@@ -3,7 +3,7 @@ import { useScrollReveal } from '../../../hooks/useScrollReveal';
 const ITEMS = [
   {
     iconPath:
-      'M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z',
+      'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z',
     title: 'Elevata durabilità nel tempo',
     subtitle: 'Resistenza',
     desc: 'La struttura è progettata per resistere all’utilizzo quotidiano in allevamento, anche in contesti operativi intensi. I materiali scelti aiutano a mantenere affidabilità e continuità di funzionamento nel tempo.',
@@ -21,7 +21,7 @@ const ITEMS = [
   },
   {
     iconPath:
-      'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z',
+      'M9 3.75h6v2.25a3 3 0 001.2 2.4l1.6 1.2A4.5 4.5 0 0119.5 13.2v5.55a1.5 1.5 0 01-1.5 1.5H6a1.5 1.5 0 01-1.5-1.5V13.2a4.5 4.5 0 011.7-3.6l1.6-1.2a3 3 0 001.2-2.4V3.75zM9 12h6',
     title: 'Massima igiene nella gestione del latte',
     subtitle: 'Igiene latte',
     desc: 'I materiali idonei al contatto alimentare e il sistema di lavaggio automatico integrato contribuiscono a mantenere il circuito del latte pulito e controllato, riducendo il rischio di residui e contaminazioni.',
@@ -78,7 +78,7 @@ export default function MaterialiSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
         <div ref={ref} className={`text-center mb-10 sm:mb-16 md:mb-20 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight text-white">
-            Materiali e Design per <span className="montserrat-italic text-accent">Resistenza e Igiene</span>
+            Materiali e design per <span className="montserrat-italic text-accent">resistenza e igiene</span>
           </h2>
         </div>
 

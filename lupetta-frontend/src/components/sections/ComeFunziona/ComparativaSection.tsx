@@ -50,7 +50,7 @@ export default function ComparativaSection() {
             Comparazione
           </span>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ color: '#ffffff', lineHeight: 1.1 }}>
-            MINI <span className="montserrat-italic" style={{ color: '#65b32e' }}>vs</span> MAXI
+            Mini <span className="montserrat-italic text-accent">vs</span> Maxi
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '36rem', margin: '1.5rem auto 0' }}>
             Confronta le caratteristiche e le funzionalità di Lupetta Mini Wi-Fi e Lupetta Maxi Tech per trovare la soluzione ideale per il tuo allevamento.
@@ -66,8 +66,8 @@ export default function ComparativaSection() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr clamp(60px, 18vw, 120px) clamp(60px, 18vw, 120px)', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2.5rem)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.2)' }}>
                 <span className="hidden sm:block" style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>Caratteristica</span>
                 <span className="sm:hidden" style={{ fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>Feature</span>
-                <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#65b32e', textAlign: 'center' }}>MINI</span>
-                <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#006071', textAlign: 'center' }}>MAXI</span>
+                <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#65b32e', textAlign: 'center' }}>Mini</span>
+                <span style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#006071', textAlign: 'center' }}>Maxi</span>
               </div>
 
               {ROWS.map((row, i) => {

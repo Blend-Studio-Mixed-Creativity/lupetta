@@ -16,7 +16,7 @@ type ContentBlock = {
 const BLOCKS: ContentBlock[] = [
   {
     eyebrow: 'Controllo dati e alimentazione',
-    title: 'Integrazione Tecnologica',
+    title: 'Integrazione tecnologica',
     accent: 'e Monitoraggio',
     paragraphs: [
       'Ogni vitello è identificato tramite un tag auricolare, così da essere alimentato secondo una logica preimpostata dall’utente, e registrando ogni suo parametro sul comportamento alimentare.',
@@ -31,7 +31,7 @@ const BLOCKS: ContentBlock[] = [
   },
   {
     eyebrow: 'Moduli, gabbioni e sensori',
-    title: 'Compatibilità con Gabbioni di Movimento',
+    title: 'Compatibilità con gabbioni di movimento',
     accent: 'e Moduli Aggiuntivi',
     paragraphs: [
       

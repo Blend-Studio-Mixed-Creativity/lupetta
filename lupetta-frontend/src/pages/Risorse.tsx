@@ -1,4 +1,6 @@
-﻿export default function Risorse() {
+﻿import CtaFinale from '../components/sections/Home/CtaFinale';
+
+export default function Risorse() {
   return (
     <div className="min-h-screen bg-slate-50 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -7,16 +9,16 @@
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {[
-            'Procedura di Installazione Base nelle Gabbie Aziendali',
-            'Controlli Pre-Installazione e Preparazione dell’Ambiente',
-            'Collegamento Elettrico e Connessione al Portale Web',
-            'Manutenzione Periodica: Pulizia e Controllo dei Componenti',
-            'Pulizia dei Raccoglitori, Tubi ed erogatori di Latte',
-            'Verifica dei Sensori e Moduli di Comunicazione',
-            'Risoluzione Problemi e Supporto Tecnico Avanzato',
-            'Analisi Errori Comune e Codici di Allarme',
-            'Sostituzione Parti e Componenti Usurati',
-            'Aggiornamenti Firmware e Software Portale'
+            'Procedura di installazione base nelle gabbie aziendali',
+            'Controlli pre-installazione e preparazione dell’ambiente',
+            'Collegamento elettrico e connessione al portale web',
+            'Manutenzione periodica: pulizia e controllo dei componenti',
+            'Pulizia dei raccoglitori, tubi ed erogatori di latte',
+            'Verifica dei sensori e moduli di comunicazione',
+            'Risoluzione problemi e supporto tecnico avanzato',
+            'Analisi errori comuni e codici di allarme',
+            'Sostituzione parti e componenti usurati',
+            'Aggiornamenti firmware e software portale'
           ].map((title, i) => (
             <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
               <h2 className="text-xl font-bold text-slate-800">{title}</h2>
@@ -24,6 +26,7 @@
           ))}
         </div>
       </div>
+      <CtaFinale />
     </div>
   );
 }

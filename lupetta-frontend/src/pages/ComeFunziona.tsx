@@ -2,7 +2,7 @@ import HeroSection from '../components/sections/ComeFunziona/HeroSection';
 import ShootingSliderSection from '../components/sections/ComeFunziona/ShootingSliderSection';
 import ProdottiSection from '../components/sections/ComeFunziona/ProdottiSection';
 import ComparativaSection from '../components/sections/ComeFunziona/ComparativaSection';
-import ContattiMain from '../components/sections/Contatti/ContattiMain';
+import CtaFinale from '../components/sections/Home/CtaFinale';
 
 export default function ComeFunziona() {
   return (
@@ -11,7 +11,7 @@ export default function ComeFunziona() {
       <ShootingSliderSection />
       <ProdottiSection />
       <ComparativaSection />
-      <ContattiMain />
+      <CtaFinale />
     </div>
   );
 }

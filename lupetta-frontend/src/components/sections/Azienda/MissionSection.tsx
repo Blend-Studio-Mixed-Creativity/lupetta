@@ -31,7 +31,7 @@ export default function MissionSection() {
           }}
         >
           Ridurre le <span className="text-[#65b32e] font-semibold">interazioni negative</span> nel successo zootecnico utilizzando{' '}
-          <span className="montserrat-italic text-[#006071]">nuove tecnologie</span>.
+          <span className="montserrat-italic text-accent">nuove tecnologie</span>.
         </h2>
 
         <span

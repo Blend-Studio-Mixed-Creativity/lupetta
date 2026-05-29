@@ -3,17 +3,17 @@
 type Nutriente = { label: string; value: number; display: string; barPct: number };
 
 const GOLD: Nutriente[] = [
-  { label: 'Proteina Grezza', value: 19.5, display: '19.5%', barPct: 78 },
-  { label: 'Grassi Grezzi',   value: 16.5, display: '16.5%', barPct: 66 },
-  { label: 'Fibra Grezza',    value: 0.0,  display: '0.0%',  barPct: 2  },
-  { label: 'Ceneri Grezze',   value: 8.5,  display: '8.5%',  barPct: 34 },
+  { label: 'Proteina grezza', value: 19.5, display: '19.5%', barPct: 78 },
+  { label: 'Grassi grezzi',   value: 16.5, display: '16.5%', barPct: 66 },
+  { label: 'Fibra grezza',    value: 0.0,  display: '0.0%',  barPct: 2  },
+  { label: 'Ceneri grezze',   value: 8.5,  display: '8.5%',  barPct: 34 },
 ];
 
 const PLATINUM: Nutriente[] = [
-  { label: 'Proteina Grezza', value: 22.0, display: '22.0%', barPct: 88 },
-  { label: 'Grassi Grezzi',   value: 18.0, display: '18.0%', barPct: 72 },
-  { label: 'Fibra Grezza',    value: 0.05, display: '0.05%', barPct: 3  },
-  { label: 'Ceneri Grezze',   value: 8.0,  display: '8.0%',  barPct: 32 },
+  { label: 'Proteina grezza', value: 22.0, display: '22.0%', barPct: 88 },
+  { label: 'Grassi grezzi',   value: 18.0, display: '18.0%', barPct: 72 },
+  { label: 'Fibra grezza',    value: 0.05, display: '0.05%', barPct: 3  },
+  { label: 'Ceneri grezze',   value: 8.0,  display: '8.0%',  barPct: 32 },
 ];
 
 function AnimatedValue({ target, display, visible, delay = 0 }: { target: number; display: string; visible: boolean; delay?: number }) {

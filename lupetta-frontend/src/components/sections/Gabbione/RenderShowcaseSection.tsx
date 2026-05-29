@@ -41,7 +41,7 @@ export default function RenderShowcaseSection() {
         <div className="max-w-3xl mb-14 sm:mb-20">
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">Design e funzione</span>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-tight">
-            Uno sguardo da <span className="montserrat-italic text-primary">vicino</span>
+            Uno sguardo da <span className="montserrat-italic text-accent">vicino</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             Ogni dettaglio della Lupetta Smart Home nasce dall’incontro tra esperienza in allevamento e progettazione industriale. Forma, materiali e dotazioni sono studiati per semplificare il lavoro dell’allevatore e migliorare la vita quotidiana dell’animale.

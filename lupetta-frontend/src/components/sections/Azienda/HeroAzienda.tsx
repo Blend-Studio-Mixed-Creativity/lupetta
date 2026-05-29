@@ -19,7 +19,7 @@ export default function HeroAzienda() {
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, rgba(0,96,113,0.88) 0%, rgba(0,61,74,0.78) 48%, rgba(0,0,0,0.58) 100%)' }}
+        style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.55) 0%, rgba(0,60,75,0.35) 100%)' }}
       />
       <div
         aria-hidden

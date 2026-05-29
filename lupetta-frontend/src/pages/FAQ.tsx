@@ -1,7 +1,7 @@
 import HeroSection from '../components/sections/FAQ/HeroSection';
 import AccordionSection from '../components/sections/FAQ/AccordionSection';
 import InteractiveFAQSection from '../components/sections/FAQ/InteractiveFAQSection';
-import ContattoSection from '../components/sections/FAQ/ContattoSection';
+import CtaFinale from '../components/sections/Home/CtaFinale';
 
 export default function FAQ() {
   return (
@@ -9,7 +9,7 @@ export default function FAQ() {
       <HeroSection />
       <AccordionSection />
       <InteractiveFAQSection />
-      <ContattoSection />
+      <CtaFinale />
     </div>
   );
 }

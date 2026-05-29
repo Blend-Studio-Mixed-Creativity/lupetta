@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const ITEMS = [
@@ -30,71 +30,24 @@ const ITEMS = [
 
 type Item = (typeof ITEMS)[number];
 
-/* ─── 3D Tilt Card ─── */
+/* ─── Card ─── */
 function TiltCard({ item, onOpen, index }: { item: Item; onOpen: () => void; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<React.CSSProperties>({
-    transform: 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)',
-    transition: 'transform 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.6s ease',
-    transformStyle: 'preserve-3d',
-  });
-  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
-
-  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = ref.current;
-    if (!el) return;
-    const { left, top, width, height } = el.getBoundingClientRect();
-    const x = (e.clientX - left) / width;
-    const y = (e.clientY - top) / height;
-    const rX = (0.5 - y) * 16;
-    const rY = (x - 0.5) * 16;
-    setStyle({
-      transform: `perspective(900px) rotateX(${rX}deg) rotateY(${rY}deg) scale3d(1.04,1.04,1.04)`,
-      transition: 'transform 0.1s linear, box-shadow 0.1s linear',
-      transformStyle: 'preserve-3d',
-      boxShadow: `${rY * -1.5}px ${rX * 1.5}px 36px -8px ${item.color}44, 0 12px 40px -10px rgba(0,0,0,0.12)`,
-    });
-    setGlare({ x: x * 100, y: y * 100, opacity: 0.18 });
-  };
-
-  const onLeave = () => {
-    setStyle({
-      transform: 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)',
-      transition: 'transform 0.7s cubic-bezier(0.23,1,0.32,1), box-shadow 0.7s ease',
-      transformStyle: 'preserve-3d',
-    });
-    setGlare(prev => ({ ...prev, opacity: 0 }));
-  };
-
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, rotateX: 15 }}
-      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-      transition={{ delay: index * 0.15, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.15, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
       viewport={{ once: true, amount: 0.2 }}
-      style={{ perspective: '1000px' }}
     >
       <div
-        ref={ref}
-        onMouseMove={onMove}
-        onMouseLeave={onLeave}
         onClick={onOpen}
         style={{
-          ...style,
           background: 'rgba(11, 26, 32, 0.85)',
           backdropFilter: 'blur(16px)',
           border: '1px solid rgba(255,255,255,0.08)',
         }}
-        className="relative flex flex-col rounded-2xl cursor-pointer select-none group overflow-hidden h-full"
+        className="relative flex flex-col rounded-2xl cursor-pointer select-none group overflow-hidden h-full transition-colors duration-300 hover:border-white/20"
       >
-        {/* Glare */}
-        <div
-          className="absolute inset-0 rounded-2xl pointer-events-none z-10 overflow-hidden"
-          style={{ opacity: glare.opacity, transition: 'opacity 0.3s ease' }}
-        >
-          <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.25) 0%, transparent 60%)` }} />
-        </div>
-
         {/* Hover glow */}
         <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{ background: `radial-gradient(ellipse at 50% 0%, ${item.color}15 0%, transparent 60%)` }} />
@@ -104,18 +57,14 @@ function TiltCard({ item, onOpen, index }: { item: Item; onOpen: () => void; ind
 
         <div className="p-8 sm:p-10 flex flex-col flex-1 relative z-10">
           {/* Icon */}
-          <motion.div
-            initial={{ scale: 0, rotate: -30 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            transition={{ delay: index * 0.15 + 0.4, duration: 0.6, type: 'spring', stiffness: 200 }}
-            viewport={{ once: true }}
+          <div
             className="w-14 h-14 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
             style={{ background: `${item.color}20`, border: `1px solid ${item.color}33` }}
           >
             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={item.color}>
               <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
             </svg>
-          </motion.div>
+          </div>
 
           <h3 className="text-2xl font-semibold text-white mb-4 tracking-tight">{item.title}</h3>
           <p className="text-base leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{item.desc}</p>

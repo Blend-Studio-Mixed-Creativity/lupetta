@@ -2,7 +2,7 @@ import HeroSection from '../components/sections/LupettaMini/HeroSection';
 import DimensioniSection from '../components/sections/LupettaMini/DimensioniSection';
 import MaterialiSection from '../components/sections/LupettaMini/MaterialiSection';
 import ControlloRemotoSection from '../components/sections/LupettaMini/ControlloRemotoSection';
-import ContattiMain from '../components/sections/Contatti/ContattiMain';
+import CtaFinale from '../components/sections/Home/CtaFinale';
 import PhotoBreakSection from '../components/sections/LupettaMini/PhotoBreakSection';
 import photoBreak1 from '../assets/images/lupetta-mini-break-01.webp';
 import photoBreak2 from '../assets/images/lupetta-mini-break-02.webp';
@@ -18,7 +18,7 @@ export default function LupettaMini() {
       <PhotoBreakSection image={photoBreak2} alt="Vitelli in ambiente di allevamento" position="center" />
       <ControlloRemotoSection />
       <PhotoBreakSection image={photoBreak3} alt="Dettaglio operativo della Lupetta Mini in allevamento" position="center" />
-      <ContattiMain />
+      <CtaFinale />
     </div>
   );
 }

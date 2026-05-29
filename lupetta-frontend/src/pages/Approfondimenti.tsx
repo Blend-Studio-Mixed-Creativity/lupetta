@@ -1,4 +1,6 @@
-﻿export default function Approfondimenti() {
+﻿import CtaFinale from '../components/sections/Home/CtaFinale';
+
+export default function Approfondimenti() {
   return (
     <div className="min-h-screen bg-slate-50 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -7,13 +9,13 @@
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {[
-            'Integrazione di Lupetta con Sistemi Aziendali di Farm Management e IoT Agricolo',
-            'Compatibilità con Software Gestionali per Allevamenti Intensivi',
-            'Esportazione Dati da Lupetta e Importazione nel Gestionale',
-            'Automazioni per Allarmi e Interventi Programmati',
-            'Connessione e Interoperabilità con Sensori Ambientali e di Benessere Animale',
-            'Sensori di Temperatura, Umidità e Movimento Vitello',
-            'Utilizzo dei Dati per Analisi Predittive e Ottimizzazione Risorse'
+            'Integrazione di Lupetta con sistemi aziendali di Farm Management e IoT agricolo',
+            'Compatibilità con software gestionali per allevamenti intensivi',
+            'Esportazione dati da Lupetta e importazione nel gestionale',
+            'Automazioni per allarmi e interventi programmati',
+            'Connessione e interoperabilità con sensori ambientali e di benessere animale',
+            'Sensori di temperatura, umidità e movimento vitello',
+            'Utilizzo dei dati per analisi predittive e ottimizzazione risorse'
           ].map((title, i) => (
             <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
               <h2 className="text-xl font-bold text-slate-800">{title}</h2>
@@ -21,6 +23,7 @@
           ))}
         </div>
       </div>
+      <CtaFinale />
     </div>
   );
 }

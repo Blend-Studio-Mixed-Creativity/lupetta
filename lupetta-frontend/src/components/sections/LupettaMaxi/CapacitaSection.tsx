@@ -82,8 +82,8 @@ export default function CapacitaSection() {
               Capacità e Autonomia
             </span>
             <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight mt-4 mb-7 leading-[1.05] max-w-5xl">
-              Capacità di Alimentazione<br />
-              <span className="montserrat-italic text-accent">e Durata Operativa</span>
+              Capacità di alimentazione<br />
+              <span className="montserrat-italic text-accent">e durata operativa</span>
             </h2>
             <p className="text-xl md:text-2xl text-slate-500 leading-relaxed max-w-4xl mb-6">
               La Lupetta Maxi Tech è progettata per gestire gruppi di vitelli da 4 fino a 8 vitelli con una capacità giornaliera di distribuzione di 64 litri di latte ricostituito per macchina.

@@ -94,7 +94,7 @@ export default function RealTimeSection() {
               Real-Time
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-5 mb-8 leading-tight">
-              Monitoraggio in <span className="montserrat-italic text-primary">tempo reale</span>
+              Monitoraggio in <span className="montserrat-italic text-accent">tempo reale</span>
             </h2>
             <p className="text-lg leading-relaxed mb-10 text-slate-500">
               Il monitoraggio in tempo reale permette all’allevatore di seguire l’andamento dei vitelli durante tutta la giornata, senza dover controllare manualmente ogni singola situazione. Attraverso i dati raccolti da Lupetta, è possibile avere una visione aggiornata dei consumi e del comportamento alimentare, individuando più facilmente eventuali variazioni che possono richiedere attenzione.

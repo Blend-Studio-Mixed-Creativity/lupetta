@@ -1,7 +1,7 @@
 import HeroSection from '../components/sections/LupettaMaxi/HeroSection';
 import CapacitaSection from '../components/sections/LupettaMaxi/CapacitaSection';
 import PostSpecsBlocksSection from '../components/sections/LupettaMaxi/PostSpecsBlocksSection';
-import ContattiMain from '../components/sections/Contatti/ContattiMain';
+import CtaFinale from '../components/sections/Home/CtaFinale';
 
 export default function LupettaMaxi() {
   return (
@@ -9,7 +9,7 @@ export default function LupettaMaxi() {
       <HeroSection />
       <CapacitaSection />
       <PostSpecsBlocksSection />
-      <ContattiMain />
+      <CtaFinale />
     </div>
   );
 }

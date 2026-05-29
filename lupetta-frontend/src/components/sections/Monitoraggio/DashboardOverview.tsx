@@ -12,7 +12,7 @@ const STATS = [
   },
   {
     iconPath: 'M12 21a9.004 9.004 0 008.716-6.747c.224-.827.054-1.724-.465-2.422l-7.051-9.402a1.5 1.5 0 00-2.4 0l-7.051 9.402c-.519.698-.689 1.595-.465 2.422A9.004 9.004 0 0012 21z',
-    value: 'Livello del Latte', label: 'Misurazione in tempo reale con alert in caso di valori sospetti', color: '#006071',
+    value: 'Livello del latte', label: 'Misurazione in tempo reale con alert in caso di valori sospetti', color: '#006071',
   },
   {
     iconPath: 'M3 13.5v6a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-6a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6-8v14a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-14a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75zm6 4v10a.75.75 0 00.75.75h2.5a.75.75 0 00.75-.75v-10a.75.75 0 00-.75-.75h-2.5a.75.75 0 00-.75.75z',

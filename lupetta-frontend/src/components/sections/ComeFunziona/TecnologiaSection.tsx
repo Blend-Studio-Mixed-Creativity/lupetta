@@ -66,10 +66,10 @@ export default function TecnologiaSection() {
         {/* Header */}
         <div ref={ref} className={`text-center mb-16 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
           <span style={{ color: '#006071', fontWeight: 800, fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
-            Technologia
+            Tecnologia
           </span>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ color: '#0f172a', lineHeight: 1.1 }}>
-            Lorem ipsum <span className="montserrat-italic" style={{ color: '#006071' }}>dolor</span>
+            Lorem ipsum <span className="montserrat-italic text-accent">dolor</span>
           </h2>
         </div>
 

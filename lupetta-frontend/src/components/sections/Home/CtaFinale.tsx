@@ -7,7 +7,8 @@ export default function CtaFinale() {
         eyebrow="Contattaci"
         title={
           <>
-            Vuoi saperne di più su <br />
+            <span className="lg:whitespace-nowrap">Vuoi saperne di più su</span>
+            <br />
             <span className="montserrat-italic text-[#a5d97a]">Lupetta?</span>
           </>
         }

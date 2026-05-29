@@ -13,7 +13,7 @@ const CARDS = [
     color: '#65b32e',
     colorLight: '#8fd44e',
     glow: 'rgba(101,179,46,0.55)',
-    title: 'MINI WI-FI',
+    title: 'Mini Wi-Fi',
     subtitle: 'Versione compatta',
     desc: 'Gestione individuale del vitello in gabbia singola',
     features: [
@@ -30,7 +30,7 @@ const CARDS = [
     color: '#006071',
     colorLight: '#00a8c0',
     glow: 'rgba(0,96,113,0.55)',
-    title: 'MAXI TECH',
+    title: 'Maxi Tech',
     subtitle: 'Versione avanzata',
     desc: 'Pensata per la gestione di piccoli gruppi di animali con controllo individuale.',
     features: [
@@ -91,7 +91,7 @@ export default function ProdottiSection() {
             }}
           >
             Scegli il modello <br />
-            <span className="montserrat-italic" style={{ color: '#65b32e' }}>
+            <span className="montserrat-italic text-accent">
               ideale per la tua struttura
             </span>
           </h2>

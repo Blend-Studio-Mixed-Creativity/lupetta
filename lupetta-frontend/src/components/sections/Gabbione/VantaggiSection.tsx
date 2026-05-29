@@ -82,7 +82,7 @@ export default function VantaggiSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">I vantaggi</span>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-tight">
-            I vantaggi di <span className="montserrat-italic text-primary">Lupetta Smart Home</span>
+            I vantaggi di <span className="montserrat-italic text-accent">Lupetta Smart Home</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             Non si tratta solo di un gabbione, ma di una soluzione pensata per accompagnare la crescita dell’animale nelle diverse fasi, integrando praticità operativa, igiene, comfort e possibilità di utilizzo in contesti aziendali differenti. La struttura è studiata per semplificare il lavoro quotidiano, favorire il benessere dei vitelli e rendere più ordinata la gestione degli spazi in allevamento.

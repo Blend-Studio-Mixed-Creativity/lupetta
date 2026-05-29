@@ -3,6 +3,7 @@ import ProdottiSection from '../components/sections/Consumabile/ProdottiSection'
 import NutrizioneSection from '../components/sections/Consumabile/NutrizioneSection';
 import DosaggioSection from '../components/sections/Consumabile/DosaggioSection';
 import ConservazioneSection from '../components/sections/Consumabile/ConservazioneSection';
+import CtaFinale from '../components/sections/Home/CtaFinale';
 
 export default function Consumabile() {
   return (
@@ -12,6 +13,7 @@ export default function Consumabile() {
       <NutrizioneSection />
       <DosaggioSection />
       <ConservazioneSection />
+      <CtaFinale />
     </div>
   );
 }

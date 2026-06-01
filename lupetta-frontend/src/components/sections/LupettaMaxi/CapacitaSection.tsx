@@ -1,4 +1,4 @@
-﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import renderCapacita from '../../../assets/images/lupetta-maxi-render-capacita.webp';
 
 const SPECS = [
@@ -69,30 +69,30 @@ export default function CapacitaSection() {
       <div className="w-full relative bg-white">
         <section className="relative w-full px-4 sm:px-6 lg:px-8 z-0 pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12 lg:pb-16">
           <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[1.02fr_0.98fr] gap-10 lg:gap-16 items-center">
-          <div ref={refLeft} className={`w-full text-left ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
+            <div ref={refLeft} className={`w-full text-left ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
               style={{
                 color: '#65b32e',
                 fontWeight: 800,
-                fontSize: '1rem',
+                fontSize: '0.875rem',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
               }}
             >
               Capacità e Autonomia
             </span>
-            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight mt-4 mb-7 leading-[1.05] max-w-5xl">
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-[1.06] max-w-5xl">
               Capacità di alimentazione<br />
               <span className="montserrat-italic text-accent">e durata operativa</span>
             </h2>
-            <p className="text-xl md:text-2xl text-slate-500 leading-relaxed max-w-4xl mb-6">
+            <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-4xl mb-6">
               La Lupetta Maxi Tech è progettata per gestire gruppi di vitelli da 4 fino a 8 vitelli con una capacità giornaliera di distribuzione di 64 litri di latte ricostituito per macchina.
             </p>
             <div className="grid sm:grid-cols-2 gap-3 mb-6 max-w-4xl">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-700 text-base md:text-lg leading-snug">
+              <div className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-700 text-base leading-snug">
                 Distribuzione del latte di più animali
               </div>
-              <div className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-700 text-base md:text-lg leading-snug">
+              <div className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-700 text-base leading-snug">
                 Gestione personalizzata del piano di svezzamento per singolo animale
               </div>
             </div>

@@ -1,4 +1,4 @@
-﻿import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logoImg from '../assets/images/logolupettaverdebianco.png';
 import navImg0 from '../assets/images/mucca.webp';
@@ -98,37 +98,33 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Hamburger — white in hero, dark when scrolled, white when menu open */}
+          {/* Hamburger — dynamic color inversion on scroll via mix-blend-mode: difference */}
           <button
             onClick={() => setIsOpen((o) => !o)}
             className="relative z-[120] w-14 h-14 flex flex-col items-center justify-center gap-[7px] group cursor-pointer"
+            style={{ mixBlendMode: isOpen ? 'normal' : 'difference' }}
             aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
           >
             <span
               className={[
-                'block h-[2px] rounded-full transition-all duration-500 origin-center',
+                'block h-[2px] rounded-full transition-all duration-500 origin-center bg-white',
                 isOpen
-                  ? 'w-7 bg-white rotate-45 translate-y-[9px]'
-                  : scrolled
-                    ? 'w-7 bg-[#016573] group-hover:w-5 group-hover:translate-x-1'
-                    : 'w-7 bg-white group-hover:w-5 group-hover:translate-x-1',
+                  ? 'w-7 rotate-45 translate-y-[9px]'
+                  : 'w-7 group-hover:w-5 group-hover:translate-x-1',
               ].join(' ')}
             />
             <span
               className={[
-                'block w-7 h-[2px] rounded-full transition-all duration-300',
+                'block w-7 h-[2px] rounded-full transition-all duration-300 bg-white',
                 isOpen ? 'opacity-0 scale-x-0' : 'opacity-100',
-                isOpen ? 'bg-white' : scrolled ? 'bg-[#016573]' : 'bg-white',
               ].join(' ')}
             />
             <span
               className={[
-                'block h-[2px] rounded-full transition-all duration-500 origin-center',
+                'block h-[2px] rounded-full transition-all duration-500 origin-center bg-white',
                 isOpen
-                  ? 'w-7 bg-white -rotate-45 -translate-y-[9px]'
-                  : scrolled
-                    ? 'w-7 bg-[#016573] group-hover:w-5 group-hover:-translate-x-1'
-                    : 'w-7 bg-white group-hover:w-5 group-hover:-translate-x-1',
+                  ? 'w-7 -rotate-45 -translate-y-[9px]'
+                  : 'w-7 group-hover:w-5 group-hover:-translate-x-1',
               ].join(' ')}
             />
           </button>

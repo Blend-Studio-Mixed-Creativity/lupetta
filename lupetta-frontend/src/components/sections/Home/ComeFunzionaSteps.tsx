@@ -3,18 +3,18 @@ import { useEffect, useRef, useState } from 'react';
 const STEPS = [
   {
     step: '01',
-    titleLines: ['Un solo carico', 'di latte giornaliero'],
+    titleLines: ['Un solo carico di', 'latte giornaliero'],
     desc: 'L’operatore carica il latte una volta al giorno, mentre Lupetta lo mantiene disponibile per la distribuzione programmata durante la giornata.'
   },
   {
     step: '02',
-    titleLines: ['Animali controllati', 'e segnalati in caso di ritardo'],
+    titleLines: ['Animali controllati', 'e allerta ritardi'],
     desc: 'Il sistema monitora il comportamento alimentare degli animali e segnala eventuali ritardi o anomalie rispetto al piano impostato.'
   },
   {
     step: '03',
-    titleLines: ['Gestione alimentare automatizzata', 'di gruppi da 4 a 8 vitelli'],
-    desc: 'Lupetta Maxi Tech permette di alimentare piccoli gruppi, mantenendo il controllo individuale su ogni vitello.'
+    titleLines: ['Gestione automatizzata', 'di piccoli gruppi'],
+    desc: 'Lupetta Maxi Tech permette di alimentare piccoli gruppi da 4 a 8 vitelli, mantenendo il controllo individuale su ogni vitello.'
   },
   {
     step: '04',
@@ -23,12 +23,12 @@ const STEPS = [
   },
   {
     step: '05',
-    titleLines: ['Sensoristica di precisione', 'per la misurazione dell’ingestione'],
+    titleLines: ['Sensori di precisione', 'per l’ingestione'],
     desc: 'I sensori rilevano i dati di consumo e aiutano l’allevatore a verificare con maggiore precisione l’andamento alimentare.'
   },
   {
     step: '06',
-    titleLines: ['App Lupetta dedicata', 'con registro dei parametri di ingestione'],
+    titleLines: ['App Lupetta e registro', 'parametri di consumo'],
     desc: 'L’app consente di consultare i dati raccolti, controllare lo storico e avere una visione aggiornata dell’alimentazione degli animali.'
   },
 ];
@@ -256,22 +256,32 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
 
 
           {/* Title - word stagger with rotation */}
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#006071] montserrat-heading leading-tight mb-3 sm:mb-4 overflow-hidden">
-            {titleLines.join(' ').split(' ').map((word, wi) => (
-              <span
-                key={wi}
-                className="inline-block mr-[0.25em]"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible
-                    ? 'translateY(0) rotate(0deg)'
-                    : 'translateY(72px) rotate(5deg)',
-                  transition: `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + wi * 0.08}s, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + wi * 0.08}s`,
-                }}
-              >
-                {word}
-              </span>
-            ))}
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-semibold text-[#006071] montserrat-heading leading-tight mb-3 sm:mb-4 overflow-hidden">
+            {titleLines.map((line, li) => {
+              const previousWordsCount = titleLines.slice(0, li).reduce((acc, l) => acc + l.split(' ').length, 0);
+              return (
+                <span key={li} className="block">
+                  {line.split(' ').map((word, wi) => {
+                    const globalWordIndex = previousWordsCount + wi;
+                    return (
+                      <span
+                        key={wi}
+                        className="inline-block mr-[0.25em]"
+                        style={{
+                          opacity: visible ? 1 : 0,
+                          transform: visible
+                            ? 'translateY(0) rotate(0deg)'
+                            : 'translateY(72px) rotate(5deg)',
+                          transition: `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + globalWordIndex * 0.08}s, transform 0.65s cubic-bezier(0.16,1,0.3,1) ${0.5 + globalWordIndex * 0.08}s`,
+                        }}
+                      >
+                        {word}
+                      </span>
+                    );
+                  })}
+                </span>
+              );
+            })}
           </h3>
 
           {/* Description - blur-in */}

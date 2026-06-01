@@ -1,4 +1,4 @@
-﻿import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import heroImg from '../../../assets/images/lupetta-mini-hero.webp';
 import { Spotlight } from '../../ui/spotlight-new';
 
@@ -10,7 +10,7 @@ export default function HeroSection() {
       className="relative text-white overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-screen flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.55) 0%, rgba(0,60,75,0.35) 100%)' }} />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.70) 0%, rgba(0,60,75,0.50) 100%)' }} />
 
       <Spotlight
         gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(185, 100%, 37%, .18) 0, hsla(154, 62%, 44%, .06) 50%, transparent 80%)"
@@ -24,7 +24,7 @@ export default function HeroSection() {
       <div
         ref={ref}
         className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10"
-        style={{ paddingTop: '6rem', paddingBottom: '5rem' }}
+        style={{ paddingTop: '6rem', paddingBottom: '2rem' }}
       >
         {/* Badge */}
         <div

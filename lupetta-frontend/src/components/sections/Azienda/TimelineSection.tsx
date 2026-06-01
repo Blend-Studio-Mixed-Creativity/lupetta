@@ -105,7 +105,7 @@ function MilestoneRow({
   return (
     <div
       ref={rowRef}
-      className={`relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${isLast ? 'pb-0' : 'pb-24 lg:pb-40'}`}
+      className={`relative grid lg:grid-cols-2 gap-8 lg:gap-16 items-center overflow-visible ${isLast ? 'pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 lg:pb-24' : 'pb-24 lg:pb-40'}`}
     >
       {/* MARKER centrale (visibile solo desktop) */}
       <div
@@ -168,7 +168,7 @@ function MilestoneRow({
       >
         {/* Anno enorme */}
         <div
-          className="montserrat-heading font-extrabold leading-normal mb-1 sm:mb-2 pt-4 pb-2"
+          className="montserrat-heading font-extrabold leading-[1.18] mb-1 sm:mb-2 pt-6 pb-4 overflow-visible"
           style={{
             fontSize: 'clamp(4rem, 10vw, 9rem)',
             background: 'linear-gradient(135deg, #65b32e 0%, #006071 100%)',
@@ -201,7 +201,7 @@ export default function TimelineSection() {
   return (
     <section
       ref={ref}
-      className="relative pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 bg-slate-50 overflow-hidden"
+      className="relative pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 bg-slate-50 overflow-x-hidden overflow-y-visible"
       style={{ minHeight: 'auto' }}
     >
       {/* Decorative bg */}

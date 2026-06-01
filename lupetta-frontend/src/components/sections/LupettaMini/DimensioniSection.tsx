@@ -28,8 +28,8 @@ const SPECS = [
 ];
 
 export default function DimensioniSection() {
-  const { ref: refLeft, isVisible: visLeft } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
-  const { ref: refRight, isVisible: visRight } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+  const { ref: refLeft, isVisible: visLeft } = useScrollReveal<HTMLDivElement>({ threshold: 0.02 });
+  const { ref: refRight, isVisible: visRight } = useScrollReveal<HTMLDivElement>({ threshold: 0.02 });
 
   return (
     <>
@@ -82,9 +82,9 @@ export default function DimensioniSection() {
         }
       `}</style>
 
-      <div className="w-full relative bg-white">
+      <div className="w-full relative bg-white pt-8 sm:pt-12 lg:pt-16 pb-0">
         {/* Full screen intro text */}
-        <section className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-4 sm:pt-6 lg:pt-8 pb-0">
+        <div className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-0 pb-6 sm:pb-8">
           <div ref={refLeft} className={`w-full text-center max-w-7xl mx-auto ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
               style={{
@@ -105,13 +105,13 @@ export default function DimensioniSection() {
             </p>
             
           </div>
-        </section>
+        </div>
 
         {/* Full screen card reveal */}
-        <section className="relative z-10 w-full">
+        <div className="relative z-10 w-full">
           <div 
             ref={refRight} 
-            className={`specs-card w-full py-4 sm:py-6 lg:py-8 flex flex-col justify-center px-4 sm:px-12 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
+            className={`specs-card w-full py-2 sm:py-4 lg:py-4 flex flex-col justify-center px-4 sm:px-12 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
             style={{ borderRadius: '0' }}
           >
             <div className="w-full max-w-7xl mx-auto">
@@ -184,7 +184,7 @@ export default function DimensioniSection() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

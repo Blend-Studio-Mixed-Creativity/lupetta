@@ -17,13 +17,11 @@ const BLOCKS: ContentBlock[] = [
   {
     eyebrow: 'Controllo dati e alimentazione',
     title: 'Integrazione tecnologica',
-    accent: 'e Monitoraggio',
+    accent: 'e monitoraggio',
     paragraphs: [
       'Ogni vitello è identificato tramite un tag auricolare, così da essere alimentato secondo una logica preimpostata dall’utente, e registrando ogni suo parametro sul comportamento alimentare.',
       'Oltre alla registrazione del numero dei pasti e della quantità consumata nel giorno il dispositivo offre la possibilità di verificare quante volte il vitello si è presentato a richiedere il pasto',
       'La raccolta di tutti questi dati viene poi processata e tradotta dal software indicando con segnali luminosi a display e notifiche push sui dispositivi mobili (telefono, tablet o pc). L’algoritmo di segnalazione è stato costruito incrociando la statistica dei trattamenti su ogni singolo vitello con il proprio grafico alimentare.',
-      'La vitellaia rappresenta un ambiente complesso, in cui non sempre l’imprenditore ha la possibilità di essere costantemente presente o di effettuare investimenti importanti in termini di tempo e risorse. In questo contesto, l’adozione di soluzioni tecnologiche avanzate diventa un elemento chiave.',
-      'La Maxi Tech consente di effettuare un monitoraggio continuo e una diagnostica basata su dati in tempo reale, permettendo all’allevatore di controllare lo stato di salute e le condizioni ambientali anche a distanza. Questo approccio garantisce interventi più tempestivi e consente all’allevatore di avere sempre una visione completa e aggiornata della situazione.',
     ],
     image: renderMonitoraggio,
     imageAlt: 'Render 3D trasparente della Lupetta Maxi Tech con componenti interni visibili',
@@ -32,9 +30,9 @@ const BLOCKS: ContentBlock[] = [
   {
     eyebrow: 'Moduli, gabbioni e sensori',
     title: 'Compatibilità con gabbioni di movimento',
-    accent: 'e Moduli Aggiuntivi',
+    accent: 'e moduli aggiuntivi',
     paragraphs: [
-      
+
       'Il monitoraggio costante dei parametri tramite la Maxi Tech si completa perfettamente con il sistema di gestione in tempo reale delle condizioni ambientali.',
       'Lupetta Smart Home è dotata di sensori interni ed esterni in grado di rilevare temperatura, umidità, composizione dei gas dell’aria e indice THI (Temperature Humidity Index), consentendo di calcolare il differenziale tra ambiente interno ed esterno e di regolarli in modo automatico.',
       'L’integrazione tra il sistema di controllo Maxi Tech e un ambiente costantemente monitorato nei suoi parametri fondamentali rappresenta una soluzione completa ed efficiente, ideale per favorire la crescita e lo sviluppo ottimale dell’animale.',
@@ -45,6 +43,7 @@ const BLOCKS: ContentBlock[] = [
       'Ampio spazio disponibile per un numero limitato di animali',
       'Regolazione intelligente di temperatura, luce, qualità dell’aria e umidità',
       'Pareti progettate con effetto autoventilante',
+      'Doppia postazione per alimentazione e abbeveraggio',
     ],
     image: renderCompatibilita,
     imageAlt: 'Render 3D della Lupetta Maxi Tech con alloggiamenti e moduli laterali',
@@ -53,11 +52,16 @@ const BLOCKS: ContentBlock[] = [
 
 function ImageBox({ image, imageAlt }: Pick<ContentBlock, 'image' | 'imageAlt'>) {
   return (
-    <div className="relative h-72 sm:h-[400px] lg:h-[480px] flex items-center justify-center">
+    <div className="render-card group relative h-72 sm:h-[400px] lg:h-[480px] flex items-center justify-center overflow-hidden rounded-3xl border border-white/80 bg-white/75 shadow-[0_30px_80px_-45px_rgba(0,96,113,0.75)] backdrop-blur-sm">
+      <div className="absolute inset-0 bg-linear-to-br from-white via-emerald-50/70 to-primary/10" />
+      <div className="absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-accent/70 to-transparent" />
+      <span className="absolute left-5 top-5 rounded-full border border-primary/10 bg-white/80 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-primary shadow-sm">
+        Render tecnico
+      </span>
       <img
         src={image}
         alt={imageAlt}
-        className="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
+        className="relative z-10 max-w-[92%] max-h-[84%] object-contain mix-blend-multiply drop-shadow-2xl transform transition-transform duration-500 group-hover:scale-[1.025]"
       />
     </div>
   );
@@ -65,19 +69,22 @@ function ImageBox({ image, imageAlt }: Pick<ContentBlock, 'image' | 'imageAlt'>)
 
 function FeatureBullets({ bullets, isVisible }: { bullets: string[]; isVisible: boolean }) {
   return (
-    <div className="grid sm:grid-cols-2 gap-4 mt-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12">
       {bullets.map((bullet, bulletIndex) => (
         <div
           key={bullet}
-          className={`feature-bullet group relative flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white px-5 py-4 text-slate-700 text-base leading-snug shadow-xs transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-accent/50 ${isVisible ? 'feature-bullet--in' : ''}`}
+          className={`feature-bullet group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white px-5 py-5 text-slate-700 text-base leading-snug shadow-[0_14px_34px_-28px_rgba(0,96,113,0.75)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_24px_55px_-30px_rgba(0,96,113,0.8)] hover:border-accent/50 ${isVisible ? 'feature-bullet--in' : ''}`}
           style={{ transitionDelay: isVisible ? `${bulletIndex * 90 + 200}ms` : '0ms' }}
         >
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white mt-0.5">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
-              <path fillRule="evenodd" d="M16.704 5.29a1 1 0 010 1.42l-7.5 7.5a1 1 0 01-1.42 0l-3.5-3.5a1 1 0 011.42-1.42L8.5 12.08l6.79-6.79a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-          </span>
-          <span className="text-sm font-medium text-slate-700 leading-normal">{bullet}</span>
+          <div className="relative flex items-start gap-3">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                <path fillRule="evenodd" d="M16.704 5.29a1 1 0 010 1.42l-7.5 7.5a1 1 0 01-1.42 0l-3.5-3.5a1 1 0 011.42-1.42L8.5 12.08l6.79-6.79a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </span>
+            <span className="pt-1 text-sm font-normal text-slate-700 leading-normal">{bullet}</span>
+          </div>
+          <span className="absolute inset-x-5 bottom-0 h-px bg-linear-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       ))}
     </div>
@@ -111,23 +118,21 @@ function AlternatingBlock({ block, index }: { block: ContentBlock; index: number
               {block.title}<br />
               <span className="montserrat-italic text-primary">{block.accent}</span>
             </h2>
-            
+
             <div className="space-y-6">
               {block.paragraphs.map((paragraph, pIdx) => (
-                <p 
-                  key={pIdx} 
-                  className={`text-slate-600 text-base sm:text-lg leading-relaxed ${
-                    pIdx === 0 
-                      ? 'text-slate-900 font-medium border-l-4 border-accent pl-5 py-1 text-lg sm:text-xl' 
-                      : ''
-                  }`}
+                <p
+                  key={pIdx}
+                  className={
+                    pIdx === 0
+                      ? 'relative overflow-hidden rounded-2xl border border-primary/10 bg-white/80 px-5 py-5 text-base sm:text-lg font-normal leading-relaxed text-slate-700 shadow-[0_18px_50px_-36px_rgba(0,96,113,0.75)] before:absolute before:inset-y-5 before:left-0 before:w-1 before:rounded-r-full before:bg-accent'
+                      : 'text-slate-700 text-base sm:text-lg font-normal leading-relaxed'
+                  }
                 >
                   {paragraph}
                 </p>
               ))}
             </div>
-
-            {block.bullets && <FeatureBullets bullets={block.bullets} isVisible={isVisible} />}
           </div>
 
           {/* Image Column */}
@@ -135,6 +140,13 @@ function AlternatingBlock({ block, index }: { block: ContentBlock; index: number
             <ImageBox image={block.image} imageAlt={block.imageAlt} />
           </div>
         </div>
+
+        {/* Bullets full width below */}
+        {block.bullets && (
+          <div className={`${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`} style={{ animationDelay: '0.2s' }}>
+            <FeatureBullets bullets={block.bullets} isVisible={isVisible} />
+          </div>
+        )}
       </div>
     </section>
   );

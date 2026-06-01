@@ -20,8 +20,7 @@ export default function HeroSection() {
           Monitoraggio
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 montserrat-italic text-left max-w-4xl">
-          Sistema di alimentazione remota
-          <span className="text-[#65b32e] block">via portale web e App Lupetta</span>
+          Sistema di alimentazione remota <span className="text-[#65b32e]">via web e app Lupetta</span>
         </h1>
         <p className="text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed text-left">
           Controlla e gestisci l’alimentazione dei tuoi vitelli ovunque ti trovi. Con la nostra piattaforma web e l'app dedicata hai a disposizione tutti i dati in tempo reale per garantire salute e benessere al tuo allevamento.

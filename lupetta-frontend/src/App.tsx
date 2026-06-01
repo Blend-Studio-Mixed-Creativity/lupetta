@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       { path: 'come-funziona/mini', element: <LupettaMini /> },
       { path: 'come-funziona/maxi', element: <LupettaMaxi /> },
       { path: 'monitoraggio', element: <Monitoraggio /> },
-      { path: 'gabbione', element: <Gabbione /> },
+      { path: 'lupetta-smart-home', element: <Gabbione /> },
       { path: 'consumabile', element: <Consumabile /> },
       { path: 'benefici', element: <Benefici /> },
       { path: 'faq', element: <FAQ /> },

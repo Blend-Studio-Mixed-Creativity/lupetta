@@ -4,11 +4,11 @@ import logoImg from '../assets/images/logolupettaverdebianco.png';
 import navImg0 from '../assets/images/mucca.webp';
 import navImg1 from '../assets/images/shooting-slider/shooting-13.webp';
 import navImg2 from '../assets/images/shooting-slider/shooting-09.webp';
-import navImg3 from '../assets/images/vitello-lupetta3.webp';
-import navImg4 from '../assets/images/impianto latte.jpg';
+import navImg3 from '../assets/images/shooting-slider/shooting-01.webp';
+import navImg4 from '../assets/images/shooting-slider/shooting-07.webp';
 import navImg5 from '../assets/images/shooting-slider/shooting-25.webp';
 import navImg6 from '../assets/images/shooting-slider/shooting-26.webp';
-import navImg7 from '../assets/images/shooting-slider/shooting-07.webp';
+import navImg7 from '../assets/images/shooting-slider/shooting-11.webp';
 import navImg8 from '../assets/images/allevamento-lupetta.jpg';
 
 const NAV_IMAGES = [navImg0, navImg1, navImg2, navImg3, navImg4, navImg5, navImg6, navImg7, navImg8];
@@ -167,7 +167,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Monitoraggio', to: '/monitoraggio' },
-  { label: 'Lupetta Smart Home', to: '/gabbione' },
+  { label: 'Lupetta Smart Home', to: '/lupetta-smart-home' },
   { label: 'Consumabile', to: '/consumabile' },
   { label: 'Benefici', to: '/benefici' },
   { label: 'FAQ', to: '/faq' },

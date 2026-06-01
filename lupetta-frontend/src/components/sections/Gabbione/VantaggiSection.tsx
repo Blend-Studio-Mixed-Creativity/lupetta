@@ -66,10 +66,13 @@ const VANTAGGI = [
 
 export default function VantaggiSection() {
   return (
-    <section className="w-full bg-white py-20 sm:py-28 lg:py-32 relative overflow-hidden">
+    <section className="w-full bg-slate-50 py-20 sm:py-28 lg:py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #006071, #65b32e, transparent)' }} />
-      <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+      
+      {/* Enhanced background elements */}
+      <div className="pointer-events-none absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-accent/5 blur-[100px]" />
+      <div className="pointer-events-none absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />
+      <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -78,40 +81,42 @@ export default function VantaggiSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
           viewport={{ once: true }}
-          className="max-w-4xl mb-14 sm:mb-20"
+          className="max-w-4xl mb-16 sm:mb-24"
         >
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">I vantaggi</span>
-          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-tight">
-            I vantaggi di <span className="montserrat-italic text-accent">Lupetta Smart Home</span>
+          <span className="inline-block py-1.5 px-4 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold tracking-[0.2em] uppercase text-accent mb-4">I vantaggi</span>
+          <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-2 mb-6 leading-tight">
+            I vantaggi di <span className="montserrat-italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Lupetta Smart Home</span>
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-lg text-slate-600 leading-relaxed">
             Non si tratta solo di una Lupetta Smart Home, ma di una soluzione pensata per accompagnare la crescita dell’animale nelle diverse fasi, integrando praticità operativa, igiene, comfort e possibilità di utilizzo in contesti aziendali differenti. La struttura è studiata per semplificare il lavoro quotidiano, favorire il benessere dei vitelli e rendere più ordinata la gestione degli spazi in allevamento.
           </p>
         </motion.div>
 
         {/* 6 cards: 3 x 2 */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {VANTAGGI.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.55, delay: (i % 3) * 0.1 + Math.floor(i / 3) * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true, amount: 0.25 }}
-              className="group relative rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-6 sm:p-7 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:border-accent/40"
+              transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="group relative rounded-2xl border border-slate-200/60 bg-white/60 backdrop-blur-xl p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,96,113,0.06)] hover:border-accent/30 hover:bg-white overflow-hidden cursor-default"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
-                  {item.icon}
+              {/* Soft premium inner glow on hover */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(ellipse_at_top_right,rgba(101,179,46,0.08)_0%,transparent_70%)] pointer-events-none" />
+
+              <div className="flex flex-col items-start relative z-10 h-full">
+                <div className="flex items-center gap-4 mb-5 w-full">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-100 text-slate-600 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-accent group-hover:to-primary group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_10px_20px_rgba(101,179,46,0.2)]">
+                    {item.icon}
+                  </div>
                 </div>
                 <div>
-                  <span className="hidden text-[11px] font-bold tracking-widest uppercase text-slate-300 sm:block">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mt-0.5 mb-2 leading-snug">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 leading-snug transition-colors duration-300 group-hover:text-primary">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-slate-500">
+                  <p className="text-base leading-relaxed text-slate-500 transition-colors duration-300 group-hover:text-slate-600">
                     {item.desc}
                   </p>
                 </div>

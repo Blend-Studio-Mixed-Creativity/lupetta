@@ -58,7 +58,7 @@ export default function RealTimeSection() {
                 <img
                   src={shooting01}
                   alt="Monitoraggio vitelli in stalla"
-                  className="w-full h-auto rounded-2xl object-cover"
+                  className="w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] object-cover object-center rounded-2xl"
                 />
                 {/* Live badge */}
                 <div className="absolute top-6 left-6 flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-3 py-1.5 shadow-md border border-slate-200">
@@ -85,7 +85,7 @@ export default function RealTimeSection() {
               Real-Time
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-5 mb-8 leading-tight">
-              Monitoraggio in <span className="montserrat-italic text-accent">tempo reale</span>
+              Monitoraggio  <span className="montserrat-italic text-accent whitespace-nowrap"> in tempo reale</span>
             </h2>
             <p className="text-lg leading-relaxed mb-10 text-slate-500">
               Il monitoraggio in tempo reale permette all’allevatore di seguire l’andamento dei vitelli durante tutta la giornata, senza dover controllare manualmente ogni singola situazione. Attraverso i dati raccolti da Lupetta, è possibile avere una visione aggiornata dei consumi e del comportamento alimentare, individuando più facilmente eventuali variazioni che possono richiedere attenzione.

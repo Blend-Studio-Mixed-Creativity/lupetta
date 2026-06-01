@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -62,6 +62,23 @@ export default function MainLayout() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
+  const [isHomeHeroActive, setIsHomeHeroActive] = useState(pathname === '/');
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setIsHomeHeroActive(false);
+      return;
+    }
+
+    const handleScroll = () => {
+      setIsHomeHeroActive(window.scrollY < 200);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -70,12 +87,17 @@ export default function MainLayout() {
       </main>
       <Footer />
 
-      {/* FAB — Percorso guidato FAQ */}
       <button
         onClick={() => navigate(pathname === '/faq' ? '/faq?openGame=1' : '/faq?openGame=1')}
         title="Percorso guidato FAQ"
-        className="group fixed bottom-6 right-6 z-50 flex items-center gap-0 overflow-hidden rounded-full shadow-xl transition-all duration-300 hover:gap-2 hover:pr-5 hover:shadow-2xl cursor-pointer"
-        style={{ background: 'linear-gradient(135deg, #006071, #00c8a0)' }}
+        className={`group fixed z-50 flex items-center gap-0 overflow-hidden rounded-full shadow-xl transition-all duration-500 hover:gap-2 hover:pr-5 hover:shadow-2xl cursor-pointer ${isHomeHeroActive
+            ? 'bottom-24 sm:bottom-28 lg:bottom-32 right-6 sm:right-8 lg:right-10'
+            : 'bottom-6 sm:bottom-8 lg:bottom-10 right-6 sm:right-8 lg:right-10'
+          }`}
+        style={{
+          background: 'linear-gradient(135deg, #006071, #00c8a0)',
+          marginRight: isHomeHeroActive ? 'calc(100vw - 100%)' : '0px'
+        }}
       >
         <span className="flex h-14 w-14 shrink-0 items-center justify-center">
           <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

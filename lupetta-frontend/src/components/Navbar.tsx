@@ -60,6 +60,60 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  // Contrast detection for toggle button
+  const [isDarkNavbar, setIsDarkNavbar] = useState(true);
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const sections = document.querySelectorAll('section, header.hero, [data-theme-section]');
+      const y = 40; // The toggle is fixed at top 40px
+      
+      let activeSection = null;
+      for (let i = 0; i < sections.length; i++) {
+        const sec = sections[i];
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= y && rect.bottom > y) {
+          activeSection = sec;
+          break;
+        }
+      }
+      
+      if (activeSection) {
+        const classes = activeSection.className || '';
+        const isFirstSection = activeSection === sections[0];
+        
+        // Define patterns that indicate a dark section
+        const isDark = 
+          isFirstSection ||
+          classes.includes('text-white') ||
+          classes.includes('bg-black') ||
+          classes.includes('bg-slate-900') ||
+          classes.includes('bg-slate-950') ||
+          classes.includes('bg-[#0b1a20]') ||
+          classes.includes('bg-[#006071]') ||
+          classes.includes('bg-primary') ||
+          activeSection.querySelector('.hero-overlay') !== null;
+          
+        setIsDarkNavbar(isDark);
+      } else {
+        // Fallback if no section is found
+        setIsDarkNavbar(true); 
+      }
+    };
+
+    updateTheme();
+    window.addEventListener('scroll', updateTheme, { passive: true });
+    window.addEventListener('resize', updateTheme, { passive: true });
+    
+    const t = setTimeout(updateTheme, 100);
+
+    return () => {
+      window.removeEventListener('scroll', updateTheme);
+      window.removeEventListener('resize', updateTheme);
+      clearTimeout(t);
+    };
+  }, [location.pathname]);
+
   // Parallax mouse tracking
   const onMove = useCallback((e: React.MouseEvent) => {
     setMouse({
@@ -98,33 +152,32 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Hamburger — dynamic color inversion on scroll via mix-blend-mode: difference */}
+          {/* Hamburger — dynamic color inversion on scroll */}
           <button
             onClick={() => setIsOpen((o) => !o)}
             className="relative z-[120] w-14 h-14 flex flex-col items-center justify-center gap-[7px] group cursor-pointer"
-            style={{ mixBlendMode: isOpen ? 'normal' : 'difference' }}
             aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
           >
             <span
               className={[
-                'block h-[2px] rounded-full transition-all duration-500 origin-center bg-white',
+                'block h-[2px] rounded-full transition-all duration-500 origin-center',
                 isOpen
-                  ? 'w-7 rotate-45 translate-y-[9px]'
-                  : 'w-7 group-hover:w-5 group-hover:translate-x-1',
+                  ? 'w-7 rotate-45 translate-y-[9px] bg-white'
+                  : `w-7 group-hover:w-5 group-hover:translate-x-1 ${isDarkNavbar ? 'bg-white' : 'bg-[#006071]'}`,
               ].join(' ')}
             />
             <span
               className={[
-                'block w-7 h-[2px] rounded-full transition-all duration-300 bg-white',
-                isOpen ? 'opacity-0 scale-x-0' : 'opacity-100',
+                'block w-7 h-[2px] rounded-full transition-all duration-300',
+                isOpen ? 'opacity-0 scale-x-0 bg-white' : `opacity-100 ${isDarkNavbar ? 'bg-white' : 'bg-[#006071]'}`,
               ].join(' ')}
             />
             <span
               className={[
-                'block h-[2px] rounded-full transition-all duration-500 origin-center bg-white',
+                'block h-[2px] rounded-full transition-all duration-500 origin-center',
                 isOpen
-                  ? 'w-7 -rotate-45 -translate-y-[9px]'
-                  : 'w-7 group-hover:w-5 group-hover:-translate-x-1',
+                  ? 'w-7 -rotate-45 -translate-y-[9px] bg-white'
+                  : `w-7 group-hover:w-5 group-hover:-translate-x-1 ${isDarkNavbar ? 'bg-white' : 'bg-[#006071]'}`,
               ].join(' ')}
             />
           </button>

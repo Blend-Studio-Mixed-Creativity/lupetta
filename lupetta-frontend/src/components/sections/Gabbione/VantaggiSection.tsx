@@ -85,7 +85,7 @@ export default function VantaggiSection() {
             I vantaggi di <span className="montserrat-italic text-accent">Lupetta Smart Home</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
-            Non si tratta solo di un gabbione, ma di una soluzione pensata per accompagnare la crescita dell’animale nelle diverse fasi, integrando praticità operativa, igiene, comfort e possibilità di utilizzo in contesti aziendali differenti. La struttura è studiata per semplificare il lavoro quotidiano, favorire il benessere dei vitelli e rendere più ordinata la gestione degli spazi in allevamento.
+            Non si tratta solo di una Lupetta Smart Home, ma di una soluzione pensata per accompagnare la crescita dell’animale nelle diverse fasi, integrando praticità operativa, igiene, comfort e possibilità di utilizzo in contesti aziendali differenti. La struttura è studiata per semplificare il lavoro quotidiano, favorire il benessere dei vitelli e rendere più ordinata la gestione degli spazi in allevamento.
           </p>
         </motion.div>
 

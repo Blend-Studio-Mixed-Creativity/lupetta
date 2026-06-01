@@ -1,6 +1,6 @@
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import { motion } from 'motion/react';
-import breakImg from '../../../assets/images/lupetta-mini-break-03.webp';
+import shooting01 from '../../../assets/images/shooting-slider/shooting-01.webp';
 
 const FEATURES = [
   {
@@ -56,7 +56,7 @@ export default function RealTimeSection() {
               {/* Frame */}
               <div className="relative rounded-3xl overflow-hidden border border-white/80 shadow-2xl bg-white p-3 transition-transform duration-500 group-hover:-translate-y-1">
                 <img
-                  src={breakImg}
+                  src={shooting01}
                   alt="Monitoraggio vitelli in stalla"
                   className="w-full h-auto rounded-2xl object-cover"
                 />

@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logoImg from '../assets/images/logolupettaverdebianco.png';
 import navImg0 from '../assets/images/mucca.webp';
@@ -12,6 +12,142 @@ import navImg7 from '../assets/images/shooting-slider/shooting-07.webp';
 import navImg8 from '../assets/images/allevamento-lupetta.jpg';
 
 const NAV_IMAGES = [navImg0, navImg1, navImg2, navImg3, navImg4, navImg5, navImg6, navImg7, navImg8];
+const LUPETTA_BLUE_CLASS = 'bg-[#006071]';
+const DARK_NAV_TOKENS = new Set([
+  'dark',
+  'text-white',
+  'bg-black',
+  'bg-slate-900',
+  'bg-slate-950',
+  'bg-[#0b1a20]',
+  'bg-[#0d1f26]',
+  'bg-[#006071]',
+  'bg-[#003d4a]',
+  'bg-[#013d47]',
+  'bg-primary',
+  'glass-dark',
+]);
+const LIGHT_NAV_TOKENS = new Set([
+  'bg-white',
+  'bg-slate-50',
+  'bg-slate-100',
+  'from-white',
+  'via-white',
+  'to-white',
+  'from-slate-50',
+  'via-slate-50',
+  'to-slate-50',
+  'from-slate-100',
+  'via-slate-100',
+  'to-slate-100',
+  'from-emerald-50',
+  'via-emerald-50',
+  'to-emerald-50',
+]);
+
+function getElementClassTokens(element: Element) {
+  const className = element.getAttribute('class') || '';
+  return className.split(/\s+/).filter(Boolean);
+}
+
+function getClassTheme(element: Element) {
+  const tokens = getElementClassTokens(element);
+
+  if (tokens.some((token) => DARK_NAV_TOKENS.has(token))) return true;
+  if (tokens.some((token) => LIGHT_NAV_TOKENS.has(token))) return false;
+
+  return null;
+}
+
+function getExplicitTheme(element: Element) {
+  if (!(element instanceof HTMLElement)) return null;
+
+  const theme = element.dataset.navbarTheme || element.dataset.navTheme || element.dataset.themeSection;
+
+  if (theme === 'dark') return true;
+  if (theme === 'light') return false;
+
+  return null;
+}
+
+function parseRgb(color: string) {
+  const match = color.match(/rgba?\(([^)]+)\)/);
+  if (!match) return null;
+
+  const [r, g, b, a = 1] = match[1]
+    .split(',')
+    .map((value) => Number.parseFloat(value.trim()));
+
+  if ([r, g, b, a].some((value) => Number.isNaN(value))) return null;
+
+  return { r, g, b, a };
+}
+
+function getLuminance({ r, g, b }: { r: number; g: number; b: number }) {
+  const [red, green, blue] = [r, g, b].map((value) => {
+    const channel = value / 255;
+    return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+  });
+
+  return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+}
+
+function getColorTheme(color: string) {
+  const rgb = parseRgb(color);
+
+  if (!rgb || rgb.a < 0.45) return null;
+
+  return getLuminance(rgb) < 0.45;
+}
+
+function getBackgroundImageTheme(backgroundImage: string) {
+  if (!backgroundImage || backgroundImage === 'none') return null;
+
+  const isVisibleColor = (
+    color: ReturnType<typeof parseRgb>,
+  ): color is { r: number; g: number; b: number; a: number } => {
+    if (!color) return false;
+
+    return color.a >= 0.45;
+  };
+
+  const colors = [...backgroundImage.matchAll(/rgba?\([^)]+\)/g)]
+    .map((match) => parseRgb(match[0]))
+    .filter(isVisibleColor);
+
+  if (!colors.length) return null;
+
+  const luminance = colors.reduce((sum, color) => sum + getLuminance(color), 0) / colors.length;
+
+  return luminance < 0.45;
+}
+
+function getElementTheme(element: Element) {
+  const explicitTheme = getExplicitTheme(element);
+  if (explicitTheme !== null) return explicitTheme;
+
+  const style = window.getComputedStyle(element);
+  const colorTheme = getColorTheme(style.backgroundColor);
+  if (colorTheme !== null) return colorTheme;
+
+  const backgroundTheme = getBackgroundImageTheme(style.backgroundImage);
+  if (backgroundTheme !== null) return backgroundTheme;
+
+  return getClassTheme(element);
+}
+
+function getThemeFromElementTree(element: Element) {
+  let current: Element | null = element;
+
+  while (current && current !== document.documentElement) {
+    const theme = getElementTheme(current);
+    if (theme !== null) return theme;
+
+    current = current.parentElement;
+  }
+
+  return null;
+}
 
 interface NavItem {
   label: string;
@@ -31,7 +167,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Monitoraggio', to: '/monitoraggio' },
-  { label: 'Gabbione', to: '/gabbione' },
+  { label: 'Lupetta Smart Home', to: '/gabbione' },
   { label: 'Consumabile', to: '/consumabile' },
   { label: 'Benefici', to: '/benefici' },
   { label: 'FAQ', to: '/faq' },
@@ -42,10 +178,16 @@ export default function Navbar() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [scrolled, setScrolled] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
   const location = useLocation();
 
   // Close menu on route change
-  useEffect(() => { setIsOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    const closeMenu = window.setTimeout(() => setIsOpen(false), 0);
+
+    return () => window.clearTimeout(closeMenu);
+  }, [location.pathname]);
 
   // Lock body scroll
   useEffect(() => {
@@ -65,40 +207,34 @@ export default function Navbar() {
 
   useEffect(() => {
     const updateTheme = () => {
-      const sections = document.querySelectorAll('section, header.hero, [data-theme-section]');
-      const y = 40; // The toggle is fixed at top 40px
-      
-      let activeSection = null;
-      for (let i = 0; i < sections.length; i++) {
-        const sec = sections[i];
-        const rect = sec.getBoundingClientRect();
-        if (rect.top <= y && rect.bottom > y) {
-          activeSection = sec;
-          break;
+      if (isOpen) {
+        setIsDarkNavbar(true);
+        return;
+      }
+
+      const toggleRect = toggleRef.current?.getBoundingClientRect();
+      const sampleX = toggleRect
+        ? toggleRect.left + toggleRect.width / 2
+        : Math.max(window.innerWidth - 40, 0);
+      const sampleY = toggleRect
+        ? toggleRect.top + toggleRect.height / 2
+        : 40;
+
+      const elements = document.elementsFromPoint(sampleX, sampleY);
+      const header = headerRef.current;
+
+      for (const element of elements) {
+        if (header?.contains(element)) continue;
+
+        const theme = getThemeFromElementTree(element);
+        if (theme !== null) {
+          setIsDarkNavbar(theme);
+          return;
         }
       }
-      
-      if (activeSection) {
-        const classes = activeSection.className || '';
-        const isFirstSection = activeSection === sections[0];
-        
-        // Define patterns that indicate a dark section
-        const isDark = 
-          isFirstSection ||
-          classes.includes('text-white') ||
-          classes.includes('bg-black') ||
-          classes.includes('bg-slate-900') ||
-          classes.includes('bg-slate-950') ||
-          classes.includes('bg-[#0b1a20]') ||
-          classes.includes('bg-[#006071]') ||
-          classes.includes('bg-primary') ||
-          activeSection.querySelector('.hero-overlay') !== null;
-          
-        setIsDarkNavbar(isDark);
-      } else {
-        // Fallback if no section is found
-        setIsDarkNavbar(true); 
-      }
+
+      const pageTheme = getElementTheme(document.body) ?? getElementTheme(document.documentElement);
+      setIsDarkNavbar(pageTheme ?? false);
     };
 
     updateTheme();
@@ -112,7 +248,7 @@ export default function Navbar() {
       window.removeEventListener('resize', updateTheme);
       clearTimeout(t);
     };
-  }, [location.pathname]);
+  }, [isOpen, location.pathname]);
 
   // Parallax mouse tracking
   const onMove = useCallback((e: React.MouseEvent) => {
@@ -129,6 +265,7 @@ export default function Navbar() {
     <>
       {/* ═══ FIXED HEADER BAR ═══ */}
       <header
+        ref={headerRef}
         className={[
           'fixed top-0 left-0 right-0 z-[110] transition-all duration-500',
           isOpen
@@ -154,6 +291,7 @@ export default function Navbar() {
 
           {/* Hamburger — dynamic color inversion on scroll */}
           <button
+            ref={toggleRef}
             onClick={() => setIsOpen((o) => !o)}
             className="relative z-[120] w-14 h-14 flex flex-col items-center justify-center gap-[7px] group cursor-pointer"
             aria-label={isOpen ? 'Chiudi menu' : 'Apri menu'}
@@ -163,13 +301,13 @@ export default function Navbar() {
                 'block h-[2px] rounded-full transition-all duration-500 origin-center',
                 isOpen
                   ? 'w-7 rotate-45 translate-y-[9px] bg-white'
-                  : `w-7 group-hover:w-5 group-hover:translate-x-1 ${isDarkNavbar ? 'bg-white' : 'bg-[#006071]'}`,
+                  : `w-7 group-hover:w-5 group-hover:translate-x-1 ${isDarkNavbar ? 'bg-white' : LUPETTA_BLUE_CLASS}`,
               ].join(' ')}
             />
             <span
               className={[
                 'block w-7 h-[2px] rounded-full transition-all duration-300',
-                isOpen ? 'opacity-0 scale-x-0 bg-white' : `opacity-100 ${isDarkNavbar ? 'bg-white' : 'bg-[#006071]'}`,
+                isOpen ? 'opacity-0 scale-x-0 bg-white' : `opacity-100 ${isDarkNavbar ? 'bg-white' : LUPETTA_BLUE_CLASS}`,
               ].join(' ')}
             />
             <span
@@ -177,7 +315,7 @@ export default function Navbar() {
                 'block h-[2px] rounded-full transition-all duration-500 origin-center',
                 isOpen
                   ? 'w-7 -rotate-45 -translate-y-[9px] bg-white'
-                  : `w-7 group-hover:w-5 group-hover:-translate-x-1 ${isDarkNavbar ? 'bg-white' : 'bg-[#006071]'}`,
+                  : `w-7 group-hover:w-5 group-hover:-translate-x-1 ${isDarkNavbar ? 'bg-white' : LUPETTA_BLUE_CLASS}`,
               ].join(' ')}
             />
           </button>

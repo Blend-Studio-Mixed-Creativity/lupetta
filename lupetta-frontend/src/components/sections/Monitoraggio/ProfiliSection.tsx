@@ -21,24 +21,9 @@ export default function ProfiliSection() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-tight">
               Unica interfaccia, <br /><span className="montserrat-italic" style={{ color: '#006071' }}>tutti i dati che servono</span>
             </h2>
-            <p className="text-lg leading-relaxed mb-8 text-slate-500">
+            <p className="text-lg leading-relaxed text-slate-500">
               L’app Lupetta permette all’allevatore di avere sempre sotto controllo lo stato delle macchine installate in stalla, anche a distanza. Da un’unica interfaccia è possibile visualizzare i valori in tempo reale, verificare il corretto funzionamento di ogni Lupetta, monitorare i parametri principali e intervenire con maggiore tempestività quando qualcosa richiede attenzione. In questo modo la gestione quotidiana diventa più semplice, ordinata e continua, contribuendo a garantire agli animali condizioni di alimentazione più regolari, salute e benessere.
             </p>
-
-            <div className="space-y-6">
-              {[
-                { title: 'Valori in tempo reale', desc: 'Monitora istante per istante il corretto funzionamento, la temperatura dell’acqua e il livello del latte.' },
-                { title: 'Interventi tempestivi', desc: 'Ricevi notifiche e alert immediati in caso di valori sospetti o anomalie per agire subito.' },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="w-0.5 rounded-full shrink-0 mt-1" style={{ background: 'linear-gradient(to bottom, #65b32e, #006071)', minHeight: '100%' }} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-800 mb-2">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-slate-500">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right: dashboard screenshot */}

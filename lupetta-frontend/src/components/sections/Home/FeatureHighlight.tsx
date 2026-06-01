@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import shooting25 from '../../../assets/images/shooting-slider/shooting-25.webp';
 
 const FEATURES = [
   <>Piano di alimentazione<br />personalizzato</>,
@@ -71,7 +72,7 @@ export default function FeatureHighlight() {
 
         {/* Text block */}
         <div
-          className="space-y-8 max-w-5xl mx-auto"
+          className="max-w-5xl mx-auto"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(20px)',
@@ -82,7 +83,36 @@ export default function FeatureHighlight() {
           <p className="text-xl sm:text-2xl md:text-3xl text-slate-800 leading-relaxed font-medium">
             Il progetto <span className="text-[#006071] font-semibold">Lupetta</span> nasce per la ricerca di una metodologia di somministrazione innovativa che garantisca il <span className="text-[#65b32e] font-semibold">benessere</span> e un <span className="text-[#65b32e] font-semibold">costante accrescimento</span> del vitello.
           </p>
+        </div>
+      </div>
 
+      {/* FULL BLEED / FULL SCREEN IMAGE */}
+      <div 
+        className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] my-12 sm:my-16 md:my-20 overflow-hidden relative shadow-[inset_0_10px_30px_rgba(0,0,0,0.06),inset_0_-10px_30px_rgba(0,0,0,0.06)] bg-slate-100"
+        style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.45s, transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.45s',
+        }}
+      >
+        <img
+          src={shooting25}
+          alt="Lupetta Smart Feeding System in action"
+          className="w-full h-full object-cover select-none pointer-events-none"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/5 via-transparent to-slate-900/5 pointer-events-none" />
+      </div>
+
+      <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 text-center">
+        <div
+          className="space-y-8 max-w-5xl mx-auto"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s',
+          }}
+        >
           {/* Quote-style highlight (centered, no left border) */}
           <div className="relative py-2">
             <span

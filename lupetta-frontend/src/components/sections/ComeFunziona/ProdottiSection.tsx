@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
-import imgMini from '../../../assets/images/lupetta-mini-hero.webp';
-import imgMaxi from '../../../assets/images/lupetta-maxi-render-capacita.webp';
+import imgMini from '../../../assets/images/shooting-slider/shooting-15.webp';
+import imgMaxi from '../../../assets/images/shooting-slider/shooting-18.webp';
 
 
 

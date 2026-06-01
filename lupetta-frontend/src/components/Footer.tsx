@@ -27,7 +27,7 @@ export default function Footer() {
               {[
                 { label: 'Come Funziona', to: '/come-funziona' },
                 { label: 'Monitoraggio', to: '/monitoraggio' },
-                { label: 'Gabbione', to: '/gabbione' },
+                { label: 'Lupetta Smart Home', to: '/gabbione' },
                 { label: 'Benefici', to: '/benefici' },
                 { label: 'FAQ', to: '/faq' },
               ].map((item) => (

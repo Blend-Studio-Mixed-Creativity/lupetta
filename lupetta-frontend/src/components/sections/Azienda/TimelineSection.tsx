@@ -168,7 +168,7 @@ function MilestoneRow({
       >
         {/* Anno enorme */}
         <div
-          className="montserrat-heading font-extrabold leading-none mb-4 sm:mb-6"
+          className="montserrat-heading font-extrabold leading-normal mb-1 sm:mb-2 pt-4 pb-2"
           style={{
             fontSize: 'clamp(4rem, 10vw, 9rem)',
             background: 'linear-gradient(135deg, #65b32e 0%, #006071 100%)',

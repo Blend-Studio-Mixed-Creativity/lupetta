@@ -92,14 +92,14 @@ export default function ShootingSliderSection() {
         </div>
       </div>
 
-      <div className="relative space-y-5 sm:space-y-6">
+      <div className="relative space-y-5 sm:space-y-6 shooting-slider-container">
         <MarqueeRow images={firstRow} onSelect={setSelectedImage} />
         <MarqueeRow images={secondRow} reverse onSelect={setSelectedImage} />
       </div>
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-90 flex items-center justify-center px-4 py-6 sm:px-8"
+          className="fixed inset-0 z-[1000] flex items-center justify-center px-4 py-6 sm:px-8"
           role="dialog"
           aria-modal="true"
           aria-label="Foto Lupetta ingrandita"
@@ -143,6 +143,10 @@ export default function ShootingSliderSection() {
           width: max-content;
           animation: shooting-marquee 140s linear infinite;
           will-change: transform;
+        }
+
+        .shooting-slider-container:hover .shooting-marquee-track {
+          animation-play-state: paused;
         }
 
         .shooting-marquee:nth-of-type(2) .shooting-marquee-track {

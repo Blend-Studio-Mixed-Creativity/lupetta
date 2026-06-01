@@ -6,7 +6,6 @@ import heroPoster from '../../../assets/images/shooting-slider/shooting-24.webp'
 import { Spotlight } from '../../ui/spotlight-new';
 
 export default function HeroSection() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const bgIframeRef = useRef<HTMLIFrameElement | null>(null);
 
@@ -32,21 +31,6 @@ export default function HeroSection() {
       player.off('playing', handlePlaying);
     };
   }, []);
-
-  // Lock body scroll when modal is open + close on ESC
-  useEffect(() => {
-    if (!isVideoOpen) return;
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsVideoOpen(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [isVideoOpen]);
 
   return (
     <section
@@ -126,59 +110,6 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
-
-      {/* Play full video button (bottom-right) */}
-      <button
-        type="button"
-        onClick={() => setIsVideoOpen(true)}
-        aria-label="Guarda il video completo"
-        className="group absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10 z-20 flex items-center gap-3 pl-4 pr-5 sm:pl-5 sm:pr-6 py-3 sm:py-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/25 text-white font-semibold shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300"
-      >
-        <span className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-b from-[#65b32e] to-[#4fa028] shadow-[0_0_20px_rgba(101,179,46,0.6)]">
-          <span className="absolute inset-0 rounded-full bg-[#65b32e]/40 animate-ping" />
-          <svg className="relative w-5 h-5 sm:w-6 sm:h-6 translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </span>
-        <span className="hidden sm:inline text-sm lg:text-base">Guarda il video</span>
-      </button>
-
-      {/* Full video modal */}
-      {isVideoOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6"
-          onClick={() => setIsVideoOpen(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Video completo Lupetta"
-        >
-          <div
-            className="relative w-full max-w-6xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setIsVideoOpen(false)}
-              aria-label="Chiudi video"
-              className="absolute -top-12 right-0 sm:-top-14 z-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white transition-colors"
-            >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </button>
-            <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black" style={{ paddingTop: '56.25%' }}>
-              <iframe
-                src="https://player.vimeo.com/video/1196603422?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479"
-                title="Lupetta Corporate V1"
-                frameBorder={0}
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

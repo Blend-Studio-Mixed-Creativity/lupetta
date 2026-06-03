@@ -9,7 +9,7 @@ export default function BasisSection() {
     <section
       id="basis-section"
       ref={ref}
-      className="py-10 sm:py-12 lg:py-16 bg-white overflow-hidden"
+      className="py-20 sm:py-28 lg:py-36 bg-white overflow-hidden"
       style={{ minHeight: 'auto' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

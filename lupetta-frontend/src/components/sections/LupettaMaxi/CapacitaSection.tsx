@@ -45,8 +45,7 @@ export default function CapacitaSection() {
           position: absolute;
           inset: 0;
           background:
-            linear-gradient(90deg, rgba(101, 179, 46, 0.42), transparent 24%, transparent 76%, rgba(0, 200, 160, 0.26)),
-            repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 96px);
+            linear-gradient(90deg, rgba(101, 179, 46, 0.42), transparent 24%, transparent 76%, rgba(0, 200, 160, 0.26));
           pointer-events: none;
           z-index: -1;
         }
@@ -215,7 +214,7 @@ export default function CapacitaSection() {
                       animationDelay: `${(i + 1) * 150 + 100}ms`,
                     }}
                   >
-                    <div className="mb-5 flex items-center justify-between gap-4">
+                    <div className="mb-5 flex items-center gap-4">
                       <div
                         style={{
                           width: '52px',
@@ -233,7 +232,6 @@ export default function CapacitaSection() {
                           <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
                         </svg>
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">{String(i + 1).padStart(2, '0')}</span>
                     </div>
 
                     <div className="min-w-0">

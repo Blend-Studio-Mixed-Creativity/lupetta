@@ -32,7 +32,7 @@ class StoreFaqLeadRequest extends FormRequest
             'num_vitelli'         => ['required', 'integer', 'min:1'],
             'risposte'            => ['required', 'array'],
             'profilo_risultato'   => ['required', 'string', 'max:150', new NoControlCharsRule()],
-            'modello_consigliato' => ['required', 'string', 'max:150', new NoControlCharsRule()],
+            'modello_consigliato' => ['required', 'string', 'max:500', new NoControlCharsRule()],
             'website'             => ['nullable', 'string', 'max:0'],
             '_ts'                 => ['required', 'numeric'],
         ];

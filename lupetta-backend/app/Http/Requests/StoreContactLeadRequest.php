@@ -24,7 +24,7 @@ class StoreContactLeadRequest extends FormRequest
                 new NoControlCharsRule(),
             ],
             'email'     => [
-                'required', 'string', 'email:rfc,strict,spoof', 'max:180',
+                'required', 'string', 'email:rfc,strict', 'max:180',
                 new NoControlCharsRule(),
             ],
             'telefono'  => [

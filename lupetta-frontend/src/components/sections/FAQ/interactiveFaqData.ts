@@ -1,237 +1,186 @@
-export interface TreeOption {
+export interface QuizOption {
   label: string;
-  next: string;
+  value: string;
+  scores?: Record<number, number>; // Maps Area ID (1 to 6) to score increment
 }
 
-export interface TreeNode {
-  id: string;
+export interface QuizStep {
+  id: number;
   question: string;
-  options?: TreeOption[];
-  /** Solo nei nodi foglia */
-  answer?: string;
-  link?: { label: string; to: string };
+  options: QuizOption[];
+  microFeedback?: Record<string, string>;
 }
 
-export const TREE_NODES: Record<string, TreeNode> = {
-  root: {
-    id: 'root',
-    question: 'Da dove vuoi partire?',
-    options: [
-      { label: 'Voglio acquistare Lupetta', next: 'acquisto' },
-      { label: 'Ho già Lupetta e ho bisogno di supporto', next: 'supporto' },
-      { label: 'Voglio capire se fa al caso mio', next: 'scoperta' },
-      { label: 'Ho un problema tecnico', next: 'tecnico' },
-    ],
-  },
+export interface ResultProfile {
+  id: number;
+  title: string;
+  subtitle: string;
+  text: string;
+  defaultModels: string;
+}
 
-  /* ─── Ramo acquisto ─── */
-  acquisto: {
-    id: 'acquisto',
-    question: 'Che tipo di allevamento hai?',
+export const QUIZ_STEPS: QuizStep[] = [
+  {
+    id: 1,
+    question: 'Qual è oggi la difficoltà più grande nella gestione dei vitelli?',
     options: [
-      { label: 'Bovino / Bufalino', next: 'acquisto_bovino' },
-      { label: 'Ovino / Caprino', next: 'acquisto_piccolo' },
-      { label: 'Suino', next: 'acquisto_suino' },
-      { label: 'Avicolo', next: 'result_contattaci' },
+      { label: 'Dedico troppo tempo alla somministrazione del latte', value: 'A', scores: { 1: 3 } },
+      { label: 'Faccio fatica a controllare quanto beve ogni vitello', value: 'B', scores: { 2: 3 } },
+      { label: 'Vorrei crescite più regolari e controllate', value: 'C', scores: { 3: 3 } },
+      { label: 'Devo gestire meglio quantità, frequenze e incrementi', value: 'D', scores: { 3: 3 } },
+      { label: 'Ci sono troppi passaggi manuali e rischio di errori', value: 'E', scores: { 4: 3 } },
+      { label: 'Sto pensando a un’area vitelli più organizzata e completa', value: 'F', scores: { 5: 3 } },
+      { label: 'Non ho un solo problema: vorrei capire da dove partire', value: 'G', scores: { 6: 3 } },
     ],
   },
-  acquisto_bovino: {
-    id: 'acquisto_bovino',
-    question: 'Quanti capi allevi?',
+  {
+    id: 2,
+    question: 'Come gestisci oggi l’alimentazione dei vitelli?',
     options: [
-      { label: 'Meno di 50 capi', next: 'result_mini' },
-      { label: 'Da 50 a 200 capi', next: 'result_maxi' },
-      { label: 'Più di 200 capi', next: 'result_enterprise' },
+      { label: 'Manualmente, con secchi o biberon', value: 'A', scores: { 1: 1, 4: 1 } },
+      { label: 'Con una gestione manuale ma abbastanza organizzata', value: 'B', scores: { 1: 1, 4: 1 } },
+      { label: 'Con un sistema automatico, ma vorrei più controllo', value: 'C', scores: { 2: 2 } },
+      { label: 'Sto progettando una nuova area vitelli', value: 'D', scores: { 5: 2 } },
+      { label: 'Sto valutando se automatizzare per la prima volta', value: 'E', scores: { 1: 1, 6: 1 } },
+    ],
+    microFeedback: {
+      A: 'Capito. In questo caso Lupetta può aiutarti soprattutto a ridurre i passaggi ripetitivi e rendere la somministrazione più ordinata.',
+      B: 'Capito. In questo caso Lupetta può aiutarti soprattutto a ridurre i passaggi ripetitivi e rendere la somministrazione più ordinata.',
+      C: 'Perfetto. Qui il tema non è solo automatizzare, ma capire se puoi ottenere più dati, più controllo e una gestione più precisa.',
+      D: 'Ottimo. Se stai progettando una nuova area, ha senso ragionare sia sulla nutrizione sia sullo spazio in cui cresceranno i vitelli.',
+      E: 'Va bene. Il percorso ti aiuterà a capire se l’automazione può portare un vantaggio concreto nella tua routine quotidiana.',
+    },
+  },
+  {
+    id: 3,
+    question: 'Quanti vitelli gestisci mediamente nella fase di allattamento?',
+    options: [
+      { label: 'Fino a 10', value: 'A' },
+      { label: 'Da 10 a 25', value: 'B' },
+      { label: 'Da 25 a 50', value: 'C' },
+      { label: 'Oltre 50', value: 'D' },
+      { label: 'Il numero varia molto durante l’anno', value: 'E', scores: { 6: 1 } },
     ],
   },
-  acquisto_piccolo: {
-    id: 'acquisto_piccolo',
-    question: 'Qual è la tua priorità principale?',
+  {
+    id: 4,
+    question: 'Quanto pesa oggi la gestione dell’allattamento sulla tua giornata?',
     options: [
-      { label: 'Controllo dei dosaggi di colostro', next: 'result_mini' },
-      { label: 'Monitoraggio di più box in contemporanea', next: 'result_maxi' },
+      { label: 'Poco, è sotto controllo', value: 'A' },
+      { label: 'Abbastanza, ma riesco a gestirla', value: 'B' },
+      { label: 'Molto, richiede tempo tutti i giorni', value: 'C', scores: { 1: 2, 4: 1 } },
+      { label: 'Troppo, vorrei alleggerire il lavoro mio o del personale', value: 'D', scores: { 1: 2, 4: 1 } },
     ],
   },
-  acquisto_suino: {
-    id: 'acquisto_suino',
-    question: 'Ti interessa principalmente:',
+  {
+    id: 5,
+    question: 'Quanto è importante per te sapere quanto beve ogni vitello?',
     options: [
-      { label: 'Alimentazione controllata dei lattonzoli', next: 'result_mini' },
-      { label: 'Gestione centralizzata di più scrofe', next: 'result_maxi' },
+      { label: 'Poco, mi interessa soprattutto somministrare il latte', value: 'A' },
+      { label: 'Abbastanza, vorrei avere un controllo generale', value: 'B' },
+      { label: 'Molto, voglio individuare differenze tra i vitelli', value: 'C', scores: { 2: 2, 3: 1 } },
+      { label: 'Fondamentale, voglio usare i dati per gestire meglio la crescita', value: 'D', scores: { 2: 2, 3: 1 } },
     ],
   },
+  {
+    id: 6,
+    question: 'Oggi come gestisci quantità, frequenze e incrementi del latte?',
+    options: [
+      { label: 'In modo manuale, in base all’esperienza', value: 'A' },
+      { label: 'Ho un programma, ma non sempre è facile seguirlo', value: 'B', scores: { 3: 2, 4: 1 } },
+      { label: 'Vorrei impostare meglio gli incrementi nel tempo', value: 'C', scores: { 3: 2, 4: 1 } },
+      { label: 'Vorrei una gestione più precisa per gruppi o singoli vitelli', value: 'D', scores: { 3: 2, 4: 1 } },
+      { label: 'Non ho ancora un metodo definito', value: 'E', scores: { 3: 2, 4: 1 } },
+    ],
+  },
+  {
+    id: 7,
+    question: 'Nella crescita dei vitelli, qual è il tuo obiettivo principale?',
+    options: [
+      { label: 'Avere vitelli più regolari tra loro', value: 'A', scores: { 3: 2, 2: 1 } },
+      { label: 'Ridurre gli sbalzi nella fase di allattamento', value: 'B', scores: { 3: 2, 2: 1 } },
+      { label: 'Accorgermi prima se un vitello beve meno', value: 'C', scores: { 3: 2, 2: 1 } },
+      { label: 'Gestire meglio il passaggio tra le diverse fasi', value: 'D', scores: { 3: 2, 2: 1 } },
+      { label: 'Al momento non ho un problema specifico sulla crescita', value: 'E', scores: { 1: 1, 4: 1 } },
+    ],
+  },
+  {
+    id: 8,
+    question: 'Chi si occupa principalmente dei vitelli nella tua stalla?',
+    options: [
+      { label: 'Me ne occupo io direttamente', value: 'A', scores: { 1: 1 } },
+      { label: 'Una persona dedicata', value: 'B', scores: { 4: 1 } },
+      { label: 'Più persone, con turni diversi', value: 'C', scores: { 4: 2 } },
+      { label: 'Dipende dai giorni e dalla disponibilità', value: 'D', scores: { 4: 2 } },
+      { label: 'Vorrei ridurre la dipendenza dalla presenza costante di una persona', value: 'E', scores: { 1: 2 } },
+    ],
+  },
+  {
+    id: 9,
+    question: 'Oltre alla nutrizione, stai valutando anche l’organizzazione dell’area vitelli?',
+    options: [
+      { label: 'No, mi interessa solo la parte alimentare', value: 'A' },
+      { label: 'Sì, vorrei migliorare gli spazi esistenti', value: 'B', scores: { 5: 3 } },
+      { label: 'Sì, sto pensando a una nuova area vitelli', value: 'C', scores: { 5: 3 } },
+      { label: 'Sì, vorrei una soluzione più completa per crescita, comfort e gestione', value: 'D', scores: { 5: 3 } },
+      { label: 'Non ora, ma potrebbe interessarmi in futuro', value: 'E' },
+    ],
+  },
+  {
+    id: 10,
+    question: 'Se dovessi scegliere una sola priorità, quale sarebbe?',
+    options: [
+      { label: 'Risparmiare tempo', value: 'A', scores: { 1: 5 } },
+      { label: 'Controllare meglio i consumi', value: 'B', scores: { 2: 5 } },
+      { label: 'Migliorare la crescita dei vitelli', value: 'C', scores: { 3: 5 } },
+      { label: 'Ridurre errori e passaggi manuali', value: 'D', scores: { 4: 5 } },
+      { label: 'Organizzare meglio la stalla', value: 'E', scores: { 5: 5 } },
+      { label: 'Costruire un sistema più completo per i vitelli', value: 'F', scores: { 5: 3, 6: 3 } },
+    ],
+  },
+];
 
-  /* ─── Ramo supporto ─── */
-  supporto: {
-    id: 'supporto',
-    question: 'Di che tipo di supporto hai bisogno?',
-    options: [
-      { label: 'Setup iniziale del dispositivo', next: 'supporto_setup' },
-      { label: 'Configurazione dosaggi e profili', next: 'supporto_dosaggi' },
-      { label: 'Utilizzo del monitoraggio remoto', next: 'result_monitoraggio' },
-      { label: 'Aggiornamento firmware o software', next: 'result_firmware' },
-    ],
+export const RESULT_PROFILES: Record<number, ResultProfile> = {
+  1: {
+    id: 1,
+    subtitle: 'Voglio ridurre il lavoro manuale',
+    title: 'Lupetta può aiutarti a semplificare la gestione quotidiana dell’allattamento',
+    text: 'Dalle tue risposte emerge che il tema principale è il tempo dedicato ogni giorno alla somministrazione del latte. In una stalla, anche pochi passaggi ripetuti più volte al giorno possono diventare un carico importante, soprattutto quando la gestione dipende da una sola persona o da turni diversi.\n\nLupetta può aiutarti ad automatizzare la nutrizione quotidiana, rendendo la somministrazione più ordinata e alleggerendo il lavoro manuale. Il vantaggio non è solo “fare prima”, ma avere una routine più stabile, meno variabile e più facile da gestire.',
+    defaultModels: 'Lupetta Mini Wifi, se gestisci un numero contenuto di vitelli e cerchi una soluzione semplice e funzionale. Lupetta Maxi Tech, se hai una gestione più strutturata o numeri più alti.',
   },
-  supporto_setup: {
-    id: 'supporto_setup',
-    question: 'Qual è il tuo dispositivo?',
-    options: [
-      { label: 'Lupetta Mini', next: 'result_setup_mini' },
-      { label: 'Lupetta Maxi', next: 'result_setup_maxi' },
-    ],
+  2: {
+    id: 2,
+    subtitle: 'Voglio più controllo sui consumi',
+    title: 'Lupetta può aiutarti a capire meglio come si alimentano i tuoi vitelli',
+    text: 'Dalle tue risposte emerge che per te il controllo dei consumi è un punto importante. Sapere quanto beve ogni vitello permette di avere una visione più chiara della gestione quotidiana e di individuare più facilmente eventuali differenze nei comportamenti alimentari.\n\nLupetta può supportarti nel monitoraggio dell’alimentazione, aiutandoti a leggere meglio ciò che succede durante la fase di allattamento. In questo modo non lavori solo “a occhio”, ma puoi basarti su informazioni più ordinate e utili per la gestione.',
+    defaultModels: 'Lupetta Maxi Tech, se vuoi una gestione più evoluta e orientata al controllo. Lupetta Mini Wifi, se hai una realtà più contenuta ma vuoi iniziare a organizzare meglio la nutrizione.',
   },
-  supporto_dosaggi: {
-    id: 'supporto_dosaggi',
-    question: 'Stai lavorando con:',
-    options: [
-      { label: 'Colostro fresco o refrigerato', next: 'result_dosaggi_colostro' },
-      { label: "Latte in polvere o sostitutivo", next: 'result_dosaggi_polvere' },
-      { label: 'Mix di entrambi', next: 'result_dosaggi_mix' },
-    ],
+  3: {
+    id: 3,
+    subtitle: 'Voglio crescite più regolari',
+    title: 'Lupetta può aiutarti a gestire la nutrizione in modo più programmato',
+    text: 'Dalle tue risposte emerge che il tuo obiettivo è rendere la crescita dei vitelli più regolare e controllata. In questa fase, la gestione di quantità, frequenze e incrementi può fare la differenza, soprattutto quando si lavora con più animali e con esigenze diverse.\n\nLupetta può aiutarti a impostare una somministrazione più precisa e progressiva, riducendo la variabilità legata alla gestione manuale. Il risultato è una nutrizione più ordinata, pensata per accompagnare meglio il vitello durante la fase di allattamento.',
+    defaultModels: 'Lupetta Maxi Tech, se hai bisogno di una gestione più strutturata e programmabile. Lupetta Mini Wifi, se cerchi una soluzione più compatta ma comunque utile per organizzare meglio la somministrazione.',
   },
-
-  /* ─── Ramo scoperta ─── */
-  scoperta: {
-    id: 'scoperta',
-    question: 'Quale problema vuoi risolvere?',
-    options: [
-      { label: 'Ottimizzare quantità e frequenza di pasto', next: 'result_ottimizzazione' },
-      { label: 'Monitorare i vitelli a distanza', next: 'result_monitoraggio' },
-      { label: 'Ridurre il lavoro manuale in stalla', next: 'result_automazione' },
-      { label: 'Abbassare la mortalità neonatale', next: 'result_mortalita' },
-    ],
+  4: {
+    id: 4,
+    subtitle: 'Voglio ridurre errori e passaggi manuali',
+    title: 'Lupetta può aiutarti a rendere la gestione più ordinata e ripetibile',
+    text: 'Dalle tue risposte emerge che oggi la gestione dell’allattamento richiede diversi passaggi manuali. Quando più persone intervengono nella routine, oppure quando le giornate sono piene di attività, il rischio è avere procedure meno costanti e più difficili da controllare.\n\nLupetta può aiutarti a rendere la somministrazione più standardizzata, riducendo la dipendenza dalle abitudini del singolo operatore. Questo significa lavorare con un metodo più chiaro, più ripetibile e più facile da gestire nel tempo.',
+    defaultModels: 'Lupetta Mini Wifi, se vuoi rendere più semplice una gestione contenuta. Lupetta Maxi Tech, se vuoi strutturare il lavoro su numeri più importanti o con più persone coinvolte.',
   },
-
-  /* ─── Ramo tecnico ─── */
-  tecnico: {
-    id: 'tecnico',
-    question: 'Che tipo di problema stai riscontrando?',
-    options: [
-      { label: 'Il dispositivo non si connette al Wi-Fi', next: 'result_tech_wifi' },
-      { label: "I dati non si aggiornano nell'app", next: 'result_tech_app' },
-      { label: 'Errore nella distribuzione del latte', next: 'result_tech_erogazione' },
-      { label: 'Altro (contatta il supporto)', next: 'result_contattaci' },
-    ],
+  5: {
+    id: 5,
+    subtitle: 'Sto progettando o migliorando l’area vitelli',
+    title: 'Lupetta può essere parte di una gestione più completa dell’area vitelli',
+    text: 'Dalle tue risposte emerge che non stai valutando solo la somministrazione del latte, ma anche l’organizzazione complessiva dell’area in cui crescono i vitelli. In questo caso è utile ragionare insieme su nutrizione, spazi, comfort e praticità di gestione.\n\nLupetta può essere integrata in un progetto più ampio, dove l’alimentazione quotidiana lavora insieme a un ambiente pensato per rendere la crescita più ordinata e la gestione più semplice. In questo scenario, Lupetta Smart Home può essere valutata come soluzione Tredì Italia per creare un’area vitelli più completa e funzionale.',
+    defaultModels: 'Lupetta Mini Wifi o Lupetta Maxi Tech, in base al numero di vitelli e al livello di gestione richiesto. Lupetta Smart Home, come ambiente complementare per la crescita dei vitelli.',
   },
-
-  /* ─── Foglie / Risultati ─── */
-  result_mini: {
-    id: 'result_mini',
-    question: 'Lupetta Mini è la scelta ideale per te',
-    answer:
-      'Lupetta Mini è progettata per allevamenti sotto i 50 capi o con esigenze di flessibilità. Compatta, facile da installare e con gestione completa da smartphone. Include erogazione automatica di latte/colostro, profili di pasto personalizzabili e avvisi in tempo reale.',
-    link: { label: 'Scopri Lupetta Mini', to: '/lupetta-mini' },
-  },
-  result_maxi: {
-    id: 'result_maxi',
-    question: 'Lupetta Maxi è la soluzione giusta per te',
-    answer:
-      'Lupetta Maxi è pensata per allevamenti medi e grandi. Gestisce fino a 200 capi in contemporanea, con dashboard centralizzata, integrazione multi-box, reportistica avanzata e connettività stabile anche in ambienti rurali.',
-    link: { label: 'Scopri Lupetta Maxi', to: '/lupetta-maxi' },
-  },
-  result_enterprise: {
-    id: 'result_enterprise',
-    question: 'Per allevamenti sopra i 200 capi ti consigliamo una consulenza dedicata',
-    answer:
-      'Con oltre 200 capi ti offriamo una configurazione personalizzata: sistema multi-nodo Lupetta Maxi, integrazioni con il tuo gestionale aziendale e supporto tecnico prioritario. Contattaci per una valutazione gratuita.',
-    link: { label: 'Contattaci', to: '/contatti' },
-  },
-  result_contattaci: {
-    id: 'result_contattaci',
-    question: 'Il nostro team ti può aiutare direttamente',
-    answer:
-      'Per questo tipo di esigenza la soluzione migliore è parlare con uno dei nostri specialisti. Puoi raggiungerci via modulo contatti o via telefono: valuteremo insieme la configurazione più adatta al tuo allevamento.',
-    link: { label: 'Vai ai contatti', to: '/contatti' },
-  },
-  result_monitoraggio: {
-    id: 'result_monitoraggio',
-    question: 'Il monitoraggio remoto è il punto di forza di Lupetta',
-    answer:
-      "Dall'app puoi vedere in tempo reale i pasti erogati, il consumo di latte, gli allarmi e lo stato di salute di ogni vitello. Puoi impostare notifiche push, modificare i profili da remoto e accedere a tutta la storicità dei dati.",
-    link: { label: 'Scopri il monitoraggio', to: '/monitoraggio' },
-  },
-  result_firmware: {
-    id: 'result_firmware',
-    question: "Gli aggiornamenti sono automatici e gratuiti",
-    answer:
-      "Lupetta si aggiorna automaticamente via OTA (over-the-air) ogni volta che una nuova versione è disponibile. Assicurati che il dispositivo sia connesso al Wi-Fi e all'alimentazione. Se il problema persiste, puoi forzare l'aggiornamento dalla sezione Impostazioni dell'app.",
-    link: { label: "Guida all'aggiornamento", to: '/come-funziona' },
-  },
-  result_setup_mini: {
-    id: 'result_setup_mini',
-    question: 'Setup Lupetta Mini: semplice e veloce',
-    answer:
-      'Segui questi passaggi: (1) collega il dispositivo alla corrente tramite il cavo in dotazione, (2) scarica l\'app Lupetta, (3) scansiona il QR code sul retro del dispositivo, (4) segui il wizard di configurazione Wi-Fi e crea il tuo primo profilo di pasto. In meno di 10 minuti sei operativo.',
-    link: { label: 'Guida completa', to: '/come-funziona' },
-  },
-  result_setup_maxi: {
-    id: 'result_setup_maxi',
-    question: 'Setup Lupetta Maxi: un nostro tecnico ti affianca',
-    answer:
-      'Lupetta Maxi prevede un\'installazione guidata da parte di un nostro tecnico specializzato. Riceverai una chiamata entro 24 ore dall\'acquisto per pianificare il sopralluogo. Nel frattempo puoi preparare la struttura seguendo il manuale allegato alla confezione.',
-    link: { label: 'Richiedi supporto', to: '/contatti' },
-  },
-  result_dosaggi_colostro: {
-    id: 'result_dosaggi_colostro',
-    question: 'Gestione del colostro fresco con Lupetta',
-    answer:
-      "Il colostro fresco va inserito nel serbatoio refrigerato di Lupetta entro 2 ore dalla mungitura. Sull'app puoi impostare temperatura di conservazione, la quantità erogata per pasto (in ml) e l'intervallo tra i pasti. Il sistema ti avvisa quando la riserva scende sotto la soglia impostata.",
-    link: { label: "Scopri l'alimentazione", to: '/come-funziona' },
-  },
-  result_dosaggi_polvere: {
-    id: 'result_dosaggi_polvere',
-    question: 'Latte in polvere: Lupetta lo gestisce in autonomia',
-    answer:
-      "Inserisci il latte in polvere nel vano apposito. Dall'app imposti il rapporto di diluizione con l'acqua (es. 125 g/litro), la temperatura dell'acqua di miscelazione (ideale 38–40°C) e la frequenza di pulizia del circuito. Lupetta prepara ogni razione al momento per garantire freschezza ottimale.",
-    link: { label: 'Scopri i consumabili', to: '/consumabile' },
-  },
-  result_dosaggi_mix: {
-    id: 'result_dosaggi_mix',
-    question: 'Profili misti colostro + latte in polvere',
-    answer:
-      "Puoi creare profili personalizzati che alternano colostro e latte in polvere nei primi giorni di vita del vitello. L'app permette di programmare una transizione automatica (es. colostro nelle prime 48h, poi latte in polvere) con un click. Tutti i dati vengono registrati per ogni capo.",
-    link: { label: 'Scopri i profili', to: '/monitoraggio' },
-  },
-  result_ottimizzazione: {
-    id: 'result_ottimizzazione',
-    question: 'Lupetta ottimizza ogni razione automaticamente',
-    answer:
-      "Il sistema applica protocolli di alimentazione basati su peso, età e razza del vitello. L'algoritmo regola le quantità in base ai consumi effettivi e ti mostra deviazioni rispetto al profilo ideale. Risparmi fino al 15% di latte rispetto all'erogazione manuale.",
-    link: { label: 'Come funziona', to: '/come-funziona' },
-  },
-  result_automazione: {
-    id: 'result_automazione',
-    question: 'Lupetta riduce drasticamente il lavoro manuale',
-    answer:
-      "Una volta configurati i profili, Lupetta gestisce autonomamente tutte le somministrazioni: notte e giorno, anche nel fine settimana. Ricevi notifiche solo quando serve la tua attenzione (vitello che non mangia, serbatoio quasi vuoto, ecc.). Gli allevatori che usano Lupetta riportano un risparmio medio di 2–3 ore di lavoro al giorno.",
-    link: { label: 'Scopri i benefici', to: '/benefici' },
-  },
-  result_mortalita: {
-    id: 'result_mortalita',
-    question: 'Lupetta aiuta a ridurre la mortalità neonatale',
-    answer:
-      "I primissimi giorni di vita sono critici: una corretta assunzione di colostro nelle prime 6 ore determina l'immunità passiva del vitello. Lupetta garantisce tempistiche e quantità precise, inviando un avviso immediato se il vitello non si alimenta. Le aziende agricole partner hanno registrato una riduzione della mortalità neonatale fino al 40%.",
-    link: { label: 'Casi di successo', to: '/case-history' },
-  },
-  result_tech_wifi: {
-    id: 'result_tech_wifi',
-    question: 'Problemi di connessione Wi-Fi',
-    answer:
-      "Verifica questi punti: (1) il router è entro 15 metri dal dispositivo o è presente un ripetitore, (2) la rete usa il protocollo 2.4 GHz (Lupetta non supporta il 5 GHz), (3) la password Wi-Fi non contiene caratteri speciali non standard. Se il problema persiste, premi il tasto reset sul retro per 5 secondi e riavvia la configurazione dall'app.",
-    link: { label: 'Centro assistenza', to: '/contatti' },
-  },
-  result_tech_app: {
-    id: 'result_tech_app',
-    question: "Dati non aggiornati nell'app",
-    answer:
-      "Controlla che il dispositivo sia online (spia verde fissa) e che l'app sia aggiornata all'ultima versione. Forza un aggiornamento manuale scorrendo verso il basso nella schermata principale. Se il problema persiste da più di 30 minuti, riavvia il dispositivo tenendo premuto il tasto laterale per 3 secondi.",
-    link: { label: 'Contatta il supporto', to: '/contatti' },
-  },
-  result_tech_erogazione: {
-    id: 'result_tech_erogazione',
-    question: 'Errori nella distribuzione del latte',
-    answer:
-      "Gli errori di erogazione sono spesso causati da: (1) tubazione occlusa (esegui il ciclo di pulizia dall'app), (2) serbatoio vuoto o sensore di livello sporco (pulisci con panno umido), (3) temperatura troppo bassa che ispessisce il latte (verifica che il riscaldatore sia attivo). Se l'errore riporta un codice specifico, cercalo nel manuale o contattaci.",
-    link: { label: 'Manuale tecnico', to: '/come-funziona' },
+  6: {
+    id: 6,
+    subtitle: 'Ho più esigenze e voglio capire da dove partire',
+    title: 'Il tuo caso merita una valutazione personalizzata',
+    text: 'Dalle tue risposte emerge che nella tua stalla ci sono più aspetti da considerare: tempo, organizzazione, controllo dei consumi, gestione delle quantità e possibile miglioramento degli spazi.\n\nIn questo caso, più che indicare subito una sola soluzione, è utile partire da una lettura complessiva della tua gestione. Lupetta può aiutarti in modi diversi, dalla semplice automazione della nutrizione fino a una configurazione più completa e strutturata.',
+    defaultModels: 'Configurazione da valutare con un operatore Lupetta, in base al numero di vitelli, al metodo di lavoro attuale e agli obiettivi della tua azienda.',
   },
 };

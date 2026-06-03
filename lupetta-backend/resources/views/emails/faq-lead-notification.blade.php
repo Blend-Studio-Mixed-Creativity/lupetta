@@ -38,11 +38,49 @@
                     <td>Email</td>
                     <td><a href="mailto:{{ $lead->email }}">{{ $lead->email }}</a></td>
                 </tr>
+                @if($lead->azienda)
+                <tr>
+                    <td>Azienda Agricola</td>
+                    <td>{{ $lead->azienda }}</td>
+                </tr>
+                @endif
+                <tr>
+                    <td>Telefono</td>
+                    <td>{{ $lead->telefono }}</td>
+                </tr>
+                <tr>
+                    <td>Provincia</td>
+                    <td>{{ $lead->provincia }}</td>
+                </tr>
+                <tr>
+                    <td>Numero Vitelli</td>
+                    <td>{{ $lead->num_vitelli }}</td>
+                </tr>
+                <tr>
+                    <td>Profilo Calcolato</td>
+                    <td><strong>{{ $lead->profilo_risultato }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Modello Consigliato</td>
+                    <td>{{ $lead->modello_consigliato }}</td>
+                </tr>
                 <tr>
                     <td>Data</td>
                     <td>{{ $lead->created_at->format('d/m/Y H:i') }}</td>
                 </tr>
             </table>
+
+            @if(!empty($lead->risposte))
+                <h3 style="margin-top: 30px; margin-bottom: 12px; color: #1a1a2e; font-size: 16px;">Risposte del questionario:</h3>
+                <table class="info-table">
+                    @foreach($lead->risposte as $domanda => $risposta)
+                        <tr>
+                            <td style="font-weight: bold; color: #555; width: 45%; font-size: 13px;">{{ $domanda }}</td>
+                            <td style="font-size: 13px;">{{ $risposta }}</td>
+                        </tr>
+                    @endforeach
+                </table>
+            @endif
         </div>
         <div class="footer">
             <p>Questo messaggio è stato generato automaticamente dal sistema.</p>

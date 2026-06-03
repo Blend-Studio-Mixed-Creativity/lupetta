@@ -10,6 +10,13 @@ class FaqLead extends Model
         'nome',
         'cognome',
         'email',
+        'azienda',
+        'telefono',
+        'provincia',
+        'num_vitelli',
+        'risposte',
+        'profilo_risultato',
+        'modello_consigliato',
         'ip_address',
         'user_agent',
     ];
@@ -22,6 +29,7 @@ class FaqLead extends Model
     protected function casts(): array
     {
         return [
+            'risposte'   => 'array',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];

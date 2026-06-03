@@ -443,7 +443,7 @@ export default function FAQGameModal({ isOpen, onClose }: { isOpen: boolean; onC
           num_vitelli: step0Data.numVitelli,
           risposte: rispostePayload,
           profilo_risultato: profile.subtitle,
-          modello_consigliato: recommendedModels,
+          modello_consigliato: recommendedModels.replace(/[\r\n]+/g, ' '),
           website: '', // honeypot
           _ts: ts,
         }),

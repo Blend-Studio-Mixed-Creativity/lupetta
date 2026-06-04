@@ -57,7 +57,7 @@ export default function Footer() {
                 { label: 'Lupetta Mini WiFi', to: '/come-funziona/mini' },
                 { label: 'Lupetta Maxi Tech', to: '/come-funziona/maxi' },
                 { label: 'Lupetta Smart Home', to: '/lupetta-smart-home' },
-                { label: 'Smart-Tag e Accessori', to: '/consumabile' },
+                { label: 'Linea latte', to: '/consumabile' },
               ].map((item) => (
                 <li key={item.to} className="group">
                   <Link
@@ -81,11 +81,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5 text-sm">
               {[
-                { label: 'Come Funziona', to: '/come-funziona' },
-                { label: 'I Benefici', to: '/benefici' },
-                { label: 'L\'Azienda', to: '/azienda' },
-                { label: 'Risorse & Download', to: '/risorse' },
-                { label: 'Domande Frequenti (FAQ)', to: '/faq' },
+                { label: 'Come funziona', to: '/come-funziona' },
+                { label: 'I benefici', to: '/benefici' },
+                { label: 'L\'azienda', to: '/azienda' },
+                { label: 'Domande frequenti (FAQ)', to: '/faq' },
                 { label: 'Contattaci', to: '/contatti' },
               ].map((item) => (
                 <li key={item.to} className="group">

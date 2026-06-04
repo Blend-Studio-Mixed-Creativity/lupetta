@@ -75,7 +75,7 @@ export default function BeneficiSection() {
             Perché scegliere <span className="montserrat-italic text-primary">Lupetta</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
-            Con Lupetta gestisci i tuoi vitelli in piccoli gruppi, garantendo più benessere agli animali e più risparmio per te — senza i costi elevati dei grandi impianti. La tecnologia che porta la tua stalla nel futuro con risultati misurabili.
+            Con Lupetta gestisci i tuoi vitelli singolarmente o in piccoli gruppi, garantendo più benessere agli animali e più risparmio per te — senza i costi elevati dei grandi impianti. Lupetta è la tecnologia che porta la tua stalla nel futuro con risultati{"\u00a0"}misurabili.
           </p>
         </motion.div>
 

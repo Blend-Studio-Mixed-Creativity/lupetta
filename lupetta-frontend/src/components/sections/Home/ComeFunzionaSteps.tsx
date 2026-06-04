@@ -190,7 +190,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
       />
 
       <div
-        className={`w-full flex flex-col md:flex-row items-center gap-5 sm:gap-6 lg:gap-10 xl:gap-16 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
+        className={`w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-start gap-5 sm:gap-6 lg:gap-10 xl:gap-16 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
       >
         {/* -- Giant number -- */}
         <div className="flex-shrink-0 relative select-none">

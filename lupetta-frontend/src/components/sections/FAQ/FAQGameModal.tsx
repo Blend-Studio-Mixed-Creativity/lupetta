@@ -769,7 +769,7 @@ export default function FAQGameModal({ isOpen, onClose }: { isOpen: boolean; onC
 
                           {/* Opzioni */}
                           <div className="space-y-2.5">
-                            {QUIZ_STEPS[currentStepIndex].options.map((opt, optIdx) => {
+                            {QUIZ_STEPS[currentStepIndex].options.map((opt) => {
                               const isSelected = selectedAnswers[QUIZ_STEPS[currentStepIndex].id] === opt.value;
                               return (
                                 <motion.button

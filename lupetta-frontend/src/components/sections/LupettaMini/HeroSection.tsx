@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
-import heroImg from '../../../assets/images/lupetta-mini-hero.webp';
+import heroImg from '../../../assets/images/shooting-slider/shooting-15.webp';
 import { Spotlight } from '../../ui/spotlight-new';
 
 export default function HeroSection() {

@@ -30,10 +30,10 @@ export default function HeroSection() {
           </span>
         </h1>
         <p className="text-lg md:text-xl text-white/70 max-w-5xl leading-relaxed animate-slide-up animate-stagger-3">
-         La gamma Lupetta è progettata per rispondere alle diverse esigenze degli allevatori. L’allattatrice per vitelli è disponibile nel modello Mini Wi-Fi e <span className="whitespace-nowrap">Maxi Tech.</span>
+          La gamma Lupetta è progettata per rispondere alle diverse esigenze degli allevatori. <br />L’allattatrice per vitelli è disponibile nel modello Mini Wi-Fi e <span className="whitespace-nowrap">Maxi Tech.</span>
         </p>
       </div>
-    </section>
+    </section >
   );
 }
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import Player from '@vimeo/player';
 import heroImg from '../../../assets/images/vitello1-lupetta.jpg';
@@ -145,7 +146,7 @@ export default function HeroSection() {
       </button>
 
       {/* Full video modal */}
-      {isVideoOpen && (
+      {isVideoOpen && createPortal(
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6"
           onClick={() => setIsVideoOpen(false)}
@@ -178,7 +179,8 @@ export default function HeroSection() {
               />
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

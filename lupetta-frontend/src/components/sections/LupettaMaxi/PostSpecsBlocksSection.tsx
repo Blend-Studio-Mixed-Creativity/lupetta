@@ -52,16 +52,11 @@ const BLOCKS: ContentBlock[] = [
 
 function ImageBox({ image, imageAlt }: Pick<ContentBlock, 'image' | 'imageAlt'>) {
   return (
-    <div className="render-card group relative h-72 sm:h-[400px] lg:h-[480px] flex items-center justify-center overflow-hidden rounded-3xl border border-white/80 bg-white/75 shadow-[0_30px_80px_-45px_rgba(0,96,113,0.75)] backdrop-blur-sm">
-      <div className="absolute inset-0 bg-linear-to-br from-white via-emerald-50/70 to-primary/10" />
-      <div className="absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-accent/70 to-transparent" />
-      <span className="absolute left-5 top-5 rounded-full border border-primary/10 bg-white/80 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-primary shadow-sm">
-        Render tecnico
-      </span>
+    <div className="group relative h-72 sm:h-[400px] lg:h-[480px] flex items-center justify-center">
       <img
         src={image}
         alt={imageAlt}
-        className="relative z-10 max-w-[92%] max-h-[84%] object-contain mix-blend-multiply drop-shadow-2xl transform transition-transform duration-500 group-hover:scale-[1.025]"
+        className="relative z-10 max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-2xl transform transition-transform duration-500 group-hover:scale-[1.035]"
       />
     </div>
   );

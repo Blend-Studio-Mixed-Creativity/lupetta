@@ -14,13 +14,13 @@ type Milestone = {
 const MILESTONES: Milestone[] = [
   {
     year: '2016',
-    title: 'Lupetta Individuale',
-    desc: 'Nasce il primo allattatore Lupetta dedicato al singolo vitello: la base di una nuova metodologia di somministrazione, frutto di anni di ricerca sul comportamento alimentare dell\u2019animale.',
+    title: 'Allattatrice individuale',
+    desc: 'Nasce la Lupetta dedicata al nutrimento del singolo vitello: la base di una nuova metodologia di somministrazione, frutto di anni di ricerca sul comportamento alimentare dell\u2019animale.',
     img: img2016,
   },
   {
     year: '2021',
-    title: 'Lupetta Monitoraggio WebApp',
+    title: 'App dedicata',
     desc: "Arriva la piattaforma di monitoraggio: l'allevatore controlla l'intero processo di svezzamento da smartphone e desktop, con dati raccolti in tempo reale.",
     img: img2021,
   },
@@ -33,7 +33,7 @@ const MILESTONES: Milestone[] = [
   {
     year: '2026',
     title: 'Lupetta Smart Home',
-    desc: "L'ambiente completo per il vitello: ricovero, alimentazione e monitoraggio integrati in un unico sistema modulare e scalabile.",
+    desc: "L'ambiente completo per il vitello: ricovero, alimentazione e monitoraggio integrati in un unico sistema modulare\u00a0e\u00a0scalabile.",
     img: img2026,
   },
 ];
@@ -176,6 +176,8 @@ function MilestoneRow({
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             letterSpacing: '-0.04em',
+            paddingRight: '0.15em',
+            marginRight: '-0.15em',
           }}
         >
           {m.year}

@@ -64,7 +64,7 @@ function CenteredTimeline() {
   const fillOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
 
   return (
-    <div ref={containerRef} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+    <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
       <div ref={lineRef} className="relative">
         {/* Grey background timeline track */}
         <div className="absolute left-6 md:left-1/2 top-0 w-0.5 h-full -translate-x-1/2 bg-white/10 rounded-full" />
@@ -135,7 +135,6 @@ function AnimatedStepCard({ step, isLeft }: { step: typeof STEPS[0]; isLeft: boo
             {step.icon}
           </div>
           <div>
-            <span className="text-xs font-bold tracking-[0.15em] uppercase text-accent block mb-1.5">{step.label}</span>
             <h4 className="text-xl font-bold text-white tracking-tight leading-snug">{step.heading}</h4>
           </div>
         </div>

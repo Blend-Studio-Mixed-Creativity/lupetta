@@ -116,8 +116,8 @@ export default function CapacitaSection() {
         }
       `}</style>
 
-      <div className="w-full relative bg-white pt-16 sm:pt-24 lg:pt-32 pb-0">
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 z-0 pt-0 pb-12 sm:pb-16">
+      <div className="w-full relative bg-white pt-24 sm:pt-32 lg:pt-48 pb-0">
+        <div className="relative w-full px-4 sm:px-6 lg:px-8 z-0 pt-0 pb-24 sm:pb-32 lg:pb-48">
           <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[1.02fr_0.98fr] gap-10 lg:gap-16 items-center">
             <div ref={refLeft} className={`w-full text-left ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
@@ -135,10 +135,10 @@ export default function CapacitaSection() {
               Capacità di alimentazione<br />
               <span className="montserrat-italic text-accent">e durata operativa</span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-4xl mb-6">
+            <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-4xl mb-8">
               La Lupetta Maxi Tech è progettata per gestire gruppi di vitelli da 4 fino a 8 vitelli con una capacità giornaliera di distribuzione di 64 litri di latte ricostituito per macchina.
             </p>
-            <div className="grid sm:grid-cols-2 gap-4 mb-8 max-w-4xl">
+            <div className="grid sm:grid-cols-2 gap-4 mb-12 max-w-4xl">
               {CAPACITY_CARDS.map((card) => (
                 <div
                   key={card.title}
@@ -174,7 +174,7 @@ export default function CapacitaSection() {
         </div>
 
         {/* Full screen card reveal */}
-        <div className="relative z-10 w-full lg:-mt-20" style={{ marginTop: '0' }}>
+        <div className="relative z-10 w-full mt-0">
           <div 
             ref={refRight} 
             className={`specs-card w-full flex flex-col justify-center py-10 sm:py-12 lg:py-16 px-3 sm:px-8 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
@@ -205,38 +205,49 @@ export default function CapacitaSection() {
               </div>
 
               {/* Specs list */}
-              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3" style={{ padding: '0 clamp(1.5rem, 4vw, 2.75rem) clamp(1.5rem, 4vw, 2.75rem)', background: 'transparent' }}>
+              <div style={{ padding: '0 clamp(1.5rem, 4vw, 2.75rem) clamp(1.5rem, 4vw, 2.75rem)', background: 'transparent' }}>
                 {SPECS.map((spec, i) => (
                   <div
                     key={i}
-                    className={`spec-grid-card group min-w-0 rounded-2xl p-5 transition-all duration-300 ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
+                    className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 group ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
                     style={{
+                      padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem)',
+                      borderBottom: i < SPECS.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
+                      transition: 'background 0.3s ease',
+                      borderRadius: 20,
                       animationDelay: `${(i + 1) * 150 + 100}ms`,
                     }}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+                    onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                   >
-                    <div className="mb-5 flex items-center gap-4">
+                    <div className="flex items-center gap-4 sm:gap-0 sm:block w-full sm:w-auto">
                       <div
                         style={{
-                          width: '52px',
-                          height: '52px',
-                          borderRadius: 16,
-                          background: 'linear-gradient(135deg, rgba(101,179,46,0.28), rgba(255,255,255,0.08))',
-                          border: '1px solid rgba(255,255,255,0.18)',
+                          width: 'clamp(56px, 10vw, 80px)',
+                          height: 'clamp(56px, 10vw, 80px)',
+                          borderRadius: 20,
+                          background: 'rgba(255,255,255,0.12)',
+                          border: '1.5px solid rgba(255,255,255,0.22)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           flexShrink: 0,
                         }}
                       >
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.92)">
+                        <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="rgba(255,255,255,0.9)">
                           <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
                         </svg>
                       </div>
+                      
+                      {/* Solo su mobile: label accanto all'icona */}
+                      <span className="sm:hidden font-medium" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem' }}>{spec.label}</span>
                     </div>
 
-                    <div className="min-w-0">
-                      <span className="block text-sm font-semibold uppercase tracking-[0.08em]" style={{ color: 'rgba(255,255,255,0.54)' }}>{spec.label}</span>
-                      <span className={`spec-value montserrat-heading mt-2 block max-w-full break-words font-bold tabular-nums leading-tight ${spec.value.length > 22 ? 'spec-value--long' : ''}`} style={{ color: '#ffffff', fontSize: 'clamp(1.2rem, 5.5vw, 1.75rem)', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
+                    <div className="flex-1 flex flex-row justify-between items-center w-full min-w-0">
+                      {/* Desktop: label a sinistra */}
+                      <span className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(1rem, 2.5vw, 1.35rem)', fontWeight: 500 }}>{spec.label}</span>
+                      
+                      <span className="montserrat-heading font-bold sm:ml-6 tabular-nums text-right w-full sm:w-auto" style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 4vw, 2.1rem)', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
                         {spec.value}
                       </span>
                     </div>

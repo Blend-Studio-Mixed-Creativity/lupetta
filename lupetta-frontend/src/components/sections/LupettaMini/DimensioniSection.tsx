@@ -82,9 +82,9 @@ export default function DimensioniSection() {
         }
       `}</style>
 
-      <div className="w-full relative bg-white pt-8 sm:pt-12 lg:pt-16 pb-0">
+      <div className="w-full relative bg-white pb-0">
         {/* Full screen intro text */}
-        <div className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 pt-0 pb-6 sm:pb-8">
+        <div className="relative w-full min-h-[44vh] sm:min-h-[50vh] lg:min-h-[58vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-0 py-20 sm:py-28 lg:py-40">
           <div ref={refLeft} className={`w-full text-center max-w-7xl mx-auto ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
             <span
               style={{
@@ -101,32 +101,35 @@ export default function DimensioniSection() {
               Compatta ed efficiente<br />
             </h2>
             <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-0">
-              La Lupetta Mini è progettata  per la gestione di vitelli in gabbia singola. È ideale per seguire il vitello dai primi giorni di vita fino a circa 90 giorni, garantendo una distribuzione costante e programmata del latte durante tutta la giornata..
+              Pratica, facile da applicare e adatta a tutti gli ambienti. L’installazione di Lupetta Mini non necessità di impianti, si applica con facilità e permette un rapido e immediato utilizzo grazie a una preimpostazione di fabbrica.
             </p>
-            
+
           </div>
         </div>
 
         {/* Full screen card reveal */}
-        <div className="relative z-10 w-full">
-          <div 
-            ref={refRight} 
+        <div className="relative z-10 w-full mt-0">
+          <div
+            ref={refRight}
             className={`specs-card w-full py-2 sm:py-4 lg:py-4 flex flex-col justify-center px-4 sm:px-12 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
-            style={{ borderRadius: '0' }}
+            style={{ borderRadius: '0', overflow: 'hidden' }}
           >
             <div className="w-full max-w-7xl mx-auto">
               {/* Card header */}
               <div
-                className={visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}
+                className={`text-center ${visRight ? 'spec-item-reveal opacity-0' : 'opacity-0'}`}
                 style={{
                   padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 4rem)',
                   borderBottom: '1px solid rgba(255,255,255,0.08)',
-                  background: 'linear-gradient(135deg, rgba(101,179,46,0.1) 0%, transparent 100%)',
+                  background: 'linear-gradient(180deg, rgba(101,179,46,0.1) 0%, transparent 100%)',
                   borderRadius: '32px 32px 0 0',
                   animationDelay: '100ms',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
                 }}
               >
-                <span className="montserrat-heading text-3xl sm:text-5xl md:text-5xl lg:text-6xl" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche tecniche</span>
+                <span className="montserrat-heading text-3xl sm:text-5xl md:text-5xl lg:text-6xl block" style={{ color: 'rgba(255,255,255,0.95)' }}>Specifiche tecniche</span>
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'clamp(0.85rem, 2.5vw, 1.15rem)', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '0.75rem' }}>
                   Versione MINI Wi-Fi
                 </p>
@@ -166,7 +169,7 @@ export default function DimensioniSection() {
                           <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
                         </svg>
                       </div>
-                      
+
                       {/* Solo su mobile: label accanto all'icona */}
                       <span className="sm:hidden font-medium" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem' }}>{spec.label}</span>
                     </div>
@@ -174,7 +177,7 @@ export default function DimensioniSection() {
                     <div className="flex-1 flex flex-row justify-between items-center w-full min-w-0">
                       {/* Desktop: label a sinistra */}
                       <span className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(1rem, 2.5vw, 1.35rem)', fontWeight: 500 }}>{spec.label}</span>
-                      
+
                       <span className="montserrat-heading font-bold sm:ml-6 tabular-nums text-right w-full sm:w-auto" style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 4vw, 2.1rem)', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
                         {spec.value}
                       </span>

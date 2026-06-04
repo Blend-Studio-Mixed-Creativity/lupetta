@@ -121,16 +121,7 @@ export default function ClosingSection() {
               </div>
             ))}
 
-            <div
-              className="pt-2 text-[#a5d97a] font-bold text-lg sm:text-xl"
-            style={{
-              opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(18px)',
-                transition: 'opacity 0.6s ease 1.05s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 1.05s',
-            }}
-          >
-              La natura insegna. Noi lo facciamo.
-            </div>
+
           </div>
         </div>
       </div>

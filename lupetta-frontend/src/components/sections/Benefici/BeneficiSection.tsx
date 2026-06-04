@@ -72,7 +72,7 @@ export default function BeneficiSection() {
         >
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">Vantaggi competitivi</span>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-tight">
-            Perché scegliere <span className="montserrat-italic text-primary">Lupetta Maxi</span>
+            Perché scegliere <span className="montserrat-italic text-primary">Lupetta</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             Con Lupetta gestisci i tuoi vitelli in piccoli gruppi, garantendo più benessere agli animali e più risparmio per te — senza i costi elevati dei grandi impianti. La tecnologia che porta la tua stalla nel futuro con risultati misurabili.

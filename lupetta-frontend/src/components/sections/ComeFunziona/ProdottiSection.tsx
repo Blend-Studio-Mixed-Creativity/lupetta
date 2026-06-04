@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
-import imgMini from '../../../assets/images/shooting-slider/shooting-15.webp';
-import imgMaxi from '../../../assets/images/shooting-slider/shooting-18.webp';
+import imgMini from '../../../assets/images/shooting-slider/shooting-16.webp';
+import imgMaxi from '../../../assets/images/shooting-slider/shooting-19.webp';
 
 
 
@@ -174,7 +174,7 @@ export default function ProdottiSection() {
                       <div
                         style={{
                           width: '100%',
-                          height: '300px',
+                          aspectRatio: '1100 / 740',
                           borderRadius: '1.25rem',
                           overflow: 'hidden',
                           position: 'relative',

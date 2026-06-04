@@ -13,7 +13,7 @@ export default function BasisSection() {
       style={{ minHeight: 'auto' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-center">
+         <div className="grid lg:grid-cols-2 gap-12 lg:gap-32 items-center">
 
           {/* Image */}
           <div

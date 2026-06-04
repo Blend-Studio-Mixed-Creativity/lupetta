@@ -45,15 +45,15 @@ export default function ComparativaSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div ref={ref} className={`text-center mb-14 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
+        <div ref={ref} className={`text-center mb-24 sm:mb-32 lg:mb-36 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
           <span style={{ color: '#65b32e', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
             Comparazione
           </span>
           <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight" style={{ color: '#ffffff', lineHeight: 1.1 }}>
             Mini <span className="montserrat-italic text-accent">vs</span> Maxi
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '36rem', margin: '1.5rem auto 0' }}>
-            Confronta le caratteristiche e le funzionalità di Lupetta Mini Wi-Fi e Lupetta Maxi Tech per trovare la soluzione ideale per il tuo allevamento.
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '46rem', margin: '1.5rem auto 0' }}>
+            Confronta le caratteristiche e le funzionalità di Lupetta Mini Wi-Fi e Lupetta Maxi Tech per trovare la soluzione ideale per il tuo&nbsp;allevamento.
           </p>
         </div>
 

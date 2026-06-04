@@ -73,9 +73,8 @@ export default function RenderShowcaseSection() {
                   whileInView={{ opacity: 1, x: 0, scale: 1 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true, amount: 0.3 }}
-                  className="w-full h-80 sm:h-[28rem] lg:h-[32rem] relative flex items-center justify-center rounded-[2.5rem] overflow-hidden bg-gradient-to-tr from-slate-200/50 via-slate-100/30 to-white/50 border border-white p-6 shadow-[0_20px_50px_rgba(0,96,113,0.05)] group"
+                  className="w-full h-80 sm:h-[28rem] lg:h-[32rem] relative flex items-center justify-center group"
                 >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(101,179,46,0.05)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <img
                     src={it.image}
                     alt={it.alt}

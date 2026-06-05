@@ -23,9 +23,11 @@ export default function HeroSection() {
           Lupetta
           <span className="text-accent block">MAXI tech</span>
         </h1>
+
         <p className="text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed">
-          Maggiore capacità di alimentazione per gruppi di vitelli
+          Grazie alla sua capacità operativa, è ideale per allevamenti da piccole a grandi dimensioni che mirano all’automazione senza rinunciare all’efficienza e al controllo avanzato.
         </p>
+
       </div>
     </section>
   );

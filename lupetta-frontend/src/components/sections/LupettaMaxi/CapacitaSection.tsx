@@ -120,63 +120,60 @@ export default function CapacitaSection() {
         <div className="relative w-full px-4 sm:px-6 lg:px-8 z-0 pt-0 pb-24 sm:pb-32 lg:pb-48">
           <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[1.02fr_0.98fr] gap-10 lg:gap-16 items-center">
             <div ref={refLeft} className={`w-full text-left ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
-            <span
-              style={{
-                color: '#65b32e',
-                fontWeight: 800,
-                fontSize: '0.875rem',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-              }}
-            >
-              Capacità e Autonomia
-            </span>
-            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-[1.06] max-w-5xl">
-              Capacità di alimentazione<br />
-              <span className="montserrat-italic text-accent">e durata operativa</span>
-            </h2>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-4xl mb-8">
-              La Lupetta Maxi Tech è progettata per gestire gruppi di vitelli da 4 fino a 8 vitelli con una capacità giornaliera di distribuzione di 64 litri di latte ricostituito per macchina.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mb-12 max-w-4xl">
-              {CAPACITY_CARDS.map((card) => (
-                <div
-                  key={card.title}
-                  className="capacity-card group relative overflow-hidden rounded-2xl px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-28px_rgba(0,96,113,0.75)]"
-                >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
-                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={card.iconPath} />
-                    </svg>
+              <span
+                style={{
+                  color: '#65b32e',
+                  fontWeight: 800,
+                  fontSize: '0.875rem',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Capacità e Autonomia
+              </span>
+              <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-[1.06] max-w-5xl">
+                Capacità di alimentazione<br />
+                <span className="montserrat-italic text-accent">e durata operativa</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-4xl mb-8">
+                La Lupetta Maxi Tech è progettata per gestire gruppi di vitelli da 4 fino a 8 vitelli con una capacità giornaliera di distribuzione di 64 litri di latte ricostituito per macchina.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-12 max-w-4xl">
+                {CAPACITY_CARDS.map((card) => (
+                  <div
+                    key={card.title}
+                    className="capacity-card group relative overflow-hidden rounded-2xl px-5 py-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-28px_rgba(0,96,113,0.75)]"
+                  >
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d={card.iconPath} />
+                      </svg>
+                    </div>
+                    <h3 className="montserrat-heading text-lg font-bold text-slate-900 mb-2">{card.title}</h3>
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{card.text}</p>
+                    <span className="absolute bottom-0 left-5 right-5 h-px bg-linear-to-r from-primary/0 via-accent/60 to-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </div>
-                  <h3 className="montserrat-heading text-lg font-bold text-slate-900 mb-2">{card.title}</h3>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{card.text}</p>
-                  <span className="absolute bottom-0 left-5 right-5 h-px bg-linear-to-r from-primary/0 via-accent/60 to-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-4xl">
-              Grazie alla sua capacità operativa, è ideale per allevamenti da piccole a grandi dimensioni che mirano all’automazione senza rinunciare all’efficienza e al controllo avanzato.
-            </p>
-          </div>
-          <div
-            className={`relative min-h-96 ${visLeft ? 'sr-reveal-right' : 'sr-hidden'}`}
-            style={{ animationDelay: '0.16s', minHeight: 'clamp(24rem, 40vw, 32.5rem)' }}
-          >
-            <div className="absolute inset-x-8 bottom-8 h-24 rounded-full bg-primary/10 blur-2xl" aria-hidden />
-            <img
-              src={renderCapacita}
-              alt="Render 3D della Lupetta Maxi Tech con serbatoio aperto"
-              className="absolute inset-0 w-full h-full object-contain mix-blend-multiply drop-shadow-2xl"
-            />
-          </div>
+            <div
+              className={`relative min-h-96 ${visLeft ? 'sr-reveal-right' : 'sr-hidden'}`}
+              style={{ animationDelay: '0.16s', minHeight: 'clamp(24rem, 40vw, 32.5rem)' }}
+            >
+              <div className="absolute inset-x-8 bottom-8 h-24 rounded-full bg-primary/10 blur-2xl" aria-hidden />
+              <img
+                src={renderCapacita}
+                alt="Render 3D della Lupetta Maxi Tech con serbatoio aperto"
+                className="absolute inset-0 w-full h-full object-contain mix-blend-multiply drop-shadow-2xl"
+              />
+            </div>
           </div>
         </div>
 
         {/* Full screen card reveal */}
         <div className="relative z-10 w-full mt-0">
-          <div 
-            ref={refRight} 
+          <div
+            ref={refRight}
             className={`specs-card w-full flex flex-col justify-center py-10 sm:py-12 lg:py-16 px-3 sm:px-8 lg:px-24 transition-all duration-1200 ease-out ${visRight ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
             style={{ borderRadius: '0', minHeight: 'clamp(52vh, 64vh, 780px)', paddingTop: 'clamp(2.5rem, 6vw, 4.5rem)' }}
           >
@@ -238,7 +235,7 @@ export default function CapacitaSection() {
                           <path strokeLinecap="round" strokeLinejoin="round" d={spec.iconPath} />
                         </svg>
                       </div>
-                      
+
                       {/* Solo su mobile: label accanto all'icona */}
                       <span className="sm:hidden font-medium" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem' }}>{spec.label}</span>
                     </div>
@@ -246,7 +243,7 @@ export default function CapacitaSection() {
                     <div className="flex-1 flex flex-row justify-between items-center w-full min-w-0">
                       {/* Desktop: label a sinistra */}
                       <span className="hidden sm:block" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 'clamp(1rem, 2.5vw, 1.35rem)', fontWeight: 500 }}>{spec.label}</span>
-                      
+
                       <span className="montserrat-heading font-bold sm:ml-6 tabular-nums text-right w-full sm:w-auto" style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 4vw, 2.1rem)', textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
                         {spec.value}
                       </span>

@@ -101,7 +101,7 @@ export default function DimensioniSection() {
               Compatta ed efficiente<br />
             </h2>
             <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-0">
-              Pratica, facile da applicare e adatta a tutti gli ambienti. L’installazione di Lupetta Mini non necessità di impianti, si applica con facilità e permette un rapido e immediato utilizzo grazie a una preimpostazione di fabbrica.
+              Pratica, facile da applicare e adatta a tutti gli ambienti. L’installazione di Lupetta Mini non necessita di impianti, si applica con facilità e permette un rapido e immediato utilizzo grazie a una preimpostazione di fabbrica.
             </p>
 
           </div>

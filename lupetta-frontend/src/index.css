@@ -176,24 +176,15 @@ body {
   [class*="blur-2xl"] {
     filter: blur(16px);
   }
-  /* Promozione a layer GPU senza toccare `transform` (molti blob usano
-     -translate-x/y per centrarsi): `will-change` basta a far compositare il
-     blob una volta, così lo scroll lo trasla soltanto senza repaint. */
+  /* Promozione a layer GPU dei SOLI blob decorativi (pochi, statici).
+     NB: NON promuoviamo gli elementi con stile inline di Framer Motion —
+     sono centinaia e un `will-change` globale esaurisce la memoria GPU
+     causando sfarfallio. Framer gestisce già da sé i propri layer.
+     Usiamo `will-change` (non `transform`) per non rompere i blob che si
+     centrano con -translate-x/y. */
   [class*="blur-3xl"],
   [class*="blur-2xl"] {
     will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-
-  /* Gli elementi animati con Framer Motion / transform vengono promossi a
-     layer dedicato per scroll-animation fluide (no repaint del subtree). */
-  [style*="translate"],
-  [style*="opacity"],
-  [style*="scale"] {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: transform, opacity;
   }
 
   /* BackgroundGradientAnimation: su mobile togliamo il filtro SVG "gooey"

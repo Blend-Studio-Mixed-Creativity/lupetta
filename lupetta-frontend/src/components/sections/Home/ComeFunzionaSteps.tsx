@@ -193,7 +193,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
         className={`w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-start gap-5 sm:gap-6 lg:gap-10 xl:gap-16 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
       >
         {/* -- Giant number -- */}
-        <div className="flex-shrink-0 relative select-none">
+        <div className={`flex-shrink-0 relative select-none w-full md:w-auto flex md:block ${isEven ? 'justify-start' : 'justify-end'}`}>
           {/* Shimmer sweep overlay */}
           <div
             className="absolute inset-0 pointer-events-none overflow-hidden rounded-sm"
@@ -243,7 +243,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
 
         {/* -- Text panel - clip-path curtain wipe -- */}
         <div
-          className="max-w-xl w-full"
+          className={`max-w-xl w-[88%] md:w-full ${isEven ? 'self-start md:self-auto text-left' : 'self-end md:self-auto text-right md:text-left'}`}
           style={{
             clipPath: visible
               ? 'inset(0 0% 0 0)'
@@ -302,7 +302,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
           </p>
 
           {/* Accent line + glow pulse */}
-          <div className="mt-5 h-[3px] rounded-full bg-[#65b32e]"
+          <div className={`mt-5 h-[3px] rounded-full bg-[#65b32e] ${isEven ? '' : 'ml-auto md:ml-0'}`}
             style={{
               width: visible ? '5rem' : '0',
               transition: `width 0.8s cubic-bezier(0.16,1,0.3,1) ${0.8 + totalWords * 0.08}s`,
@@ -354,7 +354,7 @@ export default function ComeFunzionaSteps() {
       {/* Heading */}
       <div
         ref={headingRef}
-        className="bg-white border-b border-slate-100 py-32 sm:py-40 lg:py-52 text-center overflow-hidden"
+        className="bg-white border-b border-slate-100 py-32 sm:py-40 lg:py-52 px-4 sm:px-6 lg:px-8 text-center overflow-hidden"
         style={{
           opacity: headingVisible ? 1 : 0,
           transform: headingVisible ? 'translateY(0)' : 'translateY(28px)',
@@ -371,7 +371,7 @@ export default function ComeFunzionaSteps() {
         >
           I vantaggi di Lupetta
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#006071] tracking-tight mt-3">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#006071] tracking-tight mt-3 mx-auto max-w-4xl text-balance">
           Meno stress per l’animale, <br/>
           <span className="montserrat-italic text-[#65b32e]">nutrimento sempre sotto controllo</span>
         </h2>

@@ -91,7 +91,7 @@ export default function MainLayout() {
         onClick={() => navigate(pathname === '/faq' ? '/faq?openGame=1' : '/faq?openGame=1')}
         title="Percorso guidato FAQ"
         className={`group fixed z-50 flex items-center gap-0 overflow-hidden rounded-full shadow-xl transition-all duration-500 hover:gap-2 hover:pr-5 hover:shadow-2xl cursor-pointer ${isHomeHeroActive
-            ? 'bottom-24 sm:bottom-28 lg:bottom-32 right-6 sm:right-8 lg:right-10'
+            ? 'bottom-6 sm:bottom-28 lg:bottom-32 right-6 sm:right-8 lg:right-10'
             : 'bottom-6 sm:bottom-8 lg:bottom-10 right-6 sm:right-8 lg:right-10'
           }`}
         style={{

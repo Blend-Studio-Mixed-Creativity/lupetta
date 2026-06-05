@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
@@ -55,6 +55,14 @@ export default function PanoramicaSection() {
   const { ref: headerRef, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
   const [active, setActive] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   function prev() { setActive(a => Math.max(0, a - 1)); }
   function next() { setActive(a => Math.min(total - 1, a + 1)); }
@@ -65,10 +73,10 @@ export default function PanoramicaSection() {
     // pos: -1, 0, 1 (clamped). Only the centered card is visible; siblings are fully hidden.
     const center = pos === 0;
     return {
-      x: `${pos * 58}%`,
-      scale: center ? 1 : 0.82,
-      rotateY: pos * -22,
-      z: center ? 0 : -180,
+      x: isMobile ? `${pos * 100}%` : `${pos * 58}%`,
+      scale: center ? 1 : (isMobile ? 0.92 : 0.82),
+      rotateY: isMobile ? 0 : pos * -22,
+      z: isMobile ? 0 : (center ? 0 : -180),
       opacity: center ? 1 : 0,
       zIndex: center ? 10 : 0,
     };
@@ -132,8 +140,8 @@ export default function PanoramicaSection() {
         <div
           className="relative select-none"
           style={{
-            height: 'clamp(340px, 46vw, 520px)',
-            perspective: '1600px',
+            height: 'clamp(380px, 46vw, 520px)',
+            perspective: isMobile ? 'none' : '1600px',
             perspectiveOrigin: '50% 50%',
           }}
         >
@@ -158,7 +166,7 @@ export default function PanoramicaSection() {
                   willChange: 'transform, opacity',
                 }}
                 animate={t}
-                transition={spring}
+                transition={isMobile ? { type: 'tween' as const, duration: 0.35, ease: 'easeOut' } : spring}
                 drag={isCenter ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.18}
@@ -170,14 +178,16 @@ export default function PanoramicaSection() {
                 <motion.div
                   className="w-full h-full rounded-[28px] flex flex-col relative overflow-hidden cursor-pointer"
                   onClick={() => { if (isCenter) setIsModalOpen(true); }}
-                  whileHover={isCenter ? { y: -6 } : undefined}
-                  transition={spring}
+                  whileHover={isCenter && !isMobile ? { y: -6 } : undefined}
+                  transition={isMobile ? { type: 'tween' as const, duration: 0.35, ease: 'easeOut' } : spring}
                   style={{
                     background: `${card.bgMesh}, linear-gradient(150deg, #ffffff 0%, #f8fafc 100%)`,
                     border: `1px solid rgba(255,255,255,0.9)`,
                     boxShadow: isCenter
-                      ? `0 50px 100px -20px ${card.glow}, 0 30px 60px -30px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,1)`
-                      : '0 20px 40px rgba(15,23,42,0.12)',
+                      ? (isMobile
+                          ? `0 16px 36px -8px ${card.glow}, 0 10px 20px -10px rgba(0,0,0,0.15)`
+                          : `0 50px 100px -20px ${card.glow}, 0 30px 60px -30px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,1)`)
+                      : '0 12px 24px rgba(15,23,42,0.08)',
                   }}
                 >
                   {/* Gradient border ring */}

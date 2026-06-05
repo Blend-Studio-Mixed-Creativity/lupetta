@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 @import 'tailwindcss';
 @plugin 'lightswind/plugin';
@@ -442,5 +442,71 @@ details[open] summary .faq-chevron { transform: rotate(180deg); }
 
 .slide-up-on-scroll.visible {
   animation: slideUp 0.6s ease-out forwards;
+}
+
+/* ─── Mobile Performance Optimizations for Keyframe Animations (< 768px) ─── */
+@media (max-width: 767px) {
+  /* Override animations to use light mobile-friendly keyframes without expensive blur and rotations */
+  .animate-fade-in { animation-name: fadeInMobile; }
+  .animate-slide-up { animation-name: slideUpMobile; }
+  .animate-slide-left { animation-name: slideInLeftMobile; }
+  .animate-slide-right { animation-name: slideInRightMobile; }
+  .animate-scale-in { animation-name: scaleInMobile; }
+  .animate-pop-in { animation-name: popInMobile; }
+
+  .sr-reveal-up { animation-name: revealUpMobile; }
+  .sr-reveal-left { animation-name: revealLeftMobile; }
+  .sr-reveal-right { animation-name: revealRightMobile; }
+  .sr-reveal-scale { animation-name: revealScaleMobile; }
+  
+  .fade-in-on-scroll.visible { animation-name: fadeInMobile; }
+  .slide-up-on-scroll.visible { animation-name: slideUpMobile; }
+
+  /* Disable expensive floating animations on mobile devices */
+  .sr-subtle-float, .animate-float, .animate-float-down {
+    animation: none !important;
+  }
+}
+
+/* Light mobile-friendly keyframe definitions */
+@keyframes fadeInMobile {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUpMobile {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeftMobile {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRightMobile {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleInMobile {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes popInMobile {
+  0%   { opacity: 0; transform: scale(0.96) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes revealUpMobile {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealLeftMobile {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes revealRightMobile {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes revealScaleMobile {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 

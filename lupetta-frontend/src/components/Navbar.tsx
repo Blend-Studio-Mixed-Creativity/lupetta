@@ -278,7 +278,7 @@ export default function Navbar() {
           <Link
             to="/"
             className={[
-              'relative z-[120] transition-all duration-500 ml-0',
+              'relative z-[120] transition-all duration-500 -ml-16 sm:ml-0',
               isOpen || scrolled ? 'opacity-0 -translate-x-4 pointer-events-none' : 'opacity-100 translate-x-0',
             ].join(' ')}
           >
@@ -375,7 +375,7 @@ export default function Navbar() {
 
         {/* ── Content ── */}
         <div className="relative z-10 h-full overflow-y-auto">
-          <div className="relative min-h-full flex flex-col justify-center px-4 sm:px-8 lg:px-16 xl:px-20 pt-20 lg:pt-24 pb-8 lg:pb-10">
+          <div className="relative min-h-full flex flex-col justify-center pl-3 pr-4 sm:px-8 lg:px-16 xl:px-20 pt-20 lg:pt-24 pb-8 lg:pb-10">
 
             <div className="w-full max-w-4xl">
               {/* Nav Links */}
@@ -389,7 +389,7 @@ export default function Navbar() {
                     onMouseEnter={() => setHoveredIndex(i)}
                     onMouseLeave={() => setHoveredIndex(null)}
                     className={[
-                      'group flex items-center gap-2 sm:gap-3 lg:gap-5 py-1 lg:py-1.5 px-4 rounded-xl transition-all',
+                      'group flex items-center gap-2 sm:gap-3 lg:gap-5 py-1.5 sm:py-2 pl-2 pr-4 sm:px-4 rounded-xl transition-all',
                       isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16',
                       'duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]',
                       'hover:bg-white/10',
@@ -398,12 +398,12 @@ export default function Navbar() {
                   >
                     {({ isActive }) => (
                       <>
-                        <span className="text-white/20 text-xs font-mono w-6 shrink-0 text-right tabular-nums">
+                        <span className="text-white/20 text-xs sm:text-sm font-mono w-6 shrink-0 text-right tabular-nums">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         <span
                           className={[
-                            'text-xl sm:text-2xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
+                            'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
                             isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-slate-300',
                           ].join(' ')}
                         >
@@ -416,14 +416,14 @@ export default function Navbar() {
 
                   {/* Sub-items */}
                   {item.children && (
-                    <div className="flex flex-col gap-0 pl-6 sm:pl-10 lg:pl-12 mb-0.5">
+                    <div className="flex flex-col gap-0 pl-5 sm:pl-10 lg:pl-12 mb-0.5">
                       {item.children.map((child, j) => (
                         <NavLink
                           key={child.to}
                           to={child.to}
                           onClick={() => setIsOpen(false)}
                           className={[
-                            'group/sub flex items-center gap-3 py-1 transition-all',
+                            'group/sub flex items-center gap-3 py-1.5 transition-all',
                             isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8',
                             'duration-600 ease-[cubic-bezier(0.23,1,0.32,1)]',
                           ].join(' ')}
@@ -439,7 +439,7 @@ export default function Navbar() {
                               />
                               <span
                                 className={[
-                                  'text-base lg:text-lg font-medium transition-colors duration-300 montserrat-heading',
+                                  'text-[1.05rem] sm:text-lg lg:text-lg font-medium transition-colors duration-300 montserrat-heading',
                                   isActive ? 'text-[#65b32e]' : 'text-white/50 group-hover/sub:text-slate-300',
                                 ].join(' ')}
                               >

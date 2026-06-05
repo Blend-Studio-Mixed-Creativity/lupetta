@@ -65,7 +65,7 @@ export default function RenderShowcaseSection() {
             return (
               <div
                 key={it.alt}
-                className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}
+                className={`grid min-[960px]:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-20 items-center ${reverse ? 'min-[960px]:[&>*:first-child]:order-2 lg:[&>*:first-child]:order-2' : ''}`}
               >
                 {/* Image Wrapper */}
                 <motion.div
@@ -73,7 +73,7 @@ export default function RenderShowcaseSection() {
                   whileInView={{ opacity: 1, x: 0, scale: 1 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true, amount: 0.3 }}
-                  className="w-full h-80 sm:h-[28rem] lg:h-[32rem] relative flex items-center justify-center group"
+                  className="w-full h-80 sm:h-[26rem] min-[960px]:h-[28rem] lg:h-[32rem] relative flex items-center justify-center group"
                 >
                   <img
                     src={it.image}

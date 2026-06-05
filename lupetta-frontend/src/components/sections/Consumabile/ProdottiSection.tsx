@@ -29,7 +29,7 @@ export default function ProdottiSection() {
       <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center mb-14 sm:mb-20">
+        <div className="grid min-[960px]:grid-cols-[1.05fr_0.95fr] lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center mb-14 sm:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -90,10 +90,78 @@ body {
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  section.min-h-screen {
-    min-height: 88svh;
+  section.min-h-screen,
+  .tablet-hero {
+    min-height: 88svh !important;
+  }
+
+  .tablet-nav-hover-media {
+    display: none;
+  }
+
+  .tablet-menu-shell {
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .tablet-menu-link {
+    min-height: 3.25rem;
+  }
+
+  .tablet-panorama-stage {
+    height: 610px;
+  }
+
+  [class*="blur-[120px]"],
+  [class*="blur-[150px]"] {
+    filter: blur(72px);
   }
 }
+
+@media (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+  section.min-h-screen,
+  .tablet-hero {
+    min-height: 92svh !important;
+  }
+
+  .tablet-menu-shell {
+    justify-content: flex-start;
+    padding-top: 4.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .tablet-menu-link {
+    min-height: 2.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .tablet-menu-link-label {
+    font-size: 1.55rem;
+  }
+
+  .tablet-menu-cta {
+    margin-top: 0.75rem;
+  }
+
+  .tablet-panorama-stage {
+    height: 500px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) and (hover: none) {
+  .card-hover:hover {
+    transform: none;
+  }
+
+  .sr-subtle-float,
+  .animate-float,
+  .animate-float-down {
+    animation: none !important;
+  }
+}
+
+
 
 /* ─── Ottimizzazioni performance MOBILE ───────────────────────────────
    Sui telefoni le animazioni andavano "a scatti": la causa principale sono
@@ -101,7 +169,7 @@ body {
    filtro blur è costosissimo sul GPU mobile e veniva RIDIPINTO ad ogni frame
    di scroll. Qui: 1) riduciamo il raggio del blur, 2) isoliamo i blob su un
    layer di compositing dedicato così lo scroll non li ripinge (li sposta soltanto). */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   [class*="blur-3xl"] {
     filter: blur(28px);
   }
@@ -121,9 +189,11 @@ body {
   /* Gli elementi animati con Framer Motion / transform vengono promossi a
      layer dedicato per scroll-animation fluide (no repaint del subtree). */
   [style*="translate"],
-  [style*="opacity"] {
+  [style*="opacity"],
+  [style*="scale"] {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    will-change: transform, opacity;
   }
 
   /* BackgroundGradientAnimation: su mobile togliamo il filtro SVG "gooey"
@@ -153,6 +223,50 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ─── LOW-POWER MODE ──────────────────────────────────────────────────
+   Attivata via JS (useLowPowerMode) su dispositivi datati/lenti, a prescindere
+   dalla larghezza schermo. Qui togliamo TUTTO ciò che costa di più al GPU e
+   che gira di continuo, mantenendo solo le animazioni d'entrata (transform/opacity)
+   che sono leggere. Obiettivo: scroll e reveal fluidi anche su hardware vecchio. */
+html.low-power [class*="backdrop-blur"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Blur decorativi: rimossi del tutto (sono solo estetici). */
+html.low-power [class*="blur-3xl"],
+html.low-power [class*="blur-2xl"],
+html.low-power [class*="blur-[120px]"],
+html.low-power [class*="blur-[150px]"],
+html.low-power [class*="blur-[100px]"] {
+  filter: none !important;
+}
+
+/* Animazioni continue/infinite: spente (pulse, float, orb del gradient, aurora). */
+html.low-power .animate-pulse,
+html.low-power [class*="animate-float"],
+html.low-power .sr-subtle-float,
+html.low-power .bga-orbs,
+html.low-power .bga-orbs > *,
+html.low-power [class*="animate-["] {
+  animation: none !important;
+}
+
+/* Transizioni lunghe accorciate: reattività immediata, niente coda lenta. */
+html.low-power *,
+html.low-power *::before,
+html.low-power *::after {
+  transition-duration: 0.2s !important;
+  animation-duration: 0.4s !important;
+}
+
+/* Niente effetti hover di sollevamento (ricalcolano ombre/layout). */
+html.low-power .card-hover:hover,
+html.low-power [class*="hover:-translate-y"]:hover,
+html.low-power [class*="hover:scale-"]:hover {
+  transform: none !important;
 }
 
 .text-balance {
@@ -513,8 +627,8 @@ details[open] summary .faq-chevron { transform: rotate(180deg); }
   animation: slideUp 0.6s ease-out forwards;
 }
 
-/* ─── Mobile Performance Optimizations for Keyframe Animations (< 768px) ─── */
-@media (max-width: 767px) {
+/* ─── Mobile & Tablet Performance Optimizations for Keyframe Animations (< 1024px) ─── */
+@media (max-width: 1024px) {
   /* Override animations to use light mobile-friendly keyframes without expensive blur and rotations */
   .animate-fade-in { animation-name: fadeInMobile; }
   .animate-slide-up { animation-name: slideUpMobile; }

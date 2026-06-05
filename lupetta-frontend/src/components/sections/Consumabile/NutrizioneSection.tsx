@@ -166,7 +166,7 @@ export default function NutrizioneSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mb-12 sm:mb-16">
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent">Composizione</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mt-4 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-white tracking-tight mt-4 mb-6 leading-tight">
             Valori nutrizionali e <span className="montserrat-italic text-accent">composizione</span>
           </h2>
           <p className="text-lg text-white/60 leading-relaxed">
@@ -174,7 +174,7 @@ export default function NutrizioneSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid min-[960px]:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
           <ProductPanel
             name="Latte MR Gold"
             badge="MR Gold"

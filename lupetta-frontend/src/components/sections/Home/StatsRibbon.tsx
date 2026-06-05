@@ -150,14 +150,14 @@ function StatCard({
 export default function StatsRibbon() {
   return (
     <section
-      className="relative flex flex-col justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 md:pt-36 pb-12 sm:pb-20 md:pb-28"
+      className="relative flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-8 pt-20 sm:pt-24 md:pt-24 lg:pt-36 pb-12 sm:pb-16 md:pb-20 lg:pb-28"
       style={{ background: 'linear-gradient(170deg, #f8fafc 0%, #f1f5f9 100%)' }}
     >
       <div className="max-w-6xl mx-auto w-full">
         {/* Section label */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <span className="text-[#006071] font-bold text-sm tracking-widest uppercase">I nostri numeri</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 montserrat-heading mt-3 sm:mt-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-slate-900 montserrat-heading mt-3 sm:mt-4 tracking-tight">
             Risultati che <span className="montserrat-italic text-[#006071]">parlano chiaro</span>
           </h2>
         </div>
@@ -184,7 +184,7 @@ export default function StatsRibbon() {
           }}
         >
           <span style={{ marginRight: '0.5rem' }} aria-hidden>📊</span>
-          Dati ottenuti incrociando report statistici dell'app<br className="hidden md:inline" /> e feedback di oltre 200 allevamenti in Italia
+          Dati ottenuti incrociando report statistici dell'app<br className="hidden lg:inline" /> e feedback di oltre 200 allevamenti in Italia
         </motion.div>
       </div>
     </section>

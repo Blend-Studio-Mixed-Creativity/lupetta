@@ -74,11 +74,11 @@ export default function TecnologiaSection() {
         </div>
 
         {/* Two-col: detail left + 3D carousel right */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center ${isVisible ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}>
+        <div className={`grid grid-cols-1 min-[960px]:grid-cols-2 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center ${isVisible ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}>
 
           {/* LEFT — active card detail */}
           <div
-            className="flex flex-col items-center text-center lg:items-start lg:text-left"
+            className="flex flex-col items-center text-center min-[960px]:items-start min-[960px]:text-left lg:items-start lg:text-left"
             style={{
               animation: animState === 'in'
                 ? 'cardFadeIn 0.45s cubic-bezier(0.16,1,0.3,1) both'
@@ -89,7 +89,7 @@ export default function TecnologiaSection() {
               NO.{String(active + 1).padStart(2, '0')} — {active + 1}/{total}
             </span>
 
-            <div className="mx-auto lg:mx-0" style={{ width: 68, height: 68, borderRadius: 20, background: `${tech.color}18`, border: `1.5px solid ${tech.color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', boxShadow: `0 8px 32px ${tech.glow}` }}>
+            <div className="mx-auto min-[960px]:mx-0 lg:mx-0" style={{ width: 68, height: 68, borderRadius: 20, background: `${tech.color}18`, border: `1.5px solid ${tech.color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem', boxShadow: `0 8px 32px ${tech.glow}` }}>
               <svg width={32} height={32} fill="none" viewBox="0 0 24 24" strokeWidth={1.4} stroke={tech.color}>
                 <path strokeLinecap="round" strokeLinejoin="round" d={tech.iconPath} />
               </svg>
@@ -99,7 +99,7 @@ export default function TecnologiaSection() {
               {tech.title}
             </h3>
 
-            <div className="w-24 lg:w-full max-w-sm" style={{ height: 2, background: `linear-gradient(90deg, ${tech.color}66, transparent)`, marginBottom: '1.5rem' }} />
+            <div className="w-24 min-[960px]:w-full lg:w-full max-w-sm" style={{ height: 2, background: `linear-gradient(90deg, ${tech.color}66, transparent)`, marginBottom: '1.5rem' }} />
 
             <p style={{ color: '#64748b', fontSize: '1.08rem', lineHeight: 1.8, marginBottom: '3rem' }}>
               {tech.desc}
@@ -110,9 +110,9 @@ export default function TecnologiaSection() {
               <button onClick={prev} disabled={active === 0} style={{ width: 48, height: 48, borderRadius: '50%', background: active === 0 ? '#e2e8f0' : `${tech.color}18`, border: `1.5px solid ${active === 0 ? '#e2e8f0' : tech.color + '44'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: active === 0 ? 'not-allowed' : 'pointer', opacity: active === 0 ? 0.3 : 1, transition: 'all 0.25s', color: tech.color }}>
                 <svg width={18} height={18} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
                   {/* Left (Mobile) */}
-                  <path strokeLinecap="round" strokeLinejoin="round" className="lg:hidden" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" className="min-[960px]:hidden lg:hidden" d="M15.75 19.5L8.25 12l7.5-7.5" />
                   {/* Up (Desktop) */}
-                  <path strokeLinecap="round" strokeLinejoin="round" className="hidden lg:block" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" className="hidden min-[960px]:block lg:block" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                 </svg>
               </button>
 
@@ -125,16 +125,16 @@ export default function TecnologiaSection() {
               <button onClick={next} disabled={active === total - 1} style={{ width: 48, height: 48, borderRadius: '50%', background: active === total - 1 ? '#e2e8f0' : `${tech.color}18`, border: `1.5px solid ${active === total - 1 ? '#e2e8f0' : tech.color + '44'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: active === total - 1 ? 'not-allowed' : 'pointer', opacity: active === total - 1 ? 0.3 : 1, transition: 'all 0.25s', color: tech.color }}>
                 <svg width={18} height={18} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
                   {/* Right (Mobile) */}
-                  <path strokeLinecap="round" strokeLinejoin="round" className="lg:hidden" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" className="min-[960px]:hidden lg:hidden" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   {/* Down (Desktop) */}
-                  <path strokeLinecap="round" strokeLinejoin="round" className="hidden lg:block" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" className="hidden min-[960px]:block lg:block" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
             </div>
           </div>
 
           {/* RIGHT — 3D vertical carousel */}
-          <div className="select-none hidden lg:block" style={{ height: 'clamp(320px, 36vw, 440px)', position: 'relative', perspective: '1000px', overflow: 'hidden', borderRadius: '2rem' }}>
+          <div className="select-none hidden min-[960px]:block lg:block" style={{ height: 'clamp(320px, 36vw, 440px)', position: 'relative', perspective: '1000px', overflow: 'hidden', borderRadius: '2rem' }}>
             {TECH_ITEMS.map((card, i) => {
               const pos = i - active;
               const clamped = Math.max(-1, Math.min(1, pos));

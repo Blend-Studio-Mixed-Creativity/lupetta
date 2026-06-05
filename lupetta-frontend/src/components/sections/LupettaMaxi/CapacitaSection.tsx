@@ -116,9 +116,9 @@ export default function CapacitaSection() {
         }
       `}</style>
 
-      <div className="w-full relative bg-white pt-24 sm:pt-32 lg:pt-48 pb-0">
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 z-0 pt-0 pb-24 sm:pb-32 lg:pb-48">
-          <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[1.02fr_0.98fr] gap-10 lg:gap-16 items-center">
+      <div className="w-full relative bg-white pt-20 sm:pt-24 md:pt-24 lg:pt-48 pb-0">
+        <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-8 z-0 pt-0 pb-20 sm:pb-24 md:pb-24 lg:pb-48">
+          <div className="w-full max-w-7xl mx-auto grid min-[960px]:grid-cols-[1.02fr_0.98fr] lg:grid-cols-[1.02fr_0.98fr] gap-10 lg:gap-16 items-center">
             <div ref={refLeft} className={`w-full text-left ${visLeft ? 'sr-reveal-up' : 'sr-hidden'}`}>
               <span
                 style={{
@@ -131,7 +131,7 @@ export default function CapacitaSection() {
               >
                 Capacità e Autonomia
               </span>
-              <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-[1.06] max-w-5xl">
+              <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mt-4 mb-6 leading-[1.06] max-w-5xl">
                 Capacità di alimentazione<br />
                 <span className="montserrat-italic text-accent">e durata operativa</span>
               </h2>

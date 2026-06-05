@@ -55,9 +55,53 @@ function useScrollRevealAll() {
   }, [pathname]);
 }
 
+/**
+ * Rileva i dispositivi a bassa potenza e applica la classe `low-power` su <html>.
+ * Combina due segnali:
+ *  1) Hardware hints (core CPU e RAM) — degradazione immediata, prima del paint.
+ *  2) Sonda FPS reale sui primi ~1.2s — se il device fa fatica davvero, degrada.
+ * In `low-power` il CSS disattiva effetti continui, blur decorativi e backdrop-blur,
+ * rendendo le animazioni fluide anche su telefoni/tablet datati.
+ */
+function useLowPowerMode() {
+  useEffect(() => {
+    const root = document.documentElement;
+    if (root.classList.contains('low-power')) return;
+
+    // 1) Hardware hints
+    const cores = navigator.hardwareConcurrency ?? 8;
+    // deviceMemory è non-standard: tipizzazione locale per evitare any.
+    const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
+    const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches ?? false;
+
+    if (cores <= 4 || mem <= 4 || (coarsePointer && cores <= 6)) {
+      root.classList.add('low-power');
+      return;
+    }
+
+    // 2) Sonda FPS: conta i frame per ~1.2s; se la media < 45fps → low-power.
+    let frames = 0;
+    let raf = 0;
+    const start = performance.now();
+    const sample = (now: number) => {
+      frames++;
+      const elapsed = now - start;
+      if (elapsed >= 1200) {
+        const fps = (frames / elapsed) * 1000;
+        if (fps < 45) root.classList.add('low-power');
+        return;
+      }
+      raf = requestAnimationFrame(sample);
+    };
+    raf = requestAnimationFrame(sample);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+}
+
 export default function MainLayout() {
   useScrollToTop();
   useScrollRevealAll();
+  useLowPowerMode();
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -91,8 +135,8 @@ export default function MainLayout() {
         onClick={() => navigate(pathname === '/faq' ? '/faq?openGame=1' : '/faq?openGame=1')}
         title="Percorso guidato FAQ"
         className={`group fixed z-50 flex items-center gap-0 overflow-hidden rounded-full shadow-xl transition-all duration-500 hover:gap-2 hover:pr-5 hover:shadow-2xl cursor-pointer ${isHomeHeroActive
-            ? 'bottom-6 sm:bottom-28 lg:bottom-32 right-6 sm:right-8 lg:right-10'
-            : 'bottom-6 sm:bottom-8 lg:bottom-10 right-6 sm:right-8 lg:right-10'
+          ? 'bottom-3 sm:top-24 sm:bottom-auto lg:top-auto lg:bottom-32 right-3 sm:right-8 lg:right-10'
+          : 'bottom-3 sm:bottom-8 lg:bottom-10 right-3 sm:right-8 lg:right-10'
           }`}
         style={{
           background: 'linear-gradient(135deg, #006071, #00c8a0)',

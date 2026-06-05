@@ -13,7 +13,7 @@ export default function BasisSection() {
       style={{ minHeight: 'auto' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-28 items-center">
+         <div className="grid min-[960px]:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-28 items-center">
           {/* Image */}
           <div
             className="relative"
@@ -47,7 +47,7 @@ export default function BasisSection() {
             <span className="text-[#006071] font-bold text-sm tracking-[0.32em] uppercase block mb-5">
               Le basi del progetto
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mb-8 leading-tight text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight mb-8 leading-tight text-balance">
               Nelle prime fasi di vita, ogni animale ha bisogno di pasti{' '}
               <span className="montserrat-italic text-accent">frequenti e moderati</span>.
             </h2>

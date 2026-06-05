@@ -7,7 +7,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative text-white overflow-hidden min-h-screen flex items-center"
+      className="tablet-hero relative text-white overflow-hidden min-h-screen flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.70) 0%, rgba(0,60,75,0.50) 100%)' }} />
@@ -23,8 +23,7 @@ export default function HeroSection() {
 
       <div
         ref={ref}
-        className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10"
-        style={{ paddingTop: '6rem', paddingBottom: '2rem' }}
+        className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-24 sm:py-28 lg:py-32 relative z-10"
       >
         {/* Badge */}
         <div

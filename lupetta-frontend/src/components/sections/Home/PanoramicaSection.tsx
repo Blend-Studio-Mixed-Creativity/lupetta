@@ -175,8 +175,7 @@ export default function PanoramicaSection() {
                 }}
               >
                 <motion.div
-                  className="w-full h-full rounded-[28px] flex flex-col relative overflow-hidden cursor-pointer"
-                  onClick={() => { if (isCenter) setIsModalOpen(true); }}
+                  className="w-full h-full rounded-[28px] flex flex-col relative overflow-hidden"
                   whileHover={isCenter && !isMobile ? { y: -6 } : undefined}
                   transition={isMobile ? { type: 'tween' as const, duration: 0.35, ease: 'easeOut' } : spring}
                   style={{
@@ -189,7 +188,7 @@ export default function PanoramicaSection() {
                       : '0 12px 24px rgba(15,23,42,0.08)',
                   }}
                 >
-                  {/* Gradient border ring */}
+                  {/* Gradient border ring (simplified for performance) */}
                   <div
                     style={{
                       position: 'absolute',
@@ -197,10 +196,6 @@ export default function PanoramicaSection() {
                       borderRadius: 28,
                       padding: 1.5,
                       background: `linear-gradient(135deg, ${card.color}55, transparent 40%, ${card.accent}33)`,
-                      WebkitMask:
-                        'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      maskComposite: 'exclude',
                       pointerEvents: 'none',
                     }}
                   />
@@ -319,32 +314,13 @@ export default function PanoramicaSection() {
                       {card.title}
                     </h3>
 
-                    <div className="hidden sm:block">
-                      <p style={{ color: 'rgba(51,65,85,0.92)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1rem' }}>
+                    <div className="block mt-2">
+                      <p style={{ color: 'rgba(51,65,85,0.92)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '0.75rem' }}>
                         {card.desc}
                       </p>
-                      <p style={{ color: 'rgba(100,116,139,0.85)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+                      <p className="hidden sm:block" style={{ color: 'rgba(100,116,139,0.85)', fontSize: '0.85rem', lineHeight: 1.5 }}>
                         {card.subdesc}
                       </p>
-                    </div>
-                    <div className="sm:hidden mt-2">
-                      <span
-                        className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full"
-                        style={{
-                          background: `linear-gradient(135deg, ${card.color}12, ${card.accent}12)`,
-                          border: `1px solid ${card.color}33`,
-                          color: card.color,
-                        }}
-                      >
-                        Tocca per leggere
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                          />
-                        </svg>
-                      </span>
                     </div>
 
                     <div

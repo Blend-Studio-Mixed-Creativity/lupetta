@@ -105,11 +105,11 @@ function AlternatingBlock({ block, index }: { block: ContentBlock; index: number
         </>
       )}
       <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid min-[960px]:grid-cols-12 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Text Column */}
-          <div className={`lg:col-span-7 ${block.reverse ? 'lg:order-2' : ''} ${isVisible ? textAnimation : 'sr-hidden'}`}>
+          <div className={`min-[960px]:col-span-7 lg:col-span-7 ${block.reverse ? 'min-[960px]:order-2 lg:order-2' : ''} ${isVisible ? textAnimation : 'sr-hidden'}`}>
             <span className="text-accent font-bold text-sm tracking-[0.18em] uppercase block mb-2">{block.eyebrow}</span>
-            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-[1.1] mb-8">
+            <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-[1.1] mb-8">
               {block.title}<br />
               <span className="montserrat-italic text-primary">{block.accent}</span>
             </h2>
@@ -131,7 +131,7 @@ function AlternatingBlock({ block, index }: { block: ContentBlock; index: number
           </div>
 
           {/* Image Column */}
-          <div className={`lg:col-span-5 ${block.reverse ? 'lg:order-1' : ''} ${isVisible ? imageAnimation : 'sr-hidden'}`} style={{ animationDelay: '0.12s' }}>
+          <div className={`min-[960px]:col-span-5 lg:col-span-5 ${block.reverse ? 'min-[960px]:order-1 lg:order-1' : ''} ${isVisible ? imageAnimation : 'sr-hidden'}`} style={{ animationDelay: '0.12s' }}>
             <ImageBox image={block.image} imageAlt={block.imageAlt} />
           </div>
         </div>

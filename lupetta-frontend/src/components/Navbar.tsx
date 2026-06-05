@@ -342,7 +342,7 @@ export default function Navbar() {
         {NAV_IMAGES.map((img, i) => (
           <div
             key={i}
-            className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+            className="tablet-nav-hover-media absolute inset-0 pointer-events-none transition-opacity duration-500"
             style={{ opacity: hoveredIndex === i ? 1 : 0 }}
           >
             <img src={img} alt="" className="w-full h-full object-cover" />
@@ -375,7 +375,7 @@ export default function Navbar() {
 
         {/* ── Content ── */}
         <div className="relative z-10 h-full overflow-y-auto">
-          <div className="relative min-h-full flex flex-col justify-center pl-3 pr-4 sm:px-8 lg:px-16 xl:px-20 pt-20 lg:pt-24 pb-8 lg:pb-10">
+          <div className="tablet-menu-shell relative min-h-full flex flex-col justify-center pl-3 pr-4 sm:px-8 lg:px-16 xl:px-20 pt-20 lg:pt-24 pb-8 lg:pb-10">
 
             <div className="w-full max-w-4xl">
               {/* Nav Links */}
@@ -389,7 +389,7 @@ export default function Navbar() {
                     onMouseEnter={() => setHoveredIndex(i)}
                     onMouseLeave={() => setHoveredIndex(null)}
                     className={[
-                      'group flex items-center gap-2 sm:gap-3 lg:gap-5 py-1.5 sm:py-2 pl-2 pr-4 sm:px-4 rounded-xl transition-all',
+                      'tablet-menu-link group flex items-center gap-2 sm:gap-3 lg:gap-5 py-1.5 sm:py-2 pl-2 pr-4 sm:px-4 rounded-xl transition-all',
                       isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16',
                       'duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]',
                       'hover:bg-white/10',
@@ -403,7 +403,7 @@ export default function Navbar() {
                         </span>
                         <span
                           className={[
-                            'text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
+                            'tablet-menu-link-label text-2xl sm:text-3xl lg:text-[2.1rem] xl:text-[2.4rem] font-bold tracking-tight transition-all duration-300 leading-tight montserrat-heading',
                             isActive ? 'text-[#65b32e]' : 'text-white group-hover:text-slate-300',
                           ].join(' ')}
                         >
@@ -458,7 +458,7 @@ export default function Navbar() {
               {/* Bottom — CTA + Secondary Links */}
               <div
                 className={[
-                  'mt-6 lg:mt-8 ml-10 sm:ml-12 lg:ml-[4.5rem] flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-700',
+                  'tablet-menu-cta mt-6 lg:mt-8 ml-10 sm:ml-12 lg:ml-[4.5rem] flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-700',
                   isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
                 ].join(' ')}
                 style={{ transitionDelay: isOpen ? '850ms' : '0ms' }}

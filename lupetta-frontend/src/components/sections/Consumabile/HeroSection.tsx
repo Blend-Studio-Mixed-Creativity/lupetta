@@ -4,7 +4,7 @@ import { Spotlight } from '../../ui/spotlight-new';
 export default function HeroSection() {
   return (
     <section
-      className="relative text-white overflow-hidden min-h-screen flex items-center"
+      className="tablet-hero relative text-white overflow-hidden min-h-screen flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.68) 0%, rgba(0,30,40,0.48) 100%)' }} />
@@ -29,7 +29,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-36 relative z-10 w-full text-left">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8 pt-24 sm:pt-28 md:pt-28 pb-20 sm:pb-28 md:pb-28 lg:pb-36 relative z-10 w-full text-left">
         <span className="inline-block py-2 px-5 rounded-full bg-accent/10 border border-accent/30 text-white text-sm font-semibold tracking-widest uppercase mb-8">
           Linea Latte
         </span>

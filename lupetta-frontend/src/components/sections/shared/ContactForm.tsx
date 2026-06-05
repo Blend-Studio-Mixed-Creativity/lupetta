@@ -311,7 +311,7 @@ export default function ContactForm({
   );
 
   const innerGrid = (
-    <div className="relative grid lg:grid-cols-2 gap-10 lg:gap-16 p-6 sm:p-10 md:p-14 lg:p-20 items-stretch">
+    <div className="relative grid min-[960px]:grid-cols-2 gap-10 min-[960px]:gap-10 lg:gap-16 p-6 sm:p-10 md:p-10 lg:p-20 items-stretch">
       {/* Left: copy */}
       <div className="flex flex-col justify-between">
         <div>
@@ -321,7 +321,7 @@ export default function ContactForm({
           </span>
         )}
         {title && (
-          <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-8 leading-tight text-balance text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl tracking-tight mb-8 leading-tight text-balance text-white">
             {title}
           </h2>
         )}

@@ -53,7 +53,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative isolate overflow-hidden text-white min-h-screen flex items-center justify-start"
+      className="tablet-hero relative isolate overflow-hidden text-white min-h-screen flex items-center justify-start"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Background Vimeo video (muted/looping) */}
@@ -92,7 +92,7 @@ export default function HeroSection() {
       {/* Grid pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
 
-      <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:py-32 md:py-40 lg:py-56 text-left relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8 pt-28 pb-16 sm:py-28 md:py-28 lg:py-56 text-left relative z-10">
         <span className="inline-block py-2.5 px-6 rounded-2xl sm:rounded-full bg-[#65b32e]/10 border border-[#65b32e]/30 text-white text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-6 sm:mb-8 lg:mb-12 shadow-2xl backdrop-blur-md text-left leading-relaxed">
           <span className="bg-gradient-to-r from-emerald-300 to-[#65b32e] bg-clip-text text-transparent inline-block animate-pulse">Tecnologia</span><br className="sm:hidden" /> al servizio della tua stalla
         </span>
@@ -108,7 +108,7 @@ export default function HeroSection() {
         <div className="w-full flex flex-col sm:flex-row justify-start items-stretch sm:items-center gap-3.5 sm:gap-6">
           <Link
             to="/come-funziona"
-            className="group relative flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 bg-gradient-to-b from-[#65b32e] to-[#4fa028] text-white font-bold rounded-2xl shadow-[0_0_40px_rgba(101,179,46,0.5)] transition-all duration-500 sm:hover:scale-105 sm:hover:-translate-y-2 active:scale-95 sm:hover:shadow-[0_20px_60px_rgba(101,179,46,0.7)] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl overflow-hidden text-center"
+            className="group relative flex items-center justify-center w-full sm:w-auto px-6 sm:px-7 lg:px-10 py-3.5 sm:py-4 lg:py-5 bg-gradient-to-b from-[#65b32e] to-[#4fa028] text-white font-bold rounded-2xl shadow-[0_0_40px_rgba(101,179,46,0.5)] transition-all duration-500 sm:hover:scale-105 sm:hover:-translate-y-2 active:scale-95 sm:hover:shadow-[0_20px_60px_rgba(101,179,46,0.7)] text-sm sm:text-base md:text-base lg:text-xl xl:text-2xl overflow-hidden text-center"
           >
             <span className="relative z-10 flex items-center justify-center">
               Sistema brevettato Lupetta®
@@ -121,7 +121,7 @@ export default function HeroSection() {
           </Link>
           <Link
             to="/monitoraggio"
-            className="group relative flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white/40 transition-all duration-500 sm:hover:scale-105 sm:hover:-translate-y-2 active:scale-95 sm:hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl overflow-hidden text-center"
+            className="group relative flex items-center justify-center w-full sm:w-auto px-6 sm:px-7 lg:px-10 py-3.5 sm:py-4 lg:py-5 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white/40 transition-all duration-500 sm:hover:scale-105 sm:hover:-translate-y-2 active:scale-95 sm:hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] text-sm sm:text-base md:text-base lg:text-xl xl:text-2xl overflow-hidden text-center"
           >
             <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-500" />
             <span className="relative z-10 flex items-center justify-center">Casi studio reali</span>
@@ -147,7 +147,7 @@ export default function HeroSection() {
         type="button"
         onClick={() => setIsVideoOpen(true)}
         aria-label="Guarda il video completo"
-        className="group absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10 z-20 hidden sm:flex items-center gap-3 pl-4 pr-5 sm:pl-5 sm:pr-6 py-3 sm:py-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/25 text-white font-semibold shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:bg-white/20 hover:border-white/50 sm:hover:scale-105 active:scale-95 transition-all duration-300"
+        className="group absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10 z-20 hidden sm:flex items-center gap-3 pl-4 pr-5 sm:pl-4 sm:pr-5 lg:pl-5 lg:pr-6 py-3 sm:py-3 lg:py-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/25 text-white font-semibold shadow-[0_10px_40px_rgba(0,0,0,0.35)] hover:bg-white/20 hover:border-white/50 sm:hover:scale-105 active:scale-95 transition-all duration-300"
       >
         <span className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-b from-[#65b32e] to-[#4fa028] shadow-[0_0_20px_rgba(101,179,46,0.6)]">
           <span className="absolute inset-0 rounded-full bg-[#65b32e]/40 animate-ping" />

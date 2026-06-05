@@ -5,7 +5,7 @@ import { Spotlight } from '../../ui/spotlight-new';
 export default function HeroSection() {
   return (
     <section
-      className="relative text-white overflow-hidden min-h-screen flex items-center"
+      className="tablet-hero relative text-white overflow-hidden min-h-screen flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.65) 0%, rgba(0,60,75,0.45) 100%)' }} />
@@ -17,7 +17,7 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-36 relative z-10 w-full text-left">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8 pt-24 sm:pt-28 md:pt-28 pb-20 sm:pb-28 md:pb-28 lg:pb-36 relative z-10 w-full text-left">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

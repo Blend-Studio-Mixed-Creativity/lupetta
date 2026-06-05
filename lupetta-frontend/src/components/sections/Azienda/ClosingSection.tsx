@@ -46,7 +46,7 @@ export default function ClosingSection() {
       />
 
       <div className="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 text-white">
-        <div className="grid lg:grid-cols-[1fr_0.85fr] gap-10 lg:gap-16 items-center">
+        <div className="grid min-[960px]:grid-cols-[1fr_0.9fr] lg:grid-cols-[1fr_0.85fr] gap-10 lg:gap-16 items-center">
           <div>
             <span
               className="text-[#a5d97a] font-bold text-sm tracking-widest uppercase block mb-5"
@@ -59,7 +59,7 @@ export default function ClosingSection() {
               Natura + tecnologia
             </span>
             <h2
-              className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl tracking-tight leading-tight text-balance max-w-4xl"
+              className="text-4xl sm:text-5xl md:text-4xl min-[960px]:text-5xl lg:text-7xl tracking-tight leading-tight text-balance max-w-4xl"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',

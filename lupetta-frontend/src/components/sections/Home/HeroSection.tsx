@@ -94,7 +94,7 @@ export default function HeroSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8 pt-28 pb-16 sm:py-28 md:py-28 lg:py-56 text-left relative z-10">
         <span className="inline-block py-2.5 px-6 rounded-2xl sm:rounded-full bg-[#65b32e]/10 border border-[#65b32e]/30 text-white text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-6 sm:mb-8 lg:mb-12 shadow-2xl backdrop-blur-md text-left leading-relaxed">
-          <span className="bg-gradient-to-r from-emerald-300 to-[#65b32e] bg-clip-text text-transparent inline-block animate-pulse">Tecnologia</span><br className="sm:hidden" /> al servizio della tua stalla
+          <span className="text-[#8fd44e] sm:bg-gradient-to-r sm:from-emerald-300 sm:to-[#65b32e] sm:bg-clip-text sm:text-transparent inline-block animate-pulse">Tecnologia</span><br className="sm:hidden" /> al servizio della tua stalla
         </span>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-5 sm:mb-6 md:mb-8 montserrat-italic text-balance text-left">
           <span className="block text-white">

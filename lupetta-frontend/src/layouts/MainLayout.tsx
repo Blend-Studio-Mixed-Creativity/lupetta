@@ -74,7 +74,8 @@ function useLowPowerMode() {
     const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
     const coarsePointer = window.matchMedia?.('(pointer: coarse)').matches ?? false;
 
-    if (cores <= 4 || mem <= 4 || (coarsePointer && cores <= 6)) {
+    // iPhone 7 = 2 core, 2GB RAM, touch. Soglia deliberatamente generosa.
+    if (cores <= 4 || mem <= 2 || (coarsePointer && cores <= 6)) {
       root.classList.add('low-power');
       return;
     }
@@ -88,7 +89,7 @@ function useLowPowerMode() {
       const elapsed = now - start;
       if (elapsed >= 1200) {
         const fps = (frames / elapsed) * 1000;
-        if (fps < 45) root.classList.add('low-power');
+        if (fps < 50) root.classList.add('low-power');
         return;
       }
       raf = requestAnimationFrame(sample);

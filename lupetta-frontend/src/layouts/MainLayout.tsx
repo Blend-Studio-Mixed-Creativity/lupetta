@@ -106,21 +106,24 @@ export default function MainLayout() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const [isHomeHeroActive, setIsHomeHeroActive] = useState(pathname === '/');
+  const [isHomeHeroInViewport, setIsHomeHeroInViewport] = useState(
+    () => typeof window === 'undefined' || window.scrollY < 200,
+  );
+  const isHomeHeroActive = pathname === '/' && isHomeHeroInViewport;
 
   useEffect(() => {
-    if (pathname !== '/') {
-      setIsHomeHeroActive(false);
-      return;
-    }
+    if (pathname !== '/') return;
 
     const handleScroll = () => {
-      setIsHomeHeroActive(window.scrollY < 200);
+      setIsHomeHeroInViewport(window.scrollY < 200);
     };
 
-    handleScroll();
+    const initialFrame = requestAnimationFrame(handleScroll);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [pathname]);
 
   return (

@@ -88,7 +88,7 @@ export default function FeatureHighlight() {
 
       {/* FULL BLEED / FULL SCREEN IMAGE */}
       <div 
-        className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] my-12 sm:my-16 md:my-20 overflow-hidden relative shadow-[inset_0_10px_30px_rgba(0,0,0,0.06),inset_0_-10px_30px_rgba(0,0,0,0.06)] bg-slate-100"
+        className="w-full h-[50vh] sm:h-[56vh] md:h-[58vh] lg:h-[80vh] my-12 sm:my-16 md:my-20 overflow-hidden relative shadow-[inset_0_10px_30px_rgba(0,0,0,0.06),inset_0_-10px_30px_rgba(0,0,0,0.06)] bg-slate-100"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? 'translateY(0)' : 'translateY(30px)',
@@ -172,11 +172,11 @@ export default function FeatureHighlight() {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {PARAMS.map((p, i) => (
                 <div
                   key={p.label}
-                  className="group relative rounded-2xl bg-white border border-slate-200/80 px-5 py-8 sm:py-10 flex flex-col items-center text-center cursor-default transition-all duration-500 hover:-translate-y-2 hover:border-[#65b32e]/60 hover:shadow-[0_20px_50px_-15px_rgba(101,179,46,0.55)]"
+                  className={`group relative rounded-2xl bg-white border border-slate-200/80 px-5 py-8 sm:py-10 flex flex-col items-center text-center cursor-default transition-all duration-500 hover:-translate-y-2 hover:border-[#65b32e]/60 hover:shadow-[0_20px_50px_-15px_rgba(101,179,46,0.55)] ${i === PARAMS.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:max-w-xl sm:w-full sm:mx-auto lg:max-w-none' : ''}`}
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
@@ -225,15 +225,15 @@ export default function FeatureHighlight() {
         >
           <span className="font-semibold text-slate-800">Ritardi ai pasti</span>,{' '}
           <span className="font-semibold text-slate-800">velocità di suzione</span> e{' '}
-          <span className="font-semibold text-slate-800">avanzi giornalieri</span><br className="hidden md:inline" /> sono i principali fattori che il dispositivo analizza per personalizzare il piano alimentare.
+          <span className="font-semibold text-slate-800">avanzi giornalieri</span><br className="hidden lg:inline" /> sono i principali fattori che il dispositivo analizza per personalizzare il piano alimentare.
         </p>
 
         {/* Features check list */}
-        <ul className="mt-12 sm:mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full mx-auto">
+        <ul className="mt-12 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mx-auto">
           {FEATURES.map((item, i) => (
             <li
               key={i}
-              className="flex flex-col items-center text-center gap-3 px-4"
+              className={`flex flex-col items-center text-center gap-3 px-4 ${i === FEATURES.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:max-w-xl sm:w-full sm:mx-auto lg:max-w-none' : ''}`}
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',

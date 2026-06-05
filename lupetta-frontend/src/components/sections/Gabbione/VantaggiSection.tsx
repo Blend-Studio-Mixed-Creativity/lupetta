@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import type { ReactNode } from 'react';
 
 const VANTAGGI = [
   {
@@ -31,7 +32,7 @@ const VANTAGGI = [
     ),
   },
   {
-    title: 'Adattabile dal giorno 1 al giorno 150',
+    title: (<>Adattabile dal giorno <br className="sm:hidden" /> 1 al giorno 150</>) as ReactNode,
     desc: 'Lupetta Smart Home accompagna il vitello dalla primissima fase di vita fino a uno sviluppo più avanzato, adattandosi alle diverse esigenze di crescita. Questo permette una gestione più continua e coerente nel tempo.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
@@ -96,7 +97,7 @@ export default function VantaggiSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {VANTAGGI.map((item, i) => (
             <motion.div
-              key={item.title}
+              key={i}
               initial={{ opacity: 0, y: 30, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}

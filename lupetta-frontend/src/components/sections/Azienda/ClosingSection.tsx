@@ -59,7 +59,7 @@ export default function ClosingSection() {
               Natura + tecnologia
             </span>
             <h2
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight text-balance max-w-4xl"
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl tracking-tight leading-tight text-balance max-w-4xl"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',

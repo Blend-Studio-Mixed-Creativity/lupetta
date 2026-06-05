@@ -53,10 +53,10 @@ export default function TestimonianzeSection() {
               {/* Badges */}
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md border border-slate-200">
-                  Casalmorano
+                  Andrea
                 </span>
                 <span className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 bg-primary/10 text-primary rounded-md border border-primary/20">
-                  Capo Stalla
+                  Lombardia
                 </span>
               </div>
 
@@ -109,7 +109,7 @@ export default function TestimonianzeSection() {
                   Emma
                 </span>
                 <span className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 bg-primary/10 text-primary rounded-md border border-primary/20">
-                  Allevatrice
+                  Piemonte
                 </span>
               </div>
 

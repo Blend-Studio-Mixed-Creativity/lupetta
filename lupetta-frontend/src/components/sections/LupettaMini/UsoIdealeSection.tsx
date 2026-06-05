@@ -139,11 +139,11 @@ export default function UsoIdealeSection() {
             transform-style: preserve-3d;
           }
         `}</style>
-        <div ref={refGrid} className="grid md:grid-cols-3 gap-8 justify-center" style={{ perspective: '1200px' }}>
+        <div ref={refGrid} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center" style={{ perspective: '1200px' }}>
           {USI.map((use, i) => (
             <div
               key={i}
-              className={`uiverse-card ${visGrid ? 'sr-reveal-scale' : 'sr-hidden'}`}
+              className={`uiverse-card ${i === USI.length - 1 ? 'sm:col-span-2 lg:col-span-1' : ''} ${visGrid ? 'sr-reveal-scale' : 'sr-hidden'}`}
               style={{ animationDelay: `${i * 0.13}s` }}
             >
               <div className="uiverse-card-content">

@@ -34,6 +34,7 @@ type Item = (typeof ITEMS)[number];
 function TiltCard({ item, onOpen, index }: { item: Item; onOpen: () => void; index: number }) {
   return (
     <motion.div
+      className={index === ITEMS.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:max-w-xl sm:w-full sm:mx-auto lg:max-w-none' : ''}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.15, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
@@ -89,7 +90,8 @@ function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+        className="fixed inset-0 z-[60] flex items-center justify-center px-4 sm:px-8"
+        style={{ paddingTop: 'max(5rem, env(safe-area-inset-top, 5rem))', paddingBottom: '1.5rem' }}
         onClick={onClose}
       >
         {/* Backdrop */}
@@ -97,25 +99,26 @@ function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
 
         {/* Panel */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          initial={{ opacity: 0, scale: 0.93, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 30 }}
-          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl"
-          style={{ background: 'rgba(11,26,32,0.95)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}
+          exit={{ opacity: 0, scale: 0.93, y: 16 }}
+          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+          className="relative z-10 w-full max-w-2xl max-h-full overflow-y-auto rounded-3xl"
+          style={{ background: 'rgba(11,26,32,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}
           onClick={e => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="relative px-6 sm:px-8 py-8 sm:py-10 overflow-hidden" style={{ background: `linear-gradient(135deg, ${item.color}22 0%, transparent 100%)`, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+          {/* Header */}
+          <div className="relative px-5 sm:px-8 py-5 sm:py-10 overflow-hidden" style={{ background: `linear-gradient(135deg, ${item.color}22 0%, transparent 100%)`, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
             <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
             <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full blur-3xl opacity-20" style={{ background: item.color }} />
-            <div className="relative flex items-center gap-4 sm:gap-6 pr-10">
-              <div className="rounded-2xl flex items-center justify-center shrink-0" style={{ width: '4.5rem', height: '4.5rem', background: `${item.color}25`, border: `1px solid ${item.color}40` }}>
-                <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.3} stroke={item.color}>
+            <div className="relative flex items-center gap-3 sm:gap-6 pr-12">
+              <div className="rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0" style={{ width: '3rem', height: '3rem', minWidth: '3rem', background: `${item.color}25`, border: `1px solid ${item.color}40` }}>
+                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.3} stroke={item.color}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
                 </svg>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white leading-tight">{item.title}</h2>
+              <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold text-white leading-tight">{item.title}</h2>
             </div>
             <button onClick={onClose} className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors" style={{ background: 'rgba(255,255,255,0.1)' }}>
               <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -143,7 +146,7 @@ function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
           </div>
 
           {/* Footer */}
-          <div className="px-6 sm:px-10 pb-8 sm:pb-10">
+          <div className="px-6 sm:px-10 pb-10 sm:pb-10" style={{ paddingBottom: 'max(2.5rem, env(safe-area-inset-bottom, 2.5rem))' }}>
             <button
               onClick={onClose}
               className="w-full py-3.5 rounded-xl text-lg font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
@@ -181,7 +184,7 @@ export default function ProgrammazioneSection() {
             Programmazione della <span className="montserrat-italic" style={{ color: '#65b32e' }}>somministrazione</span>
           </h2>
         </motion.div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ITEMS.map((item, i) => (
             <TiltCard key={i} item={item} index={i} onOpen={() => setOpen(item)} />
           ))}

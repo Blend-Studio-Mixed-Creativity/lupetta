@@ -35,8 +35,8 @@ type ItemProps = (typeof ITEMS)[number] & { index: number; parentVisible: boolea
 function MaterialCard({ iconPath, title, subtitle, desc, index, parentVisible }: ItemProps) {
   return (
     <div
-      className={parentVisible ? 'sr-reveal-scale' : 'sr-hidden'}
-      style={{ animationDelay: `${index * 0.14}s`, width: '100%', maxWidth: 'min(340px, 100%)' }}
+      className={`${index === ITEMS.length - 1 ? 'sm:col-span-2 lg:col-span-1' : ''} ${parentVisible ? 'sr-reveal-scale' : 'sr-hidden'}`}
+      style={{ animationDelay: `${index * 0.14}s`, width: '100%', maxWidth: 'min(340px, 100%)', margin: '0 auto' }}
     >
       <div 
         className="w-full h-full rounded-3xl p-1.5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(0,96,113,0.4)] group cursor-pointer"
@@ -82,7 +82,7 @@ export default function MaterialiSection() {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-stretch gap-8 lg:gap-12">
           {ITEMS.map((item, i) => (
             <MaterialCard key={i} {...item} index={i} parentVisible={isVisible} />
           ))}

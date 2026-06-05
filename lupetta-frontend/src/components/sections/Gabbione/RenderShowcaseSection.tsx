@@ -24,7 +24,7 @@ const ITEMS = [
     bullets: [
       'Doppia stazione di alimentazione e abbeveraggio',
       'Ventilazione naturale tramite pareti autoventilanti',
-      'Spazio adatto dal giorno 1 al giorno 150 di vita',
+      <>Spazio adatto dal giorno<br className="sm:hidden" /> 1 al giorno 150 di vita</>,
     ],
   },
 ];
@@ -102,7 +102,7 @@ export default function RenderShowcaseSection() {
                   <ul className="space-y-4">
                     {it.bullets.map((b, bulletIdx) => (
                       <motion.li
-                        key={b}
+                        key={bulletIdx}
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 + bulletIdx * 0.1 }}

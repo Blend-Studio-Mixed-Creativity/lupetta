@@ -23,7 +23,7 @@ export default function HeroSection() {
           Sistema di alimentazione remota <span className="text-[#65b32e]">via web app</span>
         </h1>
         <p className="text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed text-left mb-0">
-          Controlla e gestisci l’alimentazione dei tuoi vitelli ovunque ti trovi. Con la nostra piattaforma web e l'app dedicata hai a disposizione tutti i dati in tempo reale per garantire salute e benessere al tuo allevamento.
+          Controlla e gestisci l’alimentazione dei tuoi vitelli ovunque ti trovi. Con la nostra piattaforma web  hai a disposizione tutti i dati in tempo reale per garantire salute e benessere al tuo allevamento.
         </p>
 
       </div>

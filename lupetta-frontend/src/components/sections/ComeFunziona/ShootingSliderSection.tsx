@@ -145,8 +145,10 @@ export default function ShootingSliderSection() {
           will-change: transform;
         }
 
-        .shooting-slider-container:hover .shooting-marquee-track {
-          animation-play-state: paused;
+        @media (hover: hover) {
+          .shooting-slider-container:hover .shooting-marquee-track {
+            animation-play-state: paused;
+          }
         }
 
         .shooting-marquee:nth-of-type(2) .shooting-marquee-track {
@@ -183,13 +185,6 @@ export default function ShootingSliderSection() {
           }
           to {
             transform: translate3d(calc(-50% - clamp(0.425rem, 0.85vw, 0.675rem)), 0, 0);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .shooting-marquee-track {
-            animation: none;
-            transform: none;
           }
         }
       `}</style>

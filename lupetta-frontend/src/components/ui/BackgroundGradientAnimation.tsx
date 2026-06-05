@@ -39,6 +39,24 @@ export function BackgroundGradientAnimation({
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
 
+  // Su telefono/touch non c'è un puntatore "fine": l'orb che segue il mouse e
+  // il loop rAF (che fa setState ad ogni frame ri-renderizzando i contenuti)
+  // sono inutili e causano scatti. Li abilitiamo solo su puntatori fini (desktop).
+  const [enableInteractive, setEnableInteractive] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const fine = window.matchMedia('(pointer: fine)');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setEnableInteractive(interactive && fine.matches && !reduce.matches);
+    update();
+    fine.addEventListener('change', update);
+    reduce.addEventListener('change', update);
+    return () => {
+      fine.removeEventListener('change', update);
+      reduce.removeEventListener('change', update);
+    };
+  }, [interactive]);
+
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -55,6 +73,7 @@ export function BackgroundGradientAnimation({
   }, [firstColor, secondColor, thirdColor, fourthColor, fifthColor, pointerColor, size, blendingValue, gradientBackgroundStart, gradientBackgroundEnd]);
 
   useEffect(() => {
+    if (!enableInteractive) return;
     let raf: number;
     const move = () => {
       setCurX(prev => prev + (tgX - prev) / 20);
@@ -68,10 +87,10 @@ export function BackgroundGradientAnimation({
     };
     raf = requestAnimationFrame(move);
     return () => cancelAnimationFrame(raf);
-  }, [tgX, tgY, curX, curY]);
+  }, [enableInteractive, tgX, tgY, curX, curY]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!interactive) return;
+    if (!enableInteractive) return;
     const rect = e.currentTarget.getBoundingClientRect();
     setTgX(e.clientX - rect.left);
     setTgY(e.clientY - rect.top);
@@ -98,7 +117,7 @@ export function BackgroundGradientAnimation({
 
       {/* Animated orbs */}
       <div
-        className="absolute inset-0 overflow-hidden"
+        className="bga-orbs absolute inset-0 overflow-hidden"
         style={{ filter: 'url(#blurme) blur(40px)' }}
       >
         {[
@@ -125,7 +144,7 @@ export function BackgroundGradientAnimation({
         ))}
 
         {/* Interactive pointer orb */}
-        {interactive && (
+        {enableInteractive && (
           <div
             className="absolute"
             style={{

@@ -1,4 +1,4 @@
-import { useScroll, useTransform, motion } from 'motion/react';
+﻿import { useScroll, useTransform, motion } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { Wind, Sun, Bot, Droplet, Layers } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const STEPS = [
   {
     title: 'Dettaglio 02',
     label: 'Fotoperiodo',
-    heading: 'Fotoperiodo lungo di 16 ore',
+    heading: <>Fotoperiodo <br className="sm:hidden" /> lungo di 16 ore</>,
     desc: 'Il sistema prevede una gestione della luce con fotoperiodo prolungato fino a 16 ore, pensata per accompagnare la crescita dell’animale in un ambiente più controllato. La qualità e la durata dell’esposizione luminosa possono contribuire al benessere generale e a una gestione più regolare delle fasi di sviluppo.',
     icon: <Sun className="w-5 h-5 text-white" />,
     iconBg: 'bg-gradient-to-br from-primary to-primary-dark',
@@ -159,7 +159,7 @@ export default function MontaggioSection() {
             viewport={{ once: true }}
           >
             <span className="inline-block py-1.5 px-4 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6">Dettagli</span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl text-white tracking-tight mt-2 mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-white tracking-tight mt-2 mb-6">
               Scoprila nel <span className="montserrat-italic text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-300">dettaglio</span>
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed font-light">

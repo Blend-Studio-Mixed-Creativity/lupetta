@@ -99,7 +99,7 @@ export default function PanoramicaSection() {
         {/* Header */}
         <div
           ref={headerRef}
-          className={`mb-12 grid lg:grid-cols-2 gap-8 items-end ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}
+          className={`mb-10 sm:mb-12 grid lg:grid-cols-2 gap-6 sm:gap-8 items-end ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}
         >
           <div>
             <span
@@ -138,9 +138,8 @@ export default function PanoramicaSection() {
 
         {/* 3D Stage */}
         <div
-          className="relative select-none"
+          className="relative select-none h-[520px] sm:h-[620px] md:h-[610px] lg:h-[540px] xl:h-[520px]"
           style={{
-            height: 'clamp(380px, 46vw, 520px)',
             perspective: isMobile ? 'none' : '1600px',
             perspectiveOrigin: '50% 50%',
           }}
@@ -243,7 +242,7 @@ export default function PanoramicaSection() {
                   />
 
                   {/* Content */}
-                  <div className="flex flex-col flex-1 p-6 sm:p-9 md:p-11 lg:p-14 relative z-10">
+                  <div className="flex flex-col flex-1 p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 relative z-10">
                     <div className="flex items-start justify-between mb-6 sm:mb-10">
                       <div
                         style={{

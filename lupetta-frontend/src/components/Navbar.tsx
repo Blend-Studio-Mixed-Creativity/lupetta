@@ -458,7 +458,7 @@ export default function Navbar() {
               {/* Bottom — CTA + Secondary Links */}
               <div
                 className={[
-                  'mt-6 lg:mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-700',
+                  'mt-6 lg:mt-8 ml-10 sm:ml-12 lg:ml-[4.5rem] flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-700',
                   isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
                 ].join(' ')}
                 style={{ transitionDelay: isOpen ? '850ms' : '0ms' }}

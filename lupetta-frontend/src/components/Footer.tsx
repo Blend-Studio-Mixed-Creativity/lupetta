@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-col justify-between space-y-6">
             <div>
               <div className="mb-5">
-                <Link to="/" className="inline-block -ml-16">
+                <Link to="/" className="inline-block -ml-16 sm:ml-0">
                   <img
                     src={logoImg}
                     alt="Lupetta"
@@ -30,7 +30,7 @@ export default function Footer() {
               <p className="text-sm text-white/70 leading-relaxed max-w-sm mb-4 font-medium">
                 L'allattatrice automatica brevettata per il massimo benessere dei vitelli e la semplificazione del lavoro quotidiano in allevamento.
               </p>
-              <div className="text-xs text-white/50 space-y-1 font-mono">
+              <div className="text-xs text-white/50 space-y-1 font-medium">
                 <p>Tredì Italia Srl</p>
                 <p>C.F. e P.IVA 01383310198</p>
               </div>
@@ -174,7 +174,7 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} Tredì Italia Srl. Tutti i diritti riservati.
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-medium">
             <span className="hover:text-white select-none">Smart Feeding System®</span>
             <span className="text-white/20">•</span>
             <span className="hover:text-white select-none">Lupetta®</span>

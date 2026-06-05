@@ -78,7 +78,7 @@ function ProgressTrack({ visibleCount, sectionVisible }: {
 }) {
   return (
     <div
-      className={`fixed right-4 sm:right-6 xl:right-10 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-4`}
+      className={`fixed right-4 sm:right-6 xl:right-10 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col items-end gap-4`}
       style={{
         opacity: sectionVisible && visibleCount > 0 ? 1 : 0,
         pointerEvents: 'none',
@@ -146,7 +146,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
   return (
     <div
       ref={ref}
-      className="min-h-[40vh] md:min-h-[70vh] flex items-center px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-8 sm:py-10 md:py-14 relative overflow-hidden"
+      className="min-h-[40vh] md:min-h-[52vh] lg:min-h-[70vh] flex items-center px-5 sm:px-10 md:px-10 lg:px-24 xl:px-32 py-8 sm:py-10 md:py-12 lg:py-14 relative overflow-hidden"
       style={{ background: index % 2 === 0 ? '#f8fafc' : '#ffffff' }}
     >
       {/* Background radial glow */}
@@ -190,10 +190,10 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
       />
 
       <div
-        className={`w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-start gap-5 sm:gap-6 lg:gap-10 xl:gap-16 relative z-10 ${isEven ? '' : 'md:flex-row-reverse'}`}
+        className={`w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-start gap-5 sm:gap-6 lg:gap-10 xl:gap-16 relative z-10 ${isEven ? '' : 'lg:flex-row-reverse'}`}
       >
         {/* -- Giant number -- */}
-        <div className={`flex-shrink-0 relative select-none w-full md:w-auto flex md:block ${isEven ? 'justify-start' : 'justify-end'}`}>
+        <div className={`flex-shrink-0 relative select-none w-full lg:w-auto flex lg:block ${isEven ? 'justify-start' : 'justify-end'}`}>
           {/* Shimmer sweep overlay */}
           <div
             className="absolute inset-0 pointer-events-none overflow-hidden rounded-sm"
@@ -243,7 +243,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
 
         {/* -- Text panel - clip-path curtain wipe -- */}
         <div
-          className={`max-w-xl w-[88%] md:w-full ${isEven ? 'self-start md:self-auto text-left' : 'self-end md:self-auto text-right md:text-left'}`}
+          className={`max-w-xl w-[92%] lg:w-full ${isEven ? 'self-start lg:self-auto text-left' : 'self-end lg:self-auto text-right lg:text-left'}`}
           style={{
             clipPath: visible
               ? 'inset(0 0% 0 0)'
@@ -302,7 +302,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
           </p>
 
           {/* Accent line + glow pulse */}
-          <div className={`mt-5 h-[3px] rounded-full bg-[#65b32e] ${isEven ? '' : 'ml-auto md:ml-0'}`}
+          <div className={`mt-5 h-[3px] rounded-full bg-[#65b32e] ${isEven ? '' : 'ml-auto lg:ml-0'}`}
             style={{
               width: visible ? '5rem' : '0',
               transition: `width 0.8s cubic-bezier(0.16,1,0.3,1) ${0.8 + totalWords * 0.08}s`,
@@ -354,7 +354,7 @@ export default function ComeFunzionaSteps() {
       {/* Heading */}
       <div
         ref={headingRef}
-        className="bg-white border-b border-slate-100 py-32 sm:py-40 lg:py-52 px-4 sm:px-6 lg:px-8 text-center overflow-hidden"
+        className="bg-white border-b border-slate-100 py-24 sm:py-28 md:py-32 lg:py-52 px-4 sm:px-6 lg:px-8 text-center overflow-hidden"
         style={{
           opacity: headingVisible ? 1 : 0,
           transform: headingVisible ? 'translateY(0)' : 'translateY(28px)',
@@ -389,7 +389,6 @@ export default function ComeFunzionaSteps() {
     </section>
   );
 }
-
 
 
 

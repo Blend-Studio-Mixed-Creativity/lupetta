@@ -98,7 +98,7 @@ export default function ProdottiSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {CARDS.map((card, idx) => {
             const isHovered = hoveredStates[idx];
             return (

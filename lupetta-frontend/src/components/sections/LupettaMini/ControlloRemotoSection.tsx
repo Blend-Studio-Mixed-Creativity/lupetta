@@ -214,7 +214,7 @@ export default function ControlloRemotoSection() {
             style={{ position: 'relative', zIndex: 2, animationDelay: '0.15s' }}
           >
             <h2 className="montserrat-heading text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4 leading-[1.1]" style={{ color: '#fff' }}>
-              Integrazione con sistemi di <br/><span className="montserrat-italic text-accent">controllo remoto via web</span>
+              Integrazione con sistemi di <span className="montserrat-italic text-accent">controllo remoto via web</span>
             </h2>
             <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Grazie alla scheda Wi-Fi integrata, la Lupetta Mini consente il controllo remoto tramite portale dedicato.

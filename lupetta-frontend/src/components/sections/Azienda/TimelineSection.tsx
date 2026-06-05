@@ -20,7 +20,7 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: '2021',
-    title: 'App dedicata',
+    title: 'Web App dedicata',
     desc: "Arriva la piattaforma di monitoraggio: l'allevatore controlla l'intero processo di svezzamento da smartphone e desktop, con dati raccolti in tempo reale.",
     img: img2021,
   },
@@ -225,7 +225,7 @@ export default function TimelineSection() {
           <span className="text-[#006071] font-bold text-sm tracking-[0.32em] uppercase block mb-4">
             Tecnologia
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight text-balance">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-7xl text-slate-900 tracking-tight text-balance">
             La storia della <span className="montserrat-italic text-accent">nostra tecnologia</span>
           </h2>
           <p className="text-slate-500 text-lg mt-5 max-w-2xl mx-auto">

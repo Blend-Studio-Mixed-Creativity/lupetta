@@ -17,13 +17,13 @@ export default function ProfiliSection() {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             viewport={{ once: true }}
           >
-            <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>App Lupetta</span>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#65b32e' }}>Web app Lupetta</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight mt-4 mb-8 leading-tight">
               Unica interfaccia, <br /><span className="montserrat-italic" style={{ color: '#006071' }}>tutti i dati che servono</span>
             </h2>
             <div className="text-lg leading-relaxed text-slate-500 space-y-5">
               <p>
-                L’app Lupetta permette all’allevatore di avere sempre sotto controllo lo stato delle macchine installate in stalla, anche a distanza.
+                La Web app Lupetta permette all’allevatore di avere sempre sotto controllo lo stato delle macchine installate in stalla, anche a distanza.
               </p>
               <p>
                 Da un’unica interfaccia è possibile visualizzare i valori in tempo reale, verificare il corretto funzionamento di ogni Lupetta, monitorare i parametri principali e intervenire con maggiore tempestività quando qualcosa richiede attenzione.

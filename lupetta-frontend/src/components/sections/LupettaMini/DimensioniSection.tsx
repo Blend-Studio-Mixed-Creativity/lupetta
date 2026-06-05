@@ -36,34 +36,29 @@ export default function DimensioniSection() {
       <style>{`
         .specs-card {
           position: relative;
-          background: #0b1a20;
+          background:
+            linear-gradient(135deg, rgba(0, 96, 113, 0.95) 0%, rgba(11, 26, 32, 0.98) 42%, rgba(13, 31, 38, 1) 100%),
+            #0b1a20;
           cursor: default;
           isolation: isolate;
+          overflow: hidden;
         }
         .specs-card::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(-45deg, #65b32e 0%, #006071 50%, #00c8a0 100%);
+          background:
+            linear-gradient(90deg, rgba(101, 179, 46, 0.42), transparent 24%, transparent 76%, rgba(0, 200, 160, 0.26));
+          pointer-events: none;
           z-index: -1;
-          transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .specs-card::after {
           content: '';
           position: absolute;
-          inset: 0;
-          background: linear-gradient(-45deg, #4fa028 0%, #006071 100%);
-          transform: translate3d(0, 0, 0);
-          filter: blur(28px);
-          z-index: -2;
-          transition: filter 0.4s ease;
-        }
-        .specs-card:hover::after {
-          filter: blur(36px);
-          opacity: 0.85;
-        }
-        .specs-card:hover::before {
-          transform: scale(1.01);
+          inset: 1px;
+          border: 1px solid rgba(255,255,255,0.12);
+          pointer-events: none;
+          z-index: 0;
         }
 
         @keyframes specSlideUpFade {
@@ -97,7 +92,7 @@ export default function DimensioniSection() {
             >
               Dimensioni e Specifiche
             </span>
-            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-900 tracking-tight mt-1 mb-3 leading-[1.05]">
+            <h2 className="montserrat-heading text-4xl sm:text-5xl md:text-5xl lg:text-7xl text-slate-900 tracking-tight mt-1 mb-3 leading-[1.05]">
               Compatta ed efficiente<br />
             </h2>
             <p className="text-xl sm:text-2xl text-slate-500 leading-relaxed max-w-5xl mx-auto mb-0">

@@ -329,6 +329,10 @@ export default function Navbar() {
           isOpen ? '' : 'pointer-events-none opacity-0 lg:opacity-100', // Added opacity fallback for mobile
         ].join(' ')}
         style={{
+          // Base opaca sul container stesso: su iOS Safari (es. iPhone 7) la div
+          // gradiente interna a volte non si ridipinge dentro un clip-path+transform,
+          // lasciando intravedere la hero. Questo colore solido lo impedisce sempre.
+          backgroundColor: '#016573',
           clipPath: isOpen
             ? 'circle(150% at calc(100% - 3.25rem) 2.5rem)'
             : 'circle(0% at calc(100% - 3.25rem) 2.5rem)',

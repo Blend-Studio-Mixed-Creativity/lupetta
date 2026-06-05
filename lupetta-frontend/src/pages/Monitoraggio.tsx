@@ -7,7 +7,7 @@ import CtaSection from '../components/sections/Monitoraggio/CtaSection';
 
 export default function Monitoraggio() {
   return (
-    <div className="bg-slate-50 min-h-screen overflow-hidden">
+    <div className="bg-slate-50 min-h-screen overflow-x-hidden">
       <HeroSection />
       <DashboardOverview />
       <ProfiliSection />

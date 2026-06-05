@@ -8,7 +8,7 @@ import CtaFinale from '../components/sections/Home/CtaFinale';
 
 export default function Home() {
   return (
-    <div className="bg-slate-50 min-h-screen overflow-hidden">
+    <div className="bg-slate-50 min-h-screen overflow-x-hidden">
       <HeroSection />
       <StatsRibbon />
       <PanoramicaSection />

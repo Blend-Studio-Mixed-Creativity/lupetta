@@ -162,7 +162,7 @@ export default function StatsRibbon() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {STATS.map((stat, i) => (
             <StatCard key={i} {...stat} delay={0.1 + i * 0.12} />
           ))}

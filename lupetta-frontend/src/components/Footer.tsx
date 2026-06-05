@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-col justify-between space-y-6">
             <div>
               <div className="mb-5">
-                <Link to="/" className="inline-block -ml-16">
+                <Link to="/" className="inline-block sm:-ml-16 ml-0">
                   <img
                     src={logoImg}
                     alt="Lupetta"

@@ -1,4 +1,4 @@
-﻿import heroImg from '../../../assets/images/header-pagine.jpg';
+import heroImg from '../../../assets/images/header-pagine.jpg';
 import { Spotlight } from '../../ui/spotlight-new';
 
 export default function HeroSection() {
@@ -24,7 +24,7 @@ export default function HeroSection() {
           <span className="text-[#00c8a0] block">sull&apos;allattamento automatizzato e Lupetta</span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus.
+          Trova le risposte alle domande più frequenti su installazione, alimentazione, tecnologia e gestione quotidiana delle allattatrici automatiche Lupetta.
         </p>
       </div>
     </section>

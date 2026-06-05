@@ -10,7 +10,7 @@ import photoBreak3 from '../assets/images/lupetta-mini-break-03.webp';
 
 export default function LupettaMini() {
   return (
-    <div className="bg-slate-50 min-h-screen overflow-hidden">
+    <div className="bg-slate-50 min-h-screen overflow-x-hidden">
       <HeroSection />
       <DimensioniSection />
       <PhotoBreakSection image={photoBreak1} alt="Lupetta Mini installata in stalla" position="center" />

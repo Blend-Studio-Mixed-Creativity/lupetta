@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import FAQGameModal from './FAQGameModal';
@@ -83,7 +83,7 @@ export default function InteractiveFAQSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
             {/* Card lancio */}
-            <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/60 border border-slate-100 p-5 sm:p-8 lg:p-10 min-h-115 relative overflow-hidden flex flex-col">
+            <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/60 border border-slate-100 p-5 sm:p-8 lg:p-10 min-h-[460px] relative overflow-hidden flex flex-col">
               <div
                 className="absolute -top-20 -right-20 w-48 h-48 rounded-full opacity-5 pointer-events-none"
                 style={{ background: 'radial-gradient(circle, #006071, transparent)' }}

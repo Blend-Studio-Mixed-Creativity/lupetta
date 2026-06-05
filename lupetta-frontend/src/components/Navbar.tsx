@@ -325,11 +325,14 @@ export default function Navbar() {
       {/* ═══ FULLSCREEN OVERLAY ═══ */}
       <div
         className={[
-          'fixed inset-0 z-[100] transition-[clip-path] duration-[800ms] ease-[cubic-bezier(0.77,0,0.18,1)]',
-          isOpen ? '' : 'pointer-events-none',
+          'fixed inset-0 z-[100] transition-all duration-[800ms] ease-[cubic-bezier(0.77,0,0.18,1)]',
+          isOpen ? '' : 'pointer-events-none opacity-0 lg:opacity-100', // Added opacity fallback for mobile
         ].join(' ')}
         style={{
           clipPath: isOpen
+            ? 'circle(150% at calc(100% - 3.25rem) 2.5rem)'
+            : 'circle(0% at calc(100% - 3.25rem) 2.5rem)',
+          WebkitClipPath: isOpen
             ? 'circle(150% at calc(100% - 3.25rem) 2.5rem)'
             : 'circle(0% at calc(100% - 3.25rem) 2.5rem)',
         }}

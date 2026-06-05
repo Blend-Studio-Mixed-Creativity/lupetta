@@ -5,7 +5,7 @@ import { Spotlight } from '../../ui/spotlight-new';
 export default function HeroSection() {
   return (
     <section
-      className="relative text-white overflow-hidden min-h-screen sm:min-h-[70vh] md:min-h-[80vh] flex items-center"
+      className="relative text-white overflow-hidden min-h-screen flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.65) 0%, rgba(0,60,75,0.45) 100%)' }} />

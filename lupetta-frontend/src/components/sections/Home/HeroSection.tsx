@@ -53,7 +53,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative isolate overflow-hidden text-white min-h-screen sm:min-h-[80vh] md:min-h-[90vh] flex items-center justify-start"
+      className="relative isolate overflow-hidden text-white min-h-screen flex items-center justify-start"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Background Vimeo video (muted/looping) */}

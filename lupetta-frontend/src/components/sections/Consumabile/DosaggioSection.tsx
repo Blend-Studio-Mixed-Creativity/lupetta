@@ -119,7 +119,7 @@ export default function DosaggioSection() {
 
                 {/* Card body */}
                 <div
-                  className="flex-1 rounded-2xl p-7 relative overflow-hidden transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-xl"
+                  className="flex-1 rounded-2xl p-7 relative overflow-hidden transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-xl text-center sm:text-left"
                   style={{ border: `1px solid ${item.glowColor}22`, background: '#fafafa' }}
                 >
                   {/* Big watermark number */}
@@ -137,12 +137,7 @@ export default function DosaggioSection() {
                   />
 
                   <div className="relative z-10">
-                    {/* Step label */}
-                    <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: item.glowColor }}>
-                      Passo {item.step}
-                    </span>
-
-                    <h3 className="text-lg font-bold text-slate-900 mt-2 mb-3 leading-snug">{item.title}</h3>
+                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug">{item.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed mb-5">{item.desc}</p>
 
                     {/* Detail chip */}
@@ -177,9 +172,9 @@ export default function DosaggioSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
                 viewport={{ once: true }}
-                className="px-6 py-8 text-center"
+                className="px-3 py-6 sm:px-6 sm:py-8 text-center"
               >
-                <div className="text-3xl sm:text-4xl font-black montserrat-heading text-white mb-1 leading-none" style={{ textShadow: `0 0 30px ${s.color}66` }}>
+                <div className="text-xl sm:text-4xl font-black montserrat-heading text-white mb-1 leading-none" style={{ textShadow: `0 0 30px ${s.color}66` }}>
                   {s.value}
                 </div>
                 <div className="text-xs font-medium tracking-wide text-white/50 mt-1.5">{s.label}</div>

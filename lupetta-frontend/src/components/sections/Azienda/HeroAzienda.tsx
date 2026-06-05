@@ -7,7 +7,7 @@ export default function HeroAzienda() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen sm:min-h-[70vh] md:min-h-[72vh] overflow-hidden pt-28 sm:pt-36 md:pt-44 pb-24 sm:pb-28 flex items-center"
+      className="relative min-h-screen overflow-hidden pt-28 sm:pt-36 md:pt-44 pb-24 sm:pb-28 flex items-center"
       style={{ background: 'linear-gradient(135deg, #006071 0%, #004a58 55%, #003540 100%)' }}
     >
       <img

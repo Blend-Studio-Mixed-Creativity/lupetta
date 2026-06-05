@@ -4,7 +4,7 @@ import { Spotlight } from '../../ui/spotlight-new';
 export default function HeroSection() {
   return (
     <section
-      className="relative text-white overflow-hidden min-h-screen sm:min-h-[70vh] md:min-h-[80vh] flex items-center"
+      className="relative text-white overflow-hidden min-h-screen flex items-center"
       style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,10,15,0.55) 0%, rgba(0,60,75,0.35) 100%)' }} />
@@ -21,11 +21,11 @@ export default function HeroSection() {
           Come Funziona
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-8 montserrat-heading text-balance">
-          Caratteristiche tecniche
-          <span className="montserrat-italic block mt-2" style={{ color: 'rgba(255,255,255,0.78)' }}>
-            e varianti di Lupetta:
+          Caratteristiche tecniche{' '}
+          <span className="montserrat-italic md:block md:mt-2" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            e varianti di Lupetta:{' '}
           </span>
-          <span className="montserrat-italic block mt-2 animate-slide-up animate-stagger-2" style={{ color: 'rgba(255,255,255,0.9)' }}>
+          <span className="montserrat-italic md:block md:mt-2 animate-slide-up animate-stagger-2" style={{ color: 'rgba(255,255,255,0.9)' }}>
             Mini e Maxi tech
           </span>
         </h1>

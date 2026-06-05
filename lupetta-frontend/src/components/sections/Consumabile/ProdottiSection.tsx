@@ -1,4 +1,4 @@
-﻿import { motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { GlowingCards, GlowingCard } from '../../lightswind/glowing-cards';
 import sacchiImg from '../../../assets/images/TREDI.png';
 

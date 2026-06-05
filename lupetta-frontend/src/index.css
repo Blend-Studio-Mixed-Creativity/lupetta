@@ -65,25 +65,27 @@ body {
   overflow-x: clip;
 }
 
-/* Global full-screen sections —
-   - mobile (<1024px): auto height (il contenuto decide), così tablet portrait non si "stira"
-   - desktop (>=1024px): 100svh (small viewport height) per evitare salti su mobile/landing iOS */
-section {
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-@media (min-width: 1024px) {
+@layer base {
+  /* Global full-screen sections —
+     - mobile (<1024px): auto height (il contenuto decide), così tablet portrait non si "stira"
+     - desktop (>=1024px): 100svh (small viewport height) per evitare salti su mobile/landing iOS */
   section {
-    min-height: 100svh;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-}
 
-/* Le sezioni con classe esplicita "section-auto" non forzano mai 100vh — utile per sezioni corte */
-section.section-auto {
-  min-height: auto !important;
+  @media (min-width: 1024px) {
+    section {
+      min-height: 100svh;
+    }
+  }
+
+  /* Le sezioni con classe esplicita "section-auto" non forzano mai 100vh — utile per sezioni corte */
+  section.section-auto {
+    min-height: auto !important;
+  }
 }
 
 .text-balance {

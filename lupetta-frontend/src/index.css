@@ -68,8 +68,8 @@ body {
 
 @layer base {
   /* Global full-screen sections —
-     - mobile (<1024px): auto height (il contenuto decide), così tablet portrait non si "stira"
-     - desktop (>=1024px): 100svh (small viewport height) per evitare salti su mobile/landing iOS */
+     - mobile e tablet (<1200px): auto height, così il contenuto non viene compresso
+     - desktop (>=1200px): 100svh per mantenere il ritmo delle sezioni full-screen */
   section {
     min-height: auto;
     display: flex;
@@ -131,6 +131,15 @@ body {
      leggero. `!important` per superare lo stile inline del componente. */
   .bga-orbs {
     filter: blur(24px) !important;
+  }
+
+  /* backdrop-blur è l'operazione GPU più costosa rimasta: durante scroll e
+     animazioni il browser deve ri-sfocare lo SFONDO ad ogni frame. Su mobile
+     lo disattiviamo — gli elementi hanno già uno sfondo semi-opaco che
+     garantisce leggibilità. Questo elimina lo stuttering residuo. */
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 

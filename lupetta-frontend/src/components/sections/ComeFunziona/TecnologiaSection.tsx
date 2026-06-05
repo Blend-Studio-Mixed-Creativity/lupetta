@@ -59,12 +59,12 @@ export default function TecnologiaSection() {
   const tech = TECH_ITEMS[displayed];
 
   return (
-    <section style={{ background: '#f8fafc', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '8rem 0', overflow: 'hidden' }}>
+    <section className="bg-slate-50 overflow-hidden py-20 sm:py-28 lg:py-36 flex flex-col justify-center">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
         {/* Header */}
-        <div ref={ref} className={`text-center mb-16 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
+        <div ref={ref} className={`text-center mb-10 sm:mb-14 lg:mb-16 ${isVisible ? 'sr-reveal-up' : 'sr-hidden'}`}>
           <span style={{ color: '#006071', fontWeight: 800, fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'block', marginBottom: '1.25rem' }}>
             Tecnologia
           </span>
@@ -74,7 +74,7 @@ export default function TecnologiaSection() {
         </div>
 
         {/* Two-col: detail left + 3D carousel right */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${isVisible ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}>
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center ${isVisible ? 'sr-reveal-up sr-delay-2' : 'sr-hidden'}`}>
 
           {/* LEFT — active card detail */}
           <div

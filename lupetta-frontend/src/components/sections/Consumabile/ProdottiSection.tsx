@@ -77,7 +77,7 @@ export default function ProdottiSection() {
                 <p className="text-slate-500 text-base leading-relaxed mb-6">{prod.desc}</p>
 
                 <p className="text-[11px] font-bold tracking-widest uppercase text-slate-400 mb-3">Vantaggi</p>
-                <ul className="grid grid-cols-2 gap-2.5">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {prod.vantaggi.map((v) => (
                     <li key={v} className="flex items-center gap-2.5 text-sm text-slate-700">
                       <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: prod.glowColor }} />

@@ -7,7 +7,7 @@ export default function Approfondimenti() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 mb-8 sm:mb-12 tracking-tight text-center">
           Approfondimenti
         </h1>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             'Integrazione di Lupetta con sistemi aziendali di Farm Management e IoT agricolo',
             'Compatibilità con software gestionali per allevamenti intensivi',
@@ -17,8 +17,8 @@ export default function Approfondimenti() {
             'Sensori di temperatura, umidità e movimento vitello',
             'Utilizzo dei dati per analisi predittive e ottimizzazione risorse'
           ].map((title, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h2 className="text-xl font-bold text-slate-800">{title}</h2>
+            <div key={i} className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-100">
+              <h2 className="text-base sm:text-lg lg:text-xl font-bold text-slate-800 leading-snug">{title}</h2>
             </div>
           ))}
         </div>

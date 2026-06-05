@@ -146,7 +146,7 @@ function StepRow({ step, titleLines, desc, index, onVisible }: {
   return (
     <div
       ref={ref}
-      className="min-h-[40vh] md:min-h-[70vh] flex items-center px-8 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-8 sm:py-10 md:py-14 relative overflow-hidden"
+      className="min-h-[40vh] md:min-h-[70vh] flex items-center px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-8 sm:py-10 md:py-14 relative overflow-hidden"
       style={{ background: index % 2 === 0 ? '#f8fafc' : '#ffffff' }}
     >
       {/* Background radial glow */}

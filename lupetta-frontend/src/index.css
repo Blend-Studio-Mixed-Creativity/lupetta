@@ -50,6 +50,9 @@ html {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
   background-color: #f8fafc;
+  /* `clip` (non `hidden`) impedisce lo scroll orizzontale dovuto a blob decorativi
+     SENZA rompere `position: sticky` dei discendenti. */
+  overflow-x: clip;
 }
 
 body {
@@ -59,9 +62,12 @@ body {
   font-size: 14px;
   font-weight: 400;
   color: rgb(255, 255, 255);
+  overflow-x: clip;
 }
 
-/* Global full-screen sections — mobile-first: auto height on small screens, 100vh on md+ */
+/* Global full-screen sections —
+   - mobile (<1024px): auto height (il contenuto decide), così tablet portrait non si "stira"
+   - desktop (>=1024px): 100svh (small viewport height) per evitare salti su mobile/landing iOS */
 section {
   min-height: auto;
   display: flex;
@@ -69,10 +75,15 @@ section {
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   section {
-    min-height: 100vh;
+    min-height: 100svh;
   }
+}
+
+/* Le sezioni con classe esplicita "section-auto" non forzano mai 100vh — utile per sezioni corte */
+section.section-auto {
+  min-height: auto !important;
 }
 
 .text-balance {

@@ -101,21 +101,21 @@ function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 30 }}
           transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          className="relative z-10 w-full max-w-2xl rounded-3xl overflow-hidden"
+          className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl"
           style={{ background: 'rgba(11,26,32,0.95)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}
           onClick={e => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="relative px-8 py-10 overflow-hidden" style={{ background: `linear-gradient(135deg, ${item.color}22 0%, transparent 100%)`, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+          <div className="relative px-6 sm:px-8 py-8 sm:py-10 overflow-hidden" style={{ background: `linear-gradient(135deg, ${item.color}22 0%, transparent 100%)`, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
             <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
             <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full blur-3xl opacity-20" style={{ background: item.color }} />
-            <div className="relative flex items-center gap-6">
-              <div className="w-18 h-18 rounded-2xl flex items-center justify-center" style={{ width: '4.5rem', height: '4.5rem', background: `${item.color}25`, border: `1px solid ${item.color}40` }}>
+            <div className="relative flex items-center gap-4 sm:gap-6 pr-10">
+              <div className="rounded-2xl flex items-center justify-center shrink-0" style={{ width: '4.5rem', height: '4.5rem', background: `${item.color}25`, border: `1px solid ${item.color}40` }}>
                 <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" strokeWidth={1.3} stroke={item.color}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={item.iconPath} />
                 </svg>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight max-w-sm">{item.title}</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white leading-tight">{item.title}</h2>
             </div>
             <button onClick={onClose} className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors" style={{ background: 'rgba(255,255,255,0.1)' }}>
               <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -125,8 +125,8 @@ function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
           </div>
 
           {/* Body */}
-          <div className="px-8 sm:px-10 py-8 sm:py-10">
-            <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(255,255,255,0.6)' }}>{item.detail}</p>
+          <div className="px-6 sm:px-10 py-8 sm:py-10">
+            <p className="text-base sm:text-lg leading-relaxed mb-8 sm:mb-10" style={{ color: 'rgba(255,255,255,0.6)' }}>{item.detail}</p>
             <h4 className="text-xs font-bold tracking-widest uppercase mb-5" style={{ color: item.color }}>Caratteristiche</h4>
             <ul className="space-y-4">
               {item.features.map((f, i) => (
@@ -143,7 +143,7 @@ function Modal({ item, onClose }: { item: Item; onClose: () => void }) {
           </div>
 
           {/* Footer */}
-          <div className="px-8 sm:px-10 pb-8 sm:pb-10">
+          <div className="px-6 sm:px-10 pb-8 sm:pb-10">
             <button
               onClick={onClose}
               className="w-full py-3.5 rounded-xl text-lg font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"

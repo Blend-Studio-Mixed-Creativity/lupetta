@@ -7,7 +7,7 @@ export default function Risorse() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 mb-8 sm:mb-12 tracking-tight text-center">
           Risorse
         </h1>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             'Procedura di installazione base nelle gabbie aziendali',
             'Controlli pre-installazione e preparazione dell’ambiente',
@@ -20,8 +20,8 @@ export default function Risorse() {
             'Sostituzione parti e componenti usurati',
             'Aggiornamenti firmware e software portale'
           ].map((title, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h2 className="text-xl font-bold text-slate-800">{title}</h2>
+            <div key={i} className="bg-white p-5 sm:p-6 lg:p-8 rounded-2xl shadow-sm border border-slate-100">
+              <h2 className="text-base sm:text-lg lg:text-xl font-bold text-slate-800 leading-snug">{title}</h2>
             </div>
           ))}
         </div>
